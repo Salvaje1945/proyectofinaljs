@@ -12,13 +12,40 @@
         top: 0;
         left: 0;
 
+        // ICONOS CABECERA
+
         .cabeza__iconos {
             display: block;
             font-size: 1.75rem;
             color: map-get($color, "negro");
-            cursor: pointer;
+            //cursor: pointer;
             height: 28px;
         }
+
+        .cabeza__iconos.fino {
+            font-size: 1.7rem;
+            font-weight: 200;
+        }
+
+        .cabeza__iconos.cerrar {
+            margin: 0 15px 20px;
+            font-size: 1.7rem;
+        }
+
+
+        .cabeza__iconos--dir {
+            display: none;
+            font-size: 1rem;
+            color: map-get($color, "negro");
+            height: 16px;
+            margin: 3px 7px 0;
+        }
+
+        .cabeza__iconos--dir.activo {
+            display: block;
+        }
+
+        // DESPLEGABLES
 
         .cabeza__menu--cont {
             @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
@@ -105,18 +132,6 @@
 
         .cabeza__menu--cont.activo {
             left: 0;
-        }
-
-        .cabeza__iconos--dir {
-            display: none;
-            font-size: 1rem;
-            color: map-get($color, "negro");
-            height: 16px;
-            margin: 3px 7px 0;
-        }
-
-        .cabeza__iconos--dir.activo {
-            display: block;
         }
 
         .cabeza__dir--cont {
@@ -218,69 +233,171 @@
             top: 0;
         }
 
-        .cabeza__contenido--menu {
-            @extend .cabeza__extremos;
+        .cabeza__anun--cont {
+            @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+            right: -100%;
+            top: 0;
+            background-color: map-get($color, "gris_12");
 
-            /*.cabeza__menu--cont {
-                @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
-                left: -100%;
-                top: 0;
-                background-color: transparent;
+            .cabeza__anun--cont_cbz {
+                background-color: map-get($color, "blanco");
+                display: block;
 
-                .cabeza__menu--cont_box {
-                    display: block;
-                    background-color: map-get($color, "blanco");
-                    width: 75vw;
-                    border-right: 1px solid map-get($color, "gris_03");
+                .cabeza__anun--cont_cbz-menu {
+                    display: flex;
+                    margin-top: 25px;
 
-                    h1 {
+                    .cabeza__anun--cont_cbz-btn {
+                        display: inline-block;
+                        width: 50vw;
+                        height: 5.95vh;
+                        padding: 9px 0;
+                        text-align: center;
                         font-family: $fnt_01;
-                        font-size: 2rem;
+                        font-size: 1.1rem;
+                        color: map-get($color, "negro");
                         font-weight: 600;
-                        color: map-get($color, "negro");
-                    }
-                    
-                    ul {
-                        list-style: none;
-                        text-align: left;
-                        color: map-get($color, "negro");
-    
-                        li {
-                            padding: 15px 5px;
-                            font-size: 1rem;
-                            display: block;
-                            min-height: 35px;
-    
-                            &:hover {
-                                background-color: map-get($color, "gris_03");
-                            }
-    
-                            span {
-                                font-size: 1rem;
-                                color: map-get($color, "negro");
-                                margin-right: 15px;
-                            }
-                            
-                            a {
-                                color: map-get($color, "negro");
-                            } 
-                        }
-                    }
+                        line-height: 1.4;
+                        //transition: .5s all;
+        
+                        /*&:active {
+                            background-color: map-get($color, "gris_03");
+                        }*/
+                        &:hover {
+                            //background-color: map-get($color, "gris_03");
+                            animation: clic .7s forwards;
 
+                            @keyframes clic {
+                                0% {
+                                    background-color: transparent;
+                                }
+                                50% {
+                                    background-color: map-get($color, "gris_05");
+                                }
+                                100% {
+                                    background-color: transparent;
+                                }
+                                
+                            }
+                        }
+        
+                    }
+        
                 }
 
+                .cabeza__anun--cont_bdr {
+                    display: block;
+                    width: 100vw;
+                    height: 2px;
+                    background-color: map-get($color, "gris_05");
+
+                    .cabeza__anun--cont_bdr-anim {
+                        display: block;
+                        width: 50vw;
+                        height: 2px;
+                        background-color: map-get($color, "gris_01");
+                        //margin-right: 50vh;
+                        transition: .2s all;
+                    }
+    
+                    .cabeza__anun--cont_bdr-anim.novedades {
+                        margin-right: 50vw;
+                        margin-left: 0;
+                        transition: .2s all;
+                    }
+        
+                    .cabeza__anun--cont_bdr-anim.promociones {
+                        margin-left: 50vw;
+                        margin-right: 0;
+                        transition: .2s all;
+                    }
+
+                }   
                 
             }
 
-            .cabeza__menu--cont.activo {
-                left: 0;
+            .cabeza__anun--cont_info {
+                display: none;
+                width: 100vw;
+                height: auto;
+                transition: .5s all;
             }
-            */
+
+            .cabeza__anun--cont_info.activo {
+                display: block;
+                transition: .5s all;
+            }
+
+            .cabeza__anun--cont_info-cont {
+                display: block;
+                width: 100%;
+                padding: 7vh 9vw 0;
+
+                .cabeza__anun--cont_info-cont_box {
+                    width: 100%;
+                    height: auto;
+                    background-color: map-get($color, "blanco");
+                    padding: 2.5vh 6.5vw;
+                    margin: 0 0 5vh;
+                    /*border-top: 0;
+                    border-left: 1px;
+                    border-right: 1px;
+                    border-bottom: 1px;
+                    border-style: outset;
+                    border-color: map-get($color, "gris_07");*/
+                    border: 1px groove map-get($color, "gris_14");
+                    border-top: none;
+                    border-radius: 3px;
+
+                    h1 {
+                        font-family: $fnt_01;
+                        font-size: 0.85rem;
+                        font-weight: 600;
+                        color: map-get($color, "negro");
+                        text-align: left;
+                    }
+
+                    h2 {
+                        font-family: $fnt_01;
+                        font-size: 0.7rem;
+                        font-weight: normal;
+                        color: map-get($color, "gris_01");
+                        text-align: left;
+                    }
+
+                    p {
+                        font-family: $fnt_01;
+                        font-size: 0.7rem;
+                        font-weight: 600;
+                        color: map-get($color, "negro");
+                        text-align: right;
+                        margin-top: 5px;
+
+                        span {
+                            font-family: $fnt_01;
+                            font-size: 0.55rem;
+                            color: map-get($color, "negro");
+                            margin-left: 3px;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .cabeza__anun--cont.activo {
+            right: 0;
+        }  
+
+        // ELEMENTOS DE LA CABECERA
+
+        .cabeza__contenido--menu,
+        .cabeza__contenido--anun {
+            @extend .cabeza__extremos;
 
         }
 
         .cabeza__contenido--dir {
-            cursor: pointer;
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
@@ -325,56 +442,6 @@
             }*/
         }
 
-        .cabeza__contenido--anun {
-            @extend .cabeza__extremos;
-
-            .cabeza__anun--cont {
-                @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw);
-                right: -100%;
-                top: 0;
-                background-color: blue;
-
-                /*h1 {
-                    font-family: $fnt_01;
-                    font-size: 2rem;
-                    font-weight: 600;
-                    color: map-get($color, "negro");
-                }
-                
-                ul {
-                    
-                    list-style: none;
-                    text-align: left;
-                    color: map-get($color, "negro");
-                    
-
-                    li {
-                        padding: 15px 5px;
-                        font-size: 1rem;
-                        display: block;
-                        min-height: 35px;
-
-                        &:hover {
-                            background-color: map-get($color, "gris_03");
-                        }
-
-                        span {
-                            font-size: 1rem;
-                            color: map-get($color, "negro");
-                            margin-right: 15px;
-                        }
-                        
-                        a {
-                            color: map-get($color, "negro");
-                        } 
-                    }
-                }*/
-            }
-
-            .cabeza__anun--cont.activo {
-                right: 0;
-            }            
-        }
     }
 
     #contenido {
