@@ -345,7 +345,6 @@ a {
   display: inline-block;
   width: 25vw;
   height: 100vh;
-  cursor: pointer;
 }
 #contenedor #cabeza .cabeza__menu--cont.activo {
   left: 0;
@@ -374,7 +373,6 @@ a {
 #contenedor #cabeza .cabeza__dir--cont .cabeza__dir--cont_box-cerr {
   height: 40vh;
   display: block;
-  cursor: pointer;
 }
 #contenedor #cabeza .cabeza__dir--cont .cabeza__dir--cont_box {
   display: block;
