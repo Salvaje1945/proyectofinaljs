@@ -1,0 +1,546 @@
+@use 'vars' as *;
+
+// Cajas flexbox
+
+.flex-1,
+.flex-2,
+.flex-2-2,
+.flex-3 {
+    display: flex;
+}
+
+.flex-1 {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-2,
+.flex-3 {
+    flex-flow: row wrap;
+}
+
+.flex-3 {
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.flex-2-2 {
+    flex-flow: column-reverse wrap;
+}
+
+.flex-2,
+.flex-2-2 {
+    justify-content: flex-start;
+}
+
+// Menúes desplegables cabecera
+
+@mixin cabeza__desplegables--edit ($cbz_dsp-wth: auto, $cbz_dsp-hgt: 100vh, $cbz_dsp-pdd: 10px) {
+    font-family: $fnt_01;
+    width: $cbz_dsp-wth;
+    height: $cbz_dsp-hgt;
+    position: fixed;
+    transition: .5s;
+    z-index: 999;
+    padding: $cbz_dsp-pdd;
+}
+
+// Cajas básicas para sections del main
+
+@mixin main-section_edit ($color-bg: unset, $pddng_bott: 0) {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-sizing: border-box;
+    background-color: $color-bg;
+    padding-bottom: $pddng_bott;
+}
+
+// Cajas hijas
+
+.cabeza__extremos {
+    display: inline-block;
+    padding: 7px;
+}
+
+@mixin one-col ($one-col_wth: 90%, $one-col_hgt: auto, $one-col_mgn: 0 0 50px){
+    width: $one-col_wth;
+    height: $one-col_hgt;
+    margin: $one-col_mgn;
+}
+
+.cols-wrp {
+    width: 350px;
+    min-height: 325px;
+    height: auto;
+    margin: 0 0 50px;
+    padding: 10px 10px 0;
+    color: map-get($color, "blanco");
+}
+
+@media only screen and (min-width: map-get($brk_pts, "bp_03")) {
+    .cols-wrp {
+        width: 300px;
+        padding: 5px 5px 0;
+
+    }
+}
+
+@media only screen and (min-width: map-get($wth_res, "dkp_03")) {
+    .cols-wrp {
+        width: 350px;
+    }
+}
+
+@mixin cols-3-wrp ($cols-3_wth: 351px, $cols-3_disp: inline-block){
+    width: $cols-3_wth;
+    display: $cols-3_disp;
+    height: auto;
+}
+
+@mixin cols-wrp-adj ($wth_col: 85vw, $hgt_col: auto, $min_hgt: auto, $bg-color_col: #fff, $mrg_col: 0 0 50px, $bs_col: 0px 0px 11px 0px rgb(0 0 0 / 50%), $pos_col: relative){
+    width: $wth_col;
+    height: $hgt_col;
+    min-height: $min_hgt;
+    background-color: $bg-color_col;
+    margin: $mrg_col;
+    border-radius: 10px;
+    box-shadow: $bs_col;
+    position: $pos_col;
+}
+
+// CIEGO 1
+
+@mixin ciego-01 ($cgo_disp: none, $cgo_wth: 268px, $cgo_mgn: 0){
+    display: $cgo_disp;
+    visibility: collapse;
+    width: $cgo_wth;
+    height: 1px;
+    padding: 0;
+    margin: $cgo_mgn;
+}
+
+// EFECTO SOBRE ARTÍCULOS 
+
+@mixin art_hvr_fx ($color_hvr: rgba(134,4,4,0.95), $color_bdr: #fff, $color_h3: #000, $color_p: #000) {
+
+    .art__hvr {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+
+        .art__hvr--cont {
+            box-sizing: border-box;
+            position: absolute;
+            display: block;
+            visibility: hidden;
+            border-radius: 10px;
+            background-color: $color_hvr;
+            animation: hvr_cont-dps 0.3s forwards;
+
+            @keyframes hvr_cont-dps {
+                from {
+                    width: 100%;
+                    height: 100%;
+                    padding: 4%;
+                    top: 0;
+                    left: 0;
+                    visibility: visible;
+                }
+                to {
+                    width: 0;
+                    height: 0;
+                    top: 50%;
+                    left: 50%; 
+                    margin: auto;
+                    visibility: hidden;
+                }
+            }
+
+            .art__hvr--brd {
+                display: block;
+                box-sizing: border-box;
+                border: 1px solid;
+                border-color: $color_bdr;
+                animation: hvr_bdr-dps 0.2s forwards;
+
+                @keyframes hvr_bdr-dps {
+                    from {
+                        width: 100%;
+                        height: 100%;
+                    }
+                    to {
+                        width: 0;
+                        height: 0;
+                        top: 50%;
+                        left: 50%; 
+                        margin: auto;
+                        border: none;
+                    }
+                }
+
+                .art__hvr--btn {
+                    display: none;
+                }                              
+            }
+        }
+
+        &:hover {
+            .art__hvr--cont{
+                visibility: visible;
+                animation: hvr_cont 0.3s forwards;
+
+                @keyframes hvr_cont {
+                    from{
+                        width: 0;
+                        height: 0;
+                        top: 50%;
+                        left: 50%; 
+                        margin: auto;
+                    }
+                    to {
+                        width: 100%;
+                        height: 100%;
+                        padding: 4%;
+                        top: 0;
+                        left: 0; 
+                    }
+                }
+
+                .art__hvr--brd {
+                    border: 1px solid #fff;
+                    animation: hvr_bdr 0.3s forwards;
+                    
+                    @keyframes hvr_bdr {
+                        from{
+                            width: 0;
+                            height: 0;
+                            top: 50%;
+                            left: 50%; 
+                            margin: auto;
+                        }
+                        to {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .art__hvr--btn {
+                        @extend .btn_02;
+                    }
+                }
+            }
+        }
+    }
+
+    .art__cont {
+        padding: 9px;
+        position: relative;
+
+        .art__cont--img {
+            width: 100%;
+            height: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+
+        h3 {
+            font-family: $fam_01;
+            font-size: 1.75rem;
+            margin: 0 0 5px;
+            line-height: 27px;
+            text-align: left;
+            color: $color_h3;
+        }
+
+        p {
+            font-family: $fam_04;
+            font-size: 1rem;
+            text-align: left;
+            line-height: 18px;
+            margin: 0 0 5px;
+            font-weight: normal;
+            color: $color_p;
+
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+    
+}
+
+// Botones
+
+.btn_01 {
+    font-family: $fam_02;
+    display: block;
+    position: relative;
+    color: map-get($color, "blanco");
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    border: 3px solid map-get($color, "rojo_01");
+    border-radius: 27px;
+    transition: .5s;
+    padding: 7px;
+    margin: 0 auto;
+    cursor: pointer;
+    width: 175px;
+    animation: btn1 3s infinite;
+
+    @keyframes btn1 {
+        0%{transform: scale(1);}
+        50%{transform: scale(1.1);}
+        100%{transform: scale(1);}
+    }
+
+    &:hover {
+        transition: .5s;
+        border: 3px solid map-get($color, "blanco");
+        color: map-get($color, "rojo_01");
+        font-weight: bold;
+    }
+}
+
+.btn_02 {
+    display: block;
+    position: relative;
+    text-transform: uppercase;
+    background-color: #292929;
+    color: #fff;
+    border: 1px solid #000;
+    transition: 0.3s;
+    font-family: $fam_02;
+    letter-spacing: 0.3vw;
+    font-size: 5.5vw;
+    font-weight: normal;
+    padding: 2.7% 7% 2.5%;
+    width: fit-content;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    box-shadow: 1px 1px 11px 0px rgb(0 0 0 / 70%);
+    animation: portf-btn 0.9s forwards;
+
+    @keyframes portf-btn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    &:hover {
+        background-color: #960101;
+        transition: 0.3s;
+    }
+
+    &:active {
+        transition: none;
+        background-color: #222;
+        border-left: 3px solid #000;
+        border-top: 3px solid #000;
+        // border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        box-shadow: inset 3px 2px 9px 0px rgb(0 0 0 / 57%), 1px 1px 11px 0px rgb(0 0 0 / 55%);
+        color: #ababab;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .btn_02 {
+        letter-spacing: 0.1vw;
+        font-size: 4.5vw;
+        padding: 2.1% 7% 1.9%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .btn_02 {
+        letter-spacing: 1px;
+        font-size: 1.35rem;
+        padding: 9px 25px 8px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .btn_02 {
+        letter-spacing: 0.5px;
+        font-size: 1.25rem;
+        padding: 7px 15px 7px;
+        border-radius: 7px;
+    }
+}
+
+@mixin btn_03($btn_03-disp: block, $btn_03-bgc: #740000, $btn_03-color: #fff, $btn_03-bgchvr: #333, $btn_03-colorhvr: #ccc) {
+    display: $btn_03-disp;
+    position: relative;
+    text-transform: uppercase;
+    background-color: $btn_03-bgc;
+    color: $btn_03-color;
+    border: 1px solid #000;
+    transition: 0.3s;
+    font-family: $fam_02;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 5px 7px; 
+    width: 100px;
+    text-align: center;
+    margin: 0 auto;
+
+    &:hover {
+        background-color: $btn_03-bgchvr;
+        border: 1px solid #000;
+        transition: 0.3s;
+        color: $btn_03-colorhvr;
+    }
+}
+
+// FORMULARIOS
+
+.form_01-disp {
+    display: block;
+}
+
+@media only screen and (min-width: 768px) {
+    .form_01-disp {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}
+
+@mixin form_01() {
+    @extend .form_01-disp;
+    gap: 20px;
+    .form__group {
+        .form__group--label {
+            display: block;
+            font-family: $fam_02;
+            font-size: 1rem;
+            color: #ccc;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .form__group--input {
+            position: relative;
+
+            .form__input {
+                width: 75%;
+                background-color: #fff;
+                border-radius: 3px;
+                border: 3px solid transparent;
+                height: 45px;
+                line-height: 45px;
+                padding: 0 40px 0 10px;
+                transition: .3s ease all;
+
+                &:focus {
+                    border: 3px solid #cb0000;
+                    outline: none;
+                    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+                }
+            }
+        }
+
+        .form__group--list {
+            position: relative;
+
+            .form__list {
+                width: 75%;
+                background-color: #fff;
+                border-radius: 3px;
+                border: 3px solid transparent;
+                height: 51px;
+                line-height: 51px;
+                padding: 0 40px 0 10px;
+                transition: .3s ease all;
+
+                &:focus {
+                    border: 3px solid #cb0000;
+                    outline: none;
+                    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+                }
+            }
+        }
+
+        .form__checkbox {
+            margin-right: 10px;
+
+        }
+
+        .form__valid--state {
+            position: absolute;
+            right: 10px;
+            bottom: 15px;
+            z-index: 11;
+            font-size: 1rem;
+            //opacity: 0;
+        }
+
+        .form__input--error {
+            font-size: 1rem;
+            margin-bottom: 0;
+            display: none;
+        }
+
+        .form__input--error-activo {
+            display: block;
+        }
+    }
+
+    .form__group--btn-enviar {
+
+        .form__btn {
+            @include btn_03;
+        }
+    }
+
+    .form__msj,
+    .form__group--btn-enviar,
+    .form__msj--exito {
+        grid-column: span 3;
+    }
+
+    .form__msj,
+    .form__msj--exito {
+        height: 45px;
+        line-height: 45px;
+        display: none;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .form__msj-activo,
+    .form__msj--exito-activo {
+        display: block;
+    }
+
+    .form__msj {
+        background-color: #860404;
+        padding: 0 15px;
+        border-radius: 3px;
+    }
+//ME QUEDE EN TUTORIAL FORMULARIO PROFESIONAL CON VALIDACIÓN MINUTO 38:34
+}

@@ -1,0 +1,816 @@
+@use 'vars' as *;
+@use 'predef' as *;
+
+#contenedor {
+    #cabeza {
+        @extend .flex-1;
+        width: 100vw;
+        background: linear-gradient(180deg, map-get($color, "blanco") 95%, map-get($color, "gris_11") 5%);
+        height: 45px;
+        position: fixed;
+        border-bottom: 1px solid map-get($color, "gris_10");
+        top: 0;
+        left: 0;
+
+        .cabeza__iconos {
+            display: block;
+            font-size: 1.75rem;
+            color: map-get($color, "negro");
+            cursor: pointer;
+            height: 28px;
+        }
+
+        .cabeza__menu--cont {
+            @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+            left: -100%;
+            top: 0;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: flex-start;
+
+            .cabeza__menu--cont_box {
+                display: inline-block;
+                background-color: map-get($color, "blanco");
+                width: 75vw;
+                height: 100vh;
+                
+                //border-right: 1px solid map-get($color, "gris_03");
+                .cabeza__menu--user {
+                    padding: 15px;
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 5px;
+
+                    img {
+                        width: 150px;
+                        height: 150px;
+                        border-radius: 50%;
+                        margin: 0 auto;
+                    }
+
+                    h1 {
+                        font-family: $fnt_01;
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        color: map-get($color, "negro");
+                        
+                    }
+                }
+                
+                
+                ul {
+                    list-style: none;
+                    text-align: left;
+                    color: map-get($color, "negro");
+
+                    li {
+                        //padding: 15px 5px;
+                        font-size: 1rem;
+                        display: block;
+                        min-height: 35px;
+
+                        &:hover {
+                            background-color: map-get($color, "gris_04");
+                        }
+
+                        div {
+                            padding: 9px 20px;
+                            display: flex;
+                            flex-flow: row nowrap;
+                            align-items: center;
+
+                            span {
+                                font-size: 1.25rem;
+                                color: map-get($color, "negro");
+                                //margin-right: 15px;
+                                width: 27px;
+                                text-align: center;
+                            }
+                            
+                            a {
+                                color: map-get($color, "negro");
+                                margin-left: 25px;
+                            } 
+                        }
+                    }
+                }
+            }
+
+            .cabeza__menu--cont_box-crr {
+                display: inline-block;
+                width: 25vw;
+                height: 100vh;
+                cursor: pointer;
+            }
+        }
+
+        .cabeza__menu--cont.activo {
+            left: 0;
+        }
+
+        .cabeza__iconos--dir {
+            display: none;
+            font-size: 1rem;
+            color: map-get($color, "negro");
+            height: 16px;
+            margin: 3px 7px 0;
+        }
+
+        .cabeza__iconos--dir.activo {
+            display: block;
+        }
+
+        .cabeza__dir--cont {
+            @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+            top: 200%;
+            left: 0;
+
+            .cabeza__dir--cont_box-cerr {
+                height: 40vh;
+                display: block;
+                cursor: pointer;
+            }
+
+            .cabeza__dir--cont_box {
+                display: block;
+                height: 60vh;
+                background-color: map-get($color, "blanco");
+                padding: 15px;
+
+                h1 {
+                    font-family: $fnt_01;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    color: map-get($color, "negro");
+                    margin: 5px 0 15px;
+                }
+
+                ul {
+                    list-style: none;
+                    text-align: left;
+                    color: map-get($color, "negro");
+
+                    li {
+                        border-bottom: 1px solid map-get($color, "gris_04");
+                        padding: 11px 0;
+
+                        &:hover {
+                            background-color: map-get($color, "gris_05");
+                        }
+
+                        div {
+                            display: flex;
+                            flex-flow: row nowrap;
+                            align-items: flex-start;
+
+                            span,
+                            .cabeza__dir-ico {
+                                width: 27px;
+                                color: map-get($color, "negro");
+                                font-size: 1rem;
+                                margin: 0 10px;
+                                display: inline-block;
+                            }
+
+                            a {
+                                font-size: 1rem;
+                                font-family: $fnt_01;
+                                color: map-get($color, "negro");
+                                display: inline-block;
+                            }
+
+                            div {
+                                display: inline-block;
+
+                                h2 {
+                                    font-family: $fnt_01;
+                                    font-size: 1rem;
+                                    font-weight: 500;
+                                    color: map-get($color, "negro");
+                                    display: block;
+                                    min-width: 75vw;
+                                }
+
+                                p {
+                                    font-family: $fnt_01;
+                                    font-size: 0.75rem;
+                                    color: map-get($color, "gris_01");
+                                    display: block;
+                                }
+
+                                
+                            }
+
+                            .cabeza__dir-chk {
+                                width: 16px;
+                                height: 16px;
+                                color: map-get($color, "negro");
+                                font-size: 1rem;
+                                margin: auto 0;
+                                display: inline-block;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .cabeza__dir--cont.activo {
+            top: 0;
+        }
+
+        .cabeza__contenido--menu {
+            @extend .cabeza__extremos;
+
+            /*.cabeza__menu--cont {
+                @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+                left: -100%;
+                top: 0;
+                background-color: transparent;
+
+                .cabeza__menu--cont_box {
+                    display: block;
+                    background-color: map-get($color, "blanco");
+                    width: 75vw;
+                    border-right: 1px solid map-get($color, "gris_03");
+
+                    h1 {
+                        font-family: $fnt_01;
+                        font-size: 2rem;
+                        font-weight: 600;
+                        color: map-get($color, "negro");
+                    }
+                    
+                    ul {
+                        list-style: none;
+                        text-align: left;
+                        color: map-get($color, "negro");
+    
+                        li {
+                            padding: 15px 5px;
+                            font-size: 1rem;
+                            display: block;
+                            min-height: 35px;
+    
+                            &:hover {
+                                background-color: map-get($color, "gris_03");
+                            }
+    
+                            span {
+                                font-size: 1rem;
+                                color: map-get($color, "negro");
+                                margin-right: 15px;
+                            }
+                            
+                            a {
+                                color: map-get($color, "negro");
+                            } 
+                        }
+                    }
+
+                }
+
+                
+            }
+
+            .cabeza__menu--cont.activo {
+                left: 0;
+            }
+            */
+
+        }
+
+        .cabeza__contenido--dir {
+            cursor: pointer;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            //z-index: 11;
+            //display: inline-block;
+
+            .cabeza__dir--txt { 
+                display: block;
+                font-family: $fnt_01;
+                color: map-get($color, "negro");
+                font-weight: 500;
+                font-size: 1rem;
+                height: 25px;
+
+
+                &:hover {
+                    color: map-get($color, "gris_01");
+                }
+            }
+
+            /*.cabeza__dir--cont {
+                @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+                top: 200%;
+                left: 0;
+
+                .cabeza__dir--cont_box-cerr {
+                    background-color: blue;
+                    height: 25vh;
+                    display: block;
+                    cursor: pointer;
+                }
+
+                .cabeza__dir--cont_box {
+                    display: block;
+                    height: 75vh;
+                    background-color: red;
+                }
+            }
+
+            .cabeza__dir--cont.activo {
+                top: 0;
+            }*/
+        }
+
+        .cabeza__contenido--anun {
+            @extend .cabeza__extremos;
+
+            .cabeza__anun--cont {
+                @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw);
+                right: -100%;
+                top: 0;
+                background-color: blue;
+
+                /*h1 {
+                    font-family: $fnt_01;
+                    font-size: 2rem;
+                    font-weight: 600;
+                    color: map-get($color, "negro");
+                }
+                
+                ul {
+                    
+                    list-style: none;
+                    text-align: left;
+                    color: map-get($color, "negro");
+                    
+
+                    li {
+                        padding: 15px 5px;
+                        font-size: 1rem;
+                        display: block;
+                        min-height: 35px;
+
+                        &:hover {
+                            background-color: map-get($color, "gris_03");
+                        }
+
+                        span {
+                            font-size: 1rem;
+                            color: map-get($color, "negro");
+                            margin-right: 15px;
+                        }
+                        
+                        a {
+                            color: map-get($color, "negro");
+                        } 
+                    }
+                }*/
+            }
+
+            .cabeza__anun--cont.activo {
+                right: 0;
+            }            
+        }
+    }
+
+    #contenido {
+        width: 100%;
+        min-width: 375px;
+        //z-index: 11;
+
+        padding-top: 55px;
+
+        #contenido__subir {
+            box-sizing: border-box;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            position: fixed;
+            bottom: 15px;
+            right: -100%;
+            background-color: #000;
+            border: 3px solid #ff0000;
+            transition: 0.5s;
+            padding: 6px 5px 5px 8px;
+            z-index: 11;
+
+            a {
+                color: #ff0000;
+                font-size: 2rem;
+                font-weight: 900;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+        
+        .contenido__seccion--sobremi_margen {
+            height: 45px;
+        }
+
+        .contenido__seccion--sobremi {
+            @include main-section_edit($color-bg: #fff);
+
+            h2 {
+                font-size: 3.5rem;
+                text-align: center;
+                color: #333;
+                margin: 0 0 35px;
+                line-height: 40px;
+                padding-top: 7px;
+            }
+
+            p {
+                font-family: $fam_02;
+                font-size: 2rem;
+                text-align: center;
+                margin-bottom: 50px;
+                color: #000;
+                line-height: 30px;
+
+                span {
+                    font-weight: bold;
+                }
+            }
+
+            .contenido__articulo--sobremi {
+                height: 100%;
+
+                .contenido__sobremi--txt,
+                .contenido__sobremi--img {
+                    box-sizing: border-box;
+                }
+
+                .contenido__sobremi--txt {
+                    padding: 15px;
+                    background-color: #fff;
+                    width:100%;
+                    min-width: 375px;
+                    height: 100%;
+                    min-height: 250px;
+
+                    h3 {
+                        font-family: $fam_01;
+                        font-size: 2rem;
+                        color: #333;
+                        text-align: center;
+                        margin: 5px 0 10px;
+                        line-height: 27px;
+                    }
+
+                    p {
+                        font-family: $fam_04;
+                        font-size: 1.25rem;
+                        color: #000;
+                        text-align: justify;
+                        line-height: 27px;
+                        margin: 0 0 10px;
+                        font-weight: normal;
+                    }
+                }
+
+                .contenido__sobremi--img {
+                    width: 100%;
+                    min-width: 375px;
+                    height: 100%;
+                    min-height: 250px;
+                    background-size: cover;
+                    background-position: center center;
+                }
+            
+
+                .sobremi_img_01 {
+                    background-image: url(../img/perfil_profesional.jpg);
+                }
+
+                .sobremi_img_02 {
+                    background-image: url(../img/mi_historia.jpg);
+                }
+
+                .sobremi_img_03 {
+                    background-image: url(../img/mis_habilidades.jpg);
+                }
+
+                &:nth-child(odd) {
+                    @extend .flex-2;
+                }
+
+                &:nth-child(even) {
+                    @extend .flex-2-2;
+                }
+            }
+        }
+
+        .contenido__seccion--servicios {
+            @include main-section_edit($color-bg: #232323);
+
+            .contenido__seccion--servicios_margensep {
+                height: 14px;
+                width: 100%;
+
+                div {
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        right: 0;
+                        left: -0%;
+                        top: 100%;
+                        z-index: 10;
+                        display: block;
+                        height: 30px;
+                        background-size: 30px 100%;
+                        background-image: linear-gradient(135deg, #fff 25%, transparent 25%), linear-gradient(225deg, #fff 25%, transparent 25%);
+                        background-position: 0 0;
+                    }
+                }
+            }
+
+            .contenido__seccion--servicios_margentop {
+                height: 45px;
+                width: 100%;
+            }
+
+            .contenido__seccion--servicios_margenbott {
+                height: 14px;
+                width: 100%;
+                background: #fff;
+
+                div {
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        right: 0;
+                        left: -0%;
+                        top: 100%;
+                        z-index: 10;
+                        display: block;
+                        height: 30px;
+                        background-size: 30px 100%;
+                        background-image: linear-gradient(135deg, #232323 25%, transparent 25%), linear-gradient(225deg, #232323 25%, transparent 25%);
+                        background-position: 0 0;
+                    }
+                }
+            }
+
+            h2 {
+                font-size: 3.5rem;
+                text-align: center;
+                color: #fff;
+                margin: 0 0 35px;
+                line-height: 40px;
+                padding-top: 7px;
+                display: block;
+            }
+
+            p {
+                font-family: $fam_02;
+                font-size: 2rem;
+                text-align: center;
+                margin-bottom: 55px;
+                color: #fff;
+                line-height: 30px;
+                display: block;
+            }
+
+            .contenido__servicios--contenedor {
+                @extend .flex-3;
+                // margin-bottom: 35px;
+
+                #OtrosServicios {
+                    height: 45px;
+                    width: 100%;
+                    display: block;
+                }
+
+                #OtrosServiciosh2 {
+                    font-size: 3.5rem;
+                    text-align: center;
+                    color: #fff;
+                    margin: 0 0 55px;
+                    line-height: 40px;
+                    padding-top: 7px;
+                    display: block; 
+                    width: 100vw;
+                }
+
+                .contenido__servicios--articulo {
+                    @extend .cols-wrp;
+
+                    img {
+                        float:left;
+                        margin: 0 10px 3px 0;
+                    }
+
+                    h3 {
+                        font-family: $fam_01;
+                        font-size: 2rem;
+                        margin: 0 0 15px;
+                        line-height: 27px;
+                        text-align: left;
+                        letter-spacing: 1.3px;
+                    }
+
+                    p {
+                        font-family: $fam_04;
+                        font-size: 1.25rem;
+                        text-align: justify;
+                        line-height: 27px;
+                        margin: 0 0 10px;
+                        font-weight: normal;
+                    }
+
+                    &:nth-child(4){
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+        }
+
+        .contenido__seccion--portfolio {
+            @include main-section_edit($color-bg: #fff);
+
+            .contenido__seccion--portfolio_margentop {
+                height: 45px;
+                width: 100%;
+            }
+
+            h2 {
+                font-size: 3.5rem;
+                text-align: center;
+                color: #333;
+                margin: 0 0 35px;
+                line-height: 40px;
+                padding-top: 7px;
+                display: block; 
+            }
+
+            p {
+                font-family: $fam_02;
+                font-size: 2rem;
+                text-align: center;
+                margin-bottom: 55px;
+                color: #000;
+                line-height: 30px;
+                display: block;
+            }
+
+            .contenido__portfolio--contenedor {
+                @extend .flex-3;
+
+                .portfolio__btn--box {
+                    width: 85vw;
+                    height: auto;
+                    margin: 0 0 50px;
+
+                    .portfolio__btn--box-btn {
+                        @include btn_03;
+                    }
+                }
+
+                #vermenos-portfolio_cont{
+                    display: none;
+                }
+
+                .contenido__portfolio--articulo {
+                    @include cols-wrp-adj;
+
+                    @include art_hvr_fx;
+                }
+
+                @for $i from 8 through 100 {
+                    .contenido__portfolio--articulo:nth-child(#{$i}){
+                        display: none;
+                    }
+                }
+
+                .portfolio__articulo--ciego {
+                    @include ciego-01;
+                }
+            }
+        }
+
+        .contenido__seccion--proyectos {
+            @include main-section_edit($color-bg: #860404, $pddng_bott: 25px);
+
+            .contenido__seccion--proyectos_margentop {
+                height: 45px;
+                width: 100%;
+            }
+
+            h2 {
+                font-size: 3.5rem;
+                text-align: center;
+                color: #fff;
+                margin-bottom: 35px;
+                line-height: 40px;
+                padding-top: 7px;
+                display: block;
+            }
+
+            p {
+                font-family: $fam_02;
+                font-size: 2rem;
+                text-align: center;
+                margin-bottom: 55px;
+                color: #ccc;
+                line-height: 30px;
+                display: block;
+                padding: 0 3px;
+            }
+
+            .contenido__proyectos--contenedor {
+                @extend .flex-3;
+
+                .contenido__proyectos--articulo {
+                    @include cols-wrp-adj ($wth_col: 320px);
+
+                    @include art_hvr_fx ($color_hvr: rgba(51,51,51,0.9));
+
+                }
+
+                .proyectos__articulo--ciego {
+                    @include ciego-01;
+                }
+            }
+        }
+        .contenido__seccion--presupuesto {
+            @include main-section_edit($color-bg: #212121);
+
+            .contenido__seccion--presupuesto_margentop {
+                height: 45px;
+                width: 100%;
+            }
+
+            h2 {
+                font-size: 3.5rem;
+                text-align: center;
+                color: #fff;
+                margin-bottom: 35px;
+                line-height: 40px;
+                padding-top: 7px;
+                display: block;
+            }
+
+            p {
+                font-family: $fam_02;
+                font-size: 2rem;
+                text-align: center;
+                margin-bottom: 55px;
+                color: #ccc;
+                line-height: 30px;
+                display: block;
+                padding: 0 3px;
+            }
+
+            .contenido__presupuesto--contenedor {
+                @extend .flex-3;
+
+                .contenido__presupuesto--articulo {
+                    @include one-col;
+
+                    .contenido__presupuesto--form {
+                        @include form_01;
+                    }
+
+                }
+            }
+        }
+    }
+
+    #pieses{
+        width: 100%;
+        min-width: 375px;
+        //z-index: 11;
+
+        .pieses__contenedor {
+            @extend .flex-3;
+            box-sizing: border-box;
+            background-color: #212121;
+
+            .pieses__contenedor--cols {
+                @include cols-3-wrp ($cols-3_wth: 93.6vw);
+
+                &:nth-child(2) {
+                    background-color: blueviolet;
+                }
+
+                &:nth-child(3) {
+                    background-color: crimson;
+                }
+            }
+        }
+    }
+    
+}
