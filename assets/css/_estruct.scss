@@ -592,7 +592,7 @@
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             gap: 10px;
-            margin: 0 0 20px 5vw;
+            margin: 0 0 20px;
     
             &::-webkit-scrollbar {
                 display: none;
@@ -645,6 +645,10 @@
                         visibility: visible;
                         transition: .2s all;
                     }
+                }
+
+                &:first-child {
+                    margin-left: 5vw;
                 }
 
                 &:last-child{
