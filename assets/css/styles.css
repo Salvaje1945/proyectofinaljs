@@ -631,15 +631,13 @@ a {
   display: block;
   width: 100vw;
   margin: 60px 0 0;
-  padding: 0 5vw;
   height: auto;
 }
 #contenedor #contenido .contenido__buscador--cont {
-  width: 100%;
   border-radius: 30px;
   padding: 0.4vh 0.5vh 0.5vh;
   border: 1px solid #aaa;
-  margin: 0 0 20px;
+  margin: 0 5vw 20px;
 }
 #contenedor #contenido .contenido__buscador--cont form {
   display: flex;
@@ -656,6 +654,15 @@ a {
   padding: 2%;
   border: none;
   outline: none;
+}
+#contenedor #contenido .contenido__buscador--cont .contenido__buscador--grupoipt .contenido__buscador--campo::-moz-placeholder {
+  font-family: "Poppins", sans-serif;
+}
+#contenedor #contenido .contenido__buscador--cont .contenido__buscador--grupoipt .contenido__buscador--campo:-ms-input-placeholder {
+  font-family: "Poppins", sans-serif;
+}
+#contenedor #contenido .contenido__buscador--cont .contenido__buscador--grupoipt .contenido__buscador--campo::placeholder {
+  font-family: "Poppins", sans-serif;
 }
 #contenedor #contenido .contenido__buscador--cont .contenido__buscador--grupoipt .contenido__buscador--boton {
   background-color: #ff0000;
@@ -674,38 +681,114 @@ a {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 10px;
+  margin: 0 5vw 20px;
   grid-template-areas: "raes raba arreg" "raes ros plan";
 }
 #contenedor #contenido .contenido__productos--cont .contenido__productos--box {
   border-radius: 5px;
-  padding: 10px;
+  position: relative;
 }
 #contenedor #contenido .contenido__productos--cont .contenido__productos--box h1 {
+  font-family: "Poppins", sans-serif;
+  margin: 10px;
+  font-size: 0.75rem;
+  color: #000;
+  font-weight: 600;
+  line-height: 14px;
+  position: absolute;
+  z-index: 999;
+}
+#contenedor #contenido .contenido__productos--cont .contenido__productos--box .contenido__productos--box_hvr {
+  background-color: rgba(0, 0, 0, 0);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  visibility: hidden;
+  transition: 0.2s all;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+#contenedor #contenido .contenido__productos--cont .contenido__productos--box:hover .contenido__productos--box_hvr {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+  transition: 0.2s all;
+}
+#contenedor #contenido .contenido__productos--cont #contenido__productos--ramosespe {
+  grid-area: raes;
+  background-color: violet;
+}
+#contenedor #contenido .contenido__productos--cont #contenido__productos--ramosbasic {
+  grid-area: raba;
+  background-color: lightpink;
+}
+#contenedor #contenido .contenido__productos--cont #contenido__productos--arreglos {
+  grid-area: arreg;
+  background-color: cornflowerblue;
+}
+#contenedor #contenido .contenido__productos--cont #contenido__productos--rosas {
+  grid-area: ros;
+  background-color: firebrick;
+}
+#contenedor #contenido .contenido__productos--cont #contenido__productos--plantas {
+  grid-area: plan;
+  background-color: darkcyan;
+}
+#contenedor #contenido .contenido__otrosprods--cont {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 10px;
+  margin: 0 0 20px 5vw;
+}
+#contenedor #contenido .contenido__otrosprods--cont::-webkit-scrollbar {
+  display: none;
+}
+#contenedor #contenido .contenido__otrosprods--cont .contenido__otrosprods--box {
+  flex: 0 0 auto;
+  width: 36vw;
+  height: 12vh;
+  border-radius: 5px;
+  background-color: #f3f3f5;
+  position: relative;
+}
+#contenedor #contenido .contenido__otrosprods--cont .contenido__otrosprods--box h1 {
   font-family: "Poppins", sans-serif;
   font-size: 0.75rem;
   color: #000;
   font-weight: 600;
   line-height: 14px;
+  margin: 10px;
+  position: absolute;
+  z-index: 999;
 }
-#contenedor #contenido #contenido__productos--ramosespe {
-  grid-area: raes;
-  background-color: violet;
+#contenedor #contenido .contenido__otrosprods--cont .contenido__otrosprods--box .contenido__otrosprods--box_hvr {
+  background-color: rgba(0, 0, 0, 0);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  visibility: hidden;
+  transition: 0.2s all;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
-#contenedor #contenido #contenido__productos--ramosbasic {
-  grid-area: raba;
-  background-color: lightpink;
+#contenedor #contenido .contenido__otrosprods--cont .contenido__otrosprods--box:hover .contenido__otrosprods--box_hvr {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  visibility: visible;
+  transition: 0.2s all;
 }
-#contenedor #contenido #contenido__productos--arreglos {
-  grid-area: arreg;
-  background-color: cornflowerblue;
-}
-#contenedor #contenido #contenido__productos--rosas {
-  grid-area: ros;
-  background-color: firebrick;
-}
-#contenedor #contenido #contenido__productos--plantas {
-  grid-area: plan;
-  background-color: darkcyan;
+#contenedor #contenido .contenido__otrosprods--cont .contenido__otrosprods--box:last-child {
+  margin-right: 5vw;
 }
 #contenedor #pieses {
   width: 100%;
