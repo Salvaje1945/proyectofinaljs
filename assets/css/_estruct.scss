@@ -445,413 +445,108 @@
     }
 
     #contenido {
-        width: 100%;
-        min-width: 375px;
-        //z-index: 11;
+        display: block;
+        width: 100vw;
+        margin: 60px 0 0;
+        padding: 0 5vw;
+        height: auto;
 
-        padding-top: 55px;
+        .contenido__buscador--cont {
+            width: 100%;
+            border-radius: 30px;
+            padding: 0.4vh 0.5vh 0.5vh;
+            border: 1px solid map-get($color, "gris_04");
+            margin: 0 0 20px;
 
-        #contenido__subir {
-            box-sizing: border-box;
-            width: 50px;
-            height: 50px;
-            border-radius: 100%;
-            position: fixed;
-            bottom: 15px;
-            right: -100%;
-            background-color: #000;
-            border: 3px solid #ff0000;
-            transition: 0.5s;
-            padding: 6px 5px 5px 8px;
-            z-index: 11;
+            form {
+                display: flex;
+                justify-content: center;
+            }
 
-            a {
-                color: #ff0000;
-                font-size: 2rem;
-                font-weight: 900;
+            .contenido__buscador--grupoipt {
+                display: flex;
+                border-radius: 30px;
+                overflow: hidden;
+                width: 100%;
 
-                &:hover {
-                    color: #fff;
+                .contenido__buscador--campo {
+                    flex: 1;
+                    padding: 2%;
+                    border: none;
+                    outline: none;
+                }
+
+                .contenido__buscador--boton {
+                    background-color: map-get($color, "rojo_01");
+                    color: white;
+                    border: none;
+                    padding: 2% 4%;
+                    border-radius: 0 30px 30px 0;
+                    //cursor: pointer;
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover {
+                        background-color: map-get($color, "rojo_02");
+                    }
                 }
             }
         }
-        
-        .contenido__seccion--sobremi_margen {
-            height: 45px;
-        }
 
-        .contenido__seccion--sobremi {
-            @include main-section_edit($color-bg: #fff);
-
-            h2 {
-                font-size: 3.5rem;
-                text-align: center;
-                color: #333;
-                margin: 0 0 35px;
-                line-height: 40px;
-                padding-top: 7px;
-            }
-
-            p {
-                font-family: $fam_02;
-                font-size: 2rem;
-                text-align: center;
-                margin-bottom: 50px;
-                color: #000;
-                line-height: 30px;
-
-                span {
-                    font-weight: bold;
-                }
-            }
-
-            .contenido__articulo--sobremi {
-                height: 100%;
-
-                .contenido__sobremi--txt,
-                .contenido__sobremi--img {
-                    box-sizing: border-box;
-                }
-
-                .contenido__sobremi--txt {
-                    padding: 15px;
-                    background-color: #fff;
-                    width:100%;
-                    min-width: 375px;
-                    height: 100%;
-                    min-height: 250px;
-
-                    h3 {
-                        font-family: $fam_01;
-                        font-size: 2rem;
-                        color: #333;
-                        text-align: center;
-                        margin: 5px 0 10px;
-                        line-height: 27px;
-                    }
-
-                    p {
-                        font-family: $fam_04;
-                        font-size: 1.25rem;
-                        color: #000;
-                        text-align: justify;
-                        line-height: 27px;
-                        margin: 0 0 10px;
-                        font-weight: normal;
-                    }
-                }
-
-                .contenido__sobremi--img {
-                    width: 100%;
-                    min-width: 375px;
-                    height: 100%;
-                    min-height: 250px;
-                    background-size: cover;
-                    background-position: center center;
-                }
+        .contenido__productos--cont {
+            height: 29vh;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+            grid-template-areas: 
             
+            "raes raba arreg"
+            "raes ros plan"
+            
+            
+            ;
 
-                .sobremi_img_01 {
-                    background-image: url(../img/perfil_profesional.jpg);
-                }
+            .contenido__productos--box {
+                border-radius: 5px;
+                padding: 10px;
 
-                .sobremi_img_02 {
-                    background-image: url(../img/mi_historia.jpg);
-                }
-
-                .sobremi_img_03 {
-                    background-image: url(../img/mis_habilidades.jpg);
-                }
-
-                &:nth-child(odd) {
-                    @extend .flex-2;
-                }
-
-                &:nth-child(even) {
-                    @extend .flex-2-2;
+                h1{
+                    font-family: $fnt_01;
+                    font-size: 0.75rem;
+                    color: map-get($color, "negro");
+                    font-weight: 600;
+                    line-height: 14px;
                 }
             }
         }
 
-        .contenido__seccion--servicios {
-            @include main-section_edit($color-bg: #232323);
-
-            .contenido__seccion--servicios_margensep {
-                height: 14px;
-                width: 100%;
-
-                div {
-                    position: relative;
-
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        right: 0;
-                        left: -0%;
-                        top: 100%;
-                        z-index: 10;
-                        display: block;
-                        height: 30px;
-                        background-size: 30px 100%;
-                        background-image: linear-gradient(135deg, #fff 25%, transparent 25%), linear-gradient(225deg, #fff 25%, transparent 25%);
-                        background-position: 0 0;
-                    }
-                }
-            }
-
-            .contenido__seccion--servicios_margentop {
-                height: 45px;
-                width: 100%;
-            }
-
-            .contenido__seccion--servicios_margenbott {
-                height: 14px;
-                width: 100%;
-                background: #fff;
-
-                div {
-                    position: relative;
-
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        right: 0;
-                        left: -0%;
-                        top: 100%;
-                        z-index: 10;
-                        display: block;
-                        height: 30px;
-                        background-size: 30px 100%;
-                        background-image: linear-gradient(135deg, #232323 25%, transparent 25%), linear-gradient(225deg, #232323 25%, transparent 25%);
-                        background-position: 0 0;
-                    }
-                }
-            }
-
-            h2 {
-                font-size: 3.5rem;
-                text-align: center;
-                color: #fff;
-                margin: 0 0 35px;
-                line-height: 40px;
-                padding-top: 7px;
-                display: block;
-            }
-
-            p {
-                font-family: $fam_02;
-                font-size: 2rem;
-                text-align: center;
-                margin-bottom: 55px;
-                color: #fff;
-                line-height: 30px;
-                display: block;
-            }
-
-            .contenido__servicios--contenedor {
-                @extend .flex-3;
-                // margin-bottom: 35px;
-
-                #OtrosServicios {
-                    height: 45px;
-                    width: 100%;
-                    display: block;
-                }
-
-                #OtrosServiciosh2 {
-                    font-size: 3.5rem;
-                    text-align: center;
-                    color: #fff;
-                    margin: 0 0 55px;
-                    line-height: 40px;
-                    padding-top: 7px;
-                    display: block; 
-                    width: 100vw;
-                }
-
-                .contenido__servicios--articulo {
-                    @extend .cols-wrp;
-
-                    img {
-                        float:left;
-                        margin: 0 10px 3px 0;
-                    }
-
-                    h3 {
-                        font-family: $fam_01;
-                        font-size: 2rem;
-                        margin: 0 0 15px;
-                        line-height: 27px;
-                        text-align: left;
-                        letter-spacing: 1.3px;
-                    }
-
-                    p {
-                        font-family: $fam_04;
-                        font-size: 1.25rem;
-                        text-align: justify;
-                        line-height: 27px;
-                        margin: 0 0 10px;
-                        font-weight: normal;
-                    }
-
-                    &:nth-child(4){
-                        margin-bottom: 0;
-                    }
-                }
-            }
-
+        #contenido__productos--ramosespe {
+            grid-area: raes;
+            background-color:violet;
+        } 
+        
+        #contenido__productos--ramosbasic {
+            grid-area: raba;
+            background-color: lightpink;
         }
 
-        .contenido__seccion--portfolio {
-            @include main-section_edit($color-bg: #fff);
-
-            .contenido__seccion--portfolio_margentop {
-                height: 45px;
-                width: 100%;
-            }
-
-            h2 {
-                font-size: 3.5rem;
-                text-align: center;
-                color: #333;
-                margin: 0 0 35px;
-                line-height: 40px;
-                padding-top: 7px;
-                display: block; 
-            }
-
-            p {
-                font-family: $fam_02;
-                font-size: 2rem;
-                text-align: center;
-                margin-bottom: 55px;
-                color: #000;
-                line-height: 30px;
-                display: block;
-            }
-
-            .contenido__portfolio--contenedor {
-                @extend .flex-3;
-
-                .portfolio__btn--box {
-                    width: 85vw;
-                    height: auto;
-                    margin: 0 0 50px;
-
-                    .portfolio__btn--box-btn {
-                        @include btn_03;
-                    }
-                }
-
-                #vermenos-portfolio_cont{
-                    display: none;
-                }
-
-                .contenido__portfolio--articulo {
-                    @include cols-wrp-adj;
-
-                    @include art_hvr_fx;
-                }
-
-                @for $i from 8 through 100 {
-                    .contenido__portfolio--articulo:nth-child(#{$i}){
-                        display: none;
-                    }
-                }
-
-                .portfolio__articulo--ciego {
-                    @include ciego-01;
-                }
-            }
+        #contenido__productos--arreglos {
+            grid-area: arreg;
+            //background-color:lightblue;
+            background-color: cornflowerblue;
+        }        
+        
+        #contenido__productos--rosas {
+            grid-area: ros;
+            //background-color:tomato;
+            background-color:firebrick;
         }
 
-        .contenido__seccion--proyectos {
-            @include main-section_edit($color-bg: #860404, $pddng_bott: 25px);
-
-            .contenido__seccion--proyectos_margentop {
-                height: 45px;
-                width: 100%;
-            }
-
-            h2 {
-                font-size: 3.5rem;
-                text-align: center;
-                color: #fff;
-                margin-bottom: 35px;
-                line-height: 40px;
-                padding-top: 7px;
-                display: block;
-            }
-
-            p {
-                font-family: $fam_02;
-                font-size: 2rem;
-                text-align: center;
-                margin-bottom: 55px;
-                color: #ccc;
-                line-height: 30px;
-                display: block;
-                padding: 0 3px;
-            }
-
-            .contenido__proyectos--contenedor {
-                @extend .flex-3;
-
-                .contenido__proyectos--articulo {
-                    @include cols-wrp-adj ($wth_col: 320px);
-
-                    @include art_hvr_fx ($color_hvr: rgba(51,51,51,0.9));
-
-                }
-
-                .proyectos__articulo--ciego {
-                    @include ciego-01;
-                }
-            }
+        #contenido__productos--plantas {
+            grid-area: plan;
+            background-color:darkcyan;
         }
-        .contenido__seccion--presupuesto {
-            @include main-section_edit($color-bg: #212121);
 
-            .contenido__seccion--presupuesto_margentop {
-                height: 45px;
-                width: 100%;
-            }
-
-            h2 {
-                font-size: 3.5rem;
-                text-align: center;
-                color: #fff;
-                margin-bottom: 35px;
-                line-height: 40px;
-                padding-top: 7px;
-                display: block;
-            }
-
-            p {
-                font-family: $fam_02;
-                font-size: 2rem;
-                text-align: center;
-                margin-bottom: 55px;
-                color: #ccc;
-                line-height: 30px;
-                display: block;
-                padding: 0 3px;
-            }
-
-            .contenido__presupuesto--contenedor {
-                @extend .flex-3;
-
-                .contenido__presupuesto--articulo {
-                    @include one-col;
-
-                    .contenido__presupuesto--form {
-                        @include form_01;
-                    }
-
-                }
-            }
-        }
     }
 
     #pieses{
