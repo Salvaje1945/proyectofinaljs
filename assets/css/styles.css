@@ -676,7 +676,7 @@ a {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   gap: 10px;
-  margin: 0 0 42px;
+  margin: 0 0 30px;
 }
 #contenedor #contenido .contenido__promos--cont::-webkit-scrollbar {
   display: none;
@@ -693,6 +693,68 @@ a {
   margin-left: 5vw;
 }
 #contenedor #contenido .contenido__promos--cont .contenido__promos--box:last-child {
+  margin-right: 5vw;
+}
+#contenedor #contenido .contenido__comprados h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.05rem;
+  color: #000;
+  font-weight: 600;
+  margin: 0 5vw 1vh;
+}
+#contenedor #contenido .contenido__comprados .contenido__comprados--cont {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 10px;
+  margin: 0 0 42px;
+}
+#contenedor #contenido .contenido__comprados .contenido__comprados--cont::-webkit-scrollbar {
+  display: none;
+}
+#contenedor #contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box {
+  flex: 0 0 auto;
+  width: 75vw;
+  height: 9.5vh;
+  border-radius: 5px;
+  border: 1px groove #aaa;
+  padding: 3vw;
+}
+#contenedor #contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+}
+#contenedor #contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont .contenido__comprados--img {
+  display: inline-block;
+  border-radius: 10px;
+  width: 11.5vw;
+  background-color: #fb5504;
+  overflow: hidden;
+  height: 6vh;
+}
+#contenedor #contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont .contenido__comprados--txt {
+  width: auto;
+  display: inline-block;
+  margin-left: 3vw;
+  margin-top: 0.5vh;
+}
+#contenedor #contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont .contenido__comprados--txt h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  color: #000;
+  font-weight: 600;
+}
+#contenedor #contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont .contenido__comprados--txt p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  color: #333;
+}
+#contenedor #contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box:first-child {
+  margin-left: 5vw;
+}
+#contenedor #contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box:last-child {
   margin-right: 5vw;
 }
 

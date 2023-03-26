@@ -585,7 +585,7 @@
         } 
         
         .contenido__promos--cont {
-            @include scroll_hrz ($scroll_horiz-mrg: 0 0 42px);
+            @include scroll_hrz ($scroll_horiz-mrg: 0 0 30px);
 
             .contenido__promos--box {
                 flex: 0 0 auto;
@@ -604,6 +604,86 @@
                 }
             }
 
+        }
+
+        .contenido__comprados {
+
+            h1 {
+                font-family: $fnt_01;
+                font-size: 1.05rem;
+                color: map-get($color, "negro");
+                font-weight: 600;
+                //line-height: 14px;
+                margin: 0 5vw 1vh;
+            }
+
+            .contenido__comprados--cont {
+                @include scroll_hrz ($scroll_horiz-mrg: 0 0 42px);
+    
+                .contenido__comprados--box {
+                    flex: 0 0 auto;
+                    width: 75vw;
+                    height: 9.5vh;
+                    //background-color: map-get($color, "gris_03");
+                    //overflow: hidden;
+                    border-radius: 5px;
+                    border: 1px groove map-get($color, "gris_04");
+                    padding: 3vw;
+                    //align-items: flex-start;
+    
+                    .contenido__comprados--box_cont {
+                        display: flex;
+                        flex-flow: row nowrap;
+                        align-items: flex-start;
+
+                        .contenido__comprados--img {
+                            display: inline-block;
+                            border-radius: 10px;
+                            width: 11.5vw;
+                            background-color: map-get($color, "naranja_02");
+                            overflow: hidden;
+                            height: 6vh;
+                        }
+        
+                        .contenido__comprados--txt {
+                            width: auto;
+                            display: inline-block;
+                            //height: auto;
+                            margin-left: 3vw;
+                            margin-top: 0.5vh;
+        
+                            h2 {
+                                font-family: $fnt_01;
+                                font-size: 0.8rem;
+                                color: map-get($color, "negro");
+                                font-weight: 600;
+                                //line-height: 14px;
+                                //margin-left: 5vw;
+                                //display: block;
+                            }
+        
+                            p {
+                                font-family: $fnt_01;
+                                font-size: 0.7rem;
+                                color: map-get($color, "gris_01");
+                                //font-weight: 500;
+                                //line-height: 14px;
+                                //margin-left: 5vw;
+                                //display: block;
+                            }
+                        }
+                    }
+    
+                    &:first-child {
+                        margin-left: 5vw;
+                    }
+    
+                    &:last-child{
+                        margin-right: 5vw;
+                    }
+                }
+    
+            }
         }
 
     }
