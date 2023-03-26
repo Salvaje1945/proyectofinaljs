@@ -11,6 +11,7 @@
         border-bottom: 1px solid map-get($color, "gris_10");
         top: 0;
         left: 0;
+        z-index: 500;
 
         // ICONOS CABECERA
 
@@ -450,6 +451,7 @@
         margin: 60px 0 0;
         //padding: 0 5vw;
         height: auto;
+        z-index: 100;
 
         .contenido__buscador--cont {
             //width: 100%;
@@ -471,13 +473,11 @@
 
                 .contenido__buscador--campo {
                     flex: 1;
-                    padding: 2%;
+                    padding: 1.5% 3%;
                     border: none;
                     outline: none;
-
-                    &::placeholder {
-                        font-family: $fnt_01;
-                    }
+                    font-family: $fnt_01;
+                    font-size: 0.8rem;
 
                 }
 
@@ -513,9 +513,7 @@
             ;
 
             .contenido__productos--box {
-                border-radius: 5px;
-                //padding: 10px;
-                position: relative;
+                @include box_hvrFX-01;
 
                 h1{
                     font-family: $fnt_01;
@@ -524,38 +522,8 @@
                     color: map-get($color, "negro");
                     font-weight: 600;
                     line-height: 14px;
-                    position: absolute;
-                    z-index: 999;
                 }
 
-                .contenido__productos--box_hvr {
-                    background-color: rgb(0, 0, 0, 0);
-                    width: 15px;
-                    height: 15px;
-                    border-radius: 50%;
-                    visibility: hidden;
-                    transition: .2s all;
-                    //margin: 50% auto;
-                    transform: translate(-50%, -50%);
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                }
-
-                &:hover {
-                    .contenido__productos--box_hvr {
-                        background-color: rgb(0, 0, 0, 0.25);
-                        border-radius: 5px;
-                        //margin: 0;
-                        width: 100%;
-                        height: 100%;
-                        //transform: none;
-                        //top: 0;
-                        //left: 0;
-                        visibility: visible;
-                        transition: .2s all;
-                    }
-                }
             }
 
             #contenido__productos--ramosespe {
@@ -587,25 +555,14 @@
         }
 
         .contenido__otrosprods--cont {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            gap: 10px;
-            margin: 0 0 20px;
-    
-            &::-webkit-scrollbar {
-                display: none;
-            }
+            @include scroll_hrz ($scroll_horiz-mrg: 0 0 30px);
 
             .contenido__otrosprods--box {
                 flex: 0 0 auto;
                 width: 36vw;
                 height: 12vh;
-                border-radius: 5px;
-                //padding: 10px;
                 background-color: map-get($color, "gris_15");
-                position: relative;
+                @include box_hvrFX-01;
 
                 h1{
                     font-family: $fnt_01;
@@ -614,37 +571,6 @@
                     font-weight: 600;
                     line-height: 14px;
                     margin: 10px;
-                    position: absolute;
-                    z-index: 999;
-                }
-
-                .contenido__otrosprods--box_hvr {
-                    background-color: rgb(0, 0, 0, 0);
-                    width: 15px;
-                    height: 15px;
-                    border-radius: 50%;
-                    visibility: hidden;
-                    transition: .2s all;
-                    //margin: 50% auto;
-                    transform: translate(-50%, -50%);
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                }
-
-                &:hover {
-                    .contenido__otrosprods--box_hvr {
-                        background-color: rgb(0, 0, 0, 0.25);
-                        border-radius: 5px;
-                        //margin: 0;
-                        width: 100%;
-                        height: 100%;
-                        //transform: none;
-                        //top: 0;
-                        //left: 0;
-                        visibility: visible;
-                        transition: .2s all;
-                    }
                 }
 
                 &:first-child {
@@ -656,11 +582,33 @@
                 }
 
             }
-        }        
+        } 
+        
+        .contenido__promos--cont {
+            @include scroll_hrz ($scroll_horiz-mrg: 0 0 42px);
+
+            .contenido__promos--box {
+                flex: 0 0 auto;
+                width: 69vw;
+                height: 12.5vh;
+                background-color: map-get($color, "gris_03");
+                overflow: hidden;
+                border-radius: 5px;
+
+                &:first-child {
+                    margin-left: 5vw;
+                }
+
+                &:last-child{
+                    margin-right: 5vw;
+                }
+            }
+
+        }
 
     }
 
-    #pieses{
+    /*#pieses{
         width: 100%;
         min-width: 375px;
         //z-index: 11;
@@ -682,6 +630,6 @@
                 }
             }
         }
-    }
+    }*/
     
 }
