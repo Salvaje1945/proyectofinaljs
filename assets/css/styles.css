@@ -600,35 +600,35 @@ a {
   grid-area: raes;
   background-image: url(../img/categs/ramo-premium.png);
   background-repeat: no-repeat;
-  background-position: center 175%;
+  background-position: center 7vh;
   background-color: violet;
 }
 #contenedor #contenido .contenido__productos--cont #contenido__productos--ramosbasic {
   grid-area: raba;
   background-image: url(../img/categs/ramo-basico.png);
   background-repeat: no-repeat;
-  background-position: center -80%;
+  background-position: center 3vh;
   background-color: bisque;
 }
 #contenedor #contenido .contenido__productos--cont #contenido__productos--arreglos {
   grid-area: arreg;
   background-image: url(../img/categs/arreglos-florales.png);
   background-repeat: no-repeat;
-  background-position: 500% -100%;
+  background-position: 10vw 2vh;
   background-color: cornflowerblue;
 }
 #contenedor #contenido .contenido__productos--cont #contenido__productos--rosas {
   grid-area: ros;
   background-image: url(../img/categs/rosas.png);
   background-repeat: no-repeat;
-  background-position: center -60%;
+  background-position: center 3vh;
   background-color: lightpink;
 }
 #contenedor #contenido .contenido__productos--cont #contenido__productos--plantas {
   grid-area: plan;
   background-image: url(../img/categs/plantas.png);
   background-repeat: no-repeat;
-  background-position: 600% -10%;
+  background-position: 11vw 0.05vh;
   background-color: cadetblue;
 }
 #contenedor #contenido .contenido__otrosprods--cont {
