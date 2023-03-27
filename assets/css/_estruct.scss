@@ -532,29 +532,49 @@
 
             #contenido__productos--ramosespe {
                 grid-area: raes;
+                background-image: url(../img/categs/ramo-premium.png);
+                background-repeat: no-repeat;
+                background-position: center 175%;
                 background-color:violet;
+                
+
             } 
             
             #contenido__productos--ramosbasic {
                 grid-area: raba;
-                background-color: lightpink;
+                //background-color: lightpink;
+                background-image: url(../img/categs/ramo-basico.png);
+                background-repeat: no-repeat;
+                background-position: center -80%;
+                background-color:bisque;
             }
     
             #contenido__productos--arreglos {
                 grid-area: arreg;
                 //background-color:lightblue;
+                background-image: url(../img/categs/arreglos-florales.png);
+                background-repeat: no-repeat;
+                background-position: 500% -100%;
                 background-color: cornflowerblue;
             }        
             
             #contenido__productos--rosas {
                 grid-area: ros;
                 //background-color:tomato;
-                background-color:firebrick;
+                //background-color:firebrick;
+                background-image: url(../img/categs/rosas.png);
+                background-repeat: no-repeat;
+                background-position: center -60%;
+                background-color: lightpink;
             }
     
             #contenido__productos--plantas {
                 grid-area: plan;
-                background-color:darkcyan;
+                //background-color:darkcyan;
+                background-image: url(../img/categs/plantas.png);
+                background-repeat: no-repeat;
+                background-position: 600% -10%;
+                background-color:cadetblue;
             }
         }
 
@@ -585,6 +605,42 @@
                     margin-right: 5vw;
                 }
 
+            }
+
+            #contenido__otrosprods--semillas {
+                background-image: url(../img/categs/semillas.png);
+                background-repeat: no-repeat;
+                background-position: center -250%;
+            }
+
+            #contenido__otrosprods--casamientos {
+                background-image: url(../img/categs/casamientos.png);
+                background-repeat: no-repeat;
+                background-position: 100% -50%;
+            }
+
+            #contenido__otrosprods--macetas {
+                background-image: url(../img/categs/macetas.png);
+                background-repeat: no-repeat;
+                background-position: 100% 150%;
+            }
+
+            #contenido__otrosprods--velorios {
+                background-image: url(../img/categs/velorios.png);
+                background-repeat: no-repeat;
+                background-position: 150% -90%;
+            }
+
+            #contenido__otrosprods--tierras {
+                background-image: url(../img/categs/tierras.png);
+                background-repeat: no-repeat;
+                background-position: 150% -30%;
+            }
+
+            #contenido__otrosprods--ferti {
+                background-image: url(../img/categs/fertilizantes.png);
+                background-repeat: no-repeat;
+                background-position: 120% 990%;
             }
         } 
         
