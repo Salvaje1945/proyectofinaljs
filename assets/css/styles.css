@@ -29,7 +29,9 @@ html,
 
 body {
   background-color: #fff;
-  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 
 a {
@@ -628,7 +630,7 @@ a {
 #contenedor #contenido .contenido__otrosprods--cont .contenido__otrosprods--box {
   flex: 0 0 auto;
   width: 36vw;
-  height: 12vh;
+  height: 85px;
   background-color: #f3f3f5;
   border-radius: 5px;
   position: relative;
@@ -685,7 +687,7 @@ a {
 #contenedor #contenido .contenido__promos--cont .contenido__promos--box {
   flex: 0 0 auto;
   width: 69vw;
-  height: 12.5vh;
+  height: 88px;
   background-color: #666;
   overflow: hidden;
   border-radius: 5px;
@@ -787,6 +789,7 @@ a {
      object-fit: none;
   -o-object-position: 50% 50%;
      object-position: 50% 50%;
+  border-radius: 5px;
 }
 #contenedor #contenido .contenido__populares--cont .contenido__populares--box .contenido__populares--box_txt {
   height: auto;
