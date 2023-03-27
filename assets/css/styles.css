@@ -29,6 +29,7 @@ html,
 
 body {
   background-color: #fff;
+  scrollbar-width: none;
 }
 
 a {
@@ -619,7 +620,7 @@ a {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   gap: 10px;
-  margin: 0 0 30px;
+  margin: 0 0 25px;
 }
 #contenedor #contenido .contenido__otrosprods--cont::-webkit-scrollbar {
   display: none;
@@ -676,7 +677,7 @@ a {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   gap: 10px;
-  margin: 0 0 30px;
+  margin: 0 0 27px;
 }
 #contenedor #contenido .contenido__promos--cont::-webkit-scrollbar {
   display: none;
@@ -700,7 +701,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 1vh;
+  margin: 0 5vw 1.05vh;
 }
 #contenedor #contenido .contenido__comprados .contenido__comprados--cont {
   display: flex;
@@ -708,7 +709,7 @@ a {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   gap: 10px;
-  margin: 0 0 42px;
+  margin: 0 0 33px;
 }
 #contenedor #contenido .contenido__comprados .contenido__comprados--cont::-webkit-scrollbar {
   display: none;
@@ -716,10 +717,10 @@ a {
 #contenedor #contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box {
   flex: 0 0 auto;
   width: 75vw;
-  height: 9.5vh;
+  height: 67px;
   border-radius: 5px;
-  border: 1px groove #aaa;
-  padding: 3vw;
+  border: 1px solid #666;
+  padding: 11px;
 }
 #contenedor #contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont {
   display: flex;
@@ -732,7 +733,7 @@ a {
   width: 11.5vw;
   background-color: #fb5504;
   overflow: hidden;
-  height: 6vh;
+  height: 43px;
 }
 #contenedor #contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont .contenido__comprados--txt {
   width: auto;
@@ -756,6 +757,72 @@ a {
 }
 #contenedor #contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box:last-child {
   margin-right: 5vw;
+}
+#contenedor #contenido .contenido__populares--cont {
+  margin: 0 5vw;
+}
+#contenedor #contenido .contenido__populares--cont h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.05rem;
+  color: #000;
+  font-weight: 600;
+  margin: 0 0 1.05vh;
+}
+#contenedor #contenido .contenido__populares--cont .contenido__populares--box {
+  width: 100%;
+  height: 150px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  margin: 0 0 7vw;
+}
+#contenedor #contenido .contenido__populares--cont .contenido__populares--box .contenido__populares--box_img {
+  width: 100%;
+  height: 69%;
+  overflow: hidden;
+}
+#contenedor #contenido .contenido__populares--cont .contenido__populares--box .contenido__populares--box_img img {
+  width: 90vw;
+  height: auto;
+  -o-object-fit: none;
+     object-fit: none;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+}
+#contenedor #contenido .contenido__populares--cont .contenido__populares--box .contenido__populares--box_txt {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 7px 9px 0;
+}
+#contenedor #contenido .contenido__populares--cont .contenido__populares--box .contenido__populares--box_txt h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  color: #000;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 87%;
+}
+#contenedor #contenido .contenido__populares--cont .contenido__populares--box .contenido__populares--box_txt h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  color: #000;
+  font-weight: 600;
+  display: inline-block;
+  width: 13%;
+  text-align: right;
+}
+#contenedor #contenido .contenido__populares--cont .contenido__populares--box .contenido__populares--box_txt h3 span {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  color: #ffb526;
+}
+#contenedor #contenido .contenido__populares--cont .contenido__populares--box .contenido__populares--box_txt p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  color: #333;
+  display: inline-block;
+  margin-right: 5px;
 }
 
 /*@media only screen and (min-width: map-get($wth_res, "mob_03")) and (max-width: 1023px) {

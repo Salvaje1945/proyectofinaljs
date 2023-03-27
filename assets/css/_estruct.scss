@@ -555,7 +555,7 @@
         }
 
         .contenido__otrosprods--cont {
-            @include scroll_hrz ($scroll_horiz-mrg: 0 0 30px);
+            @include scroll_hrz ($scroll_horiz-mrg: 0 0 25px);
 
             .contenido__otrosprods--box {
                 flex: 0 0 auto;
@@ -585,7 +585,7 @@
         } 
         
         .contenido__promos--cont {
-            @include scroll_hrz ($scroll_horiz-mrg: 0 0 30px);
+            @include scroll_hrz ($scroll_horiz-mrg: 0 0 27px);
 
             .contenido__promos--box {
                 flex: 0 0 auto;
@@ -614,21 +614,21 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 1vh;
+                margin: 0 5vw 1.05vh;
             }
 
             .contenido__comprados--cont {
-                @include scroll_hrz ($scroll_horiz-mrg: 0 0 42px);
+                @include scroll_hrz ($scroll_horiz-mrg: 0 0 33px);
     
                 .contenido__comprados--box {
                     flex: 0 0 auto;
                     width: 75vw;
-                    height: 9.5vh;
+                    height: 67px;
                     //background-color: map-get($color, "gris_03");
                     //overflow: hidden;
                     border-radius: 5px;
-                    border: 1px groove map-get($color, "gris_04");
-                    padding: 3vw;
+                    border: 1px solid map-get($color, "gris_03");
+                    padding: 11px;
                     //align-items: flex-start;
     
                     .contenido__comprados--box_cont {
@@ -642,7 +642,7 @@
                             width: 11.5vw;
                             background-color: map-get($color, "naranja_02");
                             overflow: hidden;
-                            height: 6vh;
+                            height: 43px;
                         }
         
                         .contenido__comprados--txt {
@@ -684,6 +684,89 @@
                 }
     
             }
+        }
+
+        .contenido__populares--cont {
+            margin: 0 5vw;
+
+            h1 {
+                font-family: $fnt_01;
+                font-size: 1.05rem;
+                color: map-get($color, "negro");
+                font-weight: 600;
+                margin: 0 0 1.05vh;
+            }
+
+            .contenido__populares--box {
+                width: 100%;
+                height: 150px;
+                border-radius: 5px;
+                border: 1px solid map-get($color, "gris_02");
+                margin: 0 0 7vw;
+
+                .contenido__populares--box_img {
+                    width: 100%;
+                    //border-radius: 5px;
+                    height: 69%;
+                    overflow: hidden;
+
+                    img {
+                        width: 90vw;
+                        height: auto;
+                        //height: 125px;
+                        object-fit: none;
+                        object-position: 50% 50%;
+                        //vertical-align: middle;
+                    }
+                }
+
+                .contenido__populares--box_txt {
+                    height: auto;
+                    width: 100%;
+                    display: flex;
+                    flex-flow: row wrap;
+                    padding: 7px 9px 0;
+
+                    h2 {
+                        font-family: $fnt_01;
+                        font-size: 0.8rem;
+                        color: map-get($color, "negro");
+                        font-weight: 600;
+                        display: inline-block;
+                        min-width: 87%;
+                    }
+
+                    h3 {
+                        font-family: $fnt_01;
+                        font-size: 0.7rem;
+                        color: map-get($color, "negro");
+                        font-weight: 600;
+                        display: inline-block;
+                        width: 13%;
+                        text-align: right;
+
+
+
+                        span {
+                            font-family: $fnt_01;
+                            font-size: 0.7rem;
+                            color: map-get($color, "amarillo_01");
+                        }
+                    }
+
+                    p {
+                        font-family: $fnt_01;
+                        font-size: 0.7rem;
+                        color: map-get($color, "gris_01");
+                        display: inline-block;
+                        margin-right: 5px;
+                    }
+                }
+
+            }  
+
+
+            
         }
 
     }
