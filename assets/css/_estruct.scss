@@ -52,6 +52,30 @@
 
         // DESPLEGABLES
 
+        .cabeza__desplegables--backdrop {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 900;
+        }
+
+        .cabeza__desplegables--backdrop.activo {
+            display: block;
+            animation: bckdrp .5s forwards;
+
+            @keyframes bckdrp {
+                from {
+                    background-color: rgb(0, 0, 0, 0);
+                }
+                to {
+                    background-color: rgb(0, 0, 0, 0.5);
+                }    
+            }
+        }
+
         .cabeza__menu--cont {
             @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
             left: -100%;

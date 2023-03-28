@@ -163,6 +163,36 @@ a {
 #contenedor #cabeza .cabeza__iconos--dir.activo {
   display: block;
 }
+#contenedor #cabeza .cabeza__desplegables--backdrop {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 900;
+}
+#contenedor #cabeza .cabeza__desplegables--backdrop.activo {
+  display: block;
+  -webkit-animation: bckdrp 0.5s forwards;
+          animation: bckdrp 0.5s forwards;
+}
+@-webkit-keyframes bckdrp {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@keyframes bckdrp {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
 #contenedor #cabeza .cabeza__menu--cont {
   font-family: "Poppins", sans-serif;
   width: 100vw;
