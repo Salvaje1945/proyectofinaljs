@@ -131,7 +131,7 @@ a {
 }
 #contenedor #cabeza {
   width: 100vw;
-  background: linear-gradient(180deg, #fff 95%, #f9f5f4 5%);
+  background-color: aqua;
   height: 45px;
   position: fixed;
   border-bottom: 1px solid #dbdadf;
