@@ -1,10 +1,29 @@
-// FUNCIÓN PARA ELEMENTOS DEL DOM
-
-function $ (id) {
-    return document.querySelector(id)
+/*class Categoria {
+    constructor(id, nom, imgcab, imgmin) {
+        this.id = id
+        this.nombre = nom
+        this.imgcabecera = imgcab
+        this.imgmini = imgmin
+    }
 }
 
-// CATEGORÍAS Y PRODUCTOS
+let categsArray = []
+
+const Flores = new Categoria(01, 'Flores', 'assets/img/categs/cabecera/flores.jpg', 'assets/img/categs/mini/flores.jpg')
+
+const ArreglosF = new Categoria(02, 'Arreglos Florales', 'assets/img/categs/cabecera/arreglos-florales.jpg', 'assets/img/categs/mini/arreglos-florales.jpg')
+
+const Plantas = new Categoria(03, 'Plantas', 'assets/img/categs/cabecera/plantas.jpg', 'assets/img/categs/mini/plantas.jpg')
+
+const Insumos = new Categoria(03, 'Insumos', 'assets/img/categs/cabecera/insumos.jpg', 'assets/img/categs/mini/insumos.jpg')
+
+categsArray.push(Flores)
+
+categsArray.push(ArreglosF)
+
+categsArray.push(Plantas)
+
+categsArray.push(Insumos)*/
 
 const categorias = [
     {
@@ -43,7 +62,6 @@ const productos = [
         tipo: 'Ramos básicos',
         precio: 3000,
         vendidos: 3500,
-        puntuacion: 5,
         cabecera: 'assets/img/productos/cabecera/rosas-rosas.jpg',
         foto: 'assets/img/productos/foto/ramo-rosas-rosas.jpg'
     },
@@ -55,7 +73,6 @@ const productos = [
         tipo: 'Ramos especiales',
         precio: 6000,
         vendidos: 2400,
-        puntuacion: 4.2,
         cabecera: 'assets/img/productos/cabecera/rosas-rosas.jpg',
         foto: 'assets/img/productos/foto/ramo-rosas-rosas.jpg'
     },
@@ -67,7 +84,6 @@ const productos = [
         tipo: 'Ramos básicos',
         precio: 2500,
         vendidos: 7400,
-        puntuacion: 3.2,
         cabecera: 'assets/img/productos/cabecera/rosas-rojas.jpg',
         foto: 'assets/img/productos/foto/ramo-rosas-rojas.jpg'
     },
@@ -79,7 +95,6 @@ const productos = [
         tipo: 'Ramos especiales',
         precio: 5000,
         vendidos: 7900,
-        puntuacion: 4.6,
         cabecera: 'assets/img/productos/cabecera/rosas-rojas.jpg',
         foto: 'assets/img/productos/foto/ramo-rosas-rojas.jpg'
     },
@@ -91,7 +106,6 @@ const productos = [
         tipo: 'Ramos básicos',
         precio: 3500,
         vendidos: 2000,
-        puntuacion: 5,
         cabecera: 'assets/img/productos/cabecera/rosas-blancas.jpg',
         foto: 'assets/img/productos/foto/ramo-rosas-blancas.jpg'
     },
@@ -103,7 +117,6 @@ const productos = [
         tipo: 'Ramos especiales',
         precio: 7000,
         vendidos: 2654,
-        puntuacion: 3.2,
         cabecera: 'assets/img/productos/cabecera/rosas-blancas.jpg',
         foto: 'assets/img/productos/foto/ramo-rosas-blancas.jpg'
     },
@@ -115,7 +128,6 @@ const productos = [
         tipo: 'Ramos especiales',
         precio: 9000,
         vendidos: 1654,
-        puntuacion: 4,
         cabecera: 'assets/img/productos/cabecera/rosas-surtidas.jpg',
         foto: 'assets/img/productos/foto/ramo-rosas-surtidas.jpg'
     },
@@ -127,7 +139,6 @@ const productos = [
         tipo: 'Ramos básicos',
         precio: 2500,
         vendidos: 1600,
-        puntuacion: 4.9,
         cabecera: 'assets/img/productos/cabecera/lilium.jpg',
         foto: 'assets/img/productos/foto/ramo-lilium.jpg'
     },
@@ -139,7 +150,6 @@ const productos = [
         tipo: 'Ramos especiales',
         precio: 5000,
         vendidos: 1968,
-        puntuacion: 4.3,
         cabecera: 'assets/img/productos/cabecera/lilium.jpg',
         foto: 'assets/img/productos/foto/ramo-lilium.jpg'
     },
@@ -151,7 +161,6 @@ const productos = [
         tipo: 'Ramos básicos',
         precio: 2200,
         vendidos: 5090,
-        puntuacion: 3.9,
         cabecera: 'assets/img/productos/cabecera/fresias.jpg',
         foto: 'assets/img/productos/foto/ramo-fresias.jpg'
     },        
@@ -163,7 +172,6 @@ const productos = [
         tipo: 'Ramos especiales',
         precio: 4400,
         vendidos: 6259,
-        puntuacion: 4.7,
         cabecera: 'assets/img/productos/cabecera/fresias.jpg',
         foto: 'assets/img/productos/foto/ramo-fresias.jpg'
     },        
@@ -175,7 +183,6 @@ const productos = [
         tipo: 'Ramos básicos',
         precio: 3000,
         vendidos: 5010,
-        puntuacion: 4,
         cabecera: 'assets/img/productos/cabecera/jazmines.jpg',
         foto: 'assets/img/productos/foto/ramo-jazmines.jpg'
     },
@@ -187,7 +194,6 @@ const productos = [
         tipo: 'Ramos especiales',
         precio: 6000,
         vendidos: 6129,
-        puntuacion: 5,
         cabecera: 'assets/img/productos/cabecera/jazmines.jpg',
         foto: 'assets/img/productos/foto/ramo-jazmines.jpg'
     },
@@ -199,7 +205,6 @@ const productos = [
         tipo: 'Ramos básicos',
         precio: 2900,
         vendidos: 1010,
-        puntuacion: 4.1,
         cabecera: 'assets/img/productos/cabecera/girasoles.jpg',
         foto: 'assets/img/productos/foto/ramo-girasoles.jpg'
     },
@@ -211,7 +216,6 @@ const productos = [
         tipo: 'Ramos especiales',
         precio: 5800,
         vendidos: 2129,
-        puntuacion: 4.3,
         cabecera: 'assets/img/productos/cabecera/girasoles.jpg',
         foto: 'assets/img/productos/foto/ramo-girasoles.jpg'
     },
@@ -224,7 +228,6 @@ const productos = [
         tipo: 'Regalos',
         precio: 9800,
         vendidos: 3659,
-        puntuacion: 5,
         cabecera: 'assets/img/productos/cabecera/arreglos-regalos-canasta.jpg',
         foto: 'assets/img/productos/foto/arreglos-regalos-canasta.jpg'
     },
@@ -236,7 +239,6 @@ const productos = [
         tipo: 'Regalos',
         precio: 19000,
         vendidos: 4695,
-        puntuacion: 5,
         cabecera: 'assets/img/productos/cabecera/arreglos-regalos-cumple.jpg',
         foto: 'assets/img/productos/foto/arreglos-regalos-cumple.jpg'
     },
@@ -248,7 +250,6 @@ const productos = [
         tipo: 'Regalos',
         precio: 21000,
         vendidos: 6854,
-        puntuacion: 4.5,
         cabecera: 'assets/img/productos/cabecera/arreglos-regalos-sanvalentin.jpg',
         foto: 'assets/img/productos/foto/arreglos-regalos-sanvalentin.jpg'
     },
@@ -260,7 +261,6 @@ const productos = [
         tipo: 'Casamientos',
         precio: 7000,
         vendidos: 10854,
-        puntuacion: 3.2,
         cabecera: 'assets/img/productos/cabecera/arreglos-casamiento-centromesa.jpg',
         foto: 'assets/img/productos/foto/arreglos-casamiento-centromesa.jpg'
     },
@@ -272,7 +272,6 @@ const productos = [
         tipo: 'Casamientos',
         precio: 25000,
         vendidos: 4598,
-        puntuacion: 4.8,
         cabecera: 'assets/img/productos/cabecera/arreglos-casamiento-ramonovia.jpg',
         foto: 'assets/img/productos/foto/arreglos-casamiento-ramonovia.jpg'
     },
@@ -284,7 +283,6 @@ const productos = [
         tipo: 'Casamientos',
         precio: 95000,
         vendidos: 598,
-        puntuacion: 4.4,
         cabecera: 'assets/img/productos/cabecera/arreglos-casamiento-altar.jpg',
         foto: 'assets/img/productos/foto/arreglos-casamiento-altar.jpg'
     },
@@ -296,7 +294,6 @@ const productos = [
         tipo: 'Velorios',
         precio: 15000,
         vendidos: 1548,
-        puntuacion: 3.7,
         cabecera: 'assets/img/productos/cabecera/arreglos-velorios-cubrecajon.jpg',
         foto: 'assets/img/productos/foto/arreglos-velorios-cubrecajon.jpg'
     },
@@ -308,7 +305,6 @@ const productos = [
         tipo: 'Velorios',
         precio: 9000,
         vendidos: 2659,
-        puntuacion: 4.6,
         cabecera: 'assets/img/productos/cabecera/arreglos-velorios-corona.jpg',
         foto: 'assets/img/productos/foto/arreglos-velorios-corona.jpg'
     },
@@ -320,7 +316,6 @@ const productos = [
         tipo: 'Velorios',
         precio: 12000,
         vendidos: 4659,
-        puntuacion: 4.9,
         cabecera: 'assets/img/productos/cabecera/arreglos-velorios-cruz.jpg',
         foto: 'assets/img/productos/foto/arreglos-velorios-cruz.jpg'
     },
@@ -333,7 +328,6 @@ const productos = [
         tipo: 'Interior',
         precio: 5300,
         vendidos: 3256,
-        puntuacion: 5,
         cabecera: 'assets/img/productos/cabecera/plantas-interior.jpg',
         foto: 'assets/img/productos/foto/plantas-interior-ficus.jpg'
     },
@@ -345,7 +339,6 @@ const productos = [
         tipo: 'Interior',
         precio: 3000,
         vendidos: 2568,
-        puntuacion: 5,
         cabecera: 'assets/img/productos/cabecera/plantas-interior.jpg',
         foto: 'assets/img/productos/foto/plantas-interior-pothus.jpg'
     },
@@ -357,7 +350,6 @@ const productos = [
         tipo: 'Interior',
         precio: 3500,
         vendidos: 4568,
-        puntuacion: 4.9,
         cabecera: 'assets/img/productos/cabecera/plantas-interior.jpg',
         foto: 'assets/img/productos/foto/plantas-interior-estrella.jpg'
     },
@@ -369,7 +361,6 @@ const productos = [
         tipo: 'Exterior',
         precio: 1600,
         vendidos: 2568,
-        puntuacion: 4.8,
         cabecera: 'assets/img/productos/cabecera/plantas-exterior.jpg',
         foto: 'assets/img/productos/foto/plantas-exterior-aloe.jpg'
     },
@@ -381,7 +372,6 @@ const productos = [
         tipo: 'Exterior',
         precio: 3700,
         vendidos: 3589,
-        puntuacion: 4.5,
         cabecera: 'assets/img/productos/cabecera/plantas-exterior.jpg',
         foto: 'assets/img/productos/foto/plantas-exterior-azalea.jpg'
     },
@@ -393,7 +383,6 @@ const productos = [
         tipo: 'Exterior',
         precio: 3000,
         vendidos: 2541,
-        puntuacion: 3.7,
         cabecera: 'assets/img/productos/cabecera/plantas-exterior.jpg',
         foto: 'assets/img/productos/foto/plantas-exterior-jazminchino.jpg'
     },
@@ -405,7 +394,6 @@ const productos = [
         tipo: 'Cactus',
         precio: 980,
         vendidos: 256,
-        puntuacion: 4.6,
         cabecera: 'assets/img/productos/cabecera/plantas-cactus.jpg',
         foto: 'assets/img/productos/foto/plantas-cactus-cerebro.jpg'
     },
@@ -417,7 +405,6 @@ const productos = [
         tipo: 'Cactus',
         precio: 890,
         vendidos: 125,
-        puntuacion: 4.7,
         cabecera: 'assets/img/productos/cabecera/plantas-cactus.jpg',
         foto: 'assets/img/productos/foto/plantas-cactus-estapelia.jpg'
     },
@@ -429,7 +416,6 @@ const productos = [
         tipo: 'Cactus',
         precio: 6800,
         vendidos: 985,
-        puntuacion: 4.5,
         cabecera: 'assets/img/productos/cabecera/plantas-cactus.jpg',
         foto: 'assets/img/productos/foto/plantas-cactus-grusonii.jpg'
     },
@@ -442,7 +428,6 @@ const productos = [
         tipo: 'Semillas',
         precio: 300,
         vendidos: 3985,
-        puntuacion: 4.1,
         cabecera: 'assets/img/productos/cabecera/insumos-semillas.jpg',
         foto: 'assets/img/productos/foto/insumos-semillas-as.jpg'
     },
@@ -454,7 +439,6 @@ const productos = [
         tipo: 'Semillas',
         precio: 700,
         vendidos: 2546,
-        puntuacion: 4.3,
         cabecera: 'assets/img/productos/cabecera/insumos-semillas.jpg',
         foto: 'assets/img/productos/foto/insumos-semillas-letho.jpg'
     },
@@ -466,7 +450,6 @@ const productos = [
         tipo: 'Macetas',
         precio: 760,
         vendidos: 3598,
-        puntuacion: 4.9,
         cabecera: 'assets/img/productos/cabecera/insumos-macetas.jpg',
         foto: 'assets/img/productos/foto/insumos-macetas-blumcilindro.jpg'
     },
@@ -478,7 +461,6 @@ const productos = [
         tipo: 'Macetas',
         precio: 320,
         vendidos: 5685,
-        puntuacion: 4.5,
         cabecera: 'assets/img/productos/cabecera/insumos-macetas.jpg',
         foto: 'assets/img/productos/foto/insumos-macetas-blumcomun.jpg'
     },
@@ -490,7 +472,6 @@ const productos = [
         tipo: 'Macetas',
         precio: 600,
         vendidos: 2354,
-        puntuacion: 4.4,
         cabecera: 'assets/img/productos/cabecera/insumos-macetas.jpg',
         foto: 'assets/img/productos/foto/insumos-macetas-taparis.jpg'
     },
@@ -502,7 +483,6 @@ const productos = [
         tipo: 'Tierras',
         precio: 850,
         vendidos: 1265,
-        puntuacion: 3,
         cabecera: 'assets/img/productos/cabecera/insumos-tierras.jpg',
         foto: 'assets/img/productos/foto/insumos-tierras-abonada.jpg'
     },
@@ -514,7 +494,6 @@ const productos = [
         tipo: 'Tierras',
         precio: 350,
         vendidos: 2546,
-        puntuacion: 4.9,
         cabecera: 'assets/img/productos/cabecera/insumos-tierras.jpg',
         foto: 'assets/img/productos/foto/insumos-tierras-compostneutro.jpg'
     },
@@ -526,7 +505,6 @@ const productos = [
         tipo: 'Tierras',
         precio: 450,
         vendidos: 3254,
-        puntuacion: 4.5,
         cabecera: 'assets/img/productos/cabecera/insumos-tierras.jpg',
         foto: 'assets/img/productos/foto/insumos-tierras-humus.jpg'
     },
@@ -538,7 +516,6 @@ const productos = [
         tipo: 'Fertilizantes',
         precio: 1150,
         vendidos: 1256,
-        puntuacion: 4.4,
         cabecera: 'assets/img/productos/cabecera/insumos-fertilizantes.jpg',
         foto: 'assets/img/productos/foto/insumos-fertilizantes-floracion.jpg'
     },
@@ -550,7 +527,6 @@ const productos = [
         tipo: 'Fertilizantes',
         precio: 1150,
         vendidos: 1216,
-        puntuacion: 2,
         cabecera: 'assets/img/productos/cabecera/insumos-fertilizantes.jpg',
         foto: 'assets/img/productos/foto/insumos-fertilizantes-follaje.jpg'
     },
@@ -562,11 +538,8 @@ const productos = [
         tipo: 'Fertilizantes',
         precio: 1150,
         vendidos: 1758,
-        puntuacion: 2.1,
         cabecera: 'assets/img/productos/cabecera/insumos-fertilizantes.jpg',
         foto: 'assets/img/productos/foto/insumos-fertilizantes-potenciado.jpg'
     }
 ]
 
-
-    

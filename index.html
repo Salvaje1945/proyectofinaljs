@@ -12,411 +12,325 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <div id="contenedor">
-        <header id="cabeza">
-            <!-- DESPLEGABLES -->
-            <div id="cabeza__menu" class="cabeza__menu--cont">
-                <div class="cabeza__menu--cont_box">
-                    <nav>
-                        <div class="cabeza__menu--user">
-                            <img src="assets/img/users/user00/prof_pic.jpg">
-                            <h1>Juan Carlos Cliente</h1>
+    <div id="secciones">
+        <div id="inicio">
+            <header id="cabeza">
+                <!-- DESPLEGABLES -->
+                <div id="cabeza__menu" class="cabeza__menu--cont">
+                    <div class="cabeza__menu--cont_box">
+                        <nav>
+                            <div class="cabeza__menu--user">
+                                <img src="assets/img/users/user00/prof_pic.jpg">
+                                <h1>Juan Carlos Cliente</h1>
+                            </div>
+                            <ul>
+                                <li>
+                                    <div>
+                                        <span>
+                                            <i class="fa-solid fa-house"></i>
+                                        </span>
+                                        <a href="#">Inicio</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <span>
+                                            <i class="fa-solid fa-location-dot"></i>
+                                        </span>
+                                        <a href="#">Mis direcciones</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <span>
+                                            <i class="fa-solid fa-receipt"></i>
+                                        </span>
+                                        <a href="#">Mis pedidos</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <span>
+                                            <i class="fa-solid fa-heart"></i>
+                                        </span>
+                                        <a href="#">Mis favoritos</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <span>
+                                            <i class="fa-solid fa-ticket"></i>
+                                        </span>
+                                        <a href="#">Mis cupones</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <span>
+                                            <i class="fa-solid fa-wallet"></i>
+                                        </span>
+                                        <a href="#">Mi billetera</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <span>
+                                            <i class="fa-solid fa-user"></i>
+                                        </span>
+                                        <a href="#">Mi perfil</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <span>
+                                            <i class="fa-solid fa-headphones-simple"></i>
+                                        </span>
+                                        <a href="#">Ayuda en línea</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <span>
+                                            <i class="fa-solid fa-scale-balanced"></i>
+                                        </span>
+                                        <a href="#">Información legal</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="cabeza__menu--cont_box-crr" id="cabeza__menu--crr"></div>
+                </div>
+                <div id="cabeza__dir" class="cabeza__dir--cont">
+                    <div class="cabeza__dir--cont_box-cerr" id="cabeza__dir--crr"></div>
+                    <div class="cabeza__dir--cont_box">
+                        <nav>
+                            <h1>¿Dónde te encontrás?</h1>
+                            <ul>
+                                <li>
+                                    <div>
+                                        <span>
+                                            <i class="fa-solid fa-plus"></i>
+                                        </span>
+                                        <a href="#">Nueva dirección</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>    
+                                        <div class="cabeza__dir-ico">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                        </div>
+                                        <div>
+                                            <h2>Calle falsa 123</h2>
+                                            <p>9B</p>
+                                        </div>
+                                        <div class="cabeza__dir-chk">
+                                            <i class="fa-solid fa-check"></i>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>    
+                                        <div class="cabeza__dir-ico">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                        </div>
+                                        <div>
+                                            <h2>Calle trucha 777</h2>
+                                            <p>6C</p>
+                                        </div>
+                                    </div> 
+                                </li>
+                                <li>
+                                    <div>    
+                                        <div class="cabeza__dir-ico">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                        </div>
+                                        <div>
+                                            <h2>Av. Pte. Maradona 1986</h2>
+                                            <p>Timbre 2</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>    
+                                        <div class="cabeza__dir-ico">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                        </div>
+                                        <div>
+                                            <h2>Pasaje Don Satur 138</h2>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div id="desplegable__backdrop" class="cabeza__desplegables--backdrop"></div>
+                <div class="cabeza__anun--cont" id="cabeza__anun">
+                    <div class="cabeza__anun--cont_cbz">
+                        <div class="cabeza__iconos cerrar" id="cabeza__anun--cer">
+                            <i class="fa-solid fa-xmark"></i>
                         </div>
-                        <ul>
-                            <li>
-                                <div>
-                                    <span>
-                                        <i class="fa-solid fa-house"></i>
-                                    </span>
-                                    <a href="#">Inicio</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <span>
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </span>
-                                    <a href="#">Mis direcciones</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <span>
-                                        <i class="fa-solid fa-receipt"></i>
-                                    </span>
-                                    <a href="#">Mis pedidos</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <span>
-                                        <i class="fa-solid fa-heart"></i>
-                                    </span>
-                                    <a href="#">Mis favoritos</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <span>
-                                        <i class="fa-solid fa-ticket"></i>
-                                    </span>
-                                    <a href="#">Mis cupones</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <span>
-                                        <i class="fa-solid fa-wallet"></i>
-                                    </span>
-                                    <a href="#">Mi billetera</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <span>
-                                        <i class="fa-solid fa-user"></i>
-                                    </span>
-                                    <a href="#">Mi perfil</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <span>
-                                        <i class="fa-solid fa-headphones-simple"></i>
-                                    </span>
-                                    <a href="#">Ayuda en línea</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <span>
-                                        <i class="fa-solid fa-scale-balanced"></i>
-                                    </span>
-                                    <a href="#">Información legal</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="cabeza__menu--cont_box-crr" id="cabeza__menu--crr"></div>
-            </div>
-            <div id="cabeza__dir" class="cabeza__dir--cont">
-                <div class="cabeza__dir--cont_box-cerr" id="cabeza__dir--crr"></div>
-                <div class="cabeza__dir--cont_box">
-                    <nav>
-                        <h1>¿Dónde te encontrás?</h1>
-                        <ul>
-                            <li>
-                                <div>
-                                    <span>
-                                        <i class="fa-solid fa-plus"></i>
-                                    </span>
-                                    <a href="#">Nueva dirección</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>    
-                                    <div class="cabeza__dir-ico">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </div>
-                                    <div>
-                                        <h2>Calle falsa 123</h2>
-                                        <p>9B</p>
-                                    </div>
-                                    <div class="cabeza__dir-chk">
-                                        <i class="fa-solid fa-check"></i>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>    
-                                    <div class="cabeza__dir-ico">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </div>
-                                    <div>
-                                        <h2>Calle trucha 777</h2>
-                                        <p>6C</p>
-                                    </div>
-                                </div> 
-                            </li>
-                            <li>
-                                <div>    
-                                    <div class="cabeza__dir-ico">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </div>
-                                    <div>
-                                        <h2>Av. Pte. Maradona 1986</h2>
-                                        <p>Timbre 2</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>    
-                                    <div class="cabeza__dir-ico">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </div>
-                                    <div>
-                                        <h2>Pasaje Don Satur 138</h2>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div id="desplegable__backdrop" class="cabeza__desplegables--backdrop"></div>
-            <div class="cabeza__anun--cont" id="cabeza__anun">
-                <div class="cabeza__anun--cont_cbz">
-                    <div class="cabeza__iconos cerrar" id="cabeza__anun--cer">
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-                    <div class="cabeza__anun--cont_cbz-menu">
-                        <div class="cabeza__anun--cont_cbz-btn" id="cabeza__anun--nove">Novedades</div>
-                        <div class="cabeza__anun--cont_cbz-btn" id="cabeza__anun--prom">Promociones</div>
-                    </div>
-                    <div class="cabeza__anun--cont_bdr">
-                        <div class="cabeza__anun--cont_bdr-anim novedades" id="cabeza__anun--btn_anim"></div>
-                    </div>
-                </div>
-                <div class="cabeza__anun--cont_info activo" id="cabeza__anun--nove_info">
-                    <div class="cabeza__anun--cont_info-cont">
-                        <a href="#">
-                            <div class="cabeza__anun--cont_info-cont_box">
-                                <h1>¡Llegaron las variedades de otoño!</h1>
-                                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est officia consectetur sit ea, blanditiis molestiae.</h2>
-                                <p>Ver Ya <span><i class="fa-solid fa-chevron-right"></i></span></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="cabeza__anun--cont_info" id="cabeza__anun--prom_info">
-                    <div class="cabeza__anun--cont_info-cont">
-                        <a href="#">
-                            <div class="cabeza__anun--cont_info-cont_box">
-                                <h1>¡Súper liquidación de temporada!</h1>
-                                <h2>¡Hasta un 60% OFF en ramos medianos y grandes, arreglos florales y plantas de verano!</h2>
-                                <p>Pedir Ya <span><i class="fa-solid fa-chevron-right"></i></span></p>
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="cabeza__anun--cont_info-cont_box">
-                                <h1>¡El amor se siente en el aire!</h1>
-                                <h2>¡Mirá las súper promociones que preparamos para el 14 de febrero! ¡Hasta 10% OFF en ramos especiales y envío gratis en CABA!</h2>
-                                <p>Pedir Ya <span><i class="fa-solid fa-chevron-right"></i></span></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- BOTONES -->
-            <div class="cabeza__contenido--menu">
-                <div class="cabeza__iconos" id="cabeza__menu--btn">
-                    <i class="fa-solid fa-bars"></i>
-                </div>
-            </div>
-            <div class="cabeza__contenido--dir" id="cabeza__dir--btn">
-                <div class="cabeza__dir--txt">Acá va el enlace a la dir.</div>
-                <div class="cabeza__iconos--dir activo" id="cabeza__dir--cerrado">
-                    <i class="fa-solid fa-angle-down"></i>
-                </div>
-                <div class="cabeza__iconos--dir" id="cabeza__dir--abierto">
-                    <i class="fa-solid fa-angle-up"></i>
-                </div>
-            </div>
-            <div class="cabeza__contenido--anun">
-                <div class="cabeza__iconos fino" id="cabeza__anun--btn">
-                    <i class="fa-solid fa-bullhorn"></i>
-                </div>
-            </div>
-        </header>
-        <main id="contenido">
-            <div class="contenido__buscador--cont">
-                <form id="contenido__buscador">
-                    <div class="contenido__buscador--grupoipt">
-                        <input type="text" class="contenido__buscador--campo" id="contenido__buscador--txt" placeholder="Buscar productos">
-                        <button type="submit" class="contenido__buscador--boton" id="contenido__buscador--btn"><i class="fa-solid fa-magnifying-glass fa-rotate-90"></i></button>
-                    </div>
-                </form>
-            </div>
-            <div class="contenido__productos--cont">
-                <div class="contenido__productos--box" id="contenido__productos--ramosespe">
-                    <h1>Ramos Especiales</h1>
-                    <div class="box_hvr"></div>
-                </div>
-                <div class="contenido__productos--box" id="contenido__productos--ramosbasic">
-                    <h1>Ramos básicos</h1>
-                    <div class="box_hvr"></div>
-                </div>
-                <div class="contenido__productos--box" id="contenido__productos--arreglos">
-                    <h1>Arreglos florales</h1>
-                    <div class="box_hvr"></div>
-                </div>
-                <div class="contenido__productos--box" id="contenido__productos--rosas">
-                    <h1>Rosas</h1>
-                    <div class="box_hvr"></div>
-                </div>
-                <div class="contenido__productos--box" id="contenido__productos--plantas">
-                    <h1>Plantas</h1>
-                    <div class="box_hvr"></div>
-                </div>
-            </div>
-            <div class="contenido__otrosprods--cont">
-                <div class="contenido__otrosprods--box" id="contenido__otrosprods--semillas">
-                    <h1>Semillas</h1>
-                    <div class="box_hvr"></div>
-                </div>
-                <div class="contenido__otrosprods--box" id="contenido__otrosprods--casamientos">
-                    <h1>Casamientos</h1>
-                    <div class="box_hvr"></div>
-                </div>
-                <div class="contenido__otrosprods--box" id="contenido__otrosprods--macetas">
-                    <h1>Macetas</h1>
-                    <div class="box_hvr"></div>
-                </div>
-                <div class="contenido__otrosprods--box" id="contenido__otrosprods--velorios">
-                    <h1>Velorios</h1>
-                    <div class="box_hvr"></div>
-                </div>
-                <div class="contenido__otrosprods--box" id="contenido__otrosprods--tierras">
-                    <h1>Tierras</h1>
-                    <div class="box_hvr"></div>
-                </div>
-                <div class="contenido__otrosprods--box" id="contenido__otrosprods--ferti">
-                    <h1>Fertilizantes</h1>
-                    <div class="box_hvr"></div>
-                </div>
-            </div>
-            <div class="contenido__promos--cont">
-                <div class="contenido__promos--box" id="contenido__promos--prom01"></div>
-                <div class="contenido__promos--box" id="contenido__promos--prom02"></div>
-                <div class="contenido__promos--box" id="contenido__promos--prom03"></div>
-                <div class="contenido__promos--box" id="contenido__promos--prom04"></div>
-                <div class="contenido__promos--box" id="contenido__promos--prom05"></div>
-            </div>
-            <div class="contenido__comprados" id="contenido__comprados--glob">
-                <h1>Volvé a pedir</h1>
-                <div class="contenido__comprados--cont">
-                    <div class="contenido__comprados--box" id="contenido__comprados--01">
-                        <div class="contenido__comprados--box_cont">
-                            <div class="contenido__comprados--img"></div>
-                            <div class="contenido__comprados--txt">
-                                <h2>Nombre del producto</h2>
-                                <p>Fecha de compra</p>
-                            </div>
+                        <div class="cabeza__anun--cont_cbz-menu">
+                            <div class="cabeza__anun--cont_cbz-btn" id="cabeza__anun--nove">Novedades</div>
+                            <div class="cabeza__anun--cont_cbz-btn" id="cabeza__anun--prom">Promociones</div>
+                        </div>
+                        <div class="cabeza__anun--cont_bdr">
+                            <div class="cabeza__anun--cont_bdr-anim novedades" id="cabeza__anun--btn_anim"></div>
                         </div>
                     </div>
-                    <div class="contenido__comprados--box" id="contenido__comprados--02">
-                        <div class="contenido__comprados--box_cont">
-                            <div class="contenido__comprados--img"></div>
-                            <div class="contenido__comprados--txt">
-                                <h2>Nombre del producto</h2>
-                                <p>Fecha de compra</p>
-                            </div>
+                    <div class="cabeza__anun--cont_info activo" id="cabeza__anun--nove_info">
+                        <div class="cabeza__anun--cont_info-cont">
+                            <a href="#">
+                                <div class="cabeza__anun--cont_info-cont_box">
+                                    <h1>¡Llegaron las variedades de otoño!</h1>
+                                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est officia consectetur sit ea, blanditiis molestiae.</h2>
+                                    <p>Ver Ya <span><i class="fa-solid fa-chevron-right"></i></span></p>
+                                </div>
+                            </a>
                         </div>
                     </div>
-                    <div class="contenido__comprados--box" id="contenido__comprados--03">
-                        <div class="contenido__comprados--box_cont">
-                            <div class="contenido__comprados--img"></div>
-                            <div class="contenido__comprados--txt">
-                                <h2>Nombre del producto</h2>
-                                <p>Fecha de compra</p>
-                            </div>
+                    <div class="cabeza__anun--cont_info" id="cabeza__anun--prom_info">
+                        <div class="cabeza__anun--cont_info-cont">
+                            <a href="#">
+                                <div class="cabeza__anun--cont_info-cont_box">
+                                    <h1>¡Súper liquidación de temporada!</h1>
+                                    <h2>¡Hasta un 60% OFF en ramos medianos y grandes, arreglos florales y plantas de verano!</h2>
+                                    <p>Pedir Ya <span><i class="fa-solid fa-chevron-right"></i></span></p>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="cabeza__anun--cont_info-cont_box">
+                                    <h1>¡El amor se siente en el aire!</h1>
+                                    <h2>¡Mirá las súper promociones que preparamos para el 14 de febrero! ¡Hasta 10% OFF en ramos especiales y envío gratis en CABA!</h2>
+                                    <p>Pedir Ya <span><i class="fa-solid fa-chevron-right"></i></span></p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="contenido__populares--cont" id="contenido-populares">
-                <h1>Productos populares</h1>
-                <div class="contenido__populares--box" id="contenido__populares--prod01">
-                    <div class="contenido__populares--box_img">
-                        <img src="assets/img/productos/img/prod-001.jpg">
-                    </div>
-                    <div class="contenido__populares--box_txt">
-                        <h2>Nombre del producto</h2>
-                        <h3><span><i class="fa-solid fa-star"></i></span>4.5</h3>
-                        <p>Precio</p>
-                        <p>Envío $200</p>
+                <!-- BOTONES -->
+                <div class="cabeza__contenido--menu">
+                    <div class="cabeza__iconos" id="cabeza__menu--btn">
+                        <i class="fa-solid fa-bars"></i>
                     </div>
                 </div>
-                <div class="contenido__populares--box" id="contenido__populares--prod02">
-                    <div class="contenido__populares--box_img">
-                        <img src="assets/img/productos/img/prod-002.jpg">
+                <div class="cabeza__contenido--dir" id="cabeza__dir--btn">
+                    <div class="cabeza__dir--txt">Acá va el enlace a la dir.</div>
+                    <div class="cabeza__iconos--dir activo" id="cabeza__dir--cerrado">
+                        <i class="fa-solid fa-angle-down"></i>
                     </div>
-                    <div class="contenido__populares--box_txt">
-                        <h2>Nombre del producto</h2>
-                        <h3><span><i class="fa-solid fa-star"></i></span>4.5</h3>
-                        <p>Precio</p>
-                        <p>Envío $200</p>
+                    <div class="cabeza__iconos--dir" id="cabeza__dir--abierto">
+                        <i class="fa-solid fa-angle-up"></i>
                     </div>
                 </div>
-                <div class="contenido__populares--box" id="contenido__populares--prod03">
-                    <div class="contenido__populares--box_img">
-                        <img src="assets/img/productos/img/prod-003.jpg">
-                    </div>
-                    <div class="contenido__populares--box_txt">
-                        <h2>Nombre del producto</h2>
-                        <h3><span><i class="fa-solid fa-star"></i></span>4.5</h3>
-                        <p>Precio</p>
-                        <p>Envío $200</p>
+                <div class="cabeza__contenido--anun">
+                    <div class="cabeza__iconos fino" id="cabeza__anun--btn">
+                        <i class="fa-solid fa-bullhorn"></i>
                     </div>
                 </div>
-                <div class="contenido__populares--box" id="contenido__populares--prod04">
-                    <div class="contenido__populares--box_img">
-                        <img src="assets/img/productos/img/prod-004.jpg">
+            </header>
+            <main id="contenido">
+                <div class="contenido__buscador--cont">
+                    <form id="contenido__buscador">
+                        <div class="contenido__buscador--grupoipt">
+                            <input type="text" class="contenido__buscador--campo" id="contenido__buscador--txt" placeholder="Buscar productos">
+                            <button type="submit" class="contenido__buscador--boton" id="contenido__buscador--btn"><i class="fa-solid fa-magnifying-glass fa-rotate-90"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="contenido__productos--cont">
+                    <div class="contenido__productos--box" id="contenido__productos--ramosespe">
+                        <h1>Ramos Especiales</h1>
+                        <div class="box_hvr"></div>
                     </div>
-                    <div class="contenido__populares--box_txt">
-                        <h2>Nombre del producto</h2>
-                        <h3><span><i class="fa-solid fa-star"></i></span>4.5</h3>
-                        <p>Precio</p>
-                        <p>Envío $200</p>
+                    <div class="contenido__productos--box" id="contenido__productos--ramosbasic">
+                        <h1>Ramos básicos</h1>
+                        <div class="box_hvr"></div>
+                    </div>
+                    <div class="contenido__productos--box" id="contenido__productos--arreglos">
+                        <h1>Arreglos florales</h1>
+                        <div class="box_hvr"></div>
+                    </div>
+                    <div class="contenido__productos--box" id="contenido__productos--rosas">
+                        <h1>Rosas</h1>
+                        <div class="box_hvr"></div>
+                    </div>
+                    <div class="contenido__productos--box" id="contenido__productos--plantas">
+                        <h1>Plantas</h1>
+                        <div class="box_hvr"></div>
                     </div>
                 </div>
-                <div class="contenido__populares--box" id="contenido__populares--prod05">
-                    <div class="contenido__populares--box_img">
-                        <img src="assets/img/productos/img/prod-005.jpg">
+                <div class="contenido__otrosprods--cont">
+                    <div class="contenido__otrosprods--box" id="contenido__otrosprods--semillas">
+                        <h1>Semillas</h1>
+                        <div class="box_hvr"></div>
                     </div>
-                    <div class="contenido__populares--box_txt">
-                        <h2>Nombre del producto</h2>
-                        <h3><span><i class="fa-solid fa-star"></i></span>4.5</h3>
-                        <p>Precio</p>
-                        <p>Envío $200</p>
+                    <div class="contenido__otrosprods--box" id="contenido__otrosprods--casamientos">
+                        <h1>Casamientos</h1>
+                        <div class="box_hvr"></div>
                     </div>
-                </div>
-                <div class="contenido__populares--box" id="contenido__populares--prod06">
-                    <div class="contenido__populares--box_img">
-                        <img src="assets/img/productos/img/prod-006.jpg">
+                    <div class="contenido__otrosprods--box" id="contenido__otrosprods--macetas">
+                        <h1>Macetas</h1>
+                        <div class="box_hvr"></div>
                     </div>
-                    <div class="contenido__populares--box_txt">
-                        <h2>Nombre del producto</h2>
-                        <h3>
-                            <span>
-                                <i class="fa-solid fa-star"></i>
-                            </span>
-                            4.5
-                        </h3>
-                        <p>Precio</p>
-                        <p>Envío $200</p>
+                    <div class="contenido__otrosprods--box" id="contenido__otrosprods--velorios">
+                        <h1>Velorios</h1>
+                        <div class="box_hvr"></div>
                     </div>
-                </div>
-                <div class="contenido__populares--box" id="contenido__populares--prod07">
-                    <div class="contenido__populares--box_img">
-                        <img src="assets/img/productos/img/prod-007.jpg">
+                    <div class="contenido__otrosprods--box" id="contenido__otrosprods--tierras">
+                        <h1>Tierras</h1>
+                        <div class="box_hvr"></div>
                     </div>
-                    <div class="contenido__populares--box_txt">
-                        <h2>Nombre del producto</h2>
-                        <h3>
-                            <span>
-                                <i class="fa-solid fa-star"></i>
-                            </span>
-                            4.5
-                        </h3>
-                        <p>Precio</p>
-                        <p>Envío $200</p>
+                    <div class="contenido__otrosprods--box" id="contenido__otrosprods--ferti">
+                        <h1>Fertilizantes</h1>
+                        <div class="box_hvr"></div>
                     </div>
                 </div>
-            </div>
-        </main>
-        <footer id="pieses"></footer>
+                <div class="contenido__promos--cont">
+                    <div class="contenido__promos--box" id="contenido__promos--prom01"></div>
+                    <div class="contenido__promos--box" id="contenido__promos--prom02"></div>
+                    <div class="contenido__promos--box" id="contenido__promos--prom03"></div>
+                    <div class="contenido__promos--box" id="contenido__promos--prom04"></div>
+                    <div class="contenido__promos--box" id="contenido__promos--prom05"></div>
+                </div>
+                <div class="contenido__comprados" id="contenido__comprados--glob">
+                    <h1>Volvé a pedir</h1>
+                    <div class="contenido__comprados--cont">
+                        <div class="contenido__comprados--box" id="contenido__comprados--01">
+                            <div class="contenido__comprados--box_cont">
+                                <div class="contenido__comprados--img"></div>
+                                <div class="contenido__comprados--txt">
+                                    <h2>Nombre del producto</h2>
+                                    <p>Fecha de compra</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contenido__comprados--box" id="contenido__comprados--02">
+                            <div class="contenido__comprados--box_cont">
+                                <div class="contenido__comprados--img"></div>
+                                <div class="contenido__comprados--txt">
+                                    <h2>Nombre del producto</h2>
+                                    <p>Fecha de compra</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contenido__comprados--box" id="contenido__comprados--03">
+                            <div class="contenido__comprados--box_cont">
+                                <div class="contenido__comprados--img"></div>
+                                <div class="contenido__comprados--txt">
+                                    <h2>Nombre del producto</h2>
+                                    <p>Fecha de compra</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contenido__populares--cont" id="contenido-populares">
+                    <h1>Productos populares</h1>
+                </div>
+            </main>
+        </div>
     </div>
     <script src="assets/js/milibreria.js"></script>
     <script src="assets/js/menu.js"></script>

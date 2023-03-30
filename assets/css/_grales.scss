@@ -41,15 +41,14 @@ a {
     text-decoration: none;
 }
 
-#contenedor {
+#inicio {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(2, auto);
     grid-template-areas:
 
         "cabeza"
         "contenido"
-        "pieses"
 
     ;
 
@@ -59,9 +58,5 @@ a {
 
     #contenido {
         grid-area: contenido;
-    }
-
-    #pieses {
-        grid-area: pieses;
     }
 }
