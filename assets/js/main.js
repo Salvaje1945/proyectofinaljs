@@ -1,4 +1,7 @@
 if($('#inicio')){
+
+// MOSTRAR LOS MÁS VENDIDOS
+
     function mostrarMasVendIdx() {
 
         function masVendidosIndex(productos) {
@@ -7,7 +10,7 @@ if($('#inicio')){
         }
     
         const indexMasVendidos = masVendidosIndex(productos)
-        console.log(indexMasVendidos)
+        //console.log(indexMasVendidos)
         for (const masPopular of indexMasVendidos) {
             elProd = document.createElement('div')
             elProd.id = `contenido__populares--prod${masPopular.id}`
@@ -30,7 +33,7 @@ if($('#inicio')){
     
     mostrarMasVendIdx()
 }
-
+/*
 if($('#flores')){
 
     function mostrarMasVendFlor() {
@@ -100,5 +103,5 @@ if($('#flores')){
 
     mostrarProdsTodos()
 }
-
+*/
 

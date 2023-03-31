@@ -95,15 +95,15 @@
                     margin-bottom: 5px;
 
                     img {
-                        width: 150px;
-                        height: 150px;
+                        width: 125px;
+                        height: 125px;
                         border-radius: 50%;
                         margin: 0 auto;
                     }
 
                     h1 {
                         font-family: $fnt_01;
-                        font-size: 1.5rem;
+                        font-size: 1.25rem;
                         font-weight: 600;
                         color: map-get($color, "negro");
                         
@@ -120,14 +120,10 @@
                         //padding: 15px 5px;
                         font-size: 1rem;
                         display: block;
-                        min-height: 35px;
-
-                        &:hover {
-                            background-color: map-get($color, "gris_04");
-                        }
+                        //min-height: 25px;
 
                         div {
-                            padding: 9px 20px;
+                            padding: 7px 20px;
                             display: flex;
                             flex-flow: row nowrap;
                             align-items: center;
@@ -156,14 +152,14 @@
                                 //padding: 15px 5px;
                                 font-size: 0.85rem;
                                 display: block;
-                                min-height: 30px;
+                                //min-height: 21px;
         
                                 &:hover {
                                     background-color: map-get($color, "gris_04");
                                 }
         
                                 div {
-                                    padding: 9px 20px;
+                                    padding: 5px 20px;
                                     display: flex;
                                     flex-flow: row nowrap;
                                     align-items: center;
@@ -182,6 +178,14 @@
                                     } 
                                 }
                             }
+                        }
+                    }
+
+                    .cabeza__menu--user_li {
+                        //min-height: 25px;
+
+                        &:hover {
+                            background-color: map-get($color, "gris_04");
                         }
                     }
                 }

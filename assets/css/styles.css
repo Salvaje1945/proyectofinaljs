@@ -214,14 +214,14 @@ a {
   margin-bottom: 5px;
 }
 #inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box .cabeza__menu--user img {
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
   border-radius: 50%;
   margin: 0 auto;
 }
 #inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box .cabeza__menu--user h1 {
   font-family: "Poppins", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #000;
 }
@@ -233,13 +233,9 @@ a {
 #inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box ul li {
   font-size: 1rem;
   display: block;
-  min-height: 35px;
-}
-#inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box ul li:hover {
-  background-color: #aaa;
 }
 #inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box ul li div {
-  padding: 9px 20px;
+  padding: 7px 20px;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -263,13 +259,12 @@ a {
 #inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box ul li ul li {
   font-size: 0.85rem;
   display: block;
-  min-height: 30px;
 }
 #inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box ul li ul li:hover {
   background-color: #aaa;
 }
 #inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box ul li ul li div {
-  padding: 9px 20px;
+  padding: 5px 20px;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -283,6 +278,9 @@ a {
 #inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box ul li ul li div a {
   color: #000;
   margin-left: 25px;
+}
+#inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box ul .cabeza__menu--user_li:hover {
+  background-color: #aaa;
 }
 #inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box-crr {
   display: inline-block;
