@@ -41,7 +41,8 @@ a {
     text-decoration: none;
 }
 
-#inicio {
+#inicio,
+#flores {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: repeat(2, auto);
@@ -52,11 +53,11 @@ a {
 
     ;
 
-    #cabeza {
+    .cabeza {
         grid-area: cabeza;
     }
 
-    #contenido {
+    .contenido {
         grid-area: contenido;
     }
 }
