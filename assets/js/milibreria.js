@@ -663,9 +663,9 @@ function pedirPag(evt) {
         })
         .then((seccion)=>{
             //console.log(seccion)
-            mostrarContenidos()
-            $('#secciones').innerHTML = seccion
             //mostrarContenidos()
+            $('#secciones').innerHTML = seccion
+            mostrarContenidos()
         })
         .catch((err)=>{
             console.log(err)
