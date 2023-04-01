@@ -568,8 +568,133 @@ const productos = [
     }
 ]
 
-const mostrarContenidos = () => {
-    if($('#flores')){
+function mostrarContenidos (ubicador) {
+
+    
+
+    if (ubicador === 'inicio') {
+
+        const linksProds = document.querySelectorAll('#menu__user--prods a')
+        for(let link of linksProds){
+        link.addEventListener('click', pedirPag)
+        }
+        
+        function abrirMenuHamb () {
+            $('#desplegable__backdrop').classList.add('activo')
+            $('#cabeza__menu').classList.add('activo')
+            $('#cabeza__menu--crr').onclick = cerrarMenuHamb
+        }
+        
+        function cerrarMenuHamb () {
+            $('#cabeza__menu').classList.remove('activo')
+            $('#desplegable__backdrop').classList.remove('activo')
+        }
+        
+        function abrirMenuDir () {
+            $('#desplegable__backdrop').classList.add('activo')
+            $('#cabeza__dir').classList.add('activo')
+            $('#cabeza__dir--cerrado').classList.remove('activo')
+            $('#cabeza__dir--abierto').classList.add('activo')
+            $('#cabeza__dir--crr').onclick = cerrarMenuDir
+        }
+        
+        function cerrarMenuDir () {
+            $('#desplegable__backdrop').classList.remove('activo')
+            $('#cabeza__dir').classList.remove('activo')
+            $('#cabeza__dir--cerrado').classList.add('activo')
+            $('#cabeza__dir--abierto').classList.remove('activo')
+        }
+        
+        function abrirMenuAnun () {
+            $('#cabeza__anun').classList.add('activo')
+            anunNove()
+        }
+        
+        function cerrarMenuAnun () {
+            $('#cabeza__anun').classList.remove('activo')  
+        }
+        
+        function anunNove () {
+            if($('#cabeza__anun--prom_info').classList.contains('activo') && $('#cabeza__anun--btn_anim').classList.contains('promociones')){
+                $('#cabeza__anun--prom_info').classList.remove('activo')
+                $('#cabeza__anun--nove_info').classList.add('activo')
+                $('#cabeza__anun--btn_anim').classList.remove('promociones')
+                $('#cabeza__anun--btn_anim').classList.add('novedades')
+            }
+        }
+        
+        function anunProm () {
+            if($('#cabeza__anun--nove_info').classList.contains('activo') && $('#cabeza__anun--btn_anim').classList.contains('novedades')){
+                $('#cabeza__anun--nove_info').classList.remove('activo')
+                $('#cabeza__anun--prom_info').classList.add('activo')
+                $('#cabeza__anun--btn_anim').classList.remove('novedades')
+                $('#cabeza__anun--btn_anim').classList.add('promociones')
+            }
+        }
+                
+        $('#cabeza__menu--btn').onclick = abrirMenuHamb
+        $('#cabeza__anun--btn').onclick = abrirMenuAnun
+        $('#cabeza__anun--cer').onclick = cerrarMenuAnun
+        $('#cabeza__dir--btn').onclick = abrirMenuDir
+        $('#cabeza__anun--nove').onclick = anunNove
+        $('#cabeza__anun--prom').onclick = anunProm
+
+        function mostrarMasVendIdx() {
+
+            function masVendidosIndex(productos) {
+                const ordenados = productos.sort((a, b) => b.vendidos - a.vendidos)
+                return ordenados.slice(0, 7)
+            }
+
+            const indexMasVendidos = masVendidosIndex(productos)
+            for (const masPopular of indexMasVendidos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__populares--prod${masPopular.id}`
+                elProd.className = 'contenido__populares--box'
+                elProd.innerHTML = `<div class="contenido__populares--box_img">
+                                            <img class="populares__box--foto" src="${masPopular.foto}">
+                                            <img class="populares__box--cabecera" src="${masPopular.cabecera}">
+                                        </div>
+                                        <div class="contenido__populares--box_txt">
+                                            <h2>${masPopular.nombre}</h2>
+                                            <h3><span><i class="fa-solid fa-star"></i></span>${masPopular.puntuacion}</h3>
+                                            <p>$${masPopular.precio}</p>
+                                            <p>Envío $200</p>
+                                        </div>`
+                $('#contenido-populares').appendChild(elProd)
+            }
+        }
+
+        mostrarMasVendIdx()
+
+    }
+
+    if (ubicador === 'flores') {
+
+        const volverUno = document.querySelectorAll('#flores__volver--1 i')
+        console.log(volverUno)
+        for(let link of volverUno){
+            link.addEventListener('click', pedirPag)
+        }
+
+        window.addEventListener('scroll', floresCabezaMenuDesp)
+
+        function floresCabezaMenuDesp(ubicador) {
+            if (ubicador === 'inicio' || !$('#flores__cabeza')) {
+                return
+            } else {
+                const alturaCabeza = $('#flores__cabeza').offsetHeight
+                let scrollActual = window.pageYOffset || document.documentElement.scrollTop
+                if (scrollActual > alturaCabeza) {
+                    $('#flores__cabeza--menu').classList.add('activo')
+                } else {
+                    if ($('#flores__cabeza--menu').classList.contains('activo')) {
+                        $('#flores__cabeza--menu').classList.remove('activo')
+                    }
+                }
+            }
+    
+        }
 
         function mostrarMasVendFlor() {
     
@@ -631,20 +756,18 @@ const mostrarContenidos = () => {
                 $('#contenido-prodstodos').appendChild(elProd)
             }
         }
-        
-        // EJECUCIÓN
+
+        //floresCabezaMenuDesp()
         
         mostrarMasVendFlor()
     
         mostrarProdsTodos()
     }
+
+    
 }
 
-// FETCH
-
 const linksProds = document.querySelectorAll('#menu__user--prods a')
-
-//console.log(linksProds)
 
 for(let link of linksProds){
     link.addEventListener('click', pedirPag)
@@ -652,26 +775,20 @@ for(let link of linksProds){
 
 function pedirPag(evt) {
     evt.preventDefault()
-    //console.dir(evt.target.dataset.categ)
-    const pag = evt.target.dataset.categ + '.html'
-    //console.log(pag)
+    const indicadorPag = evt.target.dataset.categ
+    const pag = indicadorPag + '.html'
 
     fetch(pag)
         .then((url)=>{
-            //console.log(url)
             return url.text()
         })
         .then((seccion)=>{
-            //console.log(seccion)
-            //mostrarContenidos()
             $('#secciones').innerHTML = seccion
-            mostrarContenidos()
+            mostrarContenidos(indicadorPag)
         })
         .catch((err)=>{
             console.log(err)
         })
 }
-
-// ***********
 
     

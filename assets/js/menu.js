@@ -1,6 +1,6 @@
 // MENÚ MÓVIL CABECERA FLORES
 
-if ($('#flores')) {
+/*if ($('#flores')) {
     const alturaCabeza = $('#flores__cabeza').offsetHeight
 
     window.addEventListener('scroll', function () {
@@ -17,7 +17,7 @@ if ($('#flores')) {
             //$('#flores__cabeza--menu').style.display = 'none'
         }
     })
-}
+}*/
 
 if($('#inicio')){
     // FUNCIONES
