@@ -3,7 +3,7 @@
     <header class="cabeza">
         <div id="flores__cabeza--menu" class="cabeza__menu--desp">
             <div class="cabeza__menu--desp_pt1" id="flores__volver--2">
-                <span><i class="fa-solid fa-chevron-left"></i></span>
+                <span><i class="fa-solid fa-chevron-left" data-categ="inicio"></i></span>
                 <div>
                     <form id="flores__busca--2">
                         <div class="cabeza__menu--desp_form-grpipt">
@@ -17,10 +17,10 @@
                 <span><i class="fa-solid fa-list"></i></span>
                 <div>
                     <div class="cabeza__menu--desp_pt2-cont" id="flores__cabeza--menu_links">
-                        <a href="#">Especiales</a>
-                        <a href="#">Básicos</a>
-                        <a href="#">Más vendidos</a>
-                        <a href="#">Mejor puntuados</a>
+                        <a href="#" data-categ="especiales">Especiales</a>
+                        <a href="#" data-categ="basicos">Básicos</a>
+                        <!-- <a href="#">Más vendidos</a>
+                        <a href="#">Mejor puntuados</a> -->
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
         <div class="cabeza__menu--cont"  id="flores__cabeza">
             <div class="cabeza__menu--cont_back" id="flores__volver--1">
                 <span>
-                    <i class="fa-solid fa-arrow-left" data-categ="inicio" title="inicio"></i>
+                    <i class="fa-solid fa-arrow-left" data-categ="inicio"></i>
                 </span>
             </div>
             <div class="cabeza__menu--cont_busca" id="flores__busca--1">
@@ -52,10 +52,10 @@
                 <span><i class="fa-solid fa-comment"></i></span>
             </div>
         </div>
-        <div class="cabeza__subcats">
+        <div class="cabeza__subcats" id="cabeza__subcat--nav_01">
             <div class="cabeza__subcats--box" id="flores__cabeza--subcat_especiales">
                 <div class="cabeza__subcats--box_img">
-                    <img src="assets/img/productos/foto/ramo-rosas-blancas.jpg">
+                    <img src="assets/img/productos/foto/ramo-rosas-blancas.jpg" data-categ="especiales">
                 </div>
                 <div class="cabeza__subcats--box_txt">
                     <h1>Especiales</h1>
@@ -63,7 +63,7 @@
             </div>
             <div class="cabeza__subcats--box" id="flores__cabeza--subcat_basicos">
                 <div class="cabeza__subcats--box_img">
-                    <img src="assets/img/productos/foto/ramo-girasoles.jpg">
+                    <img src="assets/img/productos/foto/ramo-girasoles.jpg" data-categ="basicos">
                 </div>
                 <div class="cabeza__subcats--box_txt">
                     <h1>Básicos</h1>

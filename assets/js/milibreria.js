@@ -568,9 +568,75 @@ const productos = [
     }
 ]
 
-function mostrarContenidos (ubicador) {
+let datosCliente = []
 
+document.addEventListener('DOMContentLoaded', () => {
+    if(JSON.parse(localStorage.getItem('Cliente')) != null){
+        estaRegistrado()
+    } else {
+        console.log('hola')
+        const pag = 'registro.html'
+        fetch(pag)
+        .then((url)=>{
+            //console.log(url.text())
+            return url.text()
+        })
+        .then((seccion)=>{
+            $('#secciones').innerHTML = seccion
+            registrarse()
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+})
+
+function estaRegistrado() {
+    const pag = 'inicio.html'
+        const ini = 'inicio'
+        fetch(pag)
+        .then((url)=>{
+            return url.text()
+        })
+        .then((seccion)=>{
+            $('#secciones').innerHTML = seccion
+            mostrarContenidos(ini)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+}
+
+const hacerElRegistro = (evt) => {
+    evt.preventDefault()
+    const nombre = $('#nombre').value
+    const apellido = $('#apellido').value
+    const correo = $('#correo').value
+    const direccion = $('#direccion').value
+
+    Swal.fire('Registrado con éxito')
     
+    const clienteObj = {
+        id: Date.now(),
+        nombre: nombre,
+        apellido: apellido,
+        correo: correo,
+        direccion: direccion
+    }
+    datosCliente.push(clienteObj)
+
+    console.log(datosCliente)
+    localStorage.setItem('Cliente', JSON.stringify(datosCliente))
+    estaRegistrado()
+}
+
+
+function registrarse() {
+    
+    $('#form__registro').addEventListener('submit', hacerElRegistro)
+}
+
+function mostrarContenidos (ubicador) { 
 
     if (ubicador === 'inicio') {
 
@@ -677,10 +743,28 @@ function mostrarContenidos (ubicador) {
             link.addEventListener('click', pedirPag)
         }
 
+        const volverDos = document.querySelectorAll('#flores__volver--2 i')
+        console.log(volverDos)
+        for(let link of volverDos){
+            link.addEventListener('click', pedirPag)
+        }
+
+        const navSubcatsUno = document.querySelectorAll('#cabeza__subcat--nav_01 img')
+        console.log(navSubcatsUno)
+        for(let link of navSubcatsUno){
+            link.addEventListener('click', pedirPag)
+        }
+
+        const navSubcatsDos = document.querySelectorAll('#flores__cabeza--menu_links a')
+        console.log(navSubcatsDos)
+        for(let link of navSubcatsDos){
+            link.addEventListener('click', pedirPag)
+        }
+
         window.addEventListener('scroll', floresCabezaMenuDesp)
 
-        function floresCabezaMenuDesp(ubicador) {
-            if (ubicador === 'inicio' || !$('#flores__cabeza')) {
+        function floresCabezaMenuDesp() {
+            if (!$('#flores')) {
                 return
             } else {
                 const alturaCabeza = $('#flores__cabeza').offsetHeight
@@ -764,6 +848,157 @@ function mostrarContenidos (ubicador) {
         mostrarProdsTodos()
     }
 
+    if (ubicador === 'especiales') {
+
+        const volverUno = document.querySelectorAll('#flores__volver--1 i')
+        console.log(volverUno)
+        for(let link of volverUno){
+            link.addEventListener('click', pedirPag)
+        }
+    
+        function mostrarMasVendEsp() {
+    
+            function masVendidosFlor(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
+                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
+                return ordenados.slice(0, 5)
+            }
+        
+            const floresMasVendidos = masVendidosFlor(productos)
+            console.log(floresMasVendidos)
+            for (const masVendido of floresMasVendidos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__populares--prod${masVendido.id}`
+                elProd.className = 'contenido__masvendidos--box'
+                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
+                                        <div class="masvendidos__box--img_ico">
+                                            <span><i class="fa-regular fa-heart"></i></span>
+                                        </div>
+                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
+                                    </div>
+                                    <div class="contenido__masvendidos--txt">
+                                        <h1>${masVendido.nombre}</h1>
+                                        <div class="masvendidos__txt--bttm">
+                                            <p>$${masVendido.precio}</p>
+                                            <div>
+                                                <span><i class="fa-solid fa-plus"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>`
+                $('#flores__contenido--masvendidos').appendChild(elProd)
+            }
+        }
+    
+        function mostrarProdsTodos() {
+    
+            function todosLosRamos(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
+                const ordenados = filtrados.sort((a, b) => a.id - b.id)
+                return ordenados
+            }
+    
+            const losRamos = todosLosRamos(productos)
+            console.log(losRamos)
+            for (const ramo of losRamos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__prodstodos--prod${ramo.id}`
+                elProd.className = 'contenido__prodstodos--box'
+                elProd.innerHTML = `<div class="contenido__prodstodos--box_img">
+                                        <img class="prodstodos__box--foto" src="${ramo.foto}">
+                                        <img class="prodstodos__box--cabecera" src="${ramo.cabecera}">
+                                    </div>
+                                    <div class="contenido__prodstodos--box_txt">
+                                        <h2>${ramo.nombre}</h2>
+                                        <h3><span><i class="fa-solid fa-star"></i></span>${ramo.puntuacion}</h3>
+                                        <p>$${ramo.precio}</p>
+                                        <p>Envío $200</p>
+                                    </div>`
+                $('#contenido-prodstodos').appendChild(elProd)
+            }
+        }
+    
+        //floresCabezaMenuDesp()
+        
+        mostrarMasVendEsp()
+    
+        mostrarProdsTodos()
+    }
+
+    if (ubicador === 'basicos') {
+
+        const volverUno = document.querySelectorAll('#flores__volver--1 i')
+        console.log(volverUno)
+        for(let link of volverUno){
+            link.addEventListener('click', pedirPag)
+        }
+    
+        function mostrarMasVendBasic() {
+    
+            function masVendidosFlor(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Ramos básicos')
+                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
+                return ordenados.slice(0, 5)
+            }
+        
+            const floresMasVendidos = masVendidosFlor(productos)
+            console.log(floresMasVendidos)
+            for (const masVendido of floresMasVendidos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__populares--prod${masVendido.id}`
+                elProd.className = 'contenido__masvendidos--box'
+                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
+                                        <div class="masvendidos__box--img_ico">
+                                            <span><i class="fa-regular fa-heart"></i></span>
+                                        </div>
+                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
+                                    </div>
+                                    <div class="contenido__masvendidos--txt">
+                                        <h1>${masVendido.nombre}</h1>
+                                        <div class="masvendidos__txt--bttm">
+                                            <p>$${masVendido.precio}</p>
+                                            <div>
+                                                <span><i class="fa-solid fa-plus"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>`
+                $('#flores__contenido--masvendidos').appendChild(elProd)
+            }
+        }
+    
+        function mostrarProdsTodos() {
+    
+            function todosLosRamos(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Ramos básicos')
+                const ordenados = filtrados.sort((a, b) => a.id - b.id)
+                return ordenados
+            }
+    
+            const losRamos = todosLosRamos(productos)
+            console.log(losRamos)
+            for (const ramo of losRamos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__prodstodos--prod${ramo.id}`
+                elProd.className = 'contenido__prodstodos--box'
+                elProd.innerHTML = `<div class="contenido__prodstodos--box_img">
+                                        <img class="prodstodos__box--foto" src="${ramo.foto}">
+                                        <img class="prodstodos__box--cabecera" src="${ramo.cabecera}">
+                                    </div>
+                                    <div class="contenido__prodstodos--box_txt">
+                                        <h2>${ramo.nombre}</h2>
+                                        <h3><span><i class="fa-solid fa-star"></i></span>${ramo.puntuacion}</h3>
+                                        <p>$${ramo.precio}</p>
+                                        <p>Envío $200</p>
+                                    </div>`
+                $('#contenido-prodstodos').appendChild(elProd)
+            }
+        }
+    
+        //floresCabezaMenuDesp()
+        
+        mostrarMasVendBasic()
+    
+        mostrarProdsTodos()
+    }
     
 }
 

@@ -1,6 +1,126 @@
 @use 'vars' as *;
 @use 'predef' as *;
 
+#logueo {
+
+    .contenido {
+        @extend .flex-5;
+        width: 100vw;
+        height: 100vh;
+        background-color: map-get($color, "blanco");
+
+        .contenido__registro {
+            width: 75vw;
+            height: auto;
+
+            .formulario {
+                width: 70%;
+                margin: 0 auto;
+                display: block;
+            }
+            
+            
+            .formulario label{
+                display: inline-block;
+                width: 75%;
+            }
+            
+            .form__grupo,
+            .form__grupo--tipo {
+                margin: 0 auto 15px;
+                height: auto;
+                width: 100%;
+            }
+            
+            
+            .form__grupo.pasivo,
+            .form__grupo--tipo.pasivo {
+                height: 0px;
+                overflow: hidden;
+                margin: 0 auto;
+            }
+            
+            .form__grupo.activo {
+                height: 67px;
+            }
+            
+            .form__grupo--tipo.activo {
+                height: 350px;
+            }
+            
+            .form__grupo--elemento {
+                margin: 7px 0 0;
+                height: 35px;
+                width: 75%;
+                line-height: 35px;
+                border-radius: 3px;
+                border: 3px solid transparent;
+                transition: .3s ease all;
+                cursor: pointer;
+                padding: 0 5px 0;
+            }
+            
+            .form__grupo--elemento:focus {
+                border: 3px solid rgb(72, 33, 247);
+                transition: .3s ease all;
+                outline: none;
+            }
+            
+            .form__grupo--elemento.error{
+                border: 3px solid red;
+            }
+            
+            .form__grupo--elemento.bien{
+                border: 3px solid green;
+            }
+            
+            .form__grupo--error {
+                background-color: red;
+                height: 0px;
+                width: 75%;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 600;
+                transition: .5s ease all;
+                overflow: hidden;
+                margin: 0 auto;
+            }
+            
+            .form__grupo--error.activo {
+                height: 35px;
+            }
+            
+            .form__btn {
+                width: auto;
+                height: 45px;
+                background-color: #333;
+                color: #fff;
+                transition: .3s ease all;
+                margin: 15px 0 0;
+                border: 3px solid transparent;
+            }
+            
+            .form__btn:hover {
+                background-color: #999;
+                color: #000;
+                transition: .3s ease all;
+                border: 3px solid #000;
+            }
+
+        }
+    }
+
+    /*.contenido {
+        display: block;
+        width: 100vw;
+        margin: 60px 0 0;
+        //padding: 0 5vw;
+        height: auto;
+        z-index: 100;
+    }*/
+    
+}
+
 #inicio {
     
     .cabeza {
@@ -545,6 +665,7 @@
                     outline: none;
                     font-family: $fnt_01;
                     font-size: 0.8rem;
+                    line-height:normal;
 
                 }
 
@@ -554,8 +675,11 @@
                     border: none;
                     padding: 2% 4%;
                     border-radius: 0 30px 30px 0;
-                    //cursor: pointer;
+                    cursor:auto;
                     transition: all 0.3s ease-in-out;
+                    //-webkit-appearance: none;
+                    line-height: normal;
+                    font-size: 0.83rem;
 
                     &:hover {
                         background-color: map-get($color, "rojo_02");
@@ -1218,6 +1342,816 @@
 
     .contenido {
         margin: 42px 0 0;
+
+        p {
+            margin: 5vw 5vw;
+        }
+
+        .contenido__masvendidos {
+            margin: 0 0 5vh;
+
+            h1 {
+                font-family: $fnt_01;
+                font-size: 1.05rem;
+                color: map-get($color, "negro");
+                font-weight: 600;
+                //line-height: 14px;
+                margin: 0 5vw 2.5vh;
+            }
+
+            .contenido__masvendidos--cont {
+                @include scroll_hrz ($scroll_horiz-gap:2.67vw, $scroll_horiz-mrg: 0);
+    
+                .contenido__masvendidos--box {
+                    flex: 0 0 auto;
+                    width: 43.125vw;
+                    height: auto;
+                    //background-color: map-get($color, "gris_03");
+                    //overflow: hidden;
+                    border-radius: 10px;
+                    border: 1px solid map-get($color, "gris_03");
+                    //padding: 11px;
+                    //align-items: flex-start;
+
+                    .contenido__masvendidos--box_img {
+                        width: 100%;
+                        //border-radius: 5px;
+                        height: 85px;
+                        overflow: hidden;
+                        position: relative;
+                        display: block;
+    
+                        .masvendidos__box--img_ico {
+                            width: 25px;
+                            height: 25px;
+                            //height: 125px;
+                            border-radius: 50%;
+                            background-color: map-get($color, "blanco");
+                            position: absolute;
+                            top: 5px;
+                            right: 10px;
+                            border: 1px groove map-get($color, "gris_10");
+                            z-index: 101;
+
+                            span {
+                                display: block;
+                                width: 16px;
+                                height: 16px;
+                                font-size: 1rem;
+                                color: map-get($color, "negro");
+                                margin: 4px 0 0 3px;
+                            }
+    
+                        }
+    
+                        .masvendidos__box--img_foto {
+                            width: 42.595vw;
+                            //height: auto;
+                            //height: 125px;
+                            object-fit: none;
+                            object-position: 50% 75%;
+                            border-radius: 10px;
+                            overflow: hidden;
+                        }
+                    }
+
+                    .contenido__masvendidos--txt {
+                        width: 100%;
+                        display: block;
+                        //height: 150px;
+                        padding: 7px;
+    
+                        h1 {
+                            font-family: $fnt_01;
+                            font-size: 0.8rem;
+                            color: map-get($color, "negro");
+                            font-weight: 600;
+                            //line-height: 14px;
+                            //margin-left: 5vw;
+                            display: block;
+                            min-height: 55px;
+                            margin: 0;
+                        }
+    
+                        .masvendidos__txt--bttm {
+                            @extend .flex-4;
+                            height: auto;
+                            
+                            p {
+                                display: inline-block;
+                                font-family: $fnt_01;
+                                font-size: 0.7rem;
+                                color: map-get($color, "negro");
+                                font-weight: 600; 
+                                margin: 0;
+                            }
+
+                            div {
+                                display: inline-block;
+                                width: 27px;
+                                height: 27px;
+                                //height: 125px;
+                                border-radius: 50%;
+                                background-color: map-get($color, "blanco");
+                                border: 1px groove map-get($color, "negro");
+
+                                span {
+                                    display: block;
+                                    margin: 3px 0 0 4px;
+                                    font-size: 1.15rem;
+                                    color: map-get($color, "negro");
+                                }
+                            }
+                        }
+                    }
+    
+                    /*.contenido__masvendidos--box_cont {
+                        @extend .flex-2;
+
+                        .contenido__masvendidos--img {
+                            display: inline-block;
+                            border-radius: 10px;
+                            width: 11.5vw;
+                            background-color: map-get($color, "naranja_02");
+                            overflow: hidden;
+                            height: 43px;
+                        }
+        
+                        
+                    }*/
+    
+                    &:first-child {
+                        margin-left: 5vw;
+                    }
+    
+                    &:last-child{
+                        margin-right: 5vw;
+                    }
+                }
+    
+            }
+        }
+
+        .contenido__prodstodos--cont {
+            margin: 0 5vw;
+
+            h1 {
+                font-family: $fnt_01;
+                font-size: 1.05rem;
+                color: map-get($color, "negro");
+                font-weight: 600;
+                //line-height: 14px;
+                margin: 0 0 2.5vh;
+            }
+
+            .contenido__prodstodos--box {
+                width: 100%;
+                height: 150px;
+                border-radius: 5px;
+                border: 1px solid map-get($color, "gris_02");
+                margin: 0 0 7vw;
+
+                .contenido__prodstodos--box_img {
+                    width: 100%;
+                    //border-radius: 5px;
+                    height: 69%;
+                    overflow: hidden;
+                    position: relative;
+
+                    .prodstodos__box--foto {
+                        width: 80px;
+                        height: 80px;
+                        //height: 125px;
+                        border-radius: 5px;
+                        position: absolute;
+                        top: 10px;
+                        left: 10px;
+                        border: 1px solid map-get($color, "negro");
+                        z-index: 101;
+
+                        //vertical-align: middle;
+                    }
+
+                    .prodstodos__box--cabecera {
+                        width: 90vw;
+                        height: auto;
+                        //height: 125px;
+                        object-fit: none;
+                        object-position: 50% 50%;
+                        border-radius: 5px;
+                        //vertical-align: middle;
+                    }
+                }
+
+                .contenido__prodstodos--box_txt {
+                    height: auto;
+                    width: 100%;
+                    display: flex;
+                    flex-flow: row wrap;
+                    padding: 7px 9px 0;
+
+                    h2 {
+                        font-family: $fnt_01;
+                        font-size: 0.8rem;
+                        color: map-get($color, "negro");
+                        font-weight: 600;
+                        display: inline-block;
+                        min-width: 87%;
+                    }
+
+                    h3 {
+                        font-family: $fnt_01;
+                        font-size: 0.7rem;
+                        color: map-get($color, "negro");
+                        font-weight: 600;
+                        display: inline-block;
+                        width: 13%;
+                        text-align: right;
+
+
+
+                        span {
+                            font-family: $fnt_01;
+                            font-size: 0.7rem;
+                            color: map-get($color, "amarillo_01");
+                        }
+                    }
+
+                    p {
+                        font-family: $fnt_01;
+                        font-size: 0.7rem;
+                        color: map-get($color, "gris_01");
+                        display: inline-block;
+                        margin: 0 5px 0 0;
+                    }
+                }
+
+            }  
+
+
+            
+        }
+
+    }
+}
+
+#especiales {
+
+    .cabeza {
+        display: block;
+        width: 100vw;
+        height: auto;
+        background-image: url(../img/productos/cabecera/rosas-rojas.jpg);
+        background-size: 100vw auto;
+        background-position: 0% -25%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        z-index: 500;
+        position: fixed;
+
+        .cabeza__menu--cont {
+            width: 100%;
+            height: 14.16vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+            @extend .flex-1;
+            padding: 0 5vw;
+
+            .cabeza__menu--cont_back,
+            .cabeza__menu--cont_busca {
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                //padding: 10px;
+                color: map-get($color, "negro");
+                //font-size: 1.25rem;
+                background-color: map-get($color, "gris_06");
+                border-radius: 5px;
+            }
+
+            .cabeza__menu--cont_back {
+                padding-top: 7px;
+                padding-right: 1px;
+                font-size: 1.25rem;
+
+                span {
+                    display: block;
+                    width: 17.5px;
+                    height: 20px;
+                    margin: 0 auto;
+                }
+            }
+            
+            .cabeza__menu--cont_busca {
+                font-size: 1.093rem;
+                padding-top: 8px;
+                padding-right: 1px;
+
+                span {
+                    display: block;
+                    width: 17.5px;
+                    height: 17.5px;
+                    margin: 0 auto;
+                }
+            }  
+        }
+
+        .cabeza__info {
+            @extend .flex-2; 
+            width: 100%;
+            padding: 1.6vh 3vw;
+            background-color: map-get($color, "blanco");
+
+            .cabeza__info--img {
+                display: inline-block;
+                width: 52px;
+                height: 52px;
+                border-radius: 10px;
+                //background-color: map-get($color, "naranja_02");
+                overflow: hidden;
+
+                img {
+                    width: 52px;
+                    height: 52px;
+                    border-radius: 10px;
+                }
+                
+            }
+
+            .cabeza__info--txt {
+                width: auto;
+                display: inline-block;
+                margin-left: 3vw;
+                min-width: 200px;
+                //margin-top: 0.5vh;
+
+                h1 {
+                    font-family: $fnt_01;
+                    font-size: 1.25rem;
+                    color: map-get($color, "negro");
+                    font-weight: 600;
+                    //line-height: 14px;
+                    //margin-left: 5vw;
+                    //display: block;
+                }
+
+                div {
+                    font-family: $fnt_01;
+                    font-size: 0.8rem;
+                    color: map-get($color, "gris_01");
+                    //font-weight: 500;
+                    //line-height: 14px;
+                    //margin-left: 5vw;
+                    //display: block;
+
+                    span {
+                        font-family: $fnt_01;
+                        font-size: 0.8rem;
+                        color: map-get($color, "amarillo_01");
+                        margin-right: 3px;
+                    }
+
+                    a {
+                        font-family: $fnt_01;
+                        color: map-get($color, "negro");
+                        text-decoration: underline;
+                        margin-left: 10px;
+                        font-weight: 600;
+                    }
+
+                }
+            }
+
+            .cabeza__info--accion {
+                width: auto;
+                display: inline-block;
+                //margin-left: 3vw;
+                margin-top: 5px;
+
+                span {
+                    //font-family: $fnt_01;
+                    font-size: 1.25rem;
+                    color: map-get($color, "negro");
+
+                    &:first-child {
+                        margin-right: 7px;
+                    }
+
+                    &:last-child {
+                        margin-left: 7px;
+                    }
+                }
+            }
+            
+        }
+    }
+
+    .contenido {
+        margin: 27vh 0 0;
+
+        p {
+            margin: 5vw 5vw;
+        }
+
+        .contenido__masvendidos {
+            margin: 0 0 5vh;
+
+            h1 {
+                font-family: $fnt_01;
+                font-size: 1.05rem;
+                color: map-get($color, "negro");
+                font-weight: 600;
+                //line-height: 14px;
+                margin: 0 5vw 2.5vh;
+            }
+
+            .contenido__masvendidos--cont {
+                @include scroll_hrz ($scroll_horiz-gap:2.67vw, $scroll_horiz-mrg: 0);
+    
+                .contenido__masvendidos--box {
+                    flex: 0 0 auto;
+                    width: 43.125vw;
+                    height: auto;
+                    //background-color: map-get($color, "gris_03");
+                    //overflow: hidden;
+                    border-radius: 10px;
+                    border: 1px solid map-get($color, "gris_03");
+                    //padding: 11px;
+                    //align-items: flex-start;
+
+                    .contenido__masvendidos--box_img {
+                        width: 100%;
+                        //border-radius: 5px;
+                        height: 85px;
+                        overflow: hidden;
+                        position: relative;
+                        display: block;
+    
+                        .masvendidos__box--img_ico {
+                            width: 25px;
+                            height: 25px;
+                            //height: 125px;
+                            border-radius: 50%;
+                            background-color: map-get($color, "blanco");
+                            position: absolute;
+                            top: 5px;
+                            right: 10px;
+                            border: 1px groove map-get($color, "gris_10");
+                            z-index: 101;
+
+                            span {
+                                display: block;
+                                width: 16px;
+                                height: 16px;
+                                font-size: 1rem;
+                                color: map-get($color, "negro");
+                                margin: 4px 0 0 3px;
+                            }
+    
+                        }
+    
+                        .masvendidos__box--img_foto {
+                            width: 42.595vw;
+                            //height: auto;
+                            //height: 125px;
+                            object-fit: none;
+                            object-position: 50% 75%;
+                            border-radius: 10px;
+                            overflow: hidden;
+                        }
+                    }
+
+                    .contenido__masvendidos--txt {
+                        width: 100%;
+                        display: block;
+                        //height: 150px;
+                        padding: 7px;
+    
+                        h1 {
+                            font-family: $fnt_01;
+                            font-size: 0.8rem;
+                            color: map-get($color, "negro");
+                            font-weight: 600;
+                            //line-height: 14px;
+                            //margin-left: 5vw;
+                            display: block;
+                            min-height: 55px;
+                            margin: 0;
+                        }
+    
+                        .masvendidos__txt--bttm {
+                            @extend .flex-4;
+                            height: auto;
+                            
+                            p {
+                                display: inline-block;
+                                font-family: $fnt_01;
+                                font-size: 0.7rem;
+                                color: map-get($color, "negro");
+                                font-weight: 600; 
+                                margin: 0;
+                            }
+
+                            div {
+                                display: inline-block;
+                                width: 27px;
+                                height: 27px;
+                                //height: 125px;
+                                border-radius: 50%;
+                                background-color: map-get($color, "blanco");
+                                border: 1px groove map-get($color, "negro");
+
+                                span {
+                                    display: block;
+                                    margin: 3px 0 0 4px;
+                                    font-size: 1.15rem;
+                                    color: map-get($color, "negro");
+                                }
+                            }
+                        }
+                    }
+    
+                    /*.contenido__masvendidos--box_cont {
+                        @extend .flex-2;
+
+                        .contenido__masvendidos--img {
+                            display: inline-block;
+                            border-radius: 10px;
+                            width: 11.5vw;
+                            background-color: map-get($color, "naranja_02");
+                            overflow: hidden;
+                            height: 43px;
+                        }
+        
+                        
+                    }*/
+    
+                    &:first-child {
+                        margin-left: 5vw;
+                    }
+    
+                    &:last-child{
+                        margin-right: 5vw;
+                    }
+                }
+    
+            }
+        }
+
+        .contenido__prodstodos--cont {
+            margin: 0 5vw;
+
+            h1 {
+                font-family: $fnt_01;
+                font-size: 1.05rem;
+                color: map-get($color, "negro");
+                font-weight: 600;
+                //line-height: 14px;
+                margin: 0 0 2.5vh;
+            }
+
+            .contenido__prodstodos--box {
+                width: 100%;
+                height: 150px;
+                border-radius: 5px;
+                border: 1px solid map-get($color, "gris_02");
+                margin: 0 0 7vw;
+
+                .contenido__prodstodos--box_img {
+                    width: 100%;
+                    //border-radius: 5px;
+                    height: 69%;
+                    overflow: hidden;
+                    position: relative;
+
+                    .prodstodos__box--foto {
+                        width: 80px;
+                        height: 80px;
+                        //height: 125px;
+                        border-radius: 5px;
+                        position: absolute;
+                        top: 10px;
+                        left: 10px;
+                        border: 1px solid map-get($color, "negro");
+                        z-index: 101;
+
+                        //vertical-align: middle;
+                    }
+
+                    .prodstodos__box--cabecera {
+                        width: 90vw;
+                        height: auto;
+                        //height: 125px;
+                        object-fit: none;
+                        object-position: 50% 50%;
+                        border-radius: 5px;
+                        //vertical-align: middle;
+                    }
+                }
+
+                .contenido__prodstodos--box_txt {
+                    height: auto;
+                    width: 100%;
+                    display: flex;
+                    flex-flow: row wrap;
+                    padding: 7px 9px 0;
+
+                    h2 {
+                        font-family: $fnt_01;
+                        font-size: 0.8rem;
+                        color: map-get($color, "negro");
+                        font-weight: 600;
+                        display: inline-block;
+                        min-width: 87%;
+                    }
+
+                    h3 {
+                        font-family: $fnt_01;
+                        font-size: 0.7rem;
+                        color: map-get($color, "negro");
+                        font-weight: 600;
+                        display: inline-block;
+                        width: 13%;
+                        text-align: right;
+
+
+
+                        span {
+                            font-family: $fnt_01;
+                            font-size: 0.7rem;
+                            color: map-get($color, "amarillo_01");
+                        }
+                    }
+
+                    p {
+                        font-family: $fnt_01;
+                        font-size: 0.7rem;
+                        color: map-get($color, "gris_01");
+                        display: inline-block;
+                        margin: 0 5px 0 0;
+                    }
+                }
+
+            }  
+
+
+            
+        }
+
+    }
+}
+
+#basicos {
+
+    .cabeza {
+        display: block;
+        width: 100vw;
+        height: auto;
+        background-image: url(../img/productos/cabecera/fresias.jpg);
+        background-size: 100vw auto;
+        background-position: 0% -25%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        z-index: 500;
+        position: fixed;
+
+        .cabeza__menu--cont {
+            width: 100%;
+            height: 14.16vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+            @extend .flex-1;
+            padding: 0 5vw;
+
+            .cabeza__menu--cont_back,
+            .cabeza__menu--cont_busca {
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                //padding: 10px;
+                color: map-get($color, "negro");
+                //font-size: 1.25rem;
+                background-color: map-get($color, "gris_06");
+                border-radius: 5px;
+            }
+
+            .cabeza__menu--cont_back {
+                padding-top: 7px;
+                padding-right: 1px;
+                font-size: 1.25rem;
+
+                span {
+                    display: block;
+                    width: 17.5px;
+                    height: 20px;
+                    margin: 0 auto;
+                }
+            }
+            
+            .cabeza__menu--cont_busca {
+                font-size: 1.093rem;
+                padding-top: 8px;
+                padding-right: 1px;
+
+                span {
+                    display: block;
+                    width: 17.5px;
+                    height: 17.5px;
+                    margin: 0 auto;
+                }
+            }  
+        }
+
+        .cabeza__info {
+            @extend .flex-2; 
+            width: 100%;
+            padding: 1.6vh 3vw;
+            background-color: map-get($color, "blanco");
+
+            .cabeza__info--img {
+                display: inline-block;
+                width: 52px;
+                height: 52px;
+                border-radius: 10px;
+                //background-color: map-get($color, "naranja_02");
+                overflow: hidden;
+
+                img {
+                    width: 52px;
+                    height: 52px;
+                    border-radius: 10px;
+                }
+                
+            }
+
+            .cabeza__info--txt {
+                width: auto;
+                display: inline-block;
+                margin-left: 3vw;
+                min-width: 200px;
+                //margin-top: 0.5vh;
+
+                h1 {
+                    font-family: $fnt_01;
+                    font-size: 1.25rem;
+                    color: map-get($color, "negro");
+                    font-weight: 600;
+                    //line-height: 14px;
+                    //margin-left: 5vw;
+                    //display: block;
+                }
+
+                div {
+                    font-family: $fnt_01;
+                    font-size: 0.8rem;
+                    color: map-get($color, "gris_01");
+                    //font-weight: 500;
+                    //line-height: 14px;
+                    //margin-left: 5vw;
+                    //display: block;
+
+                    span {
+                        font-family: $fnt_01;
+                        font-size: 0.8rem;
+                        color: map-get($color, "amarillo_01");
+                        margin-right: 3px;
+                    }
+
+                    a {
+                        font-family: $fnt_01;
+                        color: map-get($color, "negro");
+                        text-decoration: underline;
+                        margin-left: 10px;
+                        font-weight: 600;
+                    }
+
+                }
+            }
+
+            .cabeza__info--accion {
+                width: auto;
+                display: inline-block;
+                //margin-left: 3vw;
+                margin-top: 5px;
+
+                span {
+                    //font-family: $fnt_01;
+                    font-size: 1.25rem;
+                    color: map-get($color, "negro");
+
+                    &:first-child {
+                        margin-right: 7px;
+                    }
+
+                    &:last-child {
+                        margin-left: 7px;
+                    }
+                }
+            }
+            
+        }
+    }
+
+    .contenido {
+        margin: 27vh 0 0;
 
         p {
             margin: 5vw 5vw;

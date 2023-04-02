@@ -41,8 +41,11 @@ a {
     text-decoration: none;
 }
 
+#logueo,
 #inicio,
-#flores {
+#flores,
+#especiales,
+#basicos {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: repeat(2, auto);

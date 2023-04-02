@@ -5,13 +5,15 @@
 .flex-1,
 .flex-2,
 .flex-3,
-.flex-4 {
+.flex-4,
+.flex-5 {
     display: flex;
     flex-flow: row nowrap; 
 }
 
 .flex-1,
-.flex-3 {
+.flex-3,
+.flex-5 {
     align-items: center;
 }
 
@@ -26,6 +28,10 @@
 
 .flex-4 {
     align-items: flex-end;
+}
+
+.flex-5 {
+    justify-content: space-around;
 }
 
 /*.flex-2,
