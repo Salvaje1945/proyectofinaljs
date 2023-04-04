@@ -1079,9 +1079,17 @@ function mostrarContenidos (ubicador) {
 
     if (ubicador === 'inicio') {
 
-        const linksProds = document.querySelectorAll('#menu__user--prods a')
-        for(let link of linksProds){
-        link.addEventListener('click', pedirPag)
+        const hambLinksProds = document.querySelectorAll('#menu__user--prods a')
+        for(let link of hambLinksProds){
+            link.addEventListener('click', pedirPag)
+        }
+
+        const contProdsLinks = document.querySelectorAll('#contenido-productos-bx div')
+        for(let link of contProdsLinks){
+            // link.addEventListener('click', (evt)=>{
+            //     console.dir(evt.target)
+            // })
+            link.addEventListener('click', pedirPag)
         }
         
         function abrirMenuHamb () {

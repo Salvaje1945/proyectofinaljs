@@ -762,6 +762,7 @@
             .contenido__otrosprods--box {
                 flex: 0 0 auto;
                 width: 36vw;
+                max-width: 200px;
                 height: 85px;
                 background-color: map-get($color, "gris_15");
                 @include box_hvrFX-01;
@@ -1996,7 +1997,7 @@
     .cabeza {
         display: block;
         width: 100vw;
-        height: auto;
+        height: 175px;
         background-image: url(../img/productos/cabecera/fresias.jpg);
         background-size: 100vw auto;
         background-position: 0% -25%;
