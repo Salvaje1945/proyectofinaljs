@@ -196,16 +196,6 @@ a {
   grid-area: contenido;
 }
 
-#logueo {
-  /*.contenido {
-      display: block;
-      width: 100vw;
-      margin: 60px 0 0;
-      //padding: 0 5vw;
-      height: auto;
-      z-index: 100;
-  }*/
-}
 #logueo .contenido {
   width: 75vw;
   height: auto;
@@ -215,8 +205,40 @@ a {
   border: 1px solid #ccc;
   padding: 11px;
 }
+#logueo .contenido .contenido__opciones {
+  display: none;
+  width: 100%;
+  height: auto;
+  /*.contenido__opciones--reg {
+      @include form__btns ($forms_btn-wth: 125px); 
+      display: inline-block;
+      margin: 7px;  
+  }*/
+}
+#logueo .contenido .contenido__opciones .contenido__opciones--btn {
+  width: 49%;
+  height: 42px;
+  background-color: #1e434c;
+  color: #cacaca;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.3s ease all;
+  border-radius: 7px;
+  display: inline-block;
+  padding: 9px 0;
+}
+#logueo .contenido .contenido__opciones .contenido__opciones--btn:hover {
+  background-color: #258039;
+  transition: 0.3s linear all;
+}
+#logueo .contenido .contenido__opciones.activo {
+  display: block;
+}
 #logueo .contenido .contenido__form {
   width: 100%;
+  display: none;
 }
 #logueo .contenido .contenido__form .contenido__form--grupo {
   width: 100%;
@@ -282,6 +304,9 @@ a {
 #logueo .contenido .contenido__form .contenido__form--grupo .contenido__form--grupo_btn:hover {
   background-color: #258039;
   transition: 0.3s linear all;
+}
+#logueo .contenido .contenido__form.activo {
+  display: block;
 }
 
 #inicio .cabeza {

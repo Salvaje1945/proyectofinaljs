@@ -572,23 +572,15 @@ const datosCliente = []
 
 document.addEventListener('DOMContentLoaded', () => {
     if(JSON.parse(localStorage.getItem('Cliente')) != null){
-        estaRegistrado()
+        const estadoSesion = JSON.parse(localStorage.getItem('Cliente'))
+        if(estadoSesion[0].sesionactiva === true){
+            estaRegistrado()
+        } else {
+            noEstaRegistrado()
+        }
+        
     } else {
         noEstaRegistrado()
-        /*console.log('hola')
-        const pag = 'registro.html'
-        fetch(pag)
-        .then((url)=>{
-            //console.log(url.text())
-            return url.text()
-        })
-        .then((seccion)=>{
-            $('#secciones').innerHTML = seccion
-            registrarse()
-        })
-        .catch((err)=>{
-            console.log(err)
-        })*/
     }
 })
 
@@ -618,42 +610,13 @@ function noEstaRegistrado() {
         })
         .then((seccion) => {
             $('#secciones').innerHTML = seccion
-            registrarse()
+            accionInicial()
         })
         .catch((err) => {
             console.log(err)
         })
 
 }
-
-/*
-
-const hacerElRegistro = (evt) => {
-    evt.preventDefault()
-    const nombre = $('#nombre').value
-    const apellido = $('#apellido').value
-    const correo = $('#correo').value
-    const direccion = $('#direccion').value
-
-    Swal.fire('Registrado con éxito')
-    
-    const clienteObj = {
-        id: Date.now(),
-        nombre: nombre,
-        apellido: apellido,
-        correo: correo,
-        direccion: direccion
-    }
-    datosCliente.push(clienteObj)
-
-    console.log(datosCliente)
-    localStorage.setItem('Cliente', JSON.stringify(datosCliente))
-    estaRegistrado()
-}
-
-*/
-
-
 
 function elementosRegistro() {
 
@@ -808,7 +771,42 @@ function elementosRegistro() {
 
 }
 
-function hacerElRegistro (evt) {
+function elementosIngreso() {
+
+    function correoIngVacio() {
+        if ($('#correo-ing').value === null || $('#correo-ing').value === ''){
+            $('#correo-ing').classList.add('error')
+            $('#error-correo-ing').classList.add('activo')
+            $('#correo-ing').onfocus = function() {
+                $('#correo-ing').classList.remove('error')
+                $('#error-correo-ing').classList.remove('activo')
+            }
+        } else {
+            $('#correo-ing').classList.add('bien')
+        }
+    }
+
+    $('#correo-ing').onblur = correoIngVacio
+
+    function passVacia() {
+        if ($('#pass-ing').value === null || $('#pass-ing').value === ''){
+            $('#pass-ing').classList.add('error')
+            $('#error-pass-ing').classList.add('activo')
+            $('#pass-ing').onfocus = function() {
+                $('#pass-ing').classList.remove('error')
+                $('#error-pass-ing').classList.remove('activo')
+            }
+        } else {
+            $('#pass-ing').classList.add('bien')
+        }
+    }
+
+    $('#pass-ing').onfocus = correoIngVacio
+    $('#pass-ing').onblur = passVacia
+
+}
+
+function hacerElRegistro(evt) {
     evt.preventDefault()
     const nombre = $('#nombre').value
     const correo = $('#correo').value
@@ -825,10 +823,10 @@ function hacerElRegistro (evt) {
     let passDosOk = false
     let pass = false
 
-    if (nombre === null || nombre === ''){
+    if (nombre === null || nombre === '') {
         $('#nombre').classList.add('error')
         $('#error-nombre').classList.add('activo')
-        $('#nombre').onfocus = function() {
+        $('#nombre').onfocus = function () {
             $('#nombre').classList.remove('error')
             $('#error-nombre').classList.remove('activo')
         }
@@ -838,10 +836,10 @@ function hacerElRegistro (evt) {
         nomOk = true
     }
 
-    if (correo === null || correo === ''){
+    if (correo === null || correo === '') {
         $('#correo').classList.add('error')
         $('#error-correo').classList.add('activo')
-        $('#correo').onfocus = function() {
+        $('#correo').onfocus = function () {
             $('#correo').classList.remove('error')
             $('#error-correo').classList.remove('activo')
         }
@@ -851,10 +849,10 @@ function hacerElRegistro (evt) {
         correOk = true
     }
 
-    if (direccion === null || direccion === ''){
+    if (direccion === null || direccion === '') {
         $('#direccion').classList.add('error')
         $('#error-direccion').classList.add('activo')
-        $('#direccion').onfocus = function() {
+        $('#direccion').onfocus = function () {
             $('#direccion').classList.remove('error')
             $('#error-direccion').classList.remove('activo')
         }
@@ -864,10 +862,10 @@ function hacerElRegistro (evt) {
         direOk = true
     }
 
-    if (movil === null || movil === '' || isNaN(movil) || (movil.lenght < 13 && movil.lenght >= 14)){
+    if (movil === null || movil === '' || isNaN(movil) || (movil.lenght < 13 && movil.lenght >= 14)) {
         $('#movil').classList.add('error')
         $('#error-movil').classList.add('activo')
-        $('#movil').onfocus = function() {
+        $('#movil').onfocus = function () {
             $('#movil').classList.remove('error')
             $('#error-movil').classList.remove('activo')
         }
@@ -877,19 +875,19 @@ function hacerElRegistro (evt) {
         moviOk = true
     }
 
-    if (passUno != passDos){
+    if (passUno != passDos) {
         $('#pass1').classList.add('error')
         $('#pass2').classList.add('error')
         $('#passnocoin').classList.add('activo')
         $('#passcontrnocoin').classList.add('activo')
-        $('#pass2').onfocus = function() {
+        $('#pass2').onfocus = function () {
             $('#pass1').classList.remove('error')
             $('#pass2').classList.remove('error')
             passDos = ''
             $('#passnocoin').classList.remove('activo')
             $('#passcontrnocoin').classList.remove('activo')
         }
-        $('#pass1').onfocus = function() {
+        $('#pass1').onfocus = function () {
             $('#pass1').classList.remove('error')
             $('#pass2').classList.remove('error')
             passUno = ''
@@ -900,7 +898,7 @@ function hacerElRegistro (evt) {
         passUnOk = false
         passDosOk = false
     } else {
-        if(passUno === '' || passUno === null || passDos === '' || passDos === null) {
+        if (passUno === '' || passUno === null || passDos === '' || passDos === null) {
             passUnoVacio()
             passDosVacio()
             passUnOk = false
@@ -913,7 +911,7 @@ function hacerElRegistro (evt) {
         }
     }
 
-    if(passUnOk === true && passDosOk === true){
+    if (passUnOk === true && passDosOk === true) {
         pass = true
     } else {
         pass = false
@@ -942,10 +940,10 @@ function hacerElRegistro (evt) {
             //showCancelButton: true,
             confirmButtonText: 'Confirmar',
             denyButtonText: `Modificar`,
-           }).then((result) => {
-           
+        }).then((result) => {
+
             if (result.isConfirmed) {
-           
+
                 const clienteObj = {
                     id: Date.now(),
                     nombre: nombre,
@@ -953,9 +951,9 @@ function hacerElRegistro (evt) {
                     direccion: direccion,
                     movil: movil,
                     pass: passDos,
-                    online: true
+                    sesionactiva: true
                 }
-        
+
                 datosCliente.push(clienteObj)
                 //console.log(datosCliente)
                 localStorage.setItem('Cliente', JSON.stringify(datosCliente))
@@ -973,37 +971,104 @@ function hacerElRegistro (evt) {
                 setTimeout(estaRegistrado, 3000)
 
                 //estaRegistrado()
-               
+
             } else if (result.isDenied) {
-                  
-               return
-           
-               }
-            })
 
-        /*const clienteObj = {
-            id: Date.now(),
-            nombre: nombre,
-            correo: correo,
-            direccion: direccion,
-            movil: movil,
-            pass: pass2
-        }
+                return
 
-        //datosCliente.push(clienteObj)
-        console.log(datosCliente)
-        localStorage.setItem('Cliente', JSON.stringify(datosCliente))
-        estaRegistrado()*/
+            }
+        })
 
     } else {
         return
     }
 
 
-    
+
+}
+
+function hacerElIngreso(evt) {
+    evt.preventDefault()
+    const correo = $('#correo-ing').value
+    const pass = $('#pass-ing').value
+
+    let correoOk = false
+    let passOk = false
+
+    let datosUsuarioComprobacion = JSON.parse(localStorage.getItem('Cliente'))
+
+    if (datosUsuarioComprobacion[0].correo != correo) {
+        $('#correo-ing').classList.remove('bien')
+        $('#correo-ing').classList.add('error')
+        $('#error-correo-ing2').classList.add('activo')
+        $('#correo-ing').onfocus = function () {
+            $('#correo-ing').classList.remove('error')
+            $('#error-correo-ing2').classList.remove('activo')
+        }
+        return
+    } else {
+        correoOk = true
+        $('#correo-ing').classList.add('bien')
+    }
+
+    if (datosUsuarioComprobacion[0].pass != pass) {
+        $('#pass-ing').classList.remove('bien')
+        $('#pass-ing').classList.add('error')
+        $('#error-pass-ing2').classList.add('activo')
+        $('#pass-ing').onfocus = function () {
+            $('#pass-ing').classList.remove('error')
+            $('#error-pass-ing2').classList.remove('activo')
+        }
+        return
+    } else {
+        passOk = true
+        $('#pass-ing').classList.add('bien')
+    }
+
+    if(correoOk === true && passOk === true){
+        datosUsuarioComprobacion[0].sesionactiva = true
+        localStorage.setItem('Cliente', JSON.stringify(datosUsuarioComprobacion))
+
+        Swal.fire({
+            title: '<h1 class="contenido__confirm--h1">¡Ha ingresado con éxito!</h1>',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 3500,
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false
+        })
+
+        setTimeout(estaRegistrado, 3000)
+    } else {
+        return
+    }
+
+}
+
+function accionInicial() {
+
+    $('#logueo-opciones-login').onclick = function(){
+        $('#logueo-contenido-opciones').classList.remove('activo')
+        $('#form__ingreso').classList.add('activo')
+        ingresar()
+    }
+
+    $('#logueo-opciones-reg').onclick = function(){
+        $('#logueo-contenido-opciones').classList.remove('activo')
+        $('#form__registro').classList.add('activo')
+        registrarse()
+    }
+
+}
+
+function ingresar() {
+    elementosIngreso()
+    $('#form__ingreso').addEventListener('submit', hacerElIngreso)
 }
 
 function registrarse() {
+
 
     elementosRegistro()
     $('#form__registro').addEventListener('submit', hacerElRegistro)
@@ -1070,8 +1135,29 @@ function mostrarContenidos (ubicador) {
                 $('#cabeza__anun--btn_anim').classList.add('promociones')
             }
         }
+
+        function cerrarSesion(evt) {
+            evt.preventDefault()
+            cerrarMenuHamb ()
+            let datosSesion = JSON.parse(localStorage.getItem('Cliente'))
+            datosSesion[0].sesionactiva = false
+            localStorage.setItem('Cliente', JSON.stringify(datosSesion))
+            Swal.fire({
+                title: '<h1 class="contenido__confirm--h1">¡La sesión se ha cerrado con éxito!</h1>',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 3000,
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                allowEnterKey: false
+            })
+    
+            setTimeout(noEstaRegistrado, 3000)
+        }
+        
                 
         $('#cabeza__menu--btn').onclick = abrirMenuHamb
+        $('#hamb-cerrar-sesion').onclick = cerrarSesion
         $('#cabeza__anun--btn').onclick = abrirMenuAnun
         $('#cabeza__anun--cer').onclick = cerrarMenuAnun
         $('#cabeza__dir--btn').onclick = abrirMenuDir

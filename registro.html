@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <div id="logueo">
     <main class="contenido">
+        <div class="contenido__opciones activo" id="logueo-contenido-opciones">
+            <div class="contenido__opciones--btn" id="logueo-opciones-login">INGRESAR</div>
+            <div class="contenido__opciones--btn" id="logueo-opciones-reg">REGISTRARSE</div>
+        </div>
+        <form class="contenido__form" id="form__ingreso">
+            <div class="contenido__form--grupo" id="ing-cor">
+                <h2>Correo electrónico</h2>
+                <input class="contenido__form--grupo_ipt" type="email" id="correo-ing">
+                <div class="contenido__form--grupo_error" id="error-correo-ing">Debe ingresar un correo electrónico.</div>
+                <div class="contenido__form--grupo_error" id="error-correo-ing2">Correo electrónico no registrado.</div>
+            </div>
+            <div class="contenido__form--grupo" id="ing-pass">
+                <h2>Contraseña</h2>
+                <input class="contenido__form--grupo_ipt" type="password" id="pass-ing">
+                <div class="contenido__form--grupo_error" id="error-pass-ing">Debe ingresar su contraseña.</div>
+                <div class="contenido__form--grupo_error" id="error-pass-ing2">Contraseña incorrecta.</div>
+            </div>
+            <div class="contenido__form--grupo" id="btn-enviar-ing">
+                <button class="contenido__form--grupo_btn" type="submit" id="form__btn--enviar2">INGRESAR</button>
+            </div>
+        </form>
         <form class="contenido__form" id="form__registro">
             <div class="contenido__form--grupo" id="nom">
                 <h2>Nombre completo</h2>
