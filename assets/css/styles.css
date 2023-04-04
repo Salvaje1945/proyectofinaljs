@@ -209,11 +209,6 @@ a {
   display: none;
   width: 100%;
   height: auto;
-  /*.contenido__opciones--reg {
-      @include form__btns ($forms_btn-wth: 125px); 
-      display: inline-block;
-      margin: 7px;  
-  }*/
 }
 #logueo .contenido .contenido__opciones .contenido__opciones--btn {
   width: 49%;
@@ -794,13 +789,13 @@ a {
   background-color: #cb0000;
 }
 #inicio .contenido .contenido__productos--cont {
-  height: 29vh;
+  height: 205px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 10px;
   margin: 0 5vw 20px;
-  grid-template-areas: "raes raba arreg" "raes ros plan";
+  grid-template-areas: "raes raba arreg" "raes ins plan";
 }
 #inicio .contenido .contenido__productos--cont .contenido__productos--box {
   border-radius: 5px;
@@ -842,35 +837,35 @@ a {
   grid-area: raes;
   background-image: url(../img/categs/ramo-premium.png);
   background-repeat: no-repeat;
-  background-position: center 7vh;
+  background-position: center 50px;
   background-color: violet;
 }
 #inicio .contenido .contenido__productos--cont #contenido__productos--ramosbasic {
   grid-area: raba;
   background-image: url(../img/categs/ramo-basico.png);
   background-repeat: no-repeat;
-  background-position: center 3vh;
+  background-position: center 36px;
   background-color: bisque;
 }
 #inicio .contenido .contenido__productos--cont #contenido__productos--arreglos {
   grid-area: arreg;
   background-image: url(../img/categs/arreglos-florales.png);
   background-repeat: no-repeat;
-  background-position: 10vw 2vh;
-  background-color: cornflowerblue;
-}
-#inicio .contenido .contenido__productos--cont #contenido__productos--rosas {
-  grid-area: ros;
-  background-image: url(../img/categs/rosas.png);
-  background-repeat: no-repeat;
-  background-position: center 3vh;
+  background-position: 37.5px 14px;
   background-color: lightpink;
+}
+#inicio .contenido .contenido__productos--cont #contenido__productos--insumos {
+  grid-area: ins;
+  background-image: url(../img/categs/macetas.png);
+  background-repeat: no-repeat;
+  background-position: 33px 42px;
+  background-color: cornflowerblue;
 }
 #inicio .contenido .contenido__productos--cont #contenido__productos--plantas {
   grid-area: plan;
   background-image: url(../img/categs/plantas.png);
   background-repeat: no-repeat;
-  background-position: 11vw 0.05vh;
+  background-position: 42px 7px;
   background-color: cadetblue;
 }
 #inicio .contenido .contenido__otrosprods--cont {

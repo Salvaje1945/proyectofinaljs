@@ -1075,6 +1075,7 @@ function registrarse() {
 }
 
 function mostrarContenidos (ubicador) { 
+    const datosDelCliente = JSON.parse(localStorage.getItem('Cliente'))
 
     if (ubicador === 'inicio') {
 
@@ -1164,6 +1165,11 @@ function mostrarContenidos (ubicador) {
         $('#cabeza__anun--nove').onclick = anunNove
         $('#cabeza__anun--prom').onclick = anunProm
 
+        function mostrarDatoscliente() {
+            $('#cabeza-menu-user_nom').innerText = datosDelCliente[0].nombre
+            $('#cabeza-dir-principal').innerText = datosDelCliente[0].direccion
+        }
+        
         function mostrarMasVendIdx() {
 
             function masVendidosIndex(productos) {
@@ -1190,6 +1196,8 @@ function mostrarContenidos (ubicador) {
             }
         }
 
+        
+        mostrarDatoscliente()
         mostrarMasVendIdx()
 
     }

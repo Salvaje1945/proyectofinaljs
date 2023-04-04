@@ -21,14 +21,7 @@
                 @include form__btns ($forms_btn-wth: 49%);
                 display: inline-block;
                 padding: 9px 0;
-                //margin: 7px;  
             }
-
-            /*.contenido__opciones--reg {
-                @include form__btns ($forms_btn-wth: 125px); 
-                display: inline-block;
-                margin: 7px;  
-            }*/
 
         }
 
@@ -643,12 +636,10 @@
         display: block;
         width: 100vw;
         margin: 60px 0 0;
-        //padding: 0 5vw;
         height: auto;
         z-index: 100;
 
         .contenido__buscador--cont {
-            //width: 100%;
             border-radius: 30px;
             padding: 0.4vh 0.5vh 0.5vh;
             border: 1px solid map-get($color, "gris_04");
@@ -696,7 +687,7 @@
         }
 
         .contenido__productos--cont {
-            height: 29vh;
+            height: 205px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(2, 1fr);
@@ -705,7 +696,7 @@
             grid-template-areas: 
             
             "raes raba arreg"
-            "raes ros plan"
+            "raes ins plan"
             
             
             ;
@@ -728,46 +719,39 @@
                 grid-area: raes;
                 background-image: url(../img/categs/ramo-premium.png);
                 background-repeat: no-repeat;
-                background-position: center 7vh;
+                background-position: center 50px;
                 background-color:violet;
-                
-
             } 
             
             #contenido__productos--ramosbasic {
                 grid-area: raba;
-                //background-color: lightpink;
                 background-image: url(../img/categs/ramo-basico.png);
                 background-repeat: no-repeat;
-                background-position: center 3vh;
+                background-position: center 36px;
                 background-color:bisque;
             }
     
             #contenido__productos--arreglos {
                 grid-area: arreg;
-                //background-color:lightblue;
                 background-image: url(../img/categs/arreglos-florales.png);
                 background-repeat: no-repeat;
-                background-position: 10vw 2vh;
-                background-color: cornflowerblue;
+                background-position: 37.5px 14px;
+                background-color: lightpink;
             }        
             
-            #contenido__productos--rosas {
-                grid-area: ros;
-                //background-color:tomato;
-                //background-color:firebrick;
-                background-image: url(../img/categs/rosas.png);
+            #contenido__productos--insumos {
+                grid-area: ins;
+                background-image: url(../img/categs/macetas.png);
                 background-repeat: no-repeat;
-                background-position: center 3vh;
-                background-color: lightpink;
+                background-position: 33px 42px;
+                background-color: cornflowerblue;
             }
     
             #contenido__productos--plantas {
                 grid-area: plan;
-                //background-color:darkcyan;
                 background-image: url(../img/categs/plantas.png);
                 background-repeat: no-repeat;
-                background-position: 11vw 0.05vh;
+                background-position: 42px 7px;
                 background-color:cadetblue;
             }
         }
