@@ -1,4 +1,5 @@
 @use 'vars' as *;
+@use 'predef' as *;
 
 html,
 :root {
@@ -41,7 +42,53 @@ a {
     text-decoration: none;
 }
 
-#logueo,
+.contenido__confirm--h1 {
+    font-family: $fnt_01;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: map-get($color, "negro");
+    text-align: center;
+    line-height: 27px;
+}
+
+.contenido__confirm--p {
+    font-family: $fnt_01;
+    font-size: 1rem;
+    font-weight: normal;
+    color: map-get($color, "negro");
+    text-align: left;
+
+    span {
+        font-weight: 600;
+    }
+}
+
+.contenido__confirm--pie {
+    font-family: $fnt_01;
+    font-size: .65rem;
+    font-weight: 500;
+    font-style: italic;
+    text-align: center;
+    color: map-get($color, "negro");
+}
+
+.contenido__confirm--btn_ok {
+    @include form__btns ($forms_btn-wth: 125px, $forms_btn-hgt: 42px, $forms_btn-bgc: map-get($color, "verde_01"), $forms_btn-color: map-get($color, "gris_08"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 600, $forms_btn-brdrad: 7px, $forms_btn-hvr_bgc: map-get($color, "azul_02")); 
+    margin: 7px;             
+}
+
+.contenido__confirm--btn_mdf {
+    @include form__btns ($forms_btn-wth: 125px, $forms_btn-hgt: 42px, $forms_btn-bgc: map-get($color, "rojo_03"), $forms_btn-color: map-get($color, "gris_08"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 600, $forms_btn-brdrad: 7px, $forms_btn-hvr_bgc: map-get($color, "rojo_02"));   
+    margin: 7px;           
+}
+
+#logueo {
+    @extend .flex-5;
+    width: 100vw;
+    height: 100vh;
+    background-color: map-get($color, "rojo_03");
+}
+
 #inicio,
 #flores,
 #especiales,

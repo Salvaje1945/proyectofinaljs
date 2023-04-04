@@ -2,6 +2,71 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
+.flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont,
+.flex-2,
+#inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont,
+#flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2,
+#flores .cabeza .cabeza__info,
+#especiales .cabeza .cabeza__info,
+#basicos .cabeza .cabeza__info,
+.flex-3,
+#flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
+.flex-4,
+#flores .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
+#especiales .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
+#basicos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
+.flex-5,
+#logueo {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont,
+.flex-3,
+#flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
+.flex-5,
+#logueo {
+  align-items: center;
+}
+
+.flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont,
+.flex-4,
+#flores .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
+#especiales .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
+#basicos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm {
+  justify-content: space-between;
+}
+
+.flex-2, #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont, #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #flores .cabeza .cabeza__info, #especiales .cabeza .cabeza__info, #basicos .cabeza .cabeza__info {
+  align-items: flex-start;
+}
+
+.flex-4, #flores .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm, #especiales .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm, #basicos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm {
+  align-items: flex-end;
+}
+
+.flex-5, #logueo {
+  justify-content: space-around;
+}
+
+.cabeza__extremos, #inicio .cabeza .cabeza__contenido--menu,
+#inicio .cabeza .cabeza__contenido--anun {
+  display: inline-block;
+  padding: 7px;
+}
+
+.scroll_horiz {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 10px;
+  margin: 0 0 20px;
+}
+.scroll_horiz::-webkit-scrollbar {
+  display: none;
+}
+
 html,
 :root {
   font-size: 16px !important;
@@ -38,7 +103,77 @@ a {
   text-decoration: none;
 }
 
-#logueo,
+.contenido__confirm--h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #000;
+  text-align: center;
+  line-height: 27px;
+}
+
+.contenido__confirm--p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #000;
+  text-align: left;
+}
+.contenido__confirm--p span {
+  font-weight: 600;
+}
+
+.contenido__confirm--pie {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  color: #000;
+}
+
+.contenido__confirm--btn_ok {
+  width: 125px;
+  height: 42px;
+  background-color: #258039;
+  color: #cacaca;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.3s ease all;
+  border-radius: 7px;
+  margin: 7px;
+}
+.contenido__confirm--btn_ok:hover {
+  background-color: #1e434c;
+  transition: 0.3s linear all;
+}
+
+.contenido__confirm--btn_mdf {
+  width: 125px;
+  height: 42px;
+  background-color: #960101;
+  color: #cacaca;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.3s ease all;
+  border-radius: 7px;
+  margin: 7px;
+}
+.contenido__confirm--btn_mdf:hover {
+  background-color: #cb0000;
+  transition: 0.3s linear all;
+}
+
+#logueo {
+  width: 100vw;
+  height: 100vh;
+  background-color: #960101;
+}
+
 #inicio,
 #flores,
 #especiales,
@@ -48,102 +183,17 @@ a {
   grid-template-rows: repeat(2, auto);
   grid-template-areas: "cabeza" "contenido";
 }
-#logueo .cabeza,
 #inicio .cabeza,
 #flores .cabeza,
 #especiales .cabeza,
 #basicos .cabeza {
   grid-area: cabeza;
 }
-#logueo .contenido,
 #inicio .contenido,
 #flores .contenido,
 #especiales .contenido,
 #basicos .contenido {
   grid-area: contenido;
-}
-
-.flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont,
-.flex-2,
-#inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont,
-#flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2,
-#flores .cabeza .cabeza__info,
-#especiales .cabeza .cabeza__info,
-#basicos .cabeza .cabeza__info,
-.flex-3,
-#flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
-.flex-4,
-#flores .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
-#especiales .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
-#basicos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
-.flex-5,
-#logueo .contenido {
-  display: flex;
-  flex-flow: row nowrap;
-}
-
-.flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont,
-.flex-3,
-#flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
-.flex-5,
-#logueo .contenido {
-  align-items: center;
-}
-
-.flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont,
-.flex-4,
-#flores .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
-#especiales .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
-#basicos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm {
-  justify-content: space-between;
-}
-
-.flex-2, #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont, #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #flores .cabeza .cabeza__info, #especiales .cabeza .cabeza__info, #basicos .cabeza .cabeza__info {
-  align-items: flex-start;
-}
-
-.flex-4, #flores .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm, #especiales .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm, #basicos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm {
-  align-items: flex-end;
-}
-
-.flex-5, #logueo .contenido {
-  justify-content: space-around;
-}
-
-/*.flex-2,
-.flex-3 {
-    flex-flow: row wrap;
-}
-
-.flex-3 {
-    justify-content: space-evenly;
-    align-items: flex-start;
-}
-
-.flex-2-2 {
-    flex-flow: column-reverse wrap;
-}
-
-.flex-2,
-.flex-2-2 {
-    justify-content: flex-start;
-}*/
-.cabeza__extremos, #inicio .cabeza .cabeza__contenido--menu,
-#inicio .cabeza .cabeza__contenido--anun {
-  display: inline-block;
-  padding: 7px;
-}
-
-.scroll_horiz {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  gap: 10px;
-  margin: 0 0 20px;
-}
-.scroll_horiz::-webkit-scrollbar {
-  display: none;
 }
 
 #logueo {
@@ -157,91 +207,81 @@ a {
   }*/
 }
 #logueo .contenido {
-  width: 100vw;
-  height: 100vh;
-  background-color: #fff;
-}
-#logueo .contenido .contenido__registro {
   width: 75vw;
   height: auto;
+  background-color: #cdcdcd;
+  box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 11px;
+  border: 1px solid #ccc;
+  padding: 11px;
 }
-#logueo .contenido .contenido__registro .formulario {
-  width: 70%;
-  margin: 0 auto;
-  display: block;
-}
-#logueo .contenido .contenido__registro .formulario label {
-  display: inline-block;
-  width: 75%;
-}
-#logueo .contenido .contenido__registro .form__grupo,
-#logueo .contenido .contenido__registro .form__grupo--tipo {
-  margin: 0 auto 15px;
-  height: auto;
+#logueo .contenido .contenido__form {
   width: 100%;
 }
-#logueo .contenido .contenido__registro .form__grupo.pasivo,
-#logueo .contenido .contenido__registro .form__grupo--tipo.pasivo {
-  height: 0px;
-  overflow: hidden;
-  margin: 0 auto;
+#logueo .contenido .contenido__form .contenido__form--grupo {
+  width: 100%;
+  height: auto;
+  margin: 0 0 16px;
 }
-#logueo .contenido .contenido__registro .form__grupo.activo {
-  height: 67px;
+#logueo .contenido .contenido__form .contenido__form--grupo h2 {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
 }
-#logueo .contenido .contenido__registro .form__grupo--tipo.activo {
-  height: 350px;
-}
-#logueo .contenido .contenido__registro .form__grupo--elemento {
-  margin: 7px 0 0;
+#logueo .contenido .contenido__form .contenido__form--grupo .contenido__form--grupo_ipt {
+  display: block;
   height: 35px;
-  width: 75%;
-  line-height: 35px;
-  border-radius: 3px;
+  width: 100%;
+  border-radius: 7px;
   border: 3px solid transparent;
   transition: 0.3s ease all;
-  cursor: pointer;
   padding: 0 5px 0;
-}
-#logueo .contenido .contenido__registro .form__grupo--elemento:focus {
-  border: 3px solid rgb(72, 33, 247);
-  transition: 0.3s ease all;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
   outline: none;
 }
-#logueo .contenido .contenido__registro .form__grupo--elemento.error {
-  border: 3px solid red;
+#logueo .contenido .contenido__form .contenido__form--grupo .contenido__form--grupo_ipt:focus {
+  border: 3px solid #1e434c;
+  transition: 0.3s linear all;
 }
-#logueo .contenido .contenido__registro .form__grupo--elemento.bien {
-  border: 3px solid green;
+#logueo .contenido .contenido__form .contenido__form--grupo .contenido__form--grupo_ipt.error {
+  border: 3px solid #cb0000;
 }
-#logueo .contenido .contenido__registro .form__grupo--error {
-  background-color: red;
+#logueo .contenido .contenido__form .contenido__form--grupo .contenido__form--grupo_ipt.bien {
+  border: 3px solid #258039;
+}
+#logueo .contenido .contenido__form .contenido__form--grupo .contenido__form--grupo_error {
+  background-color: #cb0000;
   height: 0px;
-  width: 75%;
+  width: 100%;
   color: #fff;
-  font-size: 16px;
-  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
   transition: 0.5s ease all;
+  line-height: 16px;
   overflow: hidden;
-  margin: 0 auto;
 }
-#logueo .contenido .contenido__registro .form__grupo--error.activo {
-  height: 35px;
+#logueo .contenido .contenido__form .contenido__form--grupo .contenido__form--grupo_error.activo {
+  height: 42px;
+  padding: 5px;
+  transition: 0.5s linear all;
 }
-#logueo .contenido .contenido__registro .form__btn {
-  width: auto;
-  height: 45px;
-  background-color: #333;
-  color: #fff;
+#logueo .contenido .contenido__form .contenido__form--grupo .contenido__form--grupo_btn {
+  width: 100%;
+  height: 42px;
+  background-color: #1e434c;
+  color: #cacaca;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
   transition: 0.3s ease all;
-  margin: 15px 0 0;
-  border: 3px solid transparent;
+  border-radius: 7px;
 }
-#logueo .contenido .contenido__registro .form__btn:hover {
-  background-color: #999;
-  color: #000;
-  transition: 0.3s ease all;
-  border: 3px solid #000;
+#logueo .contenido .contenido__form .contenido__form--grupo .contenido__form--grupo_btn:hover {
+  background-color: #258039;
+  transition: 0.3s linear all;
 }
 
 #inicio .cabeza {

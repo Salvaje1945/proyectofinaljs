@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <div id="logueo">
     <main class="contenido">
-        <div class="contenido__registro">
-            <form class="formulario" id="form__registro">
-                <div class="form__grupo" id="nom">
-                    <label for="nombre">Nombre</label>
-                    <div>
-                        <input class="form__grupo--elemento" type="text" name="nombre" id="nombre" placeholder="Escriba su nombre completo">
-                    </div>
-                    <div class="form__grupo--error" id="error-nombre">Error: debe introducir su nombre completo.</div>
-                </div>
-                <div class="form__grupo" id="ape">
-                    <label for="apellido">Apellido</label>
-                    <div>
-                        <input class="form__grupo--elemento" type="text" name="apellido" id="apellido" placeholder="Escriba su apellido">
-                    </div>
-                    <div class="form__grupo--error" id="error-empresa">Error: debe escribir su apellido.</div>
-                </div>
-                <div class="form__grupo" id="mail">
-                    <label for="correo">Correo electrónico</label>
-                    <div>
-                        <input class="form__grupo--elemento" type="email" name="correo" id="correo" placeholder="Escriba su correo electrónico">
-                    </div>
-                    <div class="form__grupo--error" id="error-correo">Error: debe introducir un correo válido.</div>
-                </div>
-                <div class="form__grupo" id="dir">
-                    <label for="direccion">Dirección</label>
-                    <div>
-                        <input class="form__grupo--elemento" type="text" name="direccion" id="direccion">
-                    </div>
-                    <div class="form__grupo--error" id="error-telefono">Error: debe introducir su dirección.</div>
-                </div>
-                <div class="form__grupo" id="btn-enviar">
-                    <div>
-                        <button class="form__btn" type="submit" id="form__btn--enviar">REGISTRARSE</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+        <form class="contenido__form" id="form__registro">
+            <div class="contenido__form--grupo" id="nom">
+                <h2>Nombre completo</h2>
+                <input class="contenido__form--grupo_ipt" type="text" id="nombre" placeholder="Juan Carlos Cliente">
+                <div class="contenido__form--grupo_error" id="error-nombre">Error: debe introducir su nombre completo.</div>
+            </div>
+            <div class="contenido__form--grupo" id="cor">
+                <h2>Correo electrónico</h2>
+                <input class="contenido__form--grupo_ipt" type="email" id="correo" placeholder="correo@electronico.com">
+                <div class="contenido__form--grupo_error" id="error-correo">Error: debe introducir un correo válido.</div>
+            </div>
+            <div class="contenido__form--grupo" id="dir">
+                <h2>Dirección</h2>
+                <input class="contenido__form--grupo_ipt" type="text" id="direccion" placeholder="Mi Calle 123 9°B, Mi Localidad ">
+                <div class="contenido__form--grupo_error" id="error-direccion">Error: debe introducir una dirección.</div>
+            </div>
+            <div class="contenido__form--grupo" id="mov">
+                <h2>Teléfono móvil</h2>
+                <input class="contenido__form--grupo_ipt" type="text" id="movil" placeholder="escriba su móvil empezando por 54911, sin espacios ni signos">
+                <div class="contenido__form--grupo_error" id="error-movil">Error: debe introducir un número de móvil válido.</div>
+            </div>
+            <div class="contenido__form--grupo" id="pass">
+                <h2>Contraseña</h2>
+                <input class="contenido__form--grupo_ipt" type="password" id="pass1">
+                <div class="contenido__form--grupo_error" id="passvacio">Error: debe introducir una contraseña.</div>
+                <div class="contenido__form--grupo_error" id="passnocoin">Error: las contraseñas no coinciden.</div>
+            </div>
+            <div class="contenido__form--grupo" id="passcontr">
+                <h2>Repita su contraseña</h2>
+                <input class="contenido__form--grupo_ipt" type="password" id="pass2">
+                <div class="contenido__form--grupo_error" id="passcontrvacio">Error: debe introducir nuevamente su contraseña.</div>
+                <div class="contenido__form--grupo_error" id="passcontrnocoin">Error: las contraseñas no coinciden.</div>
+            </div>
+            <div class="contenido__form--grupo" id="btn-enviar">
+                <button class="contenido__form--grupo_btn" type="submit" id="form__btn--enviar">REGISTRARSE</button>
+            </div>
+        </form>
     </main>
 </div>

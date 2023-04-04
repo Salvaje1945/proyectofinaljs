@@ -4,110 +4,109 @@
 #logueo {
 
     .contenido {
-        @extend .flex-5;
-        width: 100vw;
-        height: 100vh;
-        background-color: map-get($color, "blanco");
+        width: 75vw;
+        height: auto;
+        background-color: map-get($color, "gris_07");
+        box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 50%);
+        border-radius: 11px;
+        border: 1px solid map-get($color, "gris_05");
+        padding: 11px;
 
-        .contenido__registro {
-            width: 75vw;
-            height: auto;
-
-            .formulario {
-                width: 70%;
-                margin: 0 auto;
-                display: block;
-            }
+        .contenido__form {
+            width: 100%;
             
-            
-            .formulario label{
-                display: inline-block;
-                width: 75%;
-            }
-            
-            .form__grupo,
-            .form__grupo--tipo {
-                margin: 0 auto 15px;
-                height: auto;
+            .contenido__form--grupo {
                 width: 100%;
-            }
-            
-            
-            .form__grupo.pasivo,
-            .form__grupo--tipo.pasivo {
-                height: 0px;
-                overflow: hidden;
-                margin: 0 auto;
-            }
-            
-            .form__grupo.activo {
-                height: 67px;
-            }
-            
-            .form__grupo--tipo.activo {
-                height: 350px;
-            }
-            
-            .form__grupo--elemento {
-                margin: 7px 0 0;
-                height: 35px;
-                width: 75%;
-                line-height: 35px;
-                border-radius: 3px;
-                border: 3px solid transparent;
-                transition: .3s ease all;
-                cursor: pointer;
-                padding: 0 5px 0;
-            }
-            
-            .form__grupo--elemento:focus {
-                border: 3px solid rgb(72, 33, 247);
-                transition: .3s ease all;
-                outline: none;
-            }
-            
-            .form__grupo--elemento.error{
-                border: 3px solid red;
-            }
-            
-            .form__grupo--elemento.bien{
-                border: 3px solid green;
-            }
-            
-            .form__grupo--error {
-                background-color: red;
-                height: 0px;
-                width: 75%;
-                color: #fff;
-                font-size: 16px;
-                font-weight: 600;
-                transition: .5s ease all;
-                overflow: hidden;
-                margin: 0 auto;
-            }
-            
-            .form__grupo--error.activo {
-                height: 35px;
-            }
-            
-            .form__btn {
-                width: auto;
-                height: 45px;
-                background-color: #333;
-                color: #fff;
-                transition: .3s ease all;
-                margin: 15px 0 0;
-                border: 3px solid transparent;
-            }
-            
-            .form__btn:hover {
-                background-color: #999;
-                color: #000;
-                transition: .3s ease all;
-                border: 3px solid #000;
-            }
+                height: auto;
+                margin: 0 0 16px;
 
+                h2 {
+                    display: block;
+                    font-family: $fnt_01;
+                    font-size: 1rem;
+                    //margin: 0 0 5px;
+                }
+
+                .contenido__form--grupo_ipt {
+                    display: block;
+                    height: 35px;
+                    width: 100%;
+                    //line-height: 35px;
+                    border-radius: 7px;
+                    border: 3px solid transparent;
+                    transition: .3s ease all;
+                    padding: 0 5px 0;
+                    font-family: $fnt_01;
+                    font-size: 0.85rem;
+                    outline: none;
+
+                    &:focus {
+                        border: 3px solid map-get($color, "azul_02");
+                        transition: .3s linear all;
+                    }
+                }
+                
+                .contenido__form--grupo_ipt.error{
+                    border: 3px solid map-get($color, "rojo_02");
+                }
+                
+                .contenido__form--grupo_ipt.bien{
+                    border: 3px solid map-get($color, "verde_01");
+                }
+                
+                .contenido__form--grupo_error {
+                    background-color: map-get($color, "rojo_02");
+                    height: 0px;
+                    width: 100%;
+                    color: #fff;
+                    font-family: $fnt_01;
+                    font-size: .85rem;
+                    font-weight: 500;
+                    transition: .5s ease all;
+                    line-height: 16px;
+                    overflow: hidden;
+                }
+                
+                .contenido__form--grupo_error.activo {
+                    height: 42px;
+                    padding: 5px;
+                    transition: .5s linear all;
+                }
+                
+                .contenido__form--grupo_btn {
+                    width: 100%;
+                    height: 42px;
+                    background-color: map-get($color, "azul_02");
+                    color: map-get($color, "gris_08");
+                    font-family: $fnt_01;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    text-align: center;
+                    transition: .3s ease all;
+                    border-radius: 7px;
+
+                    &:hover {
+                        background-color: map-get($color, "verde_01");
+                        transition: .3s linear all;
+                    }               
+                }
+
+
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         }
+        
     }
 
     /*.contenido {

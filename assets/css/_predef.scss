@@ -34,25 +34,6 @@
     justify-content: space-around;
 }
 
-/*.flex-2,
-.flex-3 {
-    flex-flow: row wrap;
-}
-
-.flex-3 {
-    justify-content: space-evenly;
-    align-items: flex-start;
-}
-
-.flex-2-2 {
-    flex-flow: column-reverse wrap;
-}
-
-.flex-2,
-.flex-2-2 {
-    justify-content: flex-start;
-}*/
-
 // Menúes desplegables cabecera
 
 @mixin cabeza__desplegables--edit ($cbz_dsp-wth: auto, $cbz_dsp-hgt: 100vh, $cbz_dsp-pdd: 10px) {
@@ -140,4 +121,22 @@
             transition: $bx_hvrfx01-trans;
         }
     }
+}
+
+@mixin form__btns ($forms_btn-wth: 100%, $forms_btn-hgt: 42px, $forms_btn-bgc: map-get($color, "azul_02"), $forms_btn-color: map-get($color, "gris_08"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 600, $forms_btn-brdrad: 7px, $forms_btn-hvr_bgc: map-get($color, "verde_01")) {
+    width: $forms_btn-wth;
+    height: $forms_btn-hgt;
+    background-color: $forms_btn-bgc;
+    color: $forms_btn-color;
+    font-family: $fnt_01;
+    font-size: $forms_btn-fntsiz;
+    font-weight: $forms_btn-fntwght;
+    text-align: center;
+    transition: .3s ease all;
+    border-radius: $forms_btn-brdrad;
+
+    &:hover {
+        background-color: $forms_btn-hvr_bgc;
+        transition: .3s linear all;
+    } 
 }
