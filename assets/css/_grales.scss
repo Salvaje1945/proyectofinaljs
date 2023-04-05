@@ -98,7 +98,14 @@ a {
 #casamientos,
 #velorios,
 #plantas,
-#insumos {
+#interior,
+#exterior,
+#cactus,
+#insumos,
+#semillas,
+#macetas,
+#tierras,
+#fertilizantes {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: repeat(2, auto);

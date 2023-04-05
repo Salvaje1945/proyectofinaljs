@@ -402,7 +402,7 @@ const productos = [
         idc: 3,
         nombre: 'Cactus cerebro',
         desc: 'Cactus con una mutación natural que provoca la pérdida de su simetría radial, dando como resultado crestas que se enroscan sobre sí mismas.',
-        tipo: 'Cactus',
+        tipo: 'Cáctus',
         precio: 980,
         vendidos: 256,
         puntuacion: 4.6,
@@ -414,7 +414,7 @@ const productos = [
         idc: 3,
         nombre: 'Estapelia',
         desc: 'Planta suculenta que forma una mata que avanza hacia los costados, con tallos dentados verticales de hasta 25 cm de alto. Resiste sol, viento, y riegos moderados. Se torna rojiza a pleno sol.',
-        tipo: 'Cactus',
+        tipo: 'Cáctus',
         precio: 890,
         vendidos: 125,
         puntuacion: 4.7,
@@ -426,7 +426,7 @@ const productos = [
         idc: 3,
         nombre: 'Grusonii',
         desc: 'Cactus con espinas amarillas muy marcadas, que crece como un barril de hasta 50 cm de diámetro. Es nativo del noreste de México.',
-        tipo: 'Cactus',
+        tipo: 'Cáctus',
         precio: 6800,
         vendidos: 985,
         puntuacion: 4.5,
@@ -1086,6 +1086,15 @@ function mostrarContenidos (ubicador) {
 
         const contProdsLinks = document.querySelectorAll('#contenido-productos-bx .contenido__productos--box')
         for(let link of contProdsLinks){
+            //console.log(link)
+            /*link.addEventListener('click', (evt)=>{
+                console.dir(evt.target)
+            })*/
+            link.addEventListener('click', pedirPag)
+        }
+
+        const contOtrosProdsLinks = document.querySelectorAll('#contenido-otrosprods-bx .contenido__otrosprods--box')
+        for(let link of contOtrosProdsLinks){
             //console.log(link)
             /*link.addEventListener('click', (evt)=>{
                 console.dir(evt.target)
@@ -2030,6 +2039,273 @@ function mostrarContenidos (ubicador) {
         mostrarProdsTodos()
     }
 
+    if (ubicador === 'interior') {
+
+        const volverUno = document.querySelectorAll('#plantas__volver--1 i')
+        console.log(volverUno)
+        for(let link of volverUno){
+            link.addEventListener('click', pedirPag)
+        }
+    
+        /*
+        function mostrarMasVendEsp() {
+    
+            function masVendidosFlor(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
+                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
+                return ordenados.slice(0, 5)
+            }
+        
+            const floresMasVendidos = masVendidosFlor(productos)
+            console.log(floresMasVendidos)
+            for (const masVendido of floresMasVendidos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__populares--prod${masVendido.id}`
+                elProd.className = 'contenido__masvendidos--box'
+                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
+                                        <div class="masvendidos__box--img_ico">
+                                            <span><i class="fa-regular fa-heart"></i></span>
+                                        </div>
+                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
+                                    </div>
+                                    <div class="contenido__masvendidos--txt">
+                                        <h1>${masVendido.nombre}</h1>
+                                        <div class="masvendidos__txt--bttm">
+                                            <p>$${masVendido.precio}</p>
+                                            <div>
+                                                <span><i class="fa-solid fa-plus"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>`
+                $('#arreglos__contenido--masvendidos').appendChild(elProd)
+            }
+        }
+        */
+    
+        function mostrarProdsTodos() {
+    
+            function todasLasPlantInte(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Interior')
+                const ordenados = filtrados.sort((a, b) => {
+                    const nombreA = a.nombre.toLowerCase()
+                    const nombreB = b.nombre.toLowerCase()
+                    if(nombreA < nombreB){
+                        return -1
+                    }
+                    if(nombreA > nombreB){
+                        return 1
+                    }
+
+                    return 0
+                })
+                return ordenados
+            }
+    
+            const lasPlantInte = todasLasPlantInte(productos)
+            console.log(lasPlantInte)
+            for (const planta of lasPlantInte) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__prodstodos--prod${planta.id}`
+                elProd.className = 'contenido__prodstodos--box'
+                elProd.innerHTML = `<div class="contenido__prodstodos--box_img">
+                                        <img class="prodstodos__box--foto" src="${planta.foto}">
+                                        <img class="prodstodos__box--cabecera" src="${planta.cabecera}">
+                                    </div>
+                                    <div class="contenido__prodstodos--box_txt">
+                                        <h2>${planta.nombre}</h2>
+                                        <h3><span><i class="fa-solid fa-star"></i></span>${planta.puntuacion}</h3>
+                                        <p>$${planta.precio}</p>
+                                        <p>Envío $200</p>
+                                    </div>`
+                $('#contenido-prodstodos').appendChild(elProd)
+            }
+        }
+    
+        //floresCabezaMenuDesp()
+        
+        //mostrarMasVendEsp()
+    
+        mostrarProdsTodos()
+    }
+
+    if (ubicador === 'exterior') {
+
+        const volverUno = document.querySelectorAll('#plantas__volver--1 i')
+        console.log(volverUno)
+        for(let link of volverUno){
+            link.addEventListener('click', pedirPag)
+        }
+    
+        /*
+        function mostrarMasVendEsp() {
+    
+            function masVendidosFlor(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
+                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
+                return ordenados.slice(0, 5)
+            }
+        
+            const floresMasVendidos = masVendidosFlor(productos)
+            console.log(floresMasVendidos)
+            for (const masVendido of floresMasVendidos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__populares--prod${masVendido.id}`
+                elProd.className = 'contenido__masvendidos--box'
+                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
+                                        <div class="masvendidos__box--img_ico">
+                                            <span><i class="fa-regular fa-heart"></i></span>
+                                        </div>
+                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
+                                    </div>
+                                    <div class="contenido__masvendidos--txt">
+                                        <h1>${masVendido.nombre}</h1>
+                                        <div class="masvendidos__txt--bttm">
+                                            <p>$${masVendido.precio}</p>
+                                            <div>
+                                                <span><i class="fa-solid fa-plus"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>`
+                $('#arreglos__contenido--masvendidos').appendChild(elProd)
+            }
+        }
+        */
+    
+        function mostrarProdsTodos() {
+    
+            function todasLasPlantExte(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Exterior')
+                const ordenados = filtrados.sort((a, b) => {
+                    const nombreA = a.nombre.toLowerCase()
+                    const nombreB = b.nombre.toLowerCase()
+                    if(nombreA < nombreB){
+                        return -1
+                    }
+                    if(nombreA > nombreB){
+                        return 1
+                    }
+
+                    return 0
+                })
+                return ordenados
+            }
+    
+            const lasPlantExte = todasLasPlantExte(productos)
+            console.log(lasPlantExte)
+            for (const planta of lasPlantExte) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__prodstodos--prod${planta.id}`
+                elProd.className = 'contenido__prodstodos--box'
+                elProd.innerHTML = `<div class="contenido__prodstodos--box_img">
+                                        <img class="prodstodos__box--foto" src="${planta.foto}">
+                                        <img class="prodstodos__box--cabecera" src="${planta.cabecera}">
+                                    </div>
+                                    <div class="contenido__prodstodos--box_txt">
+                                        <h2>${planta.nombre}</h2>
+                                        <h3><span><i class="fa-solid fa-star"></i></span>${planta.puntuacion}</h3>
+                                        <p>$${planta.precio}</p>
+                                        <p>Envío $200</p>
+                                    </div>`
+                $('#contenido-prodstodos').appendChild(elProd)
+            }
+        }
+    
+        //floresCabezaMenuDesp()
+        
+        //mostrarMasVendEsp()
+    
+        mostrarProdsTodos()
+    }
+
+    if (ubicador === 'cactus') {
+
+        const volverUno = document.querySelectorAll('#plantas__volver--1 i')
+        console.log(volverUno)
+        for(let link of volverUno){
+            link.addEventListener('click', pedirPag)
+        }
+    
+        /*
+        function mostrarMasVendEsp() {
+    
+            function masVendidosFlor(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
+                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
+                return ordenados.slice(0, 5)
+            }
+        
+            const floresMasVendidos = masVendidosFlor(productos)
+            console.log(floresMasVendidos)
+            for (const masVendido of floresMasVendidos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__populares--prod${masVendido.id}`
+                elProd.className = 'contenido__masvendidos--box'
+                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
+                                        <div class="masvendidos__box--img_ico">
+                                            <span><i class="fa-regular fa-heart"></i></span>
+                                        </div>
+                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
+                                    </div>
+                                    <div class="contenido__masvendidos--txt">
+                                        <h1>${masVendido.nombre}</h1>
+                                        <div class="masvendidos__txt--bttm">
+                                            <p>$${masVendido.precio}</p>
+                                            <div>
+                                                <span><i class="fa-solid fa-plus"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>`
+                $('#arreglos__contenido--masvendidos').appendChild(elProd)
+            }
+        }
+        */
+    
+        function mostrarProdsTodos() {
+    
+            function todosLosCactus(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Cáctus')
+                const ordenados = filtrados.sort((a, b) => {
+                    const nombreA = a.nombre.toLowerCase()
+                    const nombreB = b.nombre.toLowerCase()
+                    if(nombreA < nombreB){
+                        return -1
+                    }
+                    if(nombreA > nombreB){
+                        return 1
+                    }
+
+                    return 0
+                })
+                return ordenados
+            }
+    
+            const losCactus = todosLosCactus(productos)
+            console.log(losCactus)
+            for (const cactus of losCactus) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__prodstodos--prod${cactus.id}`
+                elProd.className = 'contenido__prodstodos--box'
+                elProd.innerHTML = `<div class="contenido__prodstodos--box_img">
+                                        <img class="prodstodos__box--foto" src="${cactus.foto}">
+                                        <img class="prodstodos__box--cabecera" src="${cactus.cabecera}">
+                                    </div>
+                                    <div class="contenido__prodstodos--box_txt">
+                                        <h2>${cactus.nombre}</h2>
+                                        <h3><span><i class="fa-solid fa-star"></i></span>${cactus.puntuacion}</h3>
+                                        <p>$${cactus.precio}</p>
+                                        <p>Envío $200</p>
+                                    </div>`
+                $('#contenido-prodstodos').appendChild(elProd)
+            }
+        }
+    
+        //floresCabezaMenuDesp()
+        
+        //mostrarMasVendEsp()
+    
+        mostrarProdsTodos()
+    }
+
     // INSUMOS
 
     if (ubicador === 'insumos') {
@@ -2156,7 +2432,361 @@ function mostrarContenidos (ubicador) {
         mostrarProdsTodos()
     }
 
+    if (ubicador === 'semillas') {
+
+        const volverUno = document.querySelectorAll('#insumos__volver--1 i')
+        console.log(volverUno)
+        for(let link of volverUno){
+            link.addEventListener('click', pedirPag)
+        }
     
+        /*
+        function mostrarMasVendEsp() {
+    
+            function masVendidosFlor(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
+                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
+                return ordenados.slice(0, 5)
+            }
+        
+            const floresMasVendidos = masVendidosFlor(productos)
+            console.log(floresMasVendidos)
+            for (const masVendido of floresMasVendidos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__populares--prod${masVendido.id}`
+                elProd.className = 'contenido__masvendidos--box'
+                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
+                                        <div class="masvendidos__box--img_ico">
+                                            <span><i class="fa-regular fa-heart"></i></span>
+                                        </div>
+                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
+                                    </div>
+                                    <div class="contenido__masvendidos--txt">
+                                        <h1>${masVendido.nombre}</h1>
+                                        <div class="masvendidos__txt--bttm">
+                                            <p>$${masVendido.precio}</p>
+                                            <div>
+                                                <span><i class="fa-solid fa-plus"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>`
+                $('#arreglos__contenido--masvendidos').appendChild(elProd)
+            }
+        }
+        */
+    
+        function mostrarProdsTodos() {
+    
+            function todasLasSem(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Semillas')
+                const ordenados = filtrados.sort((a, b) => {
+                    const nombreA = a.nombre.toLowerCase()
+                    const nombreB = b.nombre.toLowerCase()
+                    if(nombreA < nombreB){
+                        return -1
+                    }
+                    if(nombreA > nombreB){
+                        return 1
+                    }
+
+                    return 0
+                })
+                return ordenados
+            }
+    
+            const lasSemillas = todasLasSem(productos)
+            console.log(lasSemillas)
+            for (const semillas of lasSemillas) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__prodstodos--prod${semillas.id}`
+                elProd.className = 'contenido__prodstodos--box'
+                elProd.innerHTML = `<div class="contenido__prodstodos--box_img">
+                                        <img class="prodstodos__box--foto" src="${semillas.foto}">
+                                        <img class="prodstodos__box--cabecera" src="${semillas.cabecera}">
+                                    </div>
+                                    <div class="contenido__prodstodos--box_txt">
+                                        <h2>${semillas.nombre}</h2>
+                                        <h3><span><i class="fa-solid fa-star"></i></span>${semillas.puntuacion}</h3>
+                                        <p>$${semillas.precio}</p>
+                                        <p>Envío $200</p>
+                                    </div>`
+                $('#contenido-prodstodos').appendChild(elProd)
+            }
+        }
+    
+        //floresCabezaMenuDesp()
+        
+        //mostrarMasVendEsp()
+    
+        mostrarProdsTodos()
+    }    
+
+    if (ubicador === 'macetas') {
+
+        const volverUno = document.querySelectorAll('#insumos__volver--1 i')
+        console.log(volverUno)
+        for(let link of volverUno){
+            link.addEventListener('click', pedirPag)
+        }
+    
+        /*
+        function mostrarMasVendEsp() {
+    
+            function masVendidosFlor(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
+                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
+                return ordenados.slice(0, 5)
+            }
+        
+            const floresMasVendidos = masVendidosFlor(productos)
+            console.log(floresMasVendidos)
+            for (const masVendido of floresMasVendidos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__populares--prod${masVendido.id}`
+                elProd.className = 'contenido__masvendidos--box'
+                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
+                                        <div class="masvendidos__box--img_ico">
+                                            <span><i class="fa-regular fa-heart"></i></span>
+                                        </div>
+                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
+                                    </div>
+                                    <div class="contenido__masvendidos--txt">
+                                        <h1>${masVendido.nombre}</h1>
+                                        <div class="masvendidos__txt--bttm">
+                                            <p>$${masVendido.precio}</p>
+                                            <div>
+                                                <span><i class="fa-solid fa-plus"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>`
+                $('#arreglos__contenido--masvendidos').appendChild(elProd)
+            }
+        }
+        */
+    
+        function mostrarProdsTodos() {
+    
+            function todasLasMacetas(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Macetas')
+                const ordenados = filtrados.sort((a, b) => {
+                    const nombreA = a.nombre.toLowerCase()
+                    const nombreB = b.nombre.toLowerCase()
+                    if(nombreA < nombreB){
+                        return -1
+                    }
+                    if(nombreA > nombreB){
+                        return 1
+                    }
+
+                    return 0
+                })
+                return ordenados
+            }
+    
+            const lasMacetas = todasLasMacetas(productos)
+            console.log(lasMacetas)
+            for (const maceta of lasMacetas) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__prodstodos--prod${maceta.id}`
+                elProd.className = 'contenido__prodstodos--box'
+                elProd.innerHTML = `<div class="contenido__prodstodos--box_img">
+                                        <img class="prodstodos__box--foto" src="${maceta.foto}">
+                                        <img class="prodstodos__box--cabecera" src="${maceta.cabecera}">
+                                    </div>
+                                    <div class="contenido__prodstodos--box_txt">
+                                        <h2>${maceta.nombre}</h2>
+                                        <h3><span><i class="fa-solid fa-star"></i></span>${maceta.puntuacion}</h3>
+                                        <p>$${maceta.precio}</p>
+                                        <p>Envío $200</p>
+                                    </div>`
+                $('#contenido-prodstodos').appendChild(elProd)
+            }
+        }
+    
+        //floresCabezaMenuDesp()
+        
+        //mostrarMasVendEsp()
+    
+        mostrarProdsTodos()
+    }  
+
+    if (ubicador === 'tierras') {
+
+        const volverUno = document.querySelectorAll('#insumos__volver--1 i')
+        console.log(volverUno)
+        for(let link of volverUno){
+            link.addEventListener('click', pedirPag)
+        }
+    
+        /*
+        function mostrarMasVendEsp() {
+    
+            function masVendidosFlor(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
+                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
+                return ordenados.slice(0, 5)
+            }
+        
+            const floresMasVendidos = masVendidosFlor(productos)
+            console.log(floresMasVendidos)
+            for (const masVendido of floresMasVendidos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__populares--prod${masVendido.id}`
+                elProd.className = 'contenido__masvendidos--box'
+                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
+                                        <div class="masvendidos__box--img_ico">
+                                            <span><i class="fa-regular fa-heart"></i></span>
+                                        </div>
+                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
+                                    </div>
+                                    <div class="contenido__masvendidos--txt">
+                                        <h1>${masVendido.nombre}</h1>
+                                        <div class="masvendidos__txt--bttm">
+                                            <p>$${masVendido.precio}</p>
+                                            <div>
+                                                <span><i class="fa-solid fa-plus"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>`
+                $('#arreglos__contenido--masvendidos').appendChild(elProd)
+            }
+        }
+        */
+    
+        function mostrarProdsTodos() {
+    
+            function todasLasTierras(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Tierras')
+                const ordenados = filtrados.sort((a, b) => {
+                    const nombreA = a.nombre.toLowerCase()
+                    const nombreB = b.nombre.toLowerCase()
+                    if(nombreA < nombreB){
+                        return -1
+                    }
+                    if(nombreA > nombreB){
+                        return 1
+                    }
+
+                    return 0
+                })
+                return ordenados
+            }
+    
+            const lasTierras = todasLasTierras(productos)
+            console.log(lasTierras)
+            for (const tierra of lasTierras) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__prodstodos--prod${tierra.id}`
+                elProd.className = 'contenido__prodstodos--box'
+                elProd.innerHTML = `<div class="contenido__prodstodos--box_img">
+                                        <img class="prodstodos__box--foto" src="${tierra.foto}">
+                                        <img class="prodstodos__box--cabecera" src="${tierra.cabecera}">
+                                    </div>
+                                    <div class="contenido__prodstodos--box_txt">
+                                        <h2>${tierra.nombre}</h2>
+                                        <h3><span><i class="fa-solid fa-star"></i></span>${tierra.puntuacion}</h3>
+                                        <p>$${tierra.precio}</p>
+                                        <p>Envío $200</p>
+                                    </div>`
+                $('#contenido-prodstodos').appendChild(elProd)
+            }
+        }
+    
+        //floresCabezaMenuDesp()
+        
+        //mostrarMasVendEsp()
+    
+        mostrarProdsTodos()
+    } 
+
+    if (ubicador === 'fertilizantes') {
+
+        const volverUno = document.querySelectorAll('#insumos__volver--1 i')
+        console.log(volverUno)
+        for(let link of volverUno){
+            link.addEventListener('click', pedirPag)
+        }
+    
+        /*
+        function mostrarMasVendEsp() {
+    
+            function masVendidosFlor(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
+                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
+                return ordenados.slice(0, 5)
+            }
+        
+            const floresMasVendidos = masVendidosFlor(productos)
+            console.log(floresMasVendidos)
+            for (const masVendido of floresMasVendidos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__populares--prod${masVendido.id}`
+                elProd.className = 'contenido__masvendidos--box'
+                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
+                                        <div class="masvendidos__box--img_ico">
+                                            <span><i class="fa-regular fa-heart"></i></span>
+                                        </div>
+                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
+                                    </div>
+                                    <div class="contenido__masvendidos--txt">
+                                        <h1>${masVendido.nombre}</h1>
+                                        <div class="masvendidos__txt--bttm">
+                                            <p>$${masVendido.precio}</p>
+                                            <div>
+                                                <span><i class="fa-solid fa-plus"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>`
+                $('#arreglos__contenido--masvendidos').appendChild(elProd)
+            }
+        }
+        */
+    
+        function mostrarProdsTodos() {
+    
+            function todosLosFerti(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Fertilizantes')
+                const ordenados = filtrados.sort((a, b) => {
+                    const nombreA = a.nombre.toLowerCase()
+                    const nombreB = b.nombre.toLowerCase()
+                    if(nombreA < nombreB){
+                        return -1
+                    }
+                    if(nombreA > nombreB){
+                        return 1
+                    }
+
+                    return 0
+                })
+                return ordenados
+            }
+    
+            const losFerti = todosLosFerti(productos)
+            console.log(losFerti)
+            for (const ferti of losFerti) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__prodstodos--prod${ferti.id}`
+                elProd.className = 'contenido__prodstodos--box'
+                elProd.innerHTML = `<div class="contenido__prodstodos--box_img">
+                                        <img class="prodstodos__box--foto" src="${ferti.foto}">
+                                        <img class="prodstodos__box--cabecera" src="${ferti.cabecera}">
+                                    </div>
+                                    <div class="contenido__prodstodos--box_txt">
+                                        <h2>${ferti.nombre}</h2>
+                                        <h3><span><i class="fa-solid fa-star"></i></span>${ferti.puntuacion}</h3>
+                                        <p>$${ferti.precio}</p>
+                                        <p>Envío $200</p>
+                                    </div>`
+                $('#contenido-prodstodos').appendChild(elProd)
+            }
+        }
+    
+        //floresCabezaMenuDesp()
+        
+        //mostrarMasVendEsp()
+    
+        mostrarProdsTodos()
+    } 
     
 }
 
