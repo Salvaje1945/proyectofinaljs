@@ -2,46 +2,58 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
-.flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont,
+.flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont,
 .flex-2,
 #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2,
 #flores .cabeza .cabeza__info,
 #especiales .cabeza .cabeza__info,
 #basicos .cabeza .cabeza__info,
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2,
+#arreglos .cabeza .cabeza__info,
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2,
+#plantas .cabeza .cabeza__info,
 .flex-3,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
 .flex-4,
 #flores .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
 #especiales .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
 #basicos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
 .flex-5,
 #logueo {
   display: flex;
   flex-flow: row nowrap;
 }
 
-.flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont,
+.flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont,
 .flex-3,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
 .flex-5,
 #logueo {
   align-items: center;
 }
 
-.flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont,
+.flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont,
 .flex-4,
 #flores .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
 #especiales .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
-#basicos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm {
+#basicos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm {
   justify-content: space-between;
 }
 
-.flex-2, #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont, #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #flores .cabeza .cabeza__info, #especiales .cabeza .cabeza__info, #basicos .cabeza .cabeza__info {
+.flex-2, #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont, #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #flores .cabeza .cabeza__info, #especiales .cabeza .cabeza__info, #basicos .cabeza .cabeza__info, #arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #arreglos .cabeza .cabeza__info, #plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #plantas .cabeza .cabeza__info {
   align-items: flex-start;
 }
 
-.flex-4, #flores .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm, #especiales .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm, #basicos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm {
+.flex-4, #flores .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm, #especiales .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm, #basicos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm, #arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm, #plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm {
   align-items: flex-end;
 }
 
@@ -177,7 +189,9 @@ a {
 #inicio,
 #flores,
 #especiales,
-#basicos {
+#basicos,
+#arreglos,
+#plantas {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: repeat(2, auto);
@@ -186,13 +200,17 @@ a {
 #inicio .cabeza,
 #flores .cabeza,
 #especiales .cabeza,
-#basicos .cabeza {
+#basicos .cabeza,
+#arreglos .cabeza,
+#plantas .cabeza {
   grid-area: cabeza;
 }
 #inicio .contenido,
 #flores .contenido,
 #especiales .contenido,
-#basicos .contenido {
+#basicos .contenido,
+#arreglos .contenido,
+#plantas .contenido {
   grid-area: contenido;
 }
 
@@ -1579,12 +1597,11 @@ a {
 #especiales .cabeza {
   display: block;
   width: 100vw;
-  height: auto;
+  height: 175px;
   background-image: url(../img/productos/cabecera/rosas-rojas.jpg);
-  background-size: 100vw auto;
+  background-size: 100vw 175px;
   background-position: 0% -25%;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   z-index: 500;
   position: fixed;
 }
@@ -2204,6 +2221,896 @@ a {
   color: #ffb526;
 }
 #basicos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_txt p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  color: #333;
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+#arreglos .cabeza {
+  display: block;
+  width: 100vw;
+  height: auto;
+  background-image: url(../img/categs/cabecera/arreglos-florales.jpg);
+  background-size: 100vw auto;
+  background-position: 0% -20%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: 500;
+}
+#arreglos .cabeza .cabeza__menu--desp {
+  display: block;
+  position: fixed;
+  width: 100vw;
+  height: 14vh;
+  background-color: #fff;
+  transition: 0.3s all;
+  top: -100%;
+  padding-top: 15px;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 {
+  margin: 0 5vw;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 span {
+  display: inline-block;
+  color: #000;
+  font-size: 1.25rem;
+  width: 7vw;
+  padding-top: 2px;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 div {
+  display: inline-block;
+  width: 83vw;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 div form {
+  display: flex;
+  justify-content: center;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 div form .cabeza__menu--desp_form-grpipt {
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid #aaa;
+  height: 30px;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 div form .cabeza__menu--desp_form-grpipt .cabeza__menu--desp_form-campo {
+  flex: 1;
+  padding: 0 10px;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  height: 100%;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 div form .cabeza__menu--desp_form-grpipt .cabeza__menu--desp_form-boton {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 1px 10px 1px 0;
+  /*transition: all 0.3s ease-in-out;
+
+  &:hover {
+      background-color: map-get($color, "rojo_02");
+  }*/
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 {
+  margin: 15px 0 0 5vw;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 span {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #000;
+  width: 7vw;
+  margin-top: 5px;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 div {
+  display: inline-block;
+  width: 88vw;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 div .cabeza__menu--desp_pt2-cont {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 15px;
+  margin: 0;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 div .cabeza__menu--desp_pt2-cont::-webkit-scrollbar {
+  display: none;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 div .cabeza__menu--desp_pt2-cont a {
+  display: inline-block;
+  flex: 0 0 auto;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 div .cabeza__menu--desp_pt2-cont a:hover {
+  border-bottom: 2px solid #333;
+  color: #000;
+}
+#arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 div .cabeza__menu--desp_pt2-cont a:focus {
+  border-bottom: 2px solid #333;
+  color: #000;
+}
+#arreglos .cabeza .cabeza__menu--desp.activo {
+  top: 0;
+  transition: 0.3s all;
+}
+#arreglos .cabeza .cabeza__menu--cont {
+  width: 100%;
+  height: 14.16vh;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+  padding: 0 5vw;
+}
+#arreglos .cabeza .cabeza__menu--cont .cabeza__menu--cont_back,
+#arreglos .cabeza .cabeza__menu--cont .cabeza__menu--cont_busca {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  color: #000;
+  background-color: #ededed;
+  border-radius: 5px;
+}
+#arreglos .cabeza .cabeza__menu--cont .cabeza__menu--cont_back {
+  padding-top: 7px;
+  padding-right: 1px;
+  font-size: 1.25rem;
+}
+#arreglos .cabeza .cabeza__menu--cont .cabeza__menu--cont_back span {
+  display: block;
+  width: 17.5px;
+  height: 20px;
+  margin: 0 auto;
+}
+#arreglos .cabeza .cabeza__menu--cont .cabeza__menu--cont_busca {
+  font-size: 1.093rem;
+  padding-top: 8px;
+  padding-right: 1px;
+}
+#arreglos .cabeza .cabeza__menu--cont .cabeza__menu--cont_busca span {
+  display: block;
+  width: 17.5px;
+  height: 17.5px;
+  margin: 0 auto;
+}
+#arreglos .cabeza .cabeza__info {
+  width: 100%;
+  padding: 1.6vh 3vw;
+  background-color: #fff;
+}
+#arreglos .cabeza .cabeza__info .cabeza__info--img {
+  display: inline-block;
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#arreglos .cabeza .cabeza__info .cabeza__info--img img {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+}
+#arreglos .cabeza .cabeza__info .cabeza__info--txt {
+  width: auto;
+  display: inline-block;
+  margin-left: 3vw;
+  min-width: 200px;
+}
+#arreglos .cabeza .cabeza__info .cabeza__info--txt h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  color: #000;
+  font-weight: 600;
+}
+#arreglos .cabeza .cabeza__info .cabeza__info--txt div {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  color: #333;
+}
+#arreglos .cabeza .cabeza__info .cabeza__info--txt div span {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  color: #ffb526;
+  margin-right: 3px;
+}
+#arreglos .cabeza .cabeza__info .cabeza__info--txt div a {
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  text-decoration: underline;
+  margin-left: 10px;
+  font-weight: 600;
+}
+#arreglos .cabeza .cabeza__info .cabeza__info--accion {
+  width: auto;
+  display: inline-block;
+  margin-top: 5px;
+}
+#arreglos .cabeza .cabeza__info .cabeza__info--accion span {
+  font-size: 1.25rem;
+  color: #000;
+}
+#arreglos .cabeza .cabeza__info .cabeza__info--accion span:first-child {
+  margin-right: 7px;
+}
+#arreglos .cabeza .cabeza__info .cabeza__info--accion span:last-child {
+  margin-left: 7px;
+}
+#arreglos .cabeza .cabeza__subcats {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 10px;
+  margin: 0;
+  padding: 0 5vw;
+  background-color: #fff;
+}
+#arreglos .cabeza .cabeza__subcats::-webkit-scrollbar {
+  display: none;
+}
+#arreglos .cabeza .cabeza__subcats .cabeza__subcats--box {
+  flex: 0 0 auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+#arreglos .cabeza .cabeza__subcats .cabeza__subcats--box .cabeza__subcats--box_img {
+  display: block;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 100%;
+  height: 70%;
+}
+#arreglos .cabeza .cabeza__subcats .cabeza__subcats--box .cabeza__subcats--box_img img {
+  border-radius: 5px;
+  width: 110px;
+}
+#arreglos .cabeza .cabeza__subcats .cabeza__subcats--box .cabeza__subcats--box_txt {
+  margin: 7px 0 0;
+  text-align: center;
+}
+#arreglos .cabeza .cabeza__subcats .cabeza__subcats--box .cabeza__subcats--box_txt h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  color: #333;
+}
+#arreglos .contenido {
+  margin: 42px 0 0;
+}
+#arreglos .contenido p {
+  margin: 5vw 5vw;
+}
+#arreglos .contenido .contenido__masvendidos {
+  margin: 0 0 5vh;
+}
+#arreglos .contenido .contenido__masvendidos h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.05rem;
+  color: #000;
+  font-weight: 600;
+  margin: 0 5vw 2.5vh;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 2.67vw;
+  margin: 0;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont::-webkit-scrollbar {
+  display: none;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box {
+  flex: 0 0 auto;
+  width: 43.125vw;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #666;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--box_img {
+  width: 100%;
+  height: 85px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--box_img .masvendidos__box--img_ico {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  border: 1px groove #dbdadf;
+  z-index: 101;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--box_img .masvendidos__box--img_ico span {
+  display: block;
+  width: 16px;
+  height: 16px;
+  font-size: 1rem;
+  color: #000;
+  margin: 4px 0 0 3px;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--box_img .masvendidos__box--img_foto {
+  width: 42.595vw;
+  -o-object-fit: none;
+     object-fit: none;
+  -o-object-position: 50% 75%;
+     object-position: 50% 75%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt {
+  width: 100%;
+  display: block;
+  padding: 7px;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  color: #000;
+  font-weight: 600;
+  display: block;
+  min-height: 55px;
+  margin: 0;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm {
+  height: auto;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm p {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  color: #000;
+  font-weight: 600;
+  margin: 0;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm div {
+  display: inline-block;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px groove #000;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm div span {
+  display: block;
+  margin: 3px 0 0 4px;
+  font-size: 1.15rem;
+  color: #000;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box:first-child {
+  margin-left: 5vw;
+}
+#arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box:last-child {
+  margin-right: 5vw;
+}
+#arreglos .contenido .contenido__prodstodos--cont {
+  margin: 0 5vw;
+}
+#arreglos .contenido .contenido__prodstodos--cont h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.05rem;
+  color: #000;
+  font-weight: 600;
+  margin: 0 0 2.5vh;
+}
+#arreglos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
+  width: 100%;
+  height: 150px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  margin: 0 0 7vw;
+}
+#arreglos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_img {
+  width: 100%;
+  height: 69%;
+  overflow: hidden;
+  position: relative;
+}
+#arreglos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_img .prodstodos__box--foto {
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: 1px solid #000;
+  z-index: 101;
+}
+#arreglos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_img .prodstodos__box--cabecera {
+  width: 90vw;
+  height: auto;
+  -o-object-fit: none;
+     object-fit: none;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+  border-radius: 5px;
+}
+#arreglos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_txt {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 7px 9px 0;
+}
+#arreglos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_txt h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  color: #000;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 87%;
+}
+#arreglos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_txt h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  color: #000;
+  font-weight: 600;
+  display: inline-block;
+  width: 13%;
+  text-align: right;
+}
+#arreglos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_txt h3 span {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  color: #ffb526;
+}
+#arreglos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_txt p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  color: #333;
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+#plantas .cabeza {
+  display: block;
+  width: 100vw;
+  height: auto;
+  background-image: url(../img/categs/cabecera/plantas.jpg);
+  background-size: 100vw auto;
+  background-position: 0% -20%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: 500;
+}
+#plantas .cabeza .cabeza__menu--desp {
+  display: block;
+  position: fixed;
+  width: 100vw;
+  height: 14vh;
+  background-color: #fff;
+  transition: 0.3s all;
+  top: -100%;
+  padding-top: 15px;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 {
+  margin: 0 5vw;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 span {
+  display: inline-block;
+  color: #000;
+  font-size: 1.25rem;
+  width: 7vw;
+  padding-top: 2px;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 div {
+  display: inline-block;
+  width: 83vw;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 div form {
+  display: flex;
+  justify-content: center;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 div form .cabeza__menu--desp_form-grpipt {
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid #aaa;
+  height: 30px;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 div form .cabeza__menu--desp_form-grpipt .cabeza__menu--desp_form-campo {
+  flex: 1;
+  padding: 0 10px;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  height: 100%;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 div form .cabeza__menu--desp_form-grpipt .cabeza__menu--desp_form-boton {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 1px 10px 1px 0;
+  /*transition: all 0.3s ease-in-out;
+
+  &:hover {
+      background-color: map-get($color, "rojo_02");
+  }*/
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 {
+  margin: 15px 0 0 5vw;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 span {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #000;
+  width: 7vw;
+  margin-top: 5px;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 div {
+  display: inline-block;
+  width: 88vw;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 div .cabeza__menu--desp_pt2-cont {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 15px;
+  margin: 0;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 div .cabeza__menu--desp_pt2-cont::-webkit-scrollbar {
+  display: none;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 div .cabeza__menu--desp_pt2-cont a {
+  display: inline-block;
+  flex: 0 0 auto;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 div .cabeza__menu--desp_pt2-cont a:hover {
+  border-bottom: 2px solid #333;
+  color: #000;
+}
+#plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 div .cabeza__menu--desp_pt2-cont a:focus {
+  border-bottom: 2px solid #333;
+  color: #000;
+}
+#plantas .cabeza .cabeza__menu--desp.activo {
+  top: 0;
+  transition: 0.3s all;
+}
+#plantas .cabeza .cabeza__menu--cont {
+  width: 100%;
+  height: 14.16vh;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+  padding: 0 5vw;
+}
+#plantas .cabeza .cabeza__menu--cont .cabeza__menu--cont_back,
+#plantas .cabeza .cabeza__menu--cont .cabeza__menu--cont_busca {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  color: #000;
+  background-color: #ededed;
+  border-radius: 5px;
+}
+#plantas .cabeza .cabeza__menu--cont .cabeza__menu--cont_back {
+  padding-top: 7px;
+  padding-right: 1px;
+  font-size: 1.25rem;
+}
+#plantas .cabeza .cabeza__menu--cont .cabeza__menu--cont_back span {
+  display: block;
+  width: 17.5px;
+  height: 20px;
+  margin: 0 auto;
+}
+#plantas .cabeza .cabeza__menu--cont .cabeza__menu--cont_busca {
+  font-size: 1.093rem;
+  padding-top: 8px;
+  padding-right: 1px;
+}
+#plantas .cabeza .cabeza__menu--cont .cabeza__menu--cont_busca span {
+  display: block;
+  width: 17.5px;
+  height: 17.5px;
+  margin: 0 auto;
+}
+#plantas .cabeza .cabeza__info {
+  width: 100%;
+  padding: 1.6vh 3vw;
+  background-color: #fff;
+}
+#plantas .cabeza .cabeza__info .cabeza__info--img {
+  display: inline-block;
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#plantas .cabeza .cabeza__info .cabeza__info--img img {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+}
+#plantas .cabeza .cabeza__info .cabeza__info--txt {
+  width: auto;
+  display: inline-block;
+  margin-left: 3vw;
+  min-width: 200px;
+}
+#plantas .cabeza .cabeza__info .cabeza__info--txt h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  color: #000;
+  font-weight: 600;
+}
+#plantas .cabeza .cabeza__info .cabeza__info--txt div {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  color: #333;
+}
+#plantas .cabeza .cabeza__info .cabeza__info--txt div span {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  color: #ffb526;
+  margin-right: 3px;
+}
+#plantas .cabeza .cabeza__info .cabeza__info--txt div a {
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  text-decoration: underline;
+  margin-left: 10px;
+  font-weight: 600;
+}
+#plantas .cabeza .cabeza__info .cabeza__info--accion {
+  width: auto;
+  display: inline-block;
+  margin-top: 5px;
+}
+#plantas .cabeza .cabeza__info .cabeza__info--accion span {
+  font-size: 1.25rem;
+  color: #000;
+}
+#plantas .cabeza .cabeza__info .cabeza__info--accion span:first-child {
+  margin-right: 7px;
+}
+#plantas .cabeza .cabeza__info .cabeza__info--accion span:last-child {
+  margin-left: 7px;
+}
+#plantas .cabeza .cabeza__subcats {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 10px;
+  margin: 0;
+  padding: 0 5vw;
+  background-color: #fff;
+}
+#plantas .cabeza .cabeza__subcats::-webkit-scrollbar {
+  display: none;
+}
+#plantas .cabeza .cabeza__subcats .cabeza__subcats--box {
+  flex: 0 0 auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+#plantas .cabeza .cabeza__subcats .cabeza__subcats--box .cabeza__subcats--box_img {
+  display: block;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 100%;
+  height: 70%;
+}
+#plantas .cabeza .cabeza__subcats .cabeza__subcats--box .cabeza__subcats--box_img img {
+  border-radius: 5px;
+  width: 110px;
+}
+#plantas .cabeza .cabeza__subcats .cabeza__subcats--box .cabeza__subcats--box_txt {
+  margin: 7px 0 0;
+  text-align: center;
+}
+#plantas .cabeza .cabeza__subcats .cabeza__subcats--box .cabeza__subcats--box_txt h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  color: #333;
+}
+#plantas .contenido {
+  margin: 42px 0 0;
+}
+#plantas .contenido p {
+  margin: 5vw 5vw;
+}
+#plantas .contenido .contenido__masvendidos {
+  margin: 0 0 5vh;
+}
+#plantas .contenido .contenido__masvendidos h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.05rem;
+  color: #000;
+  font-weight: 600;
+  margin: 0 5vw 2.5vh;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 2.67vw;
+  margin: 0;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont::-webkit-scrollbar {
+  display: none;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box {
+  flex: 0 0 auto;
+  width: 43.125vw;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #666;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--box_img {
+  width: 100%;
+  height: 85px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--box_img .masvendidos__box--img_ico {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  border: 1px groove #dbdadf;
+  z-index: 101;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--box_img .masvendidos__box--img_ico span {
+  display: block;
+  width: 16px;
+  height: 16px;
+  font-size: 1rem;
+  color: #000;
+  margin: 4px 0 0 3px;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--box_img .masvendidos__box--img_foto {
+  width: 42.595vw;
+  -o-object-fit: none;
+     object-fit: none;
+  -o-object-position: 50% 75%;
+     object-position: 50% 75%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt {
+  width: 100%;
+  display: block;
+  padding: 7px;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  color: #000;
+  font-weight: 600;
+  display: block;
+  min-height: 55px;
+  margin: 0;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm {
+  height: auto;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm p {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  color: #000;
+  font-weight: 600;
+  margin: 0;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm div {
+  display: inline-block;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px groove #000;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm div span {
+  display: block;
+  margin: 3px 0 0 4px;
+  font-size: 1.15rem;
+  color: #000;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box:first-child {
+  margin-left: 5vw;
+}
+#plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box:last-child {
+  margin-right: 5vw;
+}
+#plantas .contenido .contenido__prodstodos--cont {
+  margin: 0 5vw;
+}
+#plantas .contenido .contenido__prodstodos--cont h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.05rem;
+  color: #000;
+  font-weight: 600;
+  margin: 0 0 2.5vh;
+}
+#plantas .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
+  width: 100%;
+  height: 150px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  margin: 0 0 7vw;
+}
+#plantas .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_img {
+  width: 100%;
+  height: 69%;
+  overflow: hidden;
+  position: relative;
+}
+#plantas .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_img .prodstodos__box--foto {
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: 1px solid #000;
+  z-index: 101;
+}
+#plantas .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_img .prodstodos__box--cabecera {
+  width: 90vw;
+  height: auto;
+  -o-object-fit: none;
+     object-fit: none;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+  border-radius: 5px;
+}
+#plantas .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_txt {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 7px 9px 0;
+}
+#plantas .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_txt h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  color: #000;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 87%;
+}
+#plantas .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_txt h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  color: #000;
+  font-weight: 600;
+  display: inline-block;
+  width: 13%;
+  text-align: right;
+}
+#plantas .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_txt h3 span {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  color: #ffb526;
+}
+#plantas .contenido .contenido__prodstodos--cont .contenido__prodstodos--box .contenido__prodstodos--box_txt p {
   font-family: "Poppins", sans-serif;
   font-size: 0.7rem;
   color: #333;

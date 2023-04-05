@@ -92,7 +92,9 @@ a {
 #inicio,
 #flores,
 #especiales,
-#basicos {
+#basicos,
+#arreglos,
+#plantas {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: repeat(2, auto);
