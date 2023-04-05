@@ -1298,10 +1298,10 @@ function mostrarContenidos (ubicador) {
                 const ordenados = filtrados.sort((a, b) => {
                     const nombreA = a.nombre.toLowerCase()
                     const nombreB = b.nombre.toLowerCase()
-                    if(nombreA < nombreB){
+                    if(nombreA > nombreB){
                         return -1
                     }
-                    if(nombreA > nombreB){
+                    if(nombreA < nombreB){
                         return 1
                     }
 
@@ -1385,10 +1385,10 @@ function mostrarContenidos (ubicador) {
                 const ordenados = filtrados.sort((a, b) => {
                     const nombreA = a.nombre.toLowerCase()
                     const nombreB = b.nombre.toLowerCase()
-                    if(nombreA < nombreB){
+                    if(nombreA > nombreB){
                         return -1
                     }
-                    if(nombreA > nombreB){
+                    if(nombreA < nombreB){
                         return 1
                     }
 
@@ -1472,10 +1472,10 @@ function mostrarContenidos (ubicador) {
                 const ordenados = filtrados.sort((a, b) => {
                     const nombreA = a.nombre.toLowerCase()
                     const nombreB = b.nombre.toLowerCase()
-                    if(nombreA < nombreB){
+                    if(nombreA > nombreB){
                         return -1
                     }
-                    if(nombreA > nombreB){
+                    if(nombreA < nombreB){
                         return 1
                     }
 
@@ -1713,6 +1713,184 @@ function mostrarContenidos (ubicador) {
                                         <h2>${regalo.nombre}</h2>
                                         <h3><span><i class="fa-solid fa-star"></i></span>${regalo.puntuacion}</h3>
                                         <p>$${regalo.precio}</p>
+                                        <p>Envío $200</p>
+                                    </div>`
+                $('#contenido-prodstodos').appendChild(elProd)
+            }
+        }
+    
+        //floresCabezaMenuDesp()
+        
+        //mostrarMasVendEsp()
+    
+        mostrarProdsTodos()
+    }
+
+    if (ubicador === 'casamientos') {
+
+        const volverUno = document.querySelectorAll('#arreglos__volver--1 i')
+        console.log(volverUno)
+        for(let link of volverUno){
+            link.addEventListener('click', pedirPag)
+        }
+    
+        /*
+        function mostrarMasVendEsp() {
+    
+            function masVendidosFlor(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
+                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
+                return ordenados.slice(0, 5)
+            }
+        
+            const floresMasVendidos = masVendidosFlor(productos)
+            console.log(floresMasVendidos)
+            for (const masVendido of floresMasVendidos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__populares--prod${masVendido.id}`
+                elProd.className = 'contenido__masvendidos--box'
+                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
+                                        <div class="masvendidos__box--img_ico">
+                                            <span><i class="fa-regular fa-heart"></i></span>
+                                        </div>
+                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
+                                    </div>
+                                    <div class="contenido__masvendidos--txt">
+                                        <h1>${masVendido.nombre}</h1>
+                                        <div class="masvendidos__txt--bttm">
+                                            <p>$${masVendido.precio}</p>
+                                            <div>
+                                                <span><i class="fa-solid fa-plus"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>`
+                $('#arreglos__contenido--masvendidos').appendChild(elProd)
+            }
+        }
+        */
+    
+        function mostrarProdsTodos() {
+    
+            function todosLosCasam(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Casamientos')
+                const ordenados = filtrados.sort((a, b) => {
+                    const nombreA = a.nombre.toLowerCase()
+                    const nombreB = b.nombre.toLowerCase()
+                    if(nombreA < nombreB){
+                        return -1
+                    }
+                    if(nombreA > nombreB){
+                        return 1
+                    }
+
+                    return 0
+                })
+                return ordenados
+            }
+    
+            const losCasam = todosLosCasam(productos)
+            console.log(losCasam)
+            for (const casam of losCasam) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__prodstodos--prod${casam.id}`
+                elProd.className = 'contenido__prodstodos--box'
+                elProd.innerHTML = `<div class="contenido__prodstodos--box_img">
+                                        <img class="prodstodos__box--foto" src="${casam.foto}">
+                                        <img class="prodstodos__box--cabecera" src="${casam.cabecera}">
+                                    </div>
+                                    <div class="contenido__prodstodos--box_txt">
+                                        <h2>${casam.nombre}</h2>
+                                        <h3><span><i class="fa-solid fa-star"></i></span>${casam.puntuacion}</h3>
+                                        <p>$${casam.precio}</p>
+                                        <p>Envío $200</p>
+                                    </div>`
+                $('#contenido-prodstodos').appendChild(elProd)
+            }
+        }
+    
+        //floresCabezaMenuDesp()
+        
+        //mostrarMasVendEsp()
+    
+        mostrarProdsTodos()
+    }
+
+    if (ubicador === 'velorios') {
+
+        const volverUno = document.querySelectorAll('#arreglos__volver--1 i')
+        console.log(volverUno)
+        for(let link of volverUno){
+            link.addEventListener('click', pedirPag)
+        }
+    
+        /*
+        function mostrarMasVendEsp() {
+    
+            function masVendidosFlor(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
+                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
+                return ordenados.slice(0, 5)
+            }
+        
+            const floresMasVendidos = masVendidosFlor(productos)
+            console.log(floresMasVendidos)
+            for (const masVendido of floresMasVendidos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__populares--prod${masVendido.id}`
+                elProd.className = 'contenido__masvendidos--box'
+                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
+                                        <div class="masvendidos__box--img_ico">
+                                            <span><i class="fa-regular fa-heart"></i></span>
+                                        </div>
+                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
+                                    </div>
+                                    <div class="contenido__masvendidos--txt">
+                                        <h1>${masVendido.nombre}</h1>
+                                        <div class="masvendidos__txt--bttm">
+                                            <p>$${masVendido.precio}</p>
+                                            <div>
+                                                <span><i class="fa-solid fa-plus"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>`
+                $('#arreglos__contenido--masvendidos').appendChild(elProd)
+            }
+        }
+        */
+    
+        function mostrarProdsTodos() {
+    
+            function todosLosVel(productos) {
+                const filtrados = productos.filter(producto => producto.tipo === 'Velorios')
+                const ordenados = filtrados.sort((a, b) => {
+                    const nombreA = a.nombre.toLowerCase()
+                    const nombreB = b.nombre.toLowerCase()
+                    if(nombreA < nombreB){
+                        return -1
+                    }
+                    if(nombreA > nombreB){
+                        return 1
+                    }
+
+                    return 0
+                })
+                return ordenados
+            }
+    
+            const losVelorios = todosLosVel(productos)
+            console.log(losVelorios)
+            for (const velorio of losVelorios) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__prodstodos--prod${velorio.id}`
+                elProd.className = 'contenido__prodstodos--box'
+                elProd.innerHTML = `<div class="contenido__prodstodos--box_img">
+                                        <img class="prodstodos__box--foto" src="${velorio.foto}">
+                                        <img class="prodstodos__box--cabecera" src="${velorio.cabecera}">
+                                    </div>
+                                    <div class="contenido__prodstodos--box_txt">
+                                        <h2>${velorio.nombre}</h2>
+                                        <h3><span><i class="fa-solid fa-star"></i></span>${velorio.puntuacion}</h3>
+                                        <p>$${velorio.precio}</p>
                                         <p>Envío $200</p>
                                     </div>`
                 $('#contenido-prodstodos').appendChild(elProd)
