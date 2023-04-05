@@ -1899,10 +1899,9 @@ a {
   width: 100vw;
   height: 175px;
   background-image: url(../img/productos/cabecera/fresias.jpg);
-  background-size: 100vw auto;
+  background-size: 100vw 175px;
   background-position: 0% -25%;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   z-index: 500;
   position: fixed;
 }
