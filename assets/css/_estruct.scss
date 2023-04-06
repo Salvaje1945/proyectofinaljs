@@ -2,9 +2,13 @@
 @use 'predef' as *;
 
 #logueo {
+    @extend .flex-5;
+    width: 100vw;
+    height: 100vh;
+    background-color: map-get($color, "rojo_03");
 
     .contenido {
-        width: 75vw;
+        width: 90vw;
         height: auto;
         background-color: map-get($color, "gris_07");
         box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 50%);
@@ -36,18 +40,45 @@
             .contenido__form--grupo {
                 width: 100%;
                 height: auto;
-                margin: 0 0 16px;
+                margin: 0 0 11px;
 
                 h2 {
                     display: block;
                     font-family: $fnt_01;
-                    font-size: 1rem;
+                    font-size: 0.9rem;
+                    font-weight: 600;
                     //margin: 0 0 5px;
+                }
+
+                .contenido__form--grupo_dir {
+                    width: 100%;
+                    display: block;
+
+                    p {
+                        display: block;
+                        font-family: $fnt_01;
+                        font-size: 0.8rem;
+                        color: map-get($color, "gris_01");
+                        margin-left: 5px;
+                    }
+
+                    .contenido__form--grupo_dir_calle {
+                        width: 69%;
+                        padding-right: 3px;
+                        display: inline-block;
+                    }
+
+                    .contenido__form--grupo_dir_dpto {
+                        width: 29%;
+                        padding-left: 3px;
+                        display: inline-block;
+                    }
+
                 }
 
                 .contenido__form--grupo_ipt {
                     display: block;
-                    height: 35px;
+                    height: 33px;
                     width: 100%;
                     //line-height: 35px;
                     border-radius: 7px;
@@ -92,10 +123,15 @@
                 }
                 
                 .contenido__form--grupo_btn {
-                    @include form__btns;              
+                    @include form__btns; 
+                    margin-top: 11px;             
                 }
 
 
+            }
+
+            .contenido__form--grupo.btn {
+                margin-bottom: 0;
             }
             
         }
@@ -1014,6 +1050,1008 @@
     }
     
 }
+
+// ESTILOS PERFIL
+
+#perfil {
+
+    // DESPLEGABLES
+
+    .perfil__despleg--basico_nom {
+        @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+        top: 0;
+        left: 0;
+        background-color: map-get($color, "gris_12");
+        @extend .flex-5;
+
+        .despleg__basico--nom_bx {
+            width: 90vw;
+            height: 75vh;
+            background-color: map-get($color, "blanco");
+            box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
+            border-radius: 11px;
+            border: 1px solid map-get($color, "gris_05");
+            padding: 11px;
+        }
+    }
+
+    // ************
+    
+    .cabeza {
+        @extend .flex-6;
+        width: 100vw;
+        //background: linear-gradient(180deg, map-get($color, "blanco") 95%, map-get($color, "gris_11") 5%);
+        background-color: map-get($color, "blanco");
+        height: 42px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 500;
+
+        .cabeza__volver {
+            width: 21px;
+            height: 16px;
+            //padding: auto;
+            font-size: 1rem;
+            font-weight: normal !important;
+            color: map-get($color, "negro");
+            margin: 0 3vw;
+        }        
+
+        /*
+
+        .cabeza__iconos {
+            display: block;
+            font-size: 1.75rem;
+            color: map-get($color, "negro");
+            //cursor: pointer;
+            height: 28px;
+        }
+
+        .cabeza__iconos.fino {
+            font-size: 1.7rem;
+            font-weight: 200;
+        }
+
+        .cabeza__iconos.cerrar {
+            margin: 0 15px 20px;
+            font-size: 1.7rem;
+        }
+
+
+        .cabeza__iconos--dir {
+            display: none;
+            font-size: 1rem;
+            color: map-get($color, "negro");
+            height: 16px;
+            margin: 3px 7px 0;
+        }
+
+        .cabeza__iconos--dir.activo {
+            display: block;
+        }
+
+        // DESPLEGABLES
+
+        .cabeza__desplegables--backdrop {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 900;
+        }
+
+        .cabeza__desplegables--backdrop.activo {
+            display: block;
+            animation: bckdrp .5s forwards;
+
+            @keyframes bckdrp {
+                from {
+                    background-color: rgb(0, 0, 0, 0);
+                }
+                to {
+                    background-color: rgb(0, 0, 0, 0.5);
+                }    
+            }
+        }
+
+        .cabeza__menu--cont {
+            @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+            left: -100%;
+            top: 0;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: flex-start;
+
+            .cabeza__menu--cont_box {
+                display: inline-block;
+                background-color: map-get($color, "blanco");
+                width: 75vw;
+                height: 100vh;
+                
+                //border-right: 1px solid map-get($color, "gris_03");
+                .cabeza__menu--user {
+                    padding: 15px;
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 5px;
+
+                    img {
+                        width: 125px;
+                        height: 125px;
+                        border-radius: 50%;
+                        margin: 0 auto;
+                    }
+
+                    h1 {
+                        font-family: $fnt_01;
+                        font-size: 1.25rem;
+                        font-weight: 600;
+                        color: map-get($color, "negro");
+                        
+                    }
+                }
+                
+                
+                ul {
+                    list-style: none;
+                    text-align: left;
+                    color: map-get($color, "negro");
+
+                    li {
+                        //padding: 15px 5px;
+                        font-size: 1rem;
+                        display: block;
+                        //min-height: 25px;
+
+                        div {
+                            padding: 7px 20px;
+                            display: flex;
+                            flex-flow: row nowrap;
+                            align-items: center;
+
+                            span {
+                                font-size: 1.25rem;
+                                color: map-get($color, "negro");
+                                //margin-right: 15px;
+                                width: 27px;
+                                text-align: center;
+                            }
+                            
+                            a {
+                                color: map-get($color, "negro");
+                                margin-left: 25px;
+                            } 
+                        }
+
+                        ul {
+                            list-style: none;
+                            text-align: left;
+                            margin-left: 5vw;
+                            color: map-get($color, "negro");
+
+                            li {
+                                //padding: 15px 5px;
+                                font-size: 0.85rem;
+                                display: block;
+                                //min-height: 21px;
+        
+                                &:hover {
+                                    background-color: map-get($color, "gris_04");
+                                }
+        
+                                div {
+                                    padding: 5px 20px;
+                                    display: flex;
+                                    flex-flow: row nowrap;
+                                    align-items: center;
+        
+                                    span {
+                                        font-size: 1.15rem;
+                                        color: map-get($color, "negro");
+                                        //margin-right: 15px;
+                                        width: 27px;
+                                        text-align: center;
+                                    }
+                                    
+                                    a {
+                                        color: map-get($color, "negro");
+                                        margin-left: 25px;
+                                    } 
+                                }
+                            }
+                        }
+                    }
+
+                    .cabeza__menu--user_li {
+                        //min-height: 25px;
+
+                        &:hover {
+                            background-color: map-get($color, "gris_04");
+                        }
+                    }
+                }
+            }
+
+            .cabeza__menu--cont_box-crr {
+                display: inline-block;
+                width: 25vw;
+                height: 100vh;
+            }
+        }
+
+        .cabeza__menu--cont.activo {
+            left: 0;
+        }
+
+        .cabeza__dir--cont {
+            @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+            top: 200%;
+            left: 0;
+
+            .cabeza__dir--cont_box-cerr {
+                height: 40vh;
+                display: block;
+            }
+
+            .cabeza__dir--cont_box {
+                display: block;
+                height: 60vh;
+                background-color: map-get($color, "blanco");
+                padding: 15px;
+
+                h1 {
+                    font-family: $fnt_01;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    color: map-get($color, "negro");
+                    margin: 5px 0 15px;
+                }
+
+                ul {
+                    list-style: none;
+                    text-align: left;
+                    color: map-get($color, "negro");
+
+                    li {
+                        border-bottom: 1px solid map-get($color, "gris_04");
+                        padding: 11px 0;
+
+                        &:hover {
+                            background-color: map-get($color, "gris_05");
+                        }
+
+                        div {
+                            display: flex;
+                            flex-flow: row nowrap;
+                            align-items: flex-start;
+
+                            span,
+                            .cabeza__dir-ico {
+                                width: 27px;
+                                color: map-get($color, "negro");
+                                font-size: 1rem;
+                                margin: 0 10px;
+                                display: inline-block;
+                            }
+
+                            a {
+                                font-size: 1rem;
+                                font-family: $fnt_01;
+                                color: map-get($color, "negro");
+                                display: inline-block;
+                            }
+
+                            div {
+                                display: inline-block;
+
+                                h2 {
+                                    font-family: $fnt_01;
+                                    font-size: 1rem;
+                                    font-weight: 500;
+                                    color: map-get($color, "negro");
+                                    display: block;
+                                    min-width: 75vw;
+                                }
+
+                                p {
+                                    font-family: $fnt_01;
+                                    font-size: 0.75rem;
+                                    color: map-get($color, "gris_01");
+                                    display: block;
+                                }
+
+                                
+                            }
+
+                            .cabeza__dir-chk {
+                                width: 16px;
+                                height: 16px;
+                                color: map-get($color, "negro");
+                                font-size: 1rem;
+                                margin: auto 0;
+                                display: inline-block;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .cabeza__dir--cont.activo {
+            top: 0;
+        }
+
+        .cabeza__anun--cont {
+            @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+            right: -100%;
+            top: 0;
+            background-color: map-get($color, "gris_12");
+
+            .cabeza__anun--cont_cbz {
+                background-color: map-get($color, "blanco");
+                display: block;
+
+                .cabeza__anun--cont_cbz-menu {
+                    display: flex;
+                    margin-top: 25px;
+
+                    .cabeza__anun--cont_cbz-btn {
+                        display: inline-block;
+                        width: 50vw;
+                        height: 5.95vh;
+                        padding: 9px 0;
+                        text-align: center;
+                        font-family: $fnt_01;
+                        font-size: 1.1rem;
+                        color: map-get($color, "negro");
+                        font-weight: 600;
+                        line-height: 1.4;
+                        //transition: .5s all;
+        
+                        &:hover {
+                            //background-color: map-get($color, "gris_03");
+                            animation: clic .7s forwards;
+
+                            @keyframes clic {
+                                0% {
+                                    background-color: transparent;
+                                }
+                                50% {
+                                    background-color: map-get($color, "gris_05");
+                                }
+                                100% {
+                                    background-color: transparent;
+                                }
+                                
+                            }
+                        }
+        
+                    }
+        
+                }
+
+                .cabeza__anun--cont_bdr {
+                    display: block;
+                    width: 100vw;
+                    height: 2px;
+                    background-color: map-get($color, "gris_05");
+
+                    .cabeza__anun--cont_bdr-anim {
+                        display: block;
+                        width: 50vw;
+                        height: 2px;
+                        background-color: map-get($color, "gris_01");
+                        //margin-right: 50vh;
+                        transition: .2s all;
+                    }
+    
+                    .cabeza__anun--cont_bdr-anim.novedades {
+                        margin-right: 50vw;
+                        margin-left: 0;
+                        transition: .2s all;
+                    }
+        
+                    .cabeza__anun--cont_bdr-anim.promociones {
+                        margin-left: 50vw;
+                        margin-right: 0;
+                        transition: .2s all;
+                    }
+
+                }   
+                
+            }
+
+            .cabeza__anun--cont_info {
+                display: none;
+                width: 100vw;
+                height: auto;
+                transition: .5s all;
+            }
+
+            .cabeza__anun--cont_info.activo {
+                display: block;
+                transition: .5s all;
+            }
+
+            .cabeza__anun--cont_info-cont {
+                display: block;
+                width: 100%;
+                padding: 7vh 9vw 0;
+
+                .cabeza__anun--cont_info-cont_box {
+                    width: 100%;
+                    height: auto;
+                    background-color: map-get($color, "blanco");
+                    padding: 2.5vh 6.5vw;
+                    margin: 0 0 5vh;
+                    border: 1px groove map-get($color, "gris_14");
+                    border-top: none;
+                    border-radius: 3px;
+
+                    h1 {
+                        font-family: $fnt_01;
+                        font-size: 0.85rem;
+                        font-weight: 600;
+                        color: map-get($color, "negro");
+                        text-align: left;
+                    }
+
+                    h2 {
+                        font-family: $fnt_01;
+                        font-size: 0.7rem;
+                        font-weight: normal;
+                        color: map-get($color, "gris_01");
+                        text-align: left;
+                    }
+
+                    p {
+                        font-family: $fnt_01;
+                        font-size: 0.7rem;
+                        font-weight: 600;
+                        color: map-get($color, "negro");
+                        text-align: right;
+                        margin-top: 5px;
+
+                        span {
+                            font-family: $fnt_01;
+                            font-size: 0.55rem;
+                            color: map-get($color, "negro");
+                            margin-left: 3px;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .cabeza__anun--cont.activo {
+            right: 0;
+        }  
+
+        // ELEMENTOS DE LA CABECERA
+
+        .cabeza__contenido--menu,
+        .cabeza__contenido--anun {
+            @extend .cabeza__extremos;
+
+        }
+
+        .cabeza__contenido--dir {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            //z-index: 11;
+            //display: inline-block;
+
+            .cabeza__dir--txt { 
+                display: block;
+                font-family: $fnt_01;
+                color: map-get($color, "negro");
+                font-weight: 500;
+                font-size: 1rem;
+                height: 25px;
+
+
+                &:hover {
+                    color: map-get($color, "gris_01");
+                }
+            }
+        }
+
+        */
+
+    }
+
+    .cabeza.scroll {
+        border-bottom: 2px solid map-get($color, "gris_14");
+    }
+
+    .contenido {
+        display: block;
+        width: 100vw;
+        margin: 10vh 0 0;
+        padding: 0 5vw;
+        height: auto;
+        z-index: 100;
+
+        // CUERPO
+
+        .contenido__edit--basico {
+            @extend .flex-7;
+            width: auto;
+            height: auto;
+
+            .contenido__edit--basico_img {
+                display: block;
+                position: relative;
+                width: 80px;
+                height: 80px;
+                margin: 0 0 15px;
+
+                .edit__basico--btn {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 50%;
+                    background-color: map-get($color, "gris_07");
+                    //padding: 0 0 0.1px;
+                    z-index: 101;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: center;
+                    align-items: center;
+
+                    span {
+                        display: block;
+                        color: map-get($color, "negro");
+                        font-size: 1rem;
+                        line-height: 0.87;
+                        margin: 0 0 1px 1px;
+                    }
+                }
+
+                img {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                }
+
+            }
+
+            .contenido__edit--basico_nom {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: flex-start;
+                text-align: center;
+                height: 30px;
+
+                h1 {
+                    display: inline-block;
+                    font-family: $fnt_01;
+                    font-size: 1.35rem;
+                    font-weight: 600;
+                    color: map-get($color, "negro");
+                }
+
+                span {
+                    display: inline-block;
+                    //height: 100%;
+                    font-size: 0.75rem;
+                    color: map-get($color, "negro");
+                    margin: 7px 0 0 7px;
+                    //padding: 0 0 25px;
+                }
+
+            }
+
+            p {
+                display: block;
+                font-family: $fnt_01;
+                font-size: 0.9rem;
+                font-weight: normal;
+                color: map-get($color, "gris_01");
+            }
+
+        }
+
+        /*
+
+        .contenido__buscador--cont {
+            border-radius: 30px;
+            padding: 0.4vh 0.5vh 0.5vh;
+            border: 1px solid map-get($color, "gris_04");
+            margin: 0 5vw 20px;
+
+            form {
+                display: flex;
+                justify-content: center;
+            }
+
+            .contenido__buscador--grupoipt {
+                display: flex;
+                border-radius: 30px;
+                overflow: hidden;
+                width: 100%;
+
+                .contenido__buscador--campo {
+                    flex: 1;
+                    padding: 1.5% 3%;
+                    border: none;
+                    outline: none;
+                    font-family: $fnt_01;
+                    font-size: 0.8rem;
+                    line-height:normal;
+
+                }
+
+                .contenido__buscador--boton {
+                    background-color: map-get($color, "rojo_01");
+                    color: white;
+                    border: none;
+                    padding: 2% 4%;
+                    border-radius: 0 30px 30px 0;
+                    cursor:auto;
+                    transition: all 0.3s ease-in-out;
+                    //-webkit-appearance: none;
+                    line-height: normal;
+                    font-size: 0.83rem;
+
+                    &:hover {
+                        background-color: map-get($color, "rojo_02");
+                    }
+                }
+            }
+        }
+
+        .contenido__productos--cont {
+            height: 205px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+            margin: 0 5vw 20px;
+            grid-template-areas: 
+            
+            "raes raba arreg"
+            "raes ins plan"
+            
+            
+            ;
+
+            .contenido__productos--box {
+                @include box_hvrFX-01;
+
+                h1{
+                    font-family: $fnt_01;
+                    margin: 10px;
+                    font-size: 0.75rem;
+                    color: map-get($color, "negro");
+                    font-weight: 600;
+                    line-height: 14px;
+                }
+
+            }
+
+            #contenido__productos--ramosespe {
+                grid-area: raes;
+                background-image: url(../img/categs/ramo-premium.png);
+                background-repeat: no-repeat;
+                background-position: center 50px;
+                background-color:violet;
+            } 
+            
+            #contenido__productos--ramosbasic {
+                grid-area: raba;
+                background-image: url(../img/categs/ramo-basico.png);
+                background-repeat: no-repeat;
+                background-position: center 36px;
+                background-color:bisque;
+            }
+    
+            #contenido__productos--arreglos {
+                grid-area: arreg;
+                background-image: url(../img/categs/arreglos-florales.png);
+                background-repeat: no-repeat;
+                background-position: 37.5px 14px;
+                background-color: lightpink;
+            }        
+            
+            #contenido__productos--insumos {
+                grid-area: ins;
+                background-image: url(../img/categs/macetas.png);
+                background-repeat: no-repeat;
+                background-position: 33px 42px;
+                background-color: cornflowerblue;
+            }
+    
+            #contenido__productos--plantas {
+                grid-area: plan;
+                background-image: url(../img/categs/plantas.png);
+                background-repeat: no-repeat;
+                background-position: 42px 7px;
+                background-color:cadetblue;
+            }
+        }
+
+        .contenido__otrosprods--cont {
+            @include scroll_hrz ($scroll_horiz-mrg: 0 0 25px);
+
+            .contenido__otrosprods--box {
+                flex: 0 0 auto;
+                width: 36vw;
+                max-width: 200px;
+                height: 85px;
+                background-color: map-get($color, "gris_15");
+                @include box_hvrFX-01;
+
+                h1{
+                    font-family: $fnt_01;
+                    font-size: 0.75rem;
+                    color: map-get($color, "negro");
+                    font-weight: 600;
+                    line-height: 14px;
+                    margin: 10px;
+                }
+
+                &:first-child {
+                    margin-left: 5vw;
+                }
+
+                &:last-child{
+                    margin-right: 5vw;
+                }
+
+            }
+
+            #contenido__otrosprods--semillas {
+                background-image: url(../img/categs/semillas.png);
+                background-repeat: no-repeat;
+                background-position: center -250%;
+            }
+
+            #contenido__otrosprods--casamientos {
+                background-image: url(../img/categs/casamientos.png);
+                background-repeat: no-repeat;
+                background-position: 100% -50%;
+            }
+
+            #contenido__otrosprods--macetas {
+                background-image: url(../img/categs/macetas.png);
+                background-repeat: no-repeat;
+                background-position: 100% 150%;
+            }
+
+            #contenido__otrosprods--velorios {
+                background-image: url(../img/categs/velorios.png);
+                background-repeat: no-repeat;
+                background-position: 150% -90%;
+            }
+
+            #contenido__otrosprods--tierras {
+                background-image: url(../img/categs/tierras.png);
+                background-repeat: no-repeat;
+                background-position: 150% -30%;
+            }
+
+            #contenido__otrosprods--ferti {
+                background-image: url(../img/categs/fertilizantes.png);
+                background-repeat: no-repeat;
+                background-position: 120% 990%;
+            }
+        } 
+        
+        .contenido__promos--cont {
+            @include scroll_hrz ($scroll_horiz-mrg: 0 0 27px);
+
+            .contenido__promos--box {
+                flex: 0 0 auto;
+                width: 69vw;
+                height: 88px;
+                background-color: map-get($color, "gris_03");
+                overflow: hidden;
+                border-radius: 5px;
+
+                &:first-child {
+                    margin-left: 5vw;
+                }
+
+                &:last-child{
+                    margin-right: 5vw;
+                }
+            }
+
+        }
+
+        .contenido__comprados {
+
+            h1 {
+                font-family: $fnt_01;
+                font-size: 1.05rem;
+                color: map-get($color, "negro");
+                font-weight: 600;
+                //line-height: 14px;
+                margin: 0 5vw 1.05vh;
+            }
+
+            .contenido__comprados--cont {
+                @include scroll_hrz ($scroll_horiz-mrg: 0 0 33px);
+    
+                .contenido__comprados--box {
+                    flex: 0 0 auto;
+                    width: 75vw;
+                    height: 67px;
+                    //background-color: map-get($color, "gris_03");
+                    //overflow: hidden;
+                    border-radius: 5px;
+                    border: 1px solid map-get($color, "gris_03");
+                    padding: 11px;
+                    //align-items: flex-start;
+    
+                    .contenido__comprados--box_cont {
+                        @extend .flex-2;
+
+                        .contenido__comprados--img {
+                            display: inline-block;
+                            border-radius: 10px;
+                            width: 11.5vw;
+                            background-color: map-get($color, "naranja_02");
+                            overflow: hidden;
+                            height: 43px;
+                        }
+        
+                        .contenido__comprados--txt {
+                            width: auto;
+                            display: inline-block;
+                            //height: auto;
+                            margin-left: 3vw;
+                            margin-top: 0.5vh;
+        
+                            h2 {
+                                font-family: $fnt_01;
+                                font-size: 0.8rem;
+                                color: map-get($color, "negro");
+                                font-weight: 600;
+                                //line-height: 14px;
+                                //margin-left: 5vw;
+                                //display: block;
+                            }
+        
+                            p {
+                                font-family: $fnt_01;
+                                font-size: 0.7rem;
+                                color: map-get($color, "gris_01");
+                                //font-weight: 500;
+                                //line-height: 14px;
+                                //margin-left: 5vw;
+                                //display: block;
+                            }
+                        }
+                    }
+    
+                    &:first-child {
+                        margin-left: 5vw;
+                    }
+    
+                    &:last-child{
+                        margin-right: 5vw;
+                    }
+                }
+    
+            }
+        }
+
+        .contenido__populares--cont {
+            margin: 0 5vw;
+
+            h1 {
+                font-family: $fnt_01;
+                font-size: 1.05rem;
+                color: map-get($color, "negro");
+                font-weight: 600;
+                margin: 0 0 1.05vh;
+            }
+
+            .contenido__populares--box {
+                width: 100%;
+                height: 150px;
+                border-radius: 5px;
+                border: 1px solid map-get($color, "gris_02");
+                margin: 0 0 7vw;
+
+                .contenido__populares--box_img {
+                    width: 100%;
+                    //border-radius: 5px;
+                    height: 69%;
+                    overflow: hidden;
+                    position: relative;
+
+                    .populares__box--foto {
+                        width: 80px;
+                        height: 80px;
+                        //height: 125px;
+                        border-radius: 5px;
+                        position: absolute;
+                        top: 10px;
+                        left: 10px;
+                        border: 1px solid map-get($color, "negro");
+                        z-index: 101;
+
+                        //vertical-align: middle;
+                    }
+
+                    .populares__box--cabecera {
+                        width: 90vw;
+                        height: auto;
+                        //height: 125px;
+                        object-fit: none;
+                        object-position: 50% 50%;
+                        border-radius: 5px;
+                        //vertical-align: middle;
+                    }
+                }
+
+                .contenido__populares--box_txt {
+                    height: auto;
+                    width: 100%;
+                    display: flex;
+                    flex-flow: row wrap;
+                    padding: 7px 9px 0;
+
+                    h2 {
+                        font-family: $fnt_01;
+                        font-size: 0.8rem;
+                        color: map-get($color, "negro");
+                        font-weight: 600;
+                        display: inline-block;
+                        min-width: 87%;
+                    }
+
+                    h3 {
+                        font-family: $fnt_01;
+                        font-size: 0.7rem;
+                        color: map-get($color, "negro");
+                        font-weight: 600;
+                        display: inline-block;
+                        width: 13%;
+                        text-align: right;
+
+
+
+                        span {
+                            font-family: $fnt_01;
+                            font-size: 0.7rem;
+                            color: map-get($color, "amarillo_01");
+                        }
+                    }
+
+                    p {
+                        font-family: $fnt_01;
+                        font-size: 0.7rem;
+                        color: map-get($color, "gris_01");
+                        display: inline-block;
+                        margin-right: 5px;
+                    }
+                }
+
+            }  
+
+
+            
+        }
+
+        */
+
+    }
+    
+}
+
+// ESTILOS CATEGORÍAS Y SUBCATEGORÍAS
 
 #flores {
 

@@ -6,14 +6,30 @@
 .flex-2,
 .flex-3,
 .flex-4,
-.flex-5 {
+.flex-5,
+.flex-6,
+.flex-7 {
     display: flex;
+}
+
+.flex-1,
+.flex-2,
+.flex-3,
+.flex-4,
+.flex-5,
+.flex-6 {
     flex-flow: row nowrap; 
+}
+
+.flex-7 {
+    flex-flow: column nowrap;
 }
 
 .flex-1,
 .flex-3,
-.flex-5 {
+.flex-5,
+.flex-6,
+.flex-7 {
     align-items: center;
 }
 
@@ -32,6 +48,14 @@
 
 .flex-5 {
     justify-content: space-around;
+}
+
+.flex-7 {
+    justify-content: center;
+}
+
+.flex-6 {
+    justify-content: flex-start;
 }
 
 // Menúes desplegables cabecera

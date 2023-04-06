@@ -1079,6 +1079,11 @@ function mostrarContenidos (ubicador) {
 
     if (ubicador === 'inicio') {
 
+        const hambLinks = document.querySelectorAll('.cabeza__menu--user_li a')
+        for(let link of hambLinks){
+            link.addEventListener('click', pedirPag)
+        }
+
         const hambLinksProds = document.querySelectorAll('#menu__user--prods a')
         for(let link of hambLinksProds){
             link.addEventListener('click', pedirPag)
@@ -1217,6 +1222,187 @@ function mostrarContenidos (ubicador) {
         
         mostrarDatoscliente()
         mostrarMasVendIdx()
+
+    }
+
+    if (ubicador === 'perfil') {
+
+        const volverInicio = document.querySelectorAll('#perfil__cabeza .cabeza__volver')
+        console.log(volverInicio)
+        for(let link of volverInicio){
+            link.addEventListener('click', pedirPag)
+        }
+
+        window.addEventListener('scroll', perfilCabezaScroll)
+
+        function perfilCabezaScroll() {
+            if (!$('#perfil')) {
+                return
+            } else {
+                const alturaCabeza = $('#perfil__cabeza').offsetHeight
+                let scrollActual = window.pageYOffset || document.documentElement.scrollTop
+                if (scrollActual > alturaCabeza) {
+                    $('#perfil__cabeza').classList.add('scroll')
+                } else {
+                    if ($('#perfil__cabeza').classList.contains('scroll')) {
+                        $('#perfil__cabeza').classList.remove('scroll')
+                    }
+                }
+            }
+    
+        }
+
+        function mostrarDatoscliente() {
+            $('#edit-basico-nom').innerText = datosDelCliente[0].nombre
+            $('#edit-basico-mail').innerText = datosDelCliente[0].correo
+        }
+
+        mostrarDatoscliente()
+
+        /*
+
+        const hambLinksProds = document.querySelectorAll('#menu__user--prods a')
+        for(let link of hambLinksProds){
+            link.addEventListener('click', pedirPag)
+        }
+
+        const contProdsLinks = document.querySelectorAll('#contenido-productos-bx .contenido__productos--box')
+        for(let link of contProdsLinks){
+            //console.log(link)
+            // link.addEventListener('click', (evt)=>{
+            //     console.dir(evt.target)
+            // })
+            link.addEventListener('click', pedirPag)
+        }
+
+        const contOtrosProdsLinks = document.querySelectorAll('#contenido-otrosprods-bx .contenido__otrosprods--box')
+        for(let link of contOtrosProdsLinks){
+            //console.log(link)
+            // link.addEventListener('click', (evt)=>{
+            //     console.dir(evt.target)
+            // })
+            link.addEventListener('click', pedirPag)
+        }
+
+        
+        
+        function abrirMenuHamb () {
+            $('#desplegable__backdrop').classList.add('activo')
+            $('#cabeza__menu').classList.add('activo')
+            $('#cabeza__menu--crr').onclick = cerrarMenuHamb
+        }
+        
+        function cerrarMenuHamb () {
+            $('#cabeza__menu').classList.remove('activo')
+            $('#desplegable__backdrop').classList.remove('activo')
+        }
+        
+        function abrirMenuDir () {
+            $('#desplegable__backdrop').classList.add('activo')
+            $('#cabeza__dir').classList.add('activo')
+            $('#cabeza__dir--cerrado').classList.remove('activo')
+            $('#cabeza__dir--abierto').classList.add('activo')
+            $('#cabeza__dir--crr').onclick = cerrarMenuDir
+        }
+        
+        function cerrarMenuDir () {
+            $('#desplegable__backdrop').classList.remove('activo')
+            $('#cabeza__dir').classList.remove('activo')
+            $('#cabeza__dir--cerrado').classList.add('activo')
+            $('#cabeza__dir--abierto').classList.remove('activo')
+        }
+        
+        function abrirMenuAnun () {
+            $('#cabeza__anun').classList.add('activo')
+            anunNove()
+        }
+        
+        function cerrarMenuAnun () {
+            $('#cabeza__anun').classList.remove('activo')  
+        }
+        
+        function anunNove () {
+            if($('#cabeza__anun--prom_info').classList.contains('activo') && $('#cabeza__anun--btn_anim').classList.contains('promociones')){
+                $('#cabeza__anun--prom_info').classList.remove('activo')
+                $('#cabeza__anun--nove_info').classList.add('activo')
+                $('#cabeza__anun--btn_anim').classList.remove('promociones')
+                $('#cabeza__anun--btn_anim').classList.add('novedades')
+            }
+        }
+        
+        function anunProm () {
+            if($('#cabeza__anun--nove_info').classList.contains('activo') && $('#cabeza__anun--btn_anim').classList.contains('novedades')){
+                $('#cabeza__anun--nove_info').classList.remove('activo')
+                $('#cabeza__anun--prom_info').classList.add('activo')
+                $('#cabeza__anun--btn_anim').classList.remove('novedades')
+                $('#cabeza__anun--btn_anim').classList.add('promociones')
+            }
+        }
+
+        function cerrarSesion(evt) {
+            evt.preventDefault()
+            cerrarMenuHamb ()
+            let datosSesion = JSON.parse(localStorage.getItem('Cliente'))
+            datosSesion[0].sesionactiva = false
+            localStorage.setItem('Cliente', JSON.stringify(datosSesion))
+            Swal.fire({
+                title: '<h1 class="contenido__confirm--h1">¡La sesión se ha cerrado con éxito!</h1>',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 3000,
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                allowEnterKey: false
+            })
+    
+            setTimeout(noEstaRegistrado, 3000)
+        }
+        
+                
+        $('#cabeza__menu--btn').onclick = abrirMenuHamb
+        $('#hamb-cerrar-sesion').onclick = cerrarSesion
+        $('#cabeza__anun--btn').onclick = abrirMenuAnun
+        $('#cabeza__anun--cer').onclick = cerrarMenuAnun
+        $('#cabeza__dir--btn').onclick = abrirMenuDir
+        $('#cabeza__anun--nove').onclick = anunNove
+        $('#cabeza__anun--prom').onclick = anunProm
+
+        function mostrarDatoscliente() {
+            $('#cabeza-menu-user_nom').innerText = datosDelCliente[0].nombre
+            $('#cabeza-dir-principal').innerText = datosDelCliente[0].direccion
+        }
+        
+        function mostrarMasVendIdx() {
+
+            function masVendidosIndex(productos) {
+                const ordenados = productos.sort((a, b) => b.vendidos - a.vendidos)
+                return ordenados.slice(0, 7)
+            }
+
+            const indexMasVendidos = masVendidosIndex(productos)
+            for (const masPopular of indexMasVendidos) {
+                elProd = document.createElement('div')
+                elProd.id = `contenido__populares--prod${masPopular.id}`
+                elProd.className = 'contenido__populares--box'
+                elProd.innerHTML = `<div class="contenido__populares--box_img">
+                                            <img class="populares__box--foto" src="${masPopular.foto}">
+                                            <img class="populares__box--cabecera" src="${masPopular.cabecera}">
+                                        </div>
+                                        <div class="contenido__populares--box_txt">
+                                            <h2>${masPopular.nombre}</h2>
+                                            <h3><span><i class="fa-solid fa-star"></i></span>${masPopular.puntuacion}</h3>
+                                            <p>$${masPopular.precio}</p>
+                                            <p>Envío $200</p>
+                                        </div>`
+                $('#contenido-populares').appendChild(elProd)
+            }
+        }
+
+        
+        mostrarDatoscliente()
+        mostrarMasVendIdx()
+
+        */
 
     }
 
@@ -2788,12 +2974,6 @@ function mostrarContenidos (ubicador) {
         mostrarProdsTodos()
     } 
     
-}
-
-const linksProds = document.querySelectorAll('#menu__user--prods a')
-
-for(let link of linksProds){
-    link.addEventListener('click', pedirPag)
 }
 
 function pedirPag(evt) {
