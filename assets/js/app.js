@@ -570,6 +570,10 @@ const productos = [
 
 const datosCliente = []
 
+const direCliente = []
+
+const perfilCliente = []
+
 document.addEventListener('DOMContentLoaded', () => {
     if(JSON.parse(localStorage.getItem('Cliente')) != null){
         const estadoSesion = JSON.parse(localStorage.getItem('Cliente'))
@@ -633,7 +637,18 @@ function elementosRegistro() {
         }
     }
 
-    $('#nombre').onblur = nomVacio
+    function apeVacio() {
+        if ($('#apellido').value === null || $('#apellido').value === ''){
+            $('#apellido').classList.add('error')
+            $('#error-apellido').classList.add('activo')
+            $('#apellido').onfocus = function() {
+                $('#apellido').classList.remove('error')
+                $('#error-apellido').classList.remove('activo')
+            }
+        } else {
+            $('#apellido').classList.add('bien')
+        }
+    }
 
     function correoVacio() {
         if ($('#correo').value === null || $('#correo').value === ''){
@@ -648,30 +663,21 @@ function elementosRegistro() {
         }
     }
 
-    $('#correo').onfocus = nomVacio
-    $('#correo').onblur = correoVacio
-
     function direVacio() {
-        if ($('#direccion').value === null || $('#direccion').value === ''){
-            $('#direccion').classList.add('error')
+        if ($('#direccion-calle').value === null || $('#direccion-calle').value === ''){
+            $('#direccion-calle').classList.add('error')
             $('#error-direccion').classList.add('activo')
-            $('#direccion').onfocus = function() {
-                $('#direccion').classList.remove('error')
+            $('#direccion-calle').onfocus = function() {
+                $('#direccion-calle').classList.remove('error')
                 $('#error-direccion').classList.remove('activo')
             }
         } else {
-            $('#direccion').classList.add('bien')
+            $('#direccion-calle').classList.add('bien')
         }
     }
 
-    $('#direccion').onfocus = function () {
-        nomVacio()
-        correoVacio()
-    }
-    $('#direccion').onblur = direVacio
-
     function movilVacio() {
-        if ($('#movil').value === null || $('#movil').value === '' || isNaN(Number($('#movil').value)) || ($('#movil').value.lenght < 13 && $('#movil').value.lenght >= 14)){
+        if ($('#movil').value === null || $('#movil').value === ''){
             $('#movil').classList.add('error')
             $('#error-movil').classList.add('activo')
             $('#movil').onfocus = function() {
@@ -682,13 +688,6 @@ function elementosRegistro() {
             $('#movil').classList.add('bien')
         }
     }
-
-    $('#movil').onfocus = function () {
-        nomVacio()
-        correoVacio()
-        direVacio()
-    }
-    $('#movil').onblur = movilVacio
 
     function passUnoVacio() {
         if ($('#pass1').value === null || $('#pass1').value === ''){
@@ -702,14 +701,6 @@ function elementosRegistro() {
             $('#pass1').classList.add('bien')
         }
     }
-
-    $('#pass1').onfocus = function () {
-        nomVacio()
-        correoVacio()
-        direVacio()
-        movilVacio()
-    }
-    $('#pass1').onblur = passUnoVacio
 
     function passDosVacio() {
         if ($('#pass2').value === null || $('#pass2').value === ''){
@@ -757,13 +748,50 @@ function elementosRegistro() {
         }
     }
 
+    $('#nombre').onblur = nomVacio
+
+    $('#apellido').onfocus = nomVacio
+    $('#apellido').onblur = apeVacio
+   
+    $('#correo').onfocus = function () {
+        nomVacio()
+        apeVacio()
+    }
+    $('#correo').onblur = correoVacio
+
+    $('#direccion-calle').onfocus = function () {
+        nomVacio()
+        apeVacio()
+        correoVacio()
+    }
+    $('#direccion-calle').onblur = direVacio
+
+    $('#movil').onfocus = function () {
+        nomVacio()
+        apeVacio()
+        correoVacio()
+        direVacio()
+    }
+    $('#movil').onblur = movilVacio
+
+    $('#pass1').onfocus = function () {
+        nomVacio()
+        apeVacio()
+        correoVacio()
+        direVacio()
+        movilVacio()
+    }
+    $('#pass1').onblur = passUnoVacio
+
     $('#pass2').onfocus = function () {
         nomVacio()
+        apeVacio()
         correoVacio()
         direVacio()
         movilVacio()
         passUnoVacio()
     }
+
     $('#pass2').onblur = function () {
         passDosVacio()
         passNoCoin()
@@ -808,14 +836,24 @@ function elementosIngreso() {
 
 function hacerElRegistro(evt) {
     evt.preventDefault()
+    const id = Date.now()
     const nombre = $('#nombre').value
+    const apellido = $('#apellido').value
     const correo = $('#correo').value
-    const direccion = $('#direccion').value
-    const movil = Number($('#movil').value)
+    const calle = $('#direccion-calle').value
+    let dpto = ''
+    const movil = $('#movil').value
     const passUno = $('#pass1').value
     const passDos = $('#pass2').value
 
+    if($('#direccion-dpto').value === '' || $('#direccion-dpto').value === null){
+        dpto = 'casa'
+    } else {
+        dpto = $('#direccion-dpto').value
+    }
+
     let nomOk = false
+    let apeOk = false
     let correOk = false
     let direOk = false
     let moviOk = false
@@ -836,6 +874,19 @@ function hacerElRegistro(evt) {
         nomOk = true
     }
 
+    if (apellido === null || apellido === '') {
+        $('#apellido').classList.add('error')
+        $('#error-apellido').classList.add('activo')
+        $('#apellido').onfocus = function () {
+            $('#apellido').classList.remove('error')
+            $('#error-apellido').classList.remove('activo')
+        }
+        apeOk = false
+    } else {
+        $('#apellido').classList.add('bien')
+        apeOk = true
+    }
+
     if (correo === null || correo === '') {
         $('#correo').classList.add('error')
         $('#error-correo').classList.add('activo')
@@ -849,16 +900,16 @@ function hacerElRegistro(evt) {
         correOk = true
     }
 
-    if (direccion === null || direccion === '') {
-        $('#direccion').classList.add('error')
+    if (calle === null || calle === '') {
+        $('#direccion-calle').classList.add('error')
         $('#error-direccion').classList.add('activo')
-        $('#direccion').onfocus = function () {
-            $('#direccion').classList.remove('error')
+        $('#direccion-calle').onfocus = function () {
+            $('#direccion-calle').classList.remove('error')
             $('#error-direccion').classList.remove('activo')
         }
         direOk = false
     } else {
-        $('#direccion').classList.add('bien')
+        $('#direccion-calle').classList.add('bien')
         direOk = true
     }
 
@@ -917,15 +968,14 @@ function hacerElRegistro(evt) {
         pass = false
     }
 
-    if (nomOk === true && correOk === true && direOk === true && moviOk === true && pass === true) {
-
-        //Swal.fire('Registrado con éxito')
+    if (nomOk === true && apeOk === true && correOk === true && direOk === true && moviOk === true && pass === true) {
 
         Swal.fire({
             title: '<h1 class="contenido__confirm--h1">Por favor, confirme sus datos:</h1>',
             html: `<p class="contenido__confirm--p"><span>Nombre:</span> ${nombre}</p>
+            <p class="contenido__confirm--p"><span>Apellido:</span> ${apellido}</p>
             <p class="contenido__confirm--p"><span>Correo:</span> ${correo}</p>
-            <p class="contenido__confirm--p"><span>Dirección:</span> ${direccion}</p>
+            <p class="contenido__confirm--p"><span>Dirección:</span> ${calle} ${dpto}</p>
             <p class="contenido__confirm--p"><span>Móvil:</span> ${movil}</p>`,
             footer: '<p class="contenido__confirm--pie">Al confirmar acepta nuestros términos y condiciones de uso.</p>',
             width: '90vw',
@@ -945,18 +995,41 @@ function hacerElRegistro(evt) {
             if (result.isConfirmed) {
 
                 const clienteObj = {
-                    id: Date.now(),
+                    id: id,
                     nombre: nombre,
+                    apellido: apellido,
                     correo: correo,
-                    direccion: direccion,
                     movil: movil,
                     pass: passDos,
                     sesionactiva: true
                 }
 
+                const direObj = {
+                    id: Date.now(),
+                    idc: id,
+                    calle: calle,
+                    dpto: dpto,
+                    comentario: '',
+                    seleccionada: true
+                }
+
+                const perfilObj = {
+                    idc: id,
+                    apodo: nombre,
+                    dianac: '',
+                    mesnac: '',
+                    anonac: '',
+                    sexo: false,
+                    foto: false
+                }
+
                 datosCliente.push(clienteObj)
+                direCliente.push(direObj)
+                perfilCliente.push(perfilObj)
                 //console.log(datosCliente)
                 localStorage.setItem('Cliente', JSON.stringify(datosCliente))
+                localStorage.setItem('Direcciones', JSON.stringify(direCliente))
+                localStorage.setItem('Perfil', JSON.stringify(perfilCliente))
 
                 Swal.fire({
                     title: '<h1 class="contenido__confirm--h1">¡Se ha registrado con éxito!</h1>',
@@ -1068,14 +1141,22 @@ function ingresar() {
 }
 
 function registrarse() {
-
-
     elementosRegistro()
     $('#form__registro').addEventListener('submit', hacerElRegistro)
 }
 
 function mostrarContenidos (ubicador) { 
     const datosDelCliente = JSON.parse(localStorage.getItem('Cliente'))
+    const perfilDelCliente = JSON.parse(localStorage.getItem('Perfil'))
+    const diresDelCliente = JSON.parse(localStorage.getItem('Direcciones'))
+
+    let todosLosDatos = []
+
+    todosLosDatos.push(datosDelCliente)
+    todosLosDatos.push(perfilDelCliente)
+    todosLosDatos.push(diresDelCliente)
+
+    console.log(todosLosDatos)
 
     if (ubicador === 'inicio') {
 
@@ -1091,19 +1172,11 @@ function mostrarContenidos (ubicador) {
 
         const contProdsLinks = document.querySelectorAll('#contenido-productos-bx .contenido__productos--box')
         for(let link of contProdsLinks){
-            //console.log(link)
-            /*link.addEventListener('click', (evt)=>{
-                console.dir(evt.target)
-            })*/
             link.addEventListener('click', pedirPag)
         }
 
         const contOtrosProdsLinks = document.querySelectorAll('#contenido-otrosprods-bx .contenido__otrosprods--box')
         for(let link of contOtrosProdsLinks){
-            //console.log(link)
-            /*link.addEventListener('click', (evt)=>{
-                console.dir(evt.target)
-            })*/
             link.addEventListener('click', pedirPag)
         }
         
@@ -1178,8 +1251,7 @@ function mostrarContenidos (ubicador) {
     
             setTimeout(noEstaRegistrado, 3000)
         }
-        
-                
+              
         $('#cabeza__menu--btn').onclick = abrirMenuHamb
         $('#hamb-cerrar-sesion').onclick = cerrarSesion
         $('#cabeza__anun--btn').onclick = abrirMenuAnun
@@ -1189,10 +1261,40 @@ function mostrarContenidos (ubicador) {
         $('#cabeza__anun--prom').onclick = anunProm
 
         function mostrarDatoscliente() {
-            $('#cabeza-menu-user_nom').innerText = datosDelCliente[0].nombre
-            $('#cabeza-dir-principal').innerText = datosDelCliente[0].direccion
+
+            $('#cabeza-menu-user_nom').innerText = `${datosDelCliente[0].nombre} ${datosDelCliente[0].apellido}`
+
+            function direccionesCliente() {
+                const filtradas = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id)
+
+                //const direPrincipal = filtradas.filter(direccion => direccion.seleccionada === true)
+                //$('#cabeza-dir-principal').innerText = `${direPrincipal[0].calle} ${direPrincipal[0].dpto}`
+
+                for(const direcciones of filtradas){
+                    laDire = document.createElement('li')
+                    laDire.id = `inicio-desple-dir${direcciones.id}`
+                    laDire.innerHTML = `<div>    
+                                            <div class="cabeza__dir-ico">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                            </div>
+                                            <div>
+                                                <h2>${direcciones.calle}</h2>
+                                                <p>${direcciones.dpto}</p>
+                                            </div>
+                                            <div class="cabeza__dir-chk ${direcciones.seleccionada}">
+                                                <i class="fa-solid fa-check"></i>
+                                            </div>
+                                        </div>`
+                    $('#inicio-desple-dir-lista').appendChild(laDire)
+                }
+
+                const direPrincipal = filtradas.filter(direccion => direccion.seleccionada === true)
+                $('#cabeza-dir-principal').innerText = `${direPrincipal[0].calle} ${direPrincipal[0].dpto}`
+            }
+
+            direccionesCliente()
         }
-        
+
         function mostrarMasVendIdx() {
 
             function masVendidosIndex(productos) {

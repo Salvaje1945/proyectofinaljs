@@ -121,10 +121,11 @@
                         transition: .5s ease all;
                         line-height: 16px;
                         overflow: hidden;
+                        border-radius: 7px;
                     }
                     
                     .contenido__form--grupo_error.activo {
-                        height: 42px;
+                        height: 27px;
                         padding: 5px;
                         transition: .5s linear all;
                     }
@@ -441,7 +442,15 @@
                                 color: map-get($color, "negro");
                                 font-size: 1rem;
                                 margin: auto 0;
+                                //display: inline-block;
+                            }
+
+                            .cabeza__dir-chk.true {
                                 display: inline-block;
+                            }
+
+                            .cabeza__dir-chk.false {
+                                display: none;
                             }
                         }
 

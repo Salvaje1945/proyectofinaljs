@@ -290,16 +290,6 @@ a {
   transition: 0.3s linear all;
 }
 
-/*
-
-#logueo {
-    @extend .flex-5;
-    width: 100vw;
-    height: 100vh;
-    background-color: map-get($color, "rojo_03");
-}
-
-*/
 #inicio,
 #perfil,
 #flores,
@@ -476,9 +466,10 @@ a {
   transition: 0.5s ease all;
   line-height: 16px;
   overflow: hidden;
+  border-radius: 7px;
 }
 #logueo .contenido .contenido__entrada .contenido__form .contenido__form--grupo .contenido__form--grupo_error.activo {
-  height: 42px;
+  height: 27px;
   padding: 5px;
   transition: 0.5s linear all;
 }
@@ -755,7 +746,12 @@ a {
   color: #000;
   font-size: 1rem;
   margin: auto 0;
+}
+#inicio .cabeza .cabeza__dir--cont .cabeza__dir--cont_box ul li div .cabeza__dir-chk.true {
   display: inline-block;
+}
+#inicio .cabeza .cabeza__dir--cont .cabeza__dir--cont_box ul li div .cabeza__dir-chk.false {
+  display: none;
 }
 #inicio .cabeza .cabeza__dir--cont.activo {
   top: 0;
