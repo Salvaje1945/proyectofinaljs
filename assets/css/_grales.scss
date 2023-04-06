@@ -132,16 +132,28 @@ a {
 
 #logueo {
     display: grid;
-    grid-template-columns: 100vw;
-    grid-template-rows: 100vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 8fr 1fr;
     grid-template-areas:
 
-        "contenido"
+        "cabeza cabeza cabeza"
+
+        "contenido contenido contenido"
+
+        "pie pie pie"
 
     ;
     background-color: map-get($color, "rojo_03");
 
+    .cabeza {
+        grid-area: cabeza;
+    }
+    
     .contenido {
         grid-area: contenido;
+    }
+
+    .pie {
+        grid-area: pie;
     }
 }
