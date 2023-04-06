@@ -129,3 +129,19 @@ a {
         grid-area: contenido;
     }
 }
+
+#logueo {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    grid-template-areas:
+
+        "contenido"
+
+    ;
+    background-color: map-get($color, "rojo_03");
+
+    .contenido {
+        grid-area: contenido;
+    }
+}
