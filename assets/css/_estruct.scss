@@ -4,11 +4,11 @@
 #logueo {
 
     .contenido {
-        @extend .flex-5;
+        @extend .flex-7;
         width: 100vw;
         height: 100vh;
         background-color: map-get($color, "rojo_03");
-        
+
         .contenido__entrada {
             width: 90vw;
             height:min-content;
