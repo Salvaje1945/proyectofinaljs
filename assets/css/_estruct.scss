@@ -2,142 +2,145 @@
 @use 'predef' as *;
 
 #logueo {
-    @extend .flex-5;
-    width: 100vw;
-    height: 100vh;
-    background-color: map-get($color, "rojo_03");
 
     .contenido {
-        width: 90vw;
-        height:min-content;
-        background-color: map-get($color, "gris_07");
-        box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 50%);
-        border-radius: 11px;
-        border: 1px solid map-get($color, "gris_05");
-        padding: 11px;
-
-        .contenido__opciones {
-            display: none;
-            width: 100%;
-            height: auto;
-
-            .contenido__opciones--btn {
-                @include form__btns ($forms_btn-wth: 49%);
-                display: inline-block;
-                padding: 9px 0;
-            }
-
-        }
-
-        .contenido__opciones.activo {
-            display:block;
-        }
-
-        .contenido__form {
-            width: 100%;
-            display: none;
-            
-            .contenido__form--grupo {
+        @extend .flex-5;
+        width: 100vw;
+        height: 100vh;
+        background-color: map-get($color, "rojo_03");
+        
+        .contenido__entrada {
+            width: 90vw;
+            height:min-content;
+            background-color: map-get($color, "gris_07");
+            box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 50%);
+            border-radius: 11px;
+            border: 1px solid map-get($color, "gris_05");
+            padding: 11px;
+    
+            .contenido__opciones {
+                display: none;
                 width: 100%;
                 height: auto;
-                margin: 0 0 11px;
-
-                h2 {
-                    display: block;
-                    font-family: $fnt_01;
-                    font-size: 0.9rem;
-                    font-weight: 600;
-                    //margin: 0 0 5px;
+    
+                .contenido__opciones--btn {
+                    @include form__btns ($forms_btn-wth: 49%);
+                    display: inline-block;
+                    padding: 9px 0;
                 }
-
-                .contenido__form--grupo_dir {
+    
+            }
+    
+            .contenido__opciones.activo {
+                display:block;
+            }
+    
+            .contenido__form {
+                width: 100%;
+                display: none;
+                
+                .contenido__form--grupo {
                     width: 100%;
-                    display: block;
-
-                    p {
+                    height: auto;
+                    margin: 0 0 11px;
+    
+                    h2 {
                         display: block;
                         font-family: $fnt_01;
-                        font-size: 0.8rem;
-                        color: map-get($color, "gris_01");
-                        margin-left: 5px;
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                        //margin: 0 0 5px;
                     }
-
-                    .contenido__form--grupo_dir_calle {
-                        width: 69%;
-                        padding-right: 3px;
-                        display: inline-block;
+    
+                    .contenido__form--grupo_dir {
+                        width: 100%;
+                        display: block;
+    
+                        p {
+                            display: block;
+                            font-family: $fnt_01;
+                            font-size: 0.8rem;
+                            color: map-get($color, "gris_01");
+                            margin-left: 5px;
+                        }
+    
+                        .contenido__form--grupo_dir_calle {
+                            width: 69%;
+                            padding-right: 3px;
+                            display: inline-block;
+                        }
+    
+                        .contenido__form--grupo_dir_dpto {
+                            width: 29%;
+                            padding-left: 3px;
+                            display: inline-block;
+                        }
+    
                     }
-
-                    .contenido__form--grupo_dir_dpto {
-                        width: 29%;
-                        padding-left: 3px;
-                        display: inline-block;
+    
+                    .contenido__form--grupo_ipt {
+                        display: block;
+                        height: 33px;
+                        width: 100%;
+                        //line-height: 35px;
+                        border-radius: 7px;
+                        border: 3px solid transparent;
+                        transition: .3s ease all;
+                        padding: 0 5px 0;
+                        font-family: $fnt_01;
+                        font-size: 0.85rem;
+                        outline: none;
+    
+                        &:focus {
+                            border: 3px solid map-get($color, "azul_02");
+                            transition: .3s linear all;
+                        }
                     }
-
-                }
-
-                .contenido__form--grupo_ipt {
-                    display: block;
-                    height: 33px;
-                    width: 100%;
-                    //line-height: 35px;
-                    border-radius: 7px;
-                    border: 3px solid transparent;
-                    transition: .3s ease all;
-                    padding: 0 5px 0;
-                    font-family: $fnt_01;
-                    font-size: 0.85rem;
-                    outline: none;
-
-                    &:focus {
-                        border: 3px solid map-get($color, "azul_02");
-                        transition: .3s linear all;
+                    
+                    .contenido__form--grupo_ipt.error{
+                        border: 3px solid map-get($color, "rojo_02");
                     }
+                    
+                    .contenido__form--grupo_ipt.bien{
+                        border: 3px solid map-get($color, "verde_01");
+                    }
+                    
+                    .contenido__form--grupo_error {
+                        background-color: map-get($color, "rojo_02");
+                        height: 0px;
+                        width: 100%;
+                        color: #fff;
+                        font-family: $fnt_01;
+                        font-size: .85rem;
+                        font-weight: 500;
+                        transition: .5s ease all;
+                        line-height: 16px;
+                        overflow: hidden;
+                    }
+                    
+                    .contenido__form--grupo_error.activo {
+                        height: 42px;
+                        padding: 5px;
+                        transition: .5s linear all;
+                    }
+                    
+                    .contenido__form--grupo_btn {
+                        @include form__btns; 
+                        margin-top: 11px;             
+                    }
+    
+    
+                }
+    
+                .contenido__form--grupo.btn {
+                    margin-bottom: 0;
                 }
                 
-                .contenido__form--grupo_ipt.error{
-                    border: 3px solid map-get($color, "rojo_02");
-                }
-                
-                .contenido__form--grupo_ipt.bien{
-                    border: 3px solid map-get($color, "verde_01");
-                }
-                
-                .contenido__form--grupo_error {
-                    background-color: map-get($color, "rojo_02");
-                    height: 0px;
-                    width: 100%;
-                    color: #fff;
-                    font-family: $fnt_01;
-                    font-size: .85rem;
-                    font-weight: 500;
-                    transition: .5s ease all;
-                    line-height: 16px;
-                    overflow: hidden;
-                }
-                
-                .contenido__form--grupo_error.activo {
-                    height: 42px;
-                    padding: 5px;
-                    transition: .5s linear all;
-                }
-                
-                .contenido__form--grupo_btn {
-                    @include form__btns; 
-                    margin-top: 11px;             
-                }
-
-
             }
-
-            .contenido__form--grupo.btn {
-                margin-bottom: 0;
+    
+            .contenido__form.activo {
+                display: block;
             }
-            
-        }
-
-        .contenido__form.activo {
-            display: block;
         }
         
     }
