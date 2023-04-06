@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
 .flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
 .flex-2,
+#logueo .contenido,
 #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2,
 #flores .cabeza .cabeza__info,
@@ -52,13 +53,13 @@
 .flex-6,
 #perfil .cabeza,
 .flex-7,
-#logueo .contenido,
 #perfil .contenido .contenido__edit--basico {
   display: flex;
 }
 
 .flex-1, #inicio .cabeza, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
 .flex-2,
+#logueo .contenido,
 #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2,
 #flores .cabeza .cabeza__info,
@@ -109,7 +110,7 @@
   flex-flow: row nowrap;
 }
 
-.flex-7, #logueo .contenido, #perfil .contenido .contenido__edit--basico {
+.flex-7, #perfil .contenido .contenido__edit--basico {
   flex-flow: column nowrap;
 }
 
@@ -124,7 +125,6 @@
 .flex-6,
 #perfil .cabeza,
 .flex-7,
-#logueo .contenido,
 #perfil .contenido .contenido__edit--basico {
   align-items: center;
 }
@@ -150,7 +150,7 @@
   justify-content: space-between;
 }
 
-.flex-2, #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont, #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #flores .cabeza .cabeza__info, #especiales .cabeza .cabeza__info, #basicos .cabeza .cabeza__info, #arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #arreglos .cabeza .cabeza__info, #regalos .cabeza .cabeza__info, #casamientos .cabeza .cabeza__info, #velorios .cabeza .cabeza__info, #plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #plantas .cabeza .cabeza__info, #interior .cabeza .cabeza__info, #exterior .cabeza .cabeza__info, #cactus .cabeza .cabeza__info, #insumos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #insumos .cabeza .cabeza__info, #semillas .cabeza .cabeza__info, #macetas .cabeza .cabeza__info, #tierras .cabeza .cabeza__info, #fertilizantes .cabeza .cabeza__info {
+.flex-2, #logueo .contenido, #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont, #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #flores .cabeza .cabeza__info, #especiales .cabeza .cabeza__info, #basicos .cabeza .cabeza__info, #arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #arreglos .cabeza .cabeza__info, #regalos .cabeza .cabeza__info, #casamientos .cabeza .cabeza__info, #velorios .cabeza .cabeza__info, #plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #plantas .cabeza .cabeza__info, #interior .cabeza .cabeza__info, #exterior .cabeza .cabeza__info, #cactus .cabeza .cabeza__info, #insumos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #insumos .cabeza .cabeza__info, #semillas .cabeza .cabeza__info, #macetas .cabeza .cabeza__info, #tierras .cabeza .cabeza__info, #fertilizantes .cabeza .cabeza__info {
   align-items: flex-start;
 }
 
@@ -162,7 +162,7 @@
   justify-content: space-around;
 }
 
-.flex-7, #logueo .contenido, #perfil .contenido .contenido__edit--basico {
+.flex-7, #perfil .contenido .contenido__edit--basico {
   justify-content: center;
 }
 
@@ -364,6 +364,7 @@ a {
 }
 
 #logueo .contenido {
+  justify-content: space-around;
   width: 100vw;
   height: 100vh;
   background-color: #960101;
@@ -378,6 +379,7 @@ a {
   border-radius: 11px;
   border: 1px solid #ccc;
   padding: 11px;
+  margin: auto 0;
 }
 #logueo .contenido .contenido__entrada .contenido__opciones {
   display: none;
