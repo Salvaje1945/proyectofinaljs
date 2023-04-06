@@ -371,7 +371,9 @@ a {
 }
 #logueo .contenido {
   width: 90vw;
-  height: auto;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
   background-color: #cdcdcd;
   box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.5);
   border-radius: 11px;
