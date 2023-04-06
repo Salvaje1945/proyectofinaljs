@@ -144,6 +144,7 @@ a {
 
     ;
     background-color: map-get($color, "rojo_03");
+    height: 100vh;
 
     .cabeza {
         grid-area: cabeza;

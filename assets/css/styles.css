@@ -370,6 +370,7 @@ a {
   grid-template-rows: 1fr 8fr 1fr;
   grid-template-areas: "cabeza cabeza cabeza" "contenido contenido contenido" "pie pie pie";
   background-color: #960101;
+  height: 100vh;
 }
 #logueo .cabeza {
   grid-area: cabeza;
