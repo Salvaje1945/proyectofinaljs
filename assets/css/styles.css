@@ -48,6 +48,7 @@
 #tierras .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
 #fertilizantes .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
 .flex-5,
+#logueo .contenido,
 #perfil .perfil__despleg--basico_nom,
 .flex-6,
 #perfil .cabeza,
@@ -102,6 +103,7 @@
 #tierras .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
 #fertilizantes .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
 .flex-5,
+#logueo .contenido,
 #perfil .perfil__despleg--basico_nom,
 .flex-6,
 #perfil .cabeza {
@@ -119,6 +121,7 @@
 #plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
 #insumos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
 .flex-5,
+#logueo .contenido,
 #perfil .perfil__despleg--basico_nom,
 .flex-6,
 #perfil .cabeza,
@@ -156,7 +159,7 @@
   align-items: flex-end;
 }
 
-.flex-5, #perfil .perfil__despleg--basico_nom {
+.flex-5, #logueo .contenido, #perfil .perfil__despleg--basico_nom {
   justify-content: space-around;
 }
 
@@ -363,12 +366,12 @@ a {
 
 #logueo {
   display: block;
-  width: 100%;
+  width: 100vw;
   background-color: #960101;
 }
 #logueo .contenido {
   width: 100%;
-  height: 90vh;
+  height: 100vh;
 }
 #logueo .contenido .contenido__entrada {
   width: 90vw;
