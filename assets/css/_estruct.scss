@@ -4,21 +4,20 @@
 #logueo {
 
     .contenido {
-        @extend .flex-2;
-        justify-content: space-around;
+        @extend .flex-5;
         width: 100vw;
         height: 100vh;
         background-color: map-get($color, "rojo_03");
 
         .contenido__entrada {
             width: 90vw;
-            height:min-content;
+            //height:min-content;
             background-color: map-get($color, "gris_07");
             box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 50%);
             border-radius: 11px;
             border: 1px solid map-get($color, "gris_05");
             padding: 11px;
-            margin: auto 0;
+            //margin: auto 0;
     
             .contenido__opciones {
                 display: none;
