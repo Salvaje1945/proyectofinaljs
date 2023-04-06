@@ -129,32 +129,3 @@ a {
         grid-area: contenido;
     }
 }
-
-#logueo {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 8fr 1fr;
-    grid-template-areas:
-
-        "cabeza cabeza cabeza"
-
-        "contenido contenido contenido"
-
-        "pie pie pie"
-
-    ;
-    background-color: map-get($color, "rojo_03");
-    height: 100vh;
-
-    .cabeza {
-        grid-area: cabeza;
-    }
-    
-    .contenido {
-        grid-area: contenido;
-    }
-
-    .pie {
-        grid-area: pie;
-    }
-}

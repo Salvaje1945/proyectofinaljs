@@ -365,23 +365,10 @@ a {
 }
 
 #logueo {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 8fr 1fr;
-  grid-template-areas: "cabeza cabeza cabeza" "contenido contenido contenido" "pie pie pie";
-  background-color: #960101;
+  display: block;
+  width: 100%;
   height: 100vh;
 }
-#logueo .cabeza {
-  grid-area: cabeza;
-}
-#logueo .contenido {
-  grid-area: contenido;
-}
-#logueo .pie {
-  grid-area: pie;
-}
-
 #logueo .contenido {
   width: 100%;
 }
