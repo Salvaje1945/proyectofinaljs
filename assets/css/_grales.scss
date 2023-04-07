@@ -23,18 +23,19 @@ html,
     //scrollbar-width: none;
 }
 
+html {
+    height: -webkit-fill-available;
+}
+
 body{
     background-color: map-get($color, "blanco");
     //scrollbar-width: none;
+    height: 100vh;
+    height: -webkit-fill-available;
 
     &::-webkit-scrollbar {
         display: none;
     }
-}
-
-html,
-body {
-    height: -webkit-fill-available;
 }
 
 input:-webkit-autofill,
