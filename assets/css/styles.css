@@ -243,6 +243,11 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+html,
+body {
+  height: -webkit-fill-available;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
   -webkit-transition: background-color 600000s 0s, color 600000s 0s !important;
