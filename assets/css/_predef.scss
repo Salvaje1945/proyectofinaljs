@@ -75,7 +75,7 @@
 
 // Menúes desplegables cabecera
 
-@mixin cabeza__desplegables--edit ($cbz_dsp-wth: auto, $cbz_dsp-hgt: 100vh, $cbz_dsp-pdd: 10px) {
+@mixin cabeza__desplegables--edit ($cbz_dsp-wth: auto, $cbz_dsp-hgt: 100dvh, $cbz_dsp-pdd: 10px) {
     font-family: $fnt_01;
     width: $cbz_dsp-wth;
     height: $cbz_dsp-hgt;
