@@ -1150,13 +1150,13 @@ function mostrarContenidos (ubicador) {
     const perfilDelCliente = JSON.parse(localStorage.getItem('Perfil'))
     const diresDelCliente = JSON.parse(localStorage.getItem('Direcciones'))
 
-    let todosLosDatos = []
+    // let todosLosDatos = []
 
-    todosLosDatos.push(datosDelCliente)
-    todosLosDatos.push(perfilDelCliente)
-    todosLosDatos.push(diresDelCliente)
+    // todosLosDatos.push(datosDelCliente)
+    // todosLosDatos.push(perfilDelCliente)
+    // todosLosDatos.push(diresDelCliente)
 
-    console.log(todosLosDatos)
+    // console.log(todosLosDatos)
 
     if (ubicador === 'inicio') {
 
@@ -1262,7 +1262,14 @@ function mostrarContenidos (ubicador) {
 
         function mostrarDatoscliente() {
 
-            $('#cabeza-menu-user_nom').innerText = `${datosDelCliente[0].nombre} ${datosDelCliente[0].apellido}`
+            function datosMenuHamburg() {
+                $('#cabeza-menu-user_nom').innerText = `${datosDelCliente[0].nombre} ${datosDelCliente[0].apellido}`
+
+                if(perfilDelCliente[0].foto === false){
+                    $('#cabeza-menu-user_pic').src = 'assets/img/users/default.jpg'
+                }
+                // ACÁ HAY QUE TRAER LA FOTO CUANDO ESTÉ LISTA LA PARTE DE PERFIL DONDE SE PUEDE SUBIR UNA FOTO
+            }
 
             function direccionesCliente() {
                 const filtradas = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id)
@@ -1292,6 +1299,7 @@ function mostrarContenidos (ubicador) {
                 $('#cabeza-dir-principal').innerText = `${direPrincipal[0].calle} ${direPrincipal[0].dpto}`
             }
 
+            datosMenuHamburg()
             direccionesCliente()
         }
 
@@ -1355,9 +1363,145 @@ function mostrarContenidos (ubicador) {
         }
 
         function mostrarDatoscliente() {
-            $('#edit-basico-nom').innerText = datosDelCliente[0].nombre
+            if(perfilDelCliente[0].foto === false){
+                $('#edit-basico-pic').src = 'assets/img/users/default.jpg'
+            }
+            // ACÁ HAY QUE TRAER LA FOTO CUANDO ESTÉ LISTA LA PARTE DE PERFIL DONDE SE PUEDE SUBIR UNA FOTO
+            $('#edit-basico-nom').innerText = `${datosDelCliente[0].nombre} ${datosDelCliente[0].apellido}`
             $('#edit-basico-mail').innerText = datosDelCliente[0].correo
         }
+
+        function editarNombre() {
+            $('#perfil-despleg-bsc-nom').classList.add('activo')
+
+            $('#basico-nombre').value = datosDelCliente[0].nombre
+
+            $('#basico-apellido').value = datosDelCliente[0].apellido
+
+            $('#basico-apodo').value = perfilDelCliente[0].apodo
+
+            function basicoNomVacio() {
+                if($('#basico-form-etiqueta-nom').classList.contains('activo')){
+                    $('#basico-form-etiqueta-nom').classList.remove('activo')
+                }
+                if($('#basico-nombre').value === '' || $('#basico-nombre').value === null){
+                    $('#basico-nombre').classList.add('error')
+                    $('#basico-form-etiqueta-nom').classList.add('error')
+                    $('#basico-nombre').onfocus = function() {
+                        $('#basico-nombre').classList.remove('error')
+                        $('#basico-form-etiqueta-nom').classList.remove('error')
+                        $('#basico-form-etiqueta-nom').classList.add('activo')
+                    }
+                }
+            }
+
+            function basicoApeVacio() {
+                if($('#basico-form-etiqueta-ape').classList.contains('activo')){
+                    $('#basico-form-etiqueta-ape').classList.remove('activo')
+                }
+                if($('#basico-apellido').value === '' || $('#basico-apellido').value === null){
+                    $('#basico-apellido').classList.add('error')
+                    $('#basico-form-etiqueta-ape').classList.add('error')
+                    $('#basico-apellido').onfocus = function() {
+                        $('#basico-apellido').classList.remove('error')
+                        $('#basico-form-etiqueta-ape').classList.remove('error')
+                        $('#basico-form-etiqueta-ape').classList.add('activo')
+                    }
+                }
+            }
+
+            $('#basico-nombre').onblur = basicoNomVacio
+            $('#basico-nombre').onfocus = function() {
+                $('#basico-form-etiqueta-nom').classList.add('activo')
+            }
+            
+            $('#basico-apellido').onblur = basicoApeVacio
+            $('#basico-apellido').onfocus = function() {
+                $('#basico-form-etiqueta-ape').classList.add('activo')
+                basicoNomVacio()
+            }
+
+            $('#basico-apodo').onfocus = function() {
+                $('#basico-form-etiqueta-apo').classList.add('activo')
+                basicoNomVacio()
+                basicoApeVacio()
+            }
+            $('#basico-apodo').onblur = function() {
+                $('#basico-form-etiqueta-apo').classList.remove('activo')
+            }
+
+            function modificarDatosBasico(evt) {
+                evt.preventDefault()
+                const nombre = $('#basico-nombre').value
+                const apellido = $('#basico-apellido').value
+                const apodo = $('#basico-apodo').value
+
+                let nomOk = false
+                let apeOk = false
+
+                if (nombre === '' || nombre === null){
+                    $('#basico-nombre').classList.add('error')
+                    $('#basico-form-etiqueta-nom').classList.add('error')
+                    $('#basico-nombre').onfocus = function() {
+                        $('#basico-nombre').classList.remove('error')
+                        $('#basico-form-etiqueta-nom').classList.remove('error')
+                        $('#basico-form-etiqueta-nom').classList.add('activo')
+                    }
+                    nomOk = false
+                } else {
+                    nomOk = true
+                }
+
+                if (apellido === '' || apellido === null){
+                    $('#basico-apellido').classList.add('error')
+                    $('#basico-form-etiqueta-ape').classList.add('error')
+                    $('#basico-apellido').onfocus = function() {
+                        $('#basico-apellido').classList.remove('error')
+                        $('#basico-form-etiqueta-ape').classList.remove('error')
+                        $('#basico-form-etiqueta-ape').classList.add('activo')
+                    }
+                    apeOk = false
+                } else {
+                    apeOk = true
+                }
+
+                if (nomOk === true && apeOk === true) {
+                    let datClie = JSON.parse(localStorage.getItem('Cliente'))
+                    datClie[0].nombre = nombre
+                    datClie[0].apellido = apellido
+                    localStorage.setItem('Cliente', JSON.stringify(datClie))
+
+                    let datPerf = JSON.parse(localStorage.getItem('Perfil'))
+                    datPerf[0].apodo = apodo
+                    localStorage.setItem('Perfil', JSON.stringify(datPerf))
+
+                    $('#perfil-despleg-bsc-nom').classList.remove('activo')
+
+                    const pag = 'perfil.html'
+                    const ini = 'perfil'
+                    fetch(pag)
+                        .then((url) => {
+                            return url.text()
+                        })
+                        .then((seccion) => {
+                            $('#secciones').innerHTML = seccion
+                            mostrarContenidos(ini)
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+
+                } else {
+                    return
+                }
+
+            }
+
+            $('#basico-form').addEventListener('submit', modificarDatosBasico)
+
+        }
+
+        $('#edit-basico-nom-btn').onclick = editarNombre
 
         mostrarDatoscliente()
 

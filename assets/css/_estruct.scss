@@ -290,7 +290,8 @@
                                 text-align: center;
                             }
                             
-                            a {
+                            a,
+                            p {
                                 color: map-get($color, "negro");
                                 margin-left: 25px;
                             } 
@@ -329,7 +330,8 @@
                                     a {
                                         color: map-get($color, "negro");
                                         margin-left: 25px;
-                                    } 
+                                    }
+                                    
                                 }
                             }
                         }
@@ -1076,20 +1078,135 @@
 
     .perfil__despleg--basico_nom {
         @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
-        top: 0;
-        left: 0;
+        //@extend .flex-5;
         background-color: map-get($color, "gris_12");
-        @extend .flex-5;
+        top: 200%;
+        left: 0;
+        transition: .5s linear all;
 
-        .despleg__basico--nom_bx {
-            width: 90vw;
-            height: 75vh;
+        .perfil__despleg--basico_cab {
+            @extend .flex-3;
+            width: 100%;
+            height: 6vh;
             background-color: map-get($color, "blanco");
-            box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
-            border-radius: 11px;
-            border: 1px solid map-get($color, "gris_05");
-            padding: 11px;
+            border-bottom: 1px solid map-get($color, "gris_10");
+
+            div {
+                display: inline-block;
+                //width: 21px;
+                //height: 16px;
+                //padding: auto;
+                font-size: 1rem;
+                //line-height: normal;
+                color: map-get($color, "negro");
+                margin: 0 21px 0 11px;
+            }
+
+            h1 {
+                display: inline-block;
+                font-family: $fnt_01;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: map-get($color, "negro");
+            }
+
         }
+        
+        .perfil__despleg--basico_form {
+            @extend .flex-8;
+            height: 94vh;
+
+            .despleg__basico--form_cont {
+                @extend .flex-9;
+                width: 100%;
+                height: 83vh;
+
+                .despleg__basico--form_bx {
+                    width: 90vw;
+                    height: auto;
+                    margin: 5vh 0 0;
+                    background-color: map-get($color, "blanco");
+                    box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
+                    border-radius: 11px;
+                    border: 1px solid map-get($color, "gris_05");
+                    padding: 5vw;
+
+                    .despleg__basico--form_etiqueta {
+                        display: block;
+                        color: map-get($color, "gris_09");
+                        font-family: $fnt_01;
+                        font-size: 0.70rem;
+                        transition: .3s linear all;
+                    }
+
+                    .despleg__basico--form_etiqueta.activo {
+                        color: map-get($color, "negro");
+                        transition: .3s ease all;
+                    }
+
+                    .despleg__basico--form_etiqueta.error {
+                        color: map-get($color, "rojo_02");
+                    }
+
+                    .despleg__basico--form_ipt {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 35px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+
+                        &:last-child {
+                            margin: 0 0 15px;
+                        }
+                    }
+
+                    .despleg__basico--form_ipt:-webkit-autofill,
+                    .despleg__basico--form_ipt:-webkit-autofill:focus {
+                        transition: background-color 600000s 0s, color 600000s 0s !important;
+                        //background-color: map-get($color, "blanco") !important;
+                        //color: map-get($color, "negro") !important;
+                        font-family: $fnt_01 !important;
+                        font-size: 1rem !important;
+                    }
+
+                    .despleg__basico--form_ipt.error {
+                        border-bottom: 2px solid map-get($color, "rojo_02");
+                    }
+                }
+ 
+            }
+
+            .despleg__basico--form_btn {
+                width: 100vw;
+                height: 70.6px;
+                padding: 14px;
+                background-color: map-get($color, "blanco");
+                box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
+                border-top: 1px solid map-get($color, "gris_04");
+                
+                .despleg__basico--form_btn-btn {
+                    @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
+                }
+            }
+        }    
+    
+    }
+
+    .perfil__despleg--basico_nom.activo {
+        top: 0;
+        transition: .5s ease all;
     }
 
     // ************

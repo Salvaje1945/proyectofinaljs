@@ -2,7 +2,25 @@
 <div id="perfil">
     <!-- DESPLEGABLES -->
     <div class="perfil__despleg--basico_nom" id="perfil-despleg-bsc-nom">
-        <div class="despleg__basico--nom_bx"></div>
+        <div class="perfil__despleg--basico_cab">
+            <div><i class="fa-solid fa-arrow-left"></i></div>
+            <h1>Editar nombre</h1>
+        </div>
+        <form class="perfil__despleg--basico_form" id="basico-form">
+            <div class="despleg__basico--form_cont">
+                <div class="despleg__basico--form_bx">
+                    <label class="despleg__basico--form_etiqueta" for="basico-nombre" id="basico-form-etiqueta-nom">Nombre</label>
+                    <input id="basico-nombre" type="text" name="basico-nombre" class="despleg__basico--form_ipt" value="Tu nombre">
+                    <label class="despleg__basico--form_etiqueta" for="basico-apellido" id="basico-form-etiqueta-ape">Apellido</label>
+                    <input id="basico-apellido" type="text" name="basico-apellido" class="despleg__basico--form_ipt" value="Tu apellido">
+                    <label class="despleg__basico--form_etiqueta" for="basico-apodo" id="basico-form-etiqueta-apo">Apodo</label>
+                    <input id="basico-apodo" type="text" name="basico-apodo" class="despleg__basico--form_ipt" value="Tu apodo">
+                </div>
+            </div>
+            <div class="despleg__basico--form_btn">
+                <button class="despleg__basico--form_btn-btn" type="submit" id="basico-enviar">Guardar cambios</button>
+            </div>
+        </form>
     </div>
     <!-- *********** -->
     <header class="cabeza" id="perfil__cabeza">
@@ -18,10 +36,10 @@
                         <i class="fa-solid fa-camera"></i>
                     </span>
                 </div>
-                <img src="assets/img/users/default.jpg">
+                <img id="edit-basico-pic">
             </div>
             <div class="contenido__edit--basico_nom">
-                <h1 id="edit-basico-nom">Nombre del usuario</h1><span><i class="fa-solid fa-pencil"></i></span>
+                <h1 id="edit-basico-nom">Nombre del usuario</h1><span><i class="fa-solid fa-pencil" id="edit-basico-nom-btn"></i></span>
             </div>
             <p id="edit-basico-mail">elcorreodelusuario@gmail.com</p>
         </div>
