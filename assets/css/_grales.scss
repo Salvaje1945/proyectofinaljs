@@ -20,18 +20,10 @@ html,
     margin-inline-start: 0;
     margin-inline-end: 0;
     box-sizing: border-box;
-    //scrollbar-width: none;
 }
-
-// html {
-//     height: -webkit-fill-available;
-// }
 
 body{
     background-color: map-get($color, "blanco");
-    //scrollbar-width: none;
-    //height: 100vh;
-    //height: -webkit-fill-available;
 
     &::-webkit-scrollbar {
         display: none;
@@ -92,14 +84,6 @@ a {
     @include form__btns ($forms_btn-wth: 125px, $forms_btn-hgt: 42px, $forms_btn-bgc: map-get($color, "rojo_03"), $forms_btn-color: map-get($color, "gris_08"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 600, $forms_btn-brdrad: 7px, $forms_btn-hvr_bgc: map-get($color, "rojo_02"));   
     margin: 7px;           
 }
-
-// #secciones {
-//     height: 100vh;
-//     width: 100vw;
-//     position: relative;
-//     height: -webkit-fill-available;
-// }
-
 
 #inicio,
 #perfil,

@@ -1380,6 +1380,14 @@ function mostrarContenidos (ubicador) {
 
             $('#basico-apodo').value = perfilDelCliente[0].apodo
 
+            function cerrarEditBasico() {
+                $('#perfil-despleg-bsc-nom').classList.remove('activo')
+            }
+
+            $('#perfil-despleg-bsc-back-1').onclick = cerrarEditBasico
+            $('#perfil-despleg-bsc-back-2').onclick = cerrarEditBasico
+
+
             function basicoNomVacio() {
                 if($('#basico-form-etiqueta-nom').classList.contains('activo')){
                     $('#basico-form-etiqueta-nom').classList.remove('activo')
