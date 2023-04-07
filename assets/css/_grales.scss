@@ -23,15 +23,15 @@ html,
     //scrollbar-width: none;
 }
 
-html {
-    height: -webkit-fill-available;
-}
+// html {
+//     height: -webkit-fill-available;
+// }
 
 body{
     background-color: map-get($color, "blanco");
     //scrollbar-width: none;
     //height: 100vh;
-    height: -webkit-fill-available;
+    //height: -webkit-fill-available;
 
     &::-webkit-scrollbar {
         display: none;
@@ -93,12 +93,12 @@ a {
     margin: 7px;           
 }
 
-#secciones {
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-    height: -webkit-fill-available;
-}
+// #secciones {
+//     height: 100vh;
+//     width: 100vw;
+//     position: relative;
+//     height: -webkit-fill-available;
+// }
 
 
 #inicio,
