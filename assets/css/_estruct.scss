@@ -4,14 +4,14 @@
 #logueo {
     display: block;
     width: 100vw;
-    //height: 100dvh;
+    //height: 100svh;
     background-color: map-get($color, "rojo_03");
 
 
     .contenido {
         @extend .flex-5;
         width: 100%;
-        height: 100dvh;
+        height: 100svh;
 
         .contenido__entrada {
             width: 90vw;
@@ -206,7 +206,7 @@
         .cabeza__desplegables--backdrop {
             display: none;
             width: 100vw;
-            height: 100dvh;
+            height: 100svh;
             position: absolute;
             top: 0;
             left: 0;
@@ -239,7 +239,7 @@
                 display: inline-block;
                 background-color: map-get($color, "blanco");
                 width: 75vw;
-                height: 100dvh;
+                height: 100svh;
                 
                 //border-right: 1px solid map-get($color, "gris_03");
                 .cabeza__menu--user {
@@ -350,7 +350,7 @@
             .cabeza__menu--cont_box-crr {
                 display: inline-block;
                 width: 25vw;
-                height: 100dvh;
+                height: 100svh;
             }
         }
 
@@ -364,13 +364,13 @@
             left: 0;
 
             .cabeza__dir--cont_box-cerr {
-                height: 40dvh;
+                height: 40svh;
                 display: block;
             }
 
             .cabeza__dir--cont_box {
                 display: block;
-                height: 60dvh;
+                height: 60svh;
                 background-color: map-get($color, "blanco");
                 padding: 15px;
 
@@ -482,7 +482,7 @@
                     .cabeza__anun--cont_cbz-btn {
                         display: inline-block;
                         width: 50vw;
-                        height: 5.95dvh;
+                        height: 5.95svh;
                         padding: 9px 0;
                         text-align: center;
                         font-family: $fnt_01;
@@ -528,7 +528,7 @@
                         width: 50vw;
                         height: 2px;
                         background-color: map-get($color, "gris_01");
-                        //margin-right: 50dvh;
+                        //margin-right: 50svh;
                         transition: .2s all;
                     }
     
@@ -570,7 +570,7 @@
                     height: auto;
                     background-color: map-get($color, "blanco");
                     padding: 2.5vh 6.5vw;
-                    margin: 0 0 5dvh;
+                    margin: 0 0 5svh;
                     /*border-top: 0;
                     border-left: 1px;
                     border-right: 1px;
@@ -657,14 +657,14 @@
 
                 .cabeza__dir--cont_box-cerr {
                     background-color: blue;
-                    height: 25dvh;
+                    height: 25svh;
                     display: block;
                     cursor: pointer;
                 }
 
                 .cabeza__dir--cont_box {
                     display: block;
-                    height: 75dvh;
+                    height: 75svh;
                     background-color: red;
                 }
             }
@@ -685,7 +685,7 @@
 
         .contenido__buscador--cont {
             border-radius: 30px;
-            padding: 0.4vh 0.5vh 0.5dvh;
+            padding: 0.4vh 0.5vh 0.5svh;
             border: 1px solid map-get($color, "gris_04");
             margin: 0 5vw 20px;
 
@@ -897,7 +897,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 1.05dvh;
+                margin: 0 5vw 1.05svh;
             }
 
             .contenido__comprados--cont {
@@ -931,7 +931,7 @@
                             display: inline-block;
                             //height: auto;
                             margin-left: 3vw;
-                            margin-top: 0.5dvh;
+                            margin-top: 0.5svh;
         
                             h2 {
                                 font-family: $fnt_01;
@@ -975,7 +975,7 @@
                 font-size: 1.05rem;
                 color: map-get($color, "negro");
                 font-weight: 600;
-                margin: 0 0 1.05dvh;
+                margin: 0 0 1.05svh;
             }
 
             .contenido__populares--box {
@@ -1270,7 +1270,7 @@
         .cabeza__desplegables--backdrop {
             display: none;
             width: 100vw;
-            height: 100dvh;
+            height: 100svh;
             position: absolute;
             top: 0;
             left: 0;
@@ -1303,7 +1303,7 @@
                 display: inline-block;
                 background-color: map-get($color, "blanco");
                 width: 75vw;
-                height: 100dvh;
+                height: 100svh;
                 
                 //border-right: 1px solid map-get($color, "gris_03");
                 .cabeza__menu--user {
@@ -1412,7 +1412,7 @@
             .cabeza__menu--cont_box-crr {
                 display: inline-block;
                 width: 25vw;
-                height: 100dvh;
+                height: 100svh;
             }
         }
 
@@ -1426,13 +1426,13 @@
             left: 0;
 
             .cabeza__dir--cont_box-cerr {
-                height: 40dvh;
+                height: 40svh;
                 display: block;
             }
 
             .cabeza__dir--cont_box {
                 display: block;
-                height: 60dvh;
+                height: 60svh;
                 background-color: map-get($color, "blanco");
                 padding: 15px;
 
@@ -1536,7 +1536,7 @@
                     .cabeza__anun--cont_cbz-btn {
                         display: inline-block;
                         width: 50vw;
-                        height: 5.95dvh;
+                        height: 5.95svh;
                         padding: 9px 0;
                         text-align: center;
                         font-family: $fnt_01;
@@ -1579,7 +1579,7 @@
                         width: 50vw;
                         height: 2px;
                         background-color: map-get($color, "gris_01");
-                        //margin-right: 50dvh;
+                        //margin-right: 50svh;
                         transition: .2s all;
                     }
     
@@ -1621,7 +1621,7 @@
                     height: auto;
                     background-color: map-get($color, "blanco");
                     padding: 2.5vh 6.5vw;
-                    margin: 0 0 5dvh;
+                    margin: 0 0 5svh;
                     border: 1px groove map-get($color, "gris_14");
                     border-top: none;
                     border-radius: 3px;
@@ -1798,7 +1798,7 @@
 
         .contenido__buscador--cont {
             border-radius: 30px;
-            padding: 0.4vh 0.5vh 0.5dvh;
+            padding: 0.4vh 0.5vh 0.5svh;
             border: 1px solid map-get($color, "gris_04");
             margin: 0 5vw 20px;
 
@@ -2010,7 +2010,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 1.05dvh;
+                margin: 0 5vw 1.05svh;
             }
 
             .contenido__comprados--cont {
@@ -2044,7 +2044,7 @@
                             display: inline-block;
                             //height: auto;
                             margin-left: 3vw;
-                            margin-top: 0.5dvh;
+                            margin-top: 0.5svh;
         
                             h2 {
                                 font-family: $fnt_01;
@@ -2088,7 +2088,7 @@
                 font-size: 1.05rem;
                 color: map-get($color, "negro");
                 font-weight: 600;
-                margin: 0 0 1.05dvh;
+                margin: 0 0 1.05svh;
             }
 
             .contenido__populares--box {
@@ -2272,7 +2272,7 @@
 
             .cabeza__menu--desp_pt2 {
                 @extend .flex-2;
-                margin: 15px 0 0 5vw;
+                margin: 20px 0 0 5vw;
 
                 span {
                     display: inline-block;
@@ -2390,7 +2390,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -2765,7 +2765,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -2836,7 +2836,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -2907,7 +2907,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -2915,7 +2915,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -3060,7 +3060,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -3170,7 +3170,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -3241,7 +3241,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -3312,7 +3312,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -3320,7 +3320,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -3465,7 +3465,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -3567,7 +3567,7 @@
         height: auto;
         background-image: url(../img/categs/cabecera/arreglos-florales.jpg);
         background-size: 100vw auto;
-        background-position: 0% -20%;
+        background-position: 0% -10vh;
         background-repeat: no-repeat;
         background-attachment: fixed;
         z-index: 500;
@@ -3576,7 +3576,7 @@
             display: block;
             position: fixed;
             width: 100vw;
-            height: 14dvh;
+            height: 14svh;
             background-color: map-get($color, "blanco");
             transition: .3s all;
             top: -100%;
@@ -3643,7 +3643,7 @@
 
             .cabeza__menu--desp_pt2 {
                 @extend .flex-2;
-                margin: 15px 0 0 5vw;
+                margin: 20px 0 0 5vw;
 
                 span {
                     display: inline-block;
@@ -3690,7 +3690,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -3761,7 +3761,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -3873,7 +3873,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -3881,7 +3881,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -4011,7 +4011,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -4119,7 +4119,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -4190,7 +4190,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -4261,7 +4261,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -4269,7 +4269,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -4414,7 +4414,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -4524,7 +4524,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -4595,7 +4595,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -4666,7 +4666,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -4674,7 +4674,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -4819,7 +4819,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -4929,7 +4929,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -5000,7 +5000,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -5071,7 +5071,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -5079,7 +5079,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -5224,7 +5224,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -5326,7 +5326,7 @@
         height: auto;
         background-image: url(../img/categs/cabecera/plantas.jpg);
         background-size: 100vw auto;
-        background-position: 0% -20%;
+        background-position: 0% -10vh;
         background-repeat: no-repeat;
         background-attachment: fixed;
         z-index: 500;
@@ -5335,7 +5335,7 @@
             display: block;
             position: fixed;
             width: 100vw;
-            height: 14dvh;
+            height: 14svh;
             background-color: map-get($color, "blanco");
             transition: .3s all;
             top: -100%;
@@ -5402,7 +5402,7 @@
 
             .cabeza__menu--desp_pt2 {
                 @extend .flex-2;
-                margin: 15px 0 0 5vw;
+                margin: 20px 0 0 5vw;
 
                 span {
                     display: inline-block;
@@ -5449,7 +5449,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -5520,7 +5520,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -5632,7 +5632,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -5640,7 +5640,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -5770,7 +5770,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -5878,7 +5878,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -5949,7 +5949,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -6020,7 +6020,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -6028,7 +6028,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -6173,7 +6173,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -6283,7 +6283,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -6354,7 +6354,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -6425,7 +6425,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -6433,7 +6433,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -6578,7 +6578,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -6688,7 +6688,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -6759,7 +6759,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -6830,7 +6830,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -6838,7 +6838,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -6983,7 +6983,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -7085,7 +7085,7 @@
         height: auto;
         background-image: url(../img/categs/cabecera/insumos.jpg);
         background-size: 100vw auto;
-        background-position: 0% -10%;
+        background-position: 0% -10vh;
         background-repeat: no-repeat;
         background-attachment: fixed;
         z-index: 500;
@@ -7094,7 +7094,7 @@
             display: block;
             position: fixed;
             width: 100vw;
-            height: 14dvh;
+            height: 14svh;
             background-color: map-get($color, "blanco");
             transition: .3s all;
             top: -100%;
@@ -7161,7 +7161,7 @@
 
             .cabeza__menu--desp_pt2 {
                 @extend .flex-2;
-                margin: 15px 0 0 5vw;
+                margin: 20px 0 0 5vw;
 
                 span {
                     display: inline-block;
@@ -7208,7 +7208,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -7279,7 +7279,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -7391,7 +7391,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -7399,7 +7399,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -7529,7 +7529,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -7637,7 +7637,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -7708,7 +7708,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -7779,7 +7779,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -7787,7 +7787,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -7932,7 +7932,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -8042,7 +8042,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -8113,7 +8113,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -8184,7 +8184,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -8192,7 +8192,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -8337,7 +8337,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -8447,7 +8447,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -8518,7 +8518,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -8589,7 +8589,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -8597,7 +8597,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -8742,7 +8742,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
@@ -8852,7 +8852,7 @@
 
         .cabeza__menu--cont {
             width: 100%;
-            height: 14.16dvh;
+            height: 14.16svh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
             @extend .flex-1;
             padding: 0 5vw;
@@ -8923,7 +8923,7 @@
                 display: inline-block;
                 margin-left: 3vw;
                 min-width: 200px;
-                //margin-top: 0.5dvh;
+                //margin-top: 0.5svh;
 
                 h1 {
                     font-family: $fnt_01;
@@ -8994,7 +8994,7 @@
         }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -9002,7 +9002,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -9147,7 +9147,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {

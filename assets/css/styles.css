@@ -389,7 +389,7 @@ a {
 }
 #logueo .contenido {
   width: 100%;
-  height: 100dvh;
+  height: 100svh;
 }
 #logueo .contenido .contenido__entrada {
   width: 90vw;
@@ -562,7 +562,7 @@ a {
 #inicio .cabeza .cabeza__desplegables--backdrop {
   display: none;
   width: 100vw;
-  height: 100dvh;
+  height: 100svh;
   position: absolute;
   top: 0;
   left: 0;
@@ -607,7 +607,7 @@ a {
   display: inline-block;
   background-color: #fff;
   width: 75vw;
-  height: 100dvh;
+  height: 100svh;
 }
 #inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box .cabeza__menu--user {
   padding: 15px;
@@ -688,7 +688,7 @@ a {
 #inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box-crr {
   display: inline-block;
   width: 25vw;
-  height: 100dvh;
+  height: 100svh;
 }
 #inicio .cabeza .cabeza__menu--cont.activo {
   left: 0;
@@ -705,12 +705,12 @@ a {
   left: 0;
 }
 #inicio .cabeza .cabeza__dir--cont .cabeza__dir--cont_box-cerr {
-  height: 40dvh;
+  height: 40svh;
   display: block;
 }
 #inicio .cabeza .cabeza__dir--cont .cabeza__dir--cont_box {
   display: block;
-  height: 60dvh;
+  height: 60svh;
   background-color: #fff;
   padding: 15px;
 }
@@ -808,7 +808,7 @@ a {
 #inicio .cabeza .cabeza__anun--cont .cabeza__anun--cont_cbz .cabeza__anun--cont_cbz-menu .cabeza__anun--cont_cbz-btn {
   display: inline-block;
   width: 50vw;
-  height: 5.95dvh;
+  height: 5.95svh;
   padding: 9px 0;
   text-align: center;
   font-family: "Poppins", sans-serif;
@@ -889,7 +889,7 @@ a {
   height: auto;
   background-color: #fff;
   padding: 2.5vh 6.5vw;
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
   /*border-top: 0;
   border-left: 1px;
   border-right: 1px;
@@ -942,14 +942,14 @@ a {
 
       .cabeza__dir--cont_box-cerr {
           background-color: blue;
-          height: 25dvh;
+          height: 25svh;
           display: block;
           cursor: pointer;
       }
 
       .cabeza__dir--cont_box {
           display: block;
-          height: 75dvh;
+          height: 75svh;
           background-color: red;
       }
   }
@@ -978,7 +978,7 @@ a {
 }
 #inicio .contenido .contenido__buscador--cont {
   border-radius: 30px;
-  padding: 0.4vh 0.5vh 0.5dvh;
+  padding: 0.4vh 0.5vh 0.5svh;
   border: 1px solid #aaa;
   margin: 0 5vw 20px;
 }
@@ -1213,7 +1213,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 1.05dvh;
+  margin: 0 5vw 1.05svh;
 }
 #inicio .contenido .contenido__comprados .contenido__comprados--cont {
   display: flex;
@@ -1246,7 +1246,7 @@ a {
   width: auto;
   display: inline-block;
   margin-left: 3vw;
-  margin-top: 0.5dvh;
+  margin-top: 0.5svh;
 }
 #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont .contenido__comprados--txt h2 {
   font-family: "Poppins", sans-serif;
@@ -1273,7 +1273,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 1.05dvh;
+  margin: 0 0 1.05svh;
 }
 #inicio .contenido .contenido__populares--cont .contenido__populares--box {
   width: 100%;
@@ -1512,7 +1512,7 @@ a {
   .cabeza__desplegables--backdrop {
       display: none;
       width: 100vw;
-      height: 100dvh;
+      height: 100svh;
       position: absolute;
       top: 0;
       left: 0;
@@ -1545,7 +1545,7 @@ a {
           display: inline-block;
           background-color: map-get($color, "blanco");
           width: 75vw;
-          height: 100dvh;
+          height: 100svh;
 
           //border-right: 1px solid map-get($color, "gris_03");
           .cabeza__menu--user {
@@ -1654,7 +1654,7 @@ a {
       .cabeza__menu--cont_box-crr {
           display: inline-block;
           width: 25vw;
-          height: 100dvh;
+          height: 100svh;
       }
   }
 
@@ -1668,13 +1668,13 @@ a {
       left: 0;
 
       .cabeza__dir--cont_box-cerr {
-          height: 40dvh;
+          height: 40svh;
           display: block;
       }
 
       .cabeza__dir--cont_box {
           display: block;
-          height: 60dvh;
+          height: 60svh;
           background-color: map-get($color, "blanco");
           padding: 15px;
 
@@ -1778,7 +1778,7 @@ a {
               .cabeza__anun--cont_cbz-btn {
                   display: inline-block;
                   width: 50vw;
-                  height: 5.95dvh;
+                  height: 5.95svh;
                   padding: 9px 0;
                   text-align: center;
                   font-family: $fnt_01;
@@ -1821,7 +1821,7 @@ a {
                   width: 50vw;
                   height: 2px;
                   background-color: map-get($color, "gris_01");
-                  //margin-right: 50dvh;
+                  //margin-right: 50svh;
                   transition: .2s all;
               }
 
@@ -1863,7 +1863,7 @@ a {
               height: auto;
               background-color: map-get($color, "blanco");
               padding: 2.5vh 6.5vw;
-              margin: 0 0 5dvh;
+              margin: 0 0 5svh;
               border: 1px groove map-get($color, "gris_14");
               border-top: none;
               border-radius: 3px;
@@ -1962,7 +1962,7 @@ a {
 
   .contenido__buscador--cont {
       border-radius: 30px;
-      padding: 0.4vh 0.5vh 0.5dvh;
+      padding: 0.4vh 0.5vh 0.5svh;
       border: 1px solid map-get($color, "gris_04");
       margin: 0 5vw 20px;
 
@@ -2174,7 +2174,7 @@ a {
           color: map-get($color, "negro");
           font-weight: 600;
           //line-height: 14px;
-          margin: 0 5vw 1.05dvh;
+          margin: 0 5vw 1.05svh;
       }
 
       .contenido__comprados--cont {
@@ -2208,7 +2208,7 @@ a {
                       display: inline-block;
                       //height: auto;
                       margin-left: 3vw;
-                      margin-top: 0.5dvh;
+                      margin-top: 0.5svh;
 
                       h2 {
                           font-family: $fnt_01;
@@ -2252,7 +2252,7 @@ a {
           font-size: 1.05rem;
           color: map-get($color, "negro");
           font-weight: 600;
-          margin: 0 0 1.05dvh;
+          margin: 0 0 1.05svh;
       }
 
       .contenido__populares--box {
@@ -2478,7 +2478,7 @@ a {
   }*/
 }
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 {
-  margin: 15px 0 0 5vw;
+  margin: 20px 0 0 5vw;
 }
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 span {
   display: inline-block;
@@ -2879,7 +2879,7 @@ a {
 }
 #especiales .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -2983,14 +2983,14 @@ a {
   margin: 5vw 5vw;
 }
 #especiales .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #especiales .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #especiales .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -3112,7 +3112,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #especiales .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -3196,7 +3196,7 @@ a {
 }
 #basicos .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -3300,14 +3300,14 @@ a {
   margin: 5vw 5vw;
 }
 #basicos .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #basicos .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #basicos .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -3429,7 +3429,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #basicos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -3506,7 +3506,7 @@ a {
   height: auto;
   background-image: url(../img/categs/cabecera/arreglos-florales.jpg);
   background-size: 100vw auto;
-  background-position: 0% -20%;
+  background-position: 0% -10vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
   z-index: 500;
@@ -3515,7 +3515,7 @@ a {
   display: block;
   position: fixed;
   width: 100vw;
-  height: 14dvh;
+  height: 14svh;
   background-color: #fff;
   transition: 0.3s all;
   top: -100%;
@@ -3568,7 +3568,7 @@ a {
   }*/
 }
 #arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 {
-  margin: 15px 0 0 5vw;
+  margin: 20px 0 0 5vw;
 }
 #arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 span {
   display: inline-block;
@@ -3614,7 +3614,7 @@ a {
 }
 #arreglos .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -3759,14 +3759,14 @@ a {
   margin: 5vw 5vw;
 }
 #arreglos .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #arreglos .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #arreglos .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -3874,7 +3874,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #arreglos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -3958,7 +3958,7 @@ a {
 }
 #regalos .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -4062,14 +4062,14 @@ a {
   margin: 5vw 5vw;
 }
 #regalos .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #regalos .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #regalos .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -4191,7 +4191,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #regalos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -4275,7 +4275,7 @@ a {
 }
 #casamientos .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -4379,14 +4379,14 @@ a {
   margin: 5vw 5vw;
 }
 #casamientos .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #casamientos .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #casamientos .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -4508,7 +4508,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #casamientos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -4592,7 +4592,7 @@ a {
 }
 #velorios .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -4696,14 +4696,14 @@ a {
   margin: 5vw 5vw;
 }
 #velorios .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #velorios .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #velorios .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -4825,7 +4825,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #velorios .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -4902,7 +4902,7 @@ a {
   height: auto;
   background-image: url(../img/categs/cabecera/plantas.jpg);
   background-size: 100vw auto;
-  background-position: 0% -20%;
+  background-position: 0% -10vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
   z-index: 500;
@@ -4911,7 +4911,7 @@ a {
   display: block;
   position: fixed;
   width: 100vw;
-  height: 14dvh;
+  height: 14svh;
   background-color: #fff;
   transition: 0.3s all;
   top: -100%;
@@ -4964,7 +4964,7 @@ a {
   }*/
 }
 #plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 {
-  margin: 15px 0 0 5vw;
+  margin: 20px 0 0 5vw;
 }
 #plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 span {
   display: inline-block;
@@ -5010,7 +5010,7 @@ a {
 }
 #plantas .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -5155,14 +5155,14 @@ a {
   margin: 5vw 5vw;
 }
 #plantas .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #plantas .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #plantas .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -5270,7 +5270,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #plantas .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -5354,7 +5354,7 @@ a {
 }
 #interior .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -5458,14 +5458,14 @@ a {
   margin: 5vw 5vw;
 }
 #interior .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #interior .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #interior .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -5587,7 +5587,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #interior .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -5671,7 +5671,7 @@ a {
 }
 #exterior .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -5775,14 +5775,14 @@ a {
   margin: 5vw 5vw;
 }
 #exterior .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #exterior .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #exterior .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -5904,7 +5904,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #exterior .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -5988,7 +5988,7 @@ a {
 }
 #cactus .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -6092,14 +6092,14 @@ a {
   margin: 5vw 5vw;
 }
 #cactus .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #cactus .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #cactus .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -6221,7 +6221,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #cactus .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -6298,7 +6298,7 @@ a {
   height: auto;
   background-image: url(../img/categs/cabecera/insumos.jpg);
   background-size: 100vw auto;
-  background-position: 0% -10%;
+  background-position: 0% -10vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
   z-index: 500;
@@ -6307,7 +6307,7 @@ a {
   display: block;
   position: fixed;
   width: 100vw;
-  height: 14dvh;
+  height: 14svh;
   background-color: #fff;
   transition: 0.3s all;
   top: -100%;
@@ -6360,7 +6360,7 @@ a {
   }*/
 }
 #insumos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 {
-  margin: 15px 0 0 5vw;
+  margin: 20px 0 0 5vw;
 }
 #insumos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 span {
   display: inline-block;
@@ -6406,7 +6406,7 @@ a {
 }
 #insumos .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -6551,14 +6551,14 @@ a {
   margin: 5vw 5vw;
 }
 #insumos .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #insumos .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #insumos .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -6666,7 +6666,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #insumos .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -6750,7 +6750,7 @@ a {
 }
 #semillas .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -6854,14 +6854,14 @@ a {
   margin: 5vw 5vw;
 }
 #semillas .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #semillas .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #semillas .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -6983,7 +6983,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #semillas .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -7067,7 +7067,7 @@ a {
 }
 #macetas .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -7171,14 +7171,14 @@ a {
   margin: 5vw 5vw;
 }
 #macetas .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #macetas .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #macetas .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -7300,7 +7300,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #macetas .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -7384,7 +7384,7 @@ a {
 }
 #tierras .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -7488,14 +7488,14 @@ a {
   margin: 5vw 5vw;
 }
 #tierras .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #tierras .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #tierras .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -7617,7 +7617,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #tierras .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
@@ -7701,7 +7701,7 @@ a {
 }
 #fertilizantes .cabeza .cabeza__menu--cont {
   width: 100%;
-  height: 14.16dvh;
+  height: 14.16svh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   padding: 0 5vw;
 }
@@ -7805,14 +7805,14 @@ a {
   margin: 5vw 5vw;
 }
 #fertilizantes .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #fertilizantes .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #fertilizantes .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -7934,7 +7934,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #fertilizantes .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;
