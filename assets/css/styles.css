@@ -2425,7 +2425,7 @@ a {
   display: block;
   position: fixed;
   width: 100vw;
-  height: 14vh;
+  height: 14svh;
   background-color: #fff;
   transition: 0.3s all;
   top: -100%;
@@ -2665,18 +2665,15 @@ a {
 #flores .contenido {
   margin: 42px 0 0;
 }
-#flores .contenido p {
-  margin: 5vw 5vw;
-}
 #flores .contenido .contenido__masvendidos {
-  margin: 0 0 5dvh;
+  margin: 0 0 5svh;
 }
 #flores .contenido .contenido__masvendidos h1 {
   font-family: "Poppins", sans-serif;
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 5vw 2.5dvh;
+  margin: 0 5vw 2.5svh;
 }
 #flores .contenido .contenido__masvendidos .contenido__masvendidos--cont {
   display: flex;
@@ -2798,7 +2795,7 @@ a {
   font-size: 1.05rem;
   color: #000;
   font-weight: 600;
-  margin: 0 0 2.5dvh;
+  margin: 0 0 2.5svh;
 }
 #flores .contenido .contenido__prodstodos--cont .contenido__prodstodos--box {
   width: 100%;

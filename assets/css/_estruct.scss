@@ -2205,7 +2205,7 @@
             display: block;
             position: fixed;
             width: 100vw;
-            height: 14vh;
+            height: 14svh;
             background-color: map-get($color, "blanco");
             transition: .3s all;
             top: -100%;
@@ -2497,12 +2497,12 @@
     .contenido {
         margin: 42px 0 0;
 
-        p {
-            margin: 5vw 5vw;
-        }
+        // p {
+        //     margin: 5vw 5vw;
+        // }
 
         .contenido__masvendidos {
-            margin: 0 0 5dvh;
+            margin: 0 0 5svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -2510,7 +2510,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 5vw 2.5dvh;
+                margin: 0 5vw 2.5svh;
             }
 
             .contenido__masvendidos--cont {
@@ -2655,7 +2655,7 @@
                 color: map-get($color, "negro");
                 font-weight: 600;
                 //line-height: 14px;
-                margin: 0 0 2.5dvh;
+                margin: 0 0 2.5svh;
             }
 
             .contenido__prodstodos--box {
