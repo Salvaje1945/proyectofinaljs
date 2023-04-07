@@ -242,7 +242,6 @@ html {
 
 body {
   background-color: #fff;
-  height: 100vh;
   height: -webkit-fill-available;
 }
 body::-webkit-scrollbar {
@@ -396,6 +395,7 @@ a {
 #logueo .contenido {
   width: 100%;
   height: 100vh;
+  height: -webkit-fill-available;
 }
 #logueo .contenido .contenido__entrada {
   width: 90vw;

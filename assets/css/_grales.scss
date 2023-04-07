@@ -30,7 +30,7 @@ html {
 body{
     background-color: map-get($color, "blanco");
     //scrollbar-width: none;
-    height: 100vh;
+    //height: 100vh;
     height: -webkit-fill-available;
 
     &::-webkit-scrollbar {
