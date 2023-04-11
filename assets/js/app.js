@@ -1016,10 +1016,8 @@ function hacerElRegistro(evt) {
                 const perfilObj = {
                     idc: id,
                     apodo: nombre,
-                    dianac: '',
-                    mesnac: '',
-                    anonac: '',
-                    sexo: false,
+                    fechanac: '',
+                    sexo: 'Prefiero no decirlo',
                     foto: false
                 }
 
@@ -1149,14 +1147,6 @@ function mostrarContenidos (ubicador) {
     const datosDelCliente = JSON.parse(localStorage.getItem('Cliente'))
     const perfilDelCliente = JSON.parse(localStorage.getItem('Perfil'))
     const diresDelCliente = JSON.parse(localStorage.getItem('Direcciones'))
-
-    // let todosLosDatos = []
-
-    // todosLosDatos.push(datosDelCliente)
-    // todosLosDatos.push(perfilDelCliente)
-    // todosLosDatos.push(diresDelCliente)
-
-    // console.log(todosLosDatos)
 
     if (ubicador === 'inicio') {
 
@@ -1372,7 +1362,6 @@ function mostrarContenidos (ubicador) {
             } else {
                 $('#edit-basico-pic').src = perfilDelCliente[0].foto
             }
-            // ACÁ HAY QUE TRAER LA FOTO CUANDO ESTÉ LISTA LA PARTE DE PERFIL DONDE SE PUEDE SUBIR UNA FOTO
             $('#edit-basico-nom').innerText = `${datosDelCliente[0].nombre} ${datosDelCliente[0].apellido}`
             $('#edit-basico-mail').innerText = datosDelCliente[0].correo
         }
@@ -1381,24 +1370,20 @@ function mostrarContenidos (ubicador) {
 
             $('#edit-basico-pic-file').click()
 
-
             $('#edit-basico-pic-file').addEventListener('change', function () {
 
                 const archivoNuevaFoto = $('#edit-basico-pic-file').files[0]
-
-                const TAMANO_MAXIMO = 300;
+                const TAMANO_MAXIMO = 300
                 const nuevaFoto = new Image()
                 nuevaFoto.src = URL.createObjectURL(archivoNuevaFoto)
                 nuevaFoto.onload = function () {
                     if (nuevaFoto.width <= TAMANO_MAXIMO && nuevaFoto.height <= TAMANO_MAXIMO) {
-                        // El archivo cumple con los requisitos, podemos guardarlo en el localStorage
                         const lectorArchivos = new FileReader()
                         lectorArchivos.readAsDataURL(archivoNuevaFoto)
                         lectorArchivos.onload = function () {
                             let datPerf = JSON.parse(localStorage.getItem('Perfil'))
                             datPerf[0].foto = lectorArchivos.result
                             localStorage.setItem('Perfil', JSON.stringify(datPerf))
-
                             const pag = 'perfil.html'
                             const ini = 'perfil'
                             fetch(pag)
@@ -1414,8 +1399,6 @@ function mostrarContenidos (ubicador) {
                                 })
                         }
                     } else {
-                        // El archivo no cumple con los requisitos, muestra un mensaje de error
-                        //console.log('El archivo seleccionado no cumple con los requisitos')
                         Swal.fire({
                             title: '<h1 class="contenido__confirm--h1">¡Error!</h1>',
                             html: '<p class="contenido__confirm--p">Debe elegir una imagen de 300x300px</p>',
@@ -1429,16 +1412,7 @@ function mostrarContenidos (ubicador) {
                         return
                     }
                 }
-
             })
-
-
-
-
-
-
-
-
         }
 
         function editarNombre() {
@@ -1579,7 +1553,107 @@ function mostrarContenidos (ubicador) {
 
         }
 
+        function editarDatosPersonales() {
+
+            $('#perfil-despleg-personal').classList.add('activo')
+            $('#personal-fecha').value = perfilDelCliente[0].fechanac
+            $('#personal-sexo').innerHTML = `<option value="${perfilDelCliente[0].sexo}" selected>${perfilDelCliente[0].sexo}</option>
+                                            <option>-----------</option>
+                                            <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+                                            <option value="Masculino">Masculino</option>
+                                            <option value="Femenino">Femenino</option>
+                                            <option value="Hombre trans">Hombre trans</option>
+                                            <option value="Mujer trans">Mujer trans</option>
+                                            <option value="Otro">Otro</option>`
+
+            function cerrarEditPers() {
+                $('#perfil-despleg-personal').classList.remove('activo')
+            }
+
+            $('#perfil-despleg-pers-back-1').onclick = cerrarEditPers
+            $('#perfil-despleg-pers-back-2').onclick = cerrarEditPers
+
+            function modifDatosPers(evt) {
+                evt.preventDefault()
+
+                const fechaNac = $('#personal-fecha').value
+                const seXo = $('#personal-sexo').value
+
+                let datPerf = JSON.parse(localStorage.getItem('Perfil'))
+                datPerf[0].fechanac = fechaNac
+                datPerf[0].sexo = seXo
+                localStorage.setItem('Perfil', JSON.stringify(datPerf))
+
+                $('#perfil-despleg-personal').classList.remove('activo')
+
+                const pag = 'perfil.html'
+                const ini = 'perfil'
+                fetch(pag)
+                    .then((url) => {
+                        return url.text()
+                    })
+                    .then((seccion) => {
+                        $('#secciones').innerHTML = seccion
+                        mostrarContenidos(ini)
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+            }
+
+            $('#personal-form').addEventListener('submit', modifDatosPers)
+
+        }
+
+        function editarDatosCuenta() {
+            $('#perfil-despleg-cuenta').classList.add('activo')
+
+            $('#cuenta-mail').value = datosDelCliente[0].correo
+            $('#cuenta-tel').value = datosDelCliente[0].movil
+
+            function cerrarDatosCuenta() {
+                $('#perfil-despleg-cuenta').classList.remove('activo')
+            }
+
+            $('#perfil-despleg-cuenta-back-1').onclick = cerrarDatosCuenta
+            $('#perfil-despleg-cuenta-back-2').onclick = cerrarDatosCuenta
+
+            function modifDatosCta(evt) {
+                evt.preventDefault()
+
+                const correo = $('#cuenta-mail').value
+                const movil = $('#cuenta-tel').value
+
+                let datClien = JSON.parse(localStorage.getItem('Cliente'))
+                datClien[0].correo = correo
+                datClien[0].movil = movil
+                localStorage.setItem('Cliente', JSON.stringify(datClien))
+
+                $('#perfil-despleg-cuenta').classList.remove('activo')
+
+                const pag = 'perfil.html'
+                const ini = 'perfil'
+                fetch(pag)
+                    .then((url) => {
+                        return url.text()
+                    })
+                    .then((seccion) => {
+                        $('#secciones').innerHTML = seccion
+                        mostrarContenidos(ini)
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+            }
+
+            $('#cuenta-form').addEventListener('submit', modifDatosCta)
+        }
+
         $('#edit-basico-nom-btn').onclick = editarNombre
+
+        $('#contenido-edit-personal').onclick = editarDatosPersonales
+
+        $('#contenido-edit-cuenta').onclick = editarDatosCuenta
 
         $('#edit-basico-pic-btn').onclick = editarFoto
 

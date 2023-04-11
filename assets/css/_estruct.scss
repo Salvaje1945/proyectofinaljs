@@ -1209,6 +1209,293 @@
         transition: .5s ease all;
     }
 
+    .perfil__despleg--personal {
+        @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+        //@extend .flex-5;
+        background-color: map-get($color, "gris_12");
+        top: 0;
+        left: 200%;
+        transition: .5s linear all;
+
+        .perfil__despleg--personal_cab {
+            @extend .flex-3;
+            width: 100%;
+            height: 6%;
+            background-color: map-get($color, "blanco");
+            border-bottom: 1px solid map-get($color, "gris_10");
+
+            div {
+                display: inline-block;
+                //width: 21px;
+                //height: 16px;
+                //padding: auto;
+                font-size: 1rem;
+                //line-height: normal;
+                color: map-get($color, "negro");
+                margin: 0 21px 0 11px;
+            }
+
+            h1 {
+                display: inline-block;
+                font-family: $fnt_01;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: map-get($color, "negro");
+            }
+
+        }
+        
+        .perfil__despleg--personal_form {
+            @extend .flex-8;
+            height: 94%;
+
+            .despleg__personal--form_cont {
+                @extend .flex-9;
+                width: 100%;
+                height: 89%;
+
+                .despleg__personal--form_bx {
+                    width: 90vw;
+                    height: auto;
+                    margin: 5vh 0 0;
+                    background-color: map-get($color, "blanco");
+                    box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
+                    border-radius: 11px;
+                    border: 1px solid map-get($color, "gris_05");
+                    padding: 5vw;
+
+                    h2 {
+                        display: block;
+                        color: map-get($color, "gris_09");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        transition: .3s linear all;
+                    }
+
+                    h2.activo {
+                        color: map-get($color, "negro");
+                        transition: .3s ease all;
+                    }
+
+                    h2.error {
+                        color: map-get($color, "rojo_02");
+                    }
+
+                    .despleg__personal--form_ipt {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 35px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+
+                        &:last-child {
+                            margin: 0 0 15px;
+                        }
+                    }
+
+                    .despleg__personal--form_ipt:-webkit-autofill,
+                    .despleg__personal--form_ipt:-webkit-autofill:focus {
+                        transition: background-color 600000s 0s, color 600000s 0s !important;
+                        //background-color: map-get($color, "blanco") !important;
+                        //color: map-get($color, "negro") !important;
+                        font-family: $fnt_01 !important;
+                        font-size: 1rem !important;
+                    }
+
+                    .despleg__personal--form_ipt.error {
+                        border-bottom: 2px solid map-get($color, "rojo_02");
+                    }
+
+                    .despleg__personal--form_select {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 35px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+
+                    }
+                }
+ 
+            }
+
+            .despleg__personal--form_btn {
+                width: 100vw;
+                height: 11%;
+                padding: 14px;
+                background-color: map-get($color, "blanco");
+                box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
+                border-top: 1px solid map-get($color, "gris_04");
+                
+                .despleg__personal--form_btn-btn {
+                    @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
+                }
+            }
+        }    
+    
+    }
+
+    .perfil__despleg--personal.activo {
+        left: 0;
+        transition: .5s ease all;
+    }
+
+    .perfil__despleg--cuenta {
+        @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+        //@extend .flex-5;
+        background-color: map-get($color, "gris_12");
+        top: 0;
+        right: 200%;
+        transition: .5s linear all;
+
+        .perfil__despleg--cuenta_cab {
+            @extend .flex-3;
+            width: 100%;
+            height: 6%;
+            background-color: map-get($color, "blanco");
+            border-bottom: 1px solid map-get($color, "gris_10");
+
+            div {
+                display: inline-block;
+                //width: 21px;
+                //height: 16px;
+                //padding: auto;
+                font-size: 1rem;
+                //line-height: normal;
+                color: map-get($color, "negro");
+                margin: 0 21px 0 11px;
+            }
+
+            h1 {
+                display: inline-block;
+                font-family: $fnt_01;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: map-get($color, "negro");
+            }
+
+        }
+        
+        .perfil__despleg--cuenta_form {
+            @extend .flex-8;
+            height: 94%;
+
+            .despleg__cuenta--form_cont {
+                @extend .flex-9;
+                width: 100%;
+                height: 89%;
+
+                .despleg__cuenta--form_bx {
+                    width: 90vw;
+                    height: auto;
+                    margin: 5vh 0 0;
+                    background-color: map-get($color, "blanco");
+                    box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
+                    border-radius: 11px;
+                    border: 1px solid map-get($color, "gris_05");
+                    padding: 5vw;
+
+                    h2 {
+                        display: block;
+                        color: map-get($color, "gris_09");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        transition: .3s linear all;
+                    }
+
+                    h2.activo {
+                        color: map-get($color, "negro");
+                        transition: .3s ease all;
+                    }
+
+                    h2.error {
+                        color: map-get($color, "rojo_02");
+                    }
+
+                    .despleg__cuenta--form_ipt {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 35px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+
+                        &:last-child {
+                            margin: 0 0 15px;
+                        }
+                    }
+
+                    .despleg__cuenta--form_ipt:-webkit-autofill,
+                    .despleg__cuenta--form_ipt:-webkit-autofill:focus {
+                        transition: background-color 600000s 0s, color 600000s 0s !important;
+                        //background-color: map-get($color, "blanco") !important;
+                        //color: map-get($color, "negro") !important;
+                        font-family: $fnt_01 !important;
+                        font-size: 1rem !important;
+                    }
+
+                    .despleg__cuenta--form_ipt.error {
+                        border-bottom: 2px solid map-get($color, "rojo_02");
+                    }
+                }
+ 
+            }
+
+            .despleg__cuenta--form_btn {
+                width: 100vw;
+                height: 11%;
+                padding: 14px;
+                background-color: map-get($color, "blanco");
+                box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
+                border-top: 1px solid map-get($color, "gris_04");
+                
+                .despleg__cuenta--form_btn-btn {
+                    @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
+                }
+            }
+        }    
+    
+    }
+
+    .perfil__despleg--cuenta.activo {
+        right: 0;
+        transition: .5s ease all;
+    }
+
     // ************
     
     .cabeza {
@@ -1792,6 +2079,68 @@
                 color: map-get($color, "gris_01");
             }
 
+        }
+
+        .contenido__edit--opciones {
+            margin: 50px 0 0;
+           
+            .contenido__edit--opciones_bx {
+                @extend .flex-1;
+                padding: 5px 0 0;
+                height: 42px;
+                margin: 0 0 25px;
+                border-bottom: 1px solid map-get($color, "gris_10");
+                background-color: map-get($color, "blanco");
+                transition: .5s ease all;
+    
+                .contenido__edit--opciones_ico,
+                .contenido__edit--opciones_fle {
+                    display: inline-block;
+                    font-size: 1rem;
+                    color: map-get($color, "negro");
+                    //margin: 0 21px 0 11px;
+                }
+    
+                .contenido__edit--opciones_ico {
+                    margin: 0 21px 0 7px;
+                }
+    
+                .contenido__edit--opciones_fle {
+                    margin: 0 7px 0 21px;
+                }
+
+                .contenido__edit--opciones_fle.pasivo {
+                    visibility: hidden;
+                }
+    
+                h1 {
+                    display: inline-block;
+                    font-family: $fnt_01;
+                    width: 80%;
+                    text-align: left;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    color: map-get($color, "gris_01");
+                }
+    
+                &:hover {
+                    background-color: map-get($color, "gris_14");
+                    transition: .5s linear all;
+                }
+            }
+
+            .contenido__edit--opciones_bx.simple {
+                margin: 0 0 7px;
+            }
+
+
+
+        }
+
+        .contenido__edit--opciones.otras {
+            margin: 42px 0 0;
+            border-top: 5px solid map-get($color, "gris_10");
+            padding: 11px 0 0;
         }
 
         /*
