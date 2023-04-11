@@ -62,6 +62,27 @@
             </div>
         </form>
     </div>
+    <!-- DESPLEGABLE CONTRASEÑA -->
+    <div class="perfil__despleg--pass" id="perfil-despleg-pass">
+        <div class="perfil__despleg--pass_cab">
+            <div id="perfil-despleg-pass-back-1"><i class="fa-solid fa-arrow-left" id="perfil-despleg-pass-back-2"></i></div>
+            <h1>Editar contraseña</h1>
+        </div>
+        <form class="perfil__despleg--pass_form" id="pass-form">
+            <div class="despleg__pass--form_cont">
+                <div class="despleg__pass--form_bx">
+                    <h2>Contraseña actual</h2>
+                    <p class="despleg__pass--ipt_error" id="pass-actual-error">La contraseña no coincide</p>
+                    <input id="pass-actual" type="password" class="despleg__pass--form_ipt">
+                    <h2>Contraseña nueva</h2>
+                    <input id="pass-nuevo" type="password" class="despleg__pass--form_ipt">
+                </div>
+            </div>
+            <div class="despleg__pass--form_btn">
+                <button class="despleg__pass--form_btn-btn" type="submit" id="pass-enviar">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
     <!-- *********** -->
     <header class="cabeza" id="perfil__cabeza">
         <div class="cabeza__volver" id="perfil__cabeza--volver" data-categ="inicio">
@@ -95,6 +116,11 @@
                 <h1>Datos de cuenta</h1>
                 <div class="contenido__edit--opciones_fle"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
+            <div class="contenido__edit--opciones_bx" id="contenido-edit-pass">
+                <div class="contenido__edit--opciones_ico"><i class="fa-solid fa-key"></i></div>
+                <h1>Cambiar contraseña</h1>
+                <div class="contenido__edit--opciones_fle"><i class="fa-solid fa-chevron-right"></i></div>
+            </div>
             <div class="contenido__edit--opciones_bx">
                 <div class="contenido__edit--opciones_ico"><i class="fa-solid fa-location-dot"></i></div>
                 <h1>Direcciones</h1>
@@ -112,7 +138,7 @@
                 <h1>Ayuda en línea</h1>
                 <div class="contenido__edit--opciones_fle pasivo"><i class="fa-solid fa-chevron-right"></i></div>
             </div>
-            <div class="contenido__edit--opciones_bx simple">
+            <div class="contenido__edit--opciones_bx simple" id="perfil-cerrar-sesion">
                 <div class="contenido__edit--opciones_ico"><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
                 <h1>Cerrar sesión</h1>
                 <div class="contenido__edit--opciones_fle pasivo"><i class="fa-solid fa-chevron-right"></i></div>

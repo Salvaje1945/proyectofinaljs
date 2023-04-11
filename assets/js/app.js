@@ -1649,13 +1649,148 @@ function mostrarContenidos (ubicador) {
             $('#cuenta-form').addEventListener('submit', modifDatosCta)
         }
 
+        function editarPass() {
+            $('#perfil-despleg-pass').classList.add('activo')
+
+            function cerrarEditPass(){
+                $('#perfil-despleg-pass').classList.remove('activo')
+            }
+
+            $('#perfil-despleg-pass-back-1').onclick = cerrarEditPass
+            $('#perfil-despleg-pass-back-2').onclick = cerrarEditPass
+
+            const passComparacion = datosDelCliente[0].pass
+
+            function campoPassActual() {
+                if($('#pass-actual').value != passComparacion){
+                    $('#pass-actual').classList.add('error')
+                    $('#pass-actual-error').classList.add('activo')
+                    $('#pass-actual').onfocus = function() {
+                        $('#pass-actual').classList.remove('error')
+                        $('#pass-actual-error').classList.remove('activo')
+                    }
+                } else {
+                    $('#pass-actual').classList.add('bien')
+                }
+            }
+            
+            $('#pass-actual').onblur = campoPassActual
+
+            function cambiarPass(evt) {
+                evt.preventDefault()
+
+                const actualPass = $('#pass-actual').value
+                const nuevoPass = $('#pass-nuevo').value
+                //const passComparacion = datosDelCliente[0].pass
+
+                let passCorrecto = false
+
+                if (actualPass === '' || actualPass === null){
+                    $('#pass-actual').classList.add('error')
+                    $('#pass-actual').onfocus = function() {
+                        $('#pass-actual').classList.remove('error')
+                    }
+                    return
+                } else {
+                    if(actualPass != passComparacion){
+                        $('#pass-actual').classList.add('error')
+                        $('#pass-actual-error').classList.add('activo')
+                        $('#pass-actual').onfocus = function() {
+                            $('#pass-actual').classList.remove('error')
+                            $('#pass-actual-error').classList.remove('activo')
+                        }
+                        return
+                    } else {
+                        $('#pass-actual').classList.add('bien')
+                        passCorrecto = true
+                    }
+                }
+
+                if(nuevoPass === '' || nuevoPass === null){
+                    $('#pass-nuevo').classList.add('error')
+                    $('#pass-nuevo').onfocus = function() {
+                        $('#pass-nuevo').classList.remove('error')
+                    }
+                    return
+                } else {
+                    $('#pass-nuevo').classList.add('bien')
+                }
+
+                if (passCorrecto === true) {
+
+                    let datClien = JSON.parse(localStorage.getItem('Cliente'))
+                    datClien[0].pass = nuevoPass
+                    localStorage.setItem('Cliente', JSON.stringify(datClien))
+
+                    //$('#perfil-despleg-pass').classList.remove('activo')
+
+                    Swal.fire({
+                        title: '<h1 class="contenido__confirm--h1">¡Su contraseña se ha modificado con éxito!</h1>',
+                        icon: 'success',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: false
+                    })
+
+                    let datosSesion = JSON.parse(localStorage.getItem('Cliente'))
+                    datosSesion[0].sesionactiva = false
+                    localStorage.setItem('Cliente', JSON.stringify(datosSesion))
+
+                    setTimeout(noEstaRegistrado, 3500)
+
+                    /*const pag = 'perfil.html'
+                    const ini = 'perfil'
+                    fetch(pag)
+                        .then((url) => {
+                            return url.text()
+                        })
+                        .then((seccion) => {
+                            $('#secciones').innerHTML = seccion
+                            mostrarContenidos(ini)
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })*/
+                } else {
+                    return
+                }
+
+            }
+
+            $('#pass-form').addEventListener('submit', cambiarPass)
+        }
+
+        function cerrarSesion(evt) {
+            evt.preventDefault()
+            let datosSesion = JSON.parse(localStorage.getItem('Cliente'))
+            datosSesion[0].sesionactiva = false
+            localStorage.setItem('Cliente', JSON.stringify(datosSesion))
+            Swal.fire({
+                title: '<h1 class="contenido__confirm--h1">¡La sesión se ha cerrado con éxito!</h1>',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 3000,
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                allowEnterKey: false
+            })
+    
+            setTimeout(noEstaRegistrado, 3000)
+        }
+
         $('#edit-basico-nom-btn').onclick = editarNombre
 
         $('#contenido-edit-personal').onclick = editarDatosPersonales
 
         $('#contenido-edit-cuenta').onclick = editarDatosCuenta
 
+        $('#contenido-edit-pass').onclick = editarPass
+
         $('#edit-basico-pic-btn').onclick = editarFoto
+
+        $('#perfil-cerrar-sesion').onclick = cerrarSesion
 
         mostrarDatoscliente()
 
