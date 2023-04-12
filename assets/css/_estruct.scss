@@ -188,6 +188,10 @@
             font-size: 1.7rem;
         }
 
+        .cabeza__iconos.cerrar2 {
+            margin: 0 15px 7px;
+            font-size: 1.5rem;
+        }
 
         .cabeza__iconos--dir {
             display: none;
@@ -206,7 +210,7 @@
         .cabeza__desplegables--backdrop {
             display: none;
             width: 100vw;
-            height: 100dvh;
+            height: 100vh;
             position: absolute;
             top: 0;
             left: 0;
@@ -409,7 +413,7 @@
                                 display: inline-block;
                             }
 
-                            a {
+                            p {
                                 font-size: 1rem;
                                 font-family: $fnt_01;
                                 color: map-get($color, "negro");
@@ -619,7 +623,185 @@
 
         .cabeza__anun--cont.activo {
             right: 0;
-        }  
+        }
+        
+        // AGREGAR DIRECCIÓN
+
+        .cabeza__dir--agregar {
+            @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-hgt: 100dvh, $cbz_dsp-pdd: 0);
+            left: 0;
+            top: 200%;
+            background-color: map-get($color, "gris_12");
+
+            .cabeza__dir--agregar_cbz {
+                background-color: map-get($color, "blanco");
+                border-bottom: 1px solid map-get($color, "gris_10");
+                display: block;
+                height: 11%;
+                padding: 5px 0 0;
+                //border-bottom: 1px solid #000;
+
+                h1 {
+                    font-family: $fnt_01;
+                    color: map-get($color, "negro");
+                    font-weight: 600;
+                    font-size: 1.25rem;
+                    margin-left: 15px;
+                }
+            }
+            
+            .cabeza__dir--agregar_form {
+                @extend .flex-8;
+                height: 89%;
+    
+                .dir__agregar--form_cont {
+                    @extend .flex-9;
+                    width: 100%;
+                    height: 89%;
+    
+                    .dir__agregar--form_bx {
+                        width: 90vw;
+                        height: auto;
+                        margin: 5vh 0 0;
+                        background-color: map-get($color, "blanco");
+                        box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
+                        border-radius: 11px;
+                        border: 1px solid map-get($color, "gris_05");
+                        padding: 5vw;
+    
+                        h2 {
+                            display: block;
+                            color: map-get($color, "gris_09");
+                            font-family: $fnt_01;
+                            font-size: 1rem;
+                            transition: .3s linear all;
+                        }
+    
+                        h2.activo {
+                            color: map-get($color, "negro");
+                            transition: .3s ease all;
+                        }
+    
+                        h2.error {
+                            color: map-get($color, "rojo_02");
+                        }
+
+                        .dir__agregar--predet {
+                            display: block;
+                            color: map-get($color, "gris_09");
+                            font-family: $fnt_01;
+                            font-size: 1rem;
+                            margin: 0 0 27px;
+                        }
+
+                        .dir__agregar--ipt_error {
+                            display: none;
+                            color: map-get($color, "rojo_02");
+                            font-family: $fnt_01;
+                            font-size: 0.75rem;
+                            transition: .3s linear all;
+                        }
+    
+                        .dir__agregar--ipt_error.activo {
+                            display: block;
+                        }
+    
+                        .dir__agregar--form_ipt {
+                            display: block;
+                            width: 100%;
+                            height: 35px;
+                            background-color: map-get($color, "blanco");
+                            outline: none;
+                            border-bottom: 2px solid map-get($color, "gris_05");
+                            color: map-get($color, "gris_03");
+                            font-family: $fnt_01;
+                            font-size: 1rem;
+                            margin: 0 0 27px;
+                            transition: .3s ease all;
+        
+                            &:focus {
+                                border-bottom: 2px solid map-get($color, "negro");
+                                color: map-get($color, "negro");
+                                transition: .3s linear all;
+                            }
+                        }
+
+                        .dir__agregar--form_txtar {
+                            display: block;
+                            width: 100%;
+                            height: 100px;
+                            background-color: map-get($color, "blanco");
+                            outline: none;
+                            border-bottom: 2px solid map-get($color, "gris_05");
+                            color: map-get($color, "gris_03");
+                            font-family: $fnt_01;
+                            font-size: 1rem;
+                            margin: 0 0 15px;
+                            transition: .3s ease all;
+        
+                            &:focus {
+                                border-bottom: 2px solid map-get($color, "negro");
+                                color: map-get($color, "negro");
+                                transition: .3s linear all;
+                            }
+                        }
+    
+                        .dir__agregar--form_ipt:-webkit-autofill,
+                        .dir__agregar--form_ipt:-webkit-autofill:focus {
+                            transition: background-color 600000s 0s, color 600000s 0s !important;
+                            //background-color: map-get($color, "blanco") !important;
+                            //color: map-get($color, "negro") !important;
+                            font-family: $fnt_01 !important;
+                            font-size: 1rem !important;
+                        }
+    
+                        .dir__agregar--form_ipt.error {
+                            border-bottom: 2px solid map-get($color, "rojo_02");
+                        }
+    
+                        .dir__agregar--form_select {
+                            display: block;
+                            width: 100%;
+                            height: 35px;
+                            background-color: map-get($color, "blanco");
+                            outline: none;
+                            border-bottom: 2px solid map-get($color, "gris_05");
+                            color: map-get($color, "gris_03");
+                            font-family: $fnt_01;
+                            font-size: 1rem;
+                            margin: 0 0 35px;
+                            transition: .3s ease all;
+        
+                            &:focus {
+                                border-bottom: 2px solid map-get($color, "negro");
+                                color: map-get($color, "negro");
+                                transition: .3s linear all;
+                            }
+    
+                        }
+                    }
+     
+                }
+    
+                .dir__agregar--form_btn {
+                    width: 100vw;
+                    height: 11%;
+                    padding: 14px;
+                    background-color: map-get($color, "blanco");
+                    box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
+                    border-top: 1px solid map-get($color, "gris_04");
+                    
+                    .dir__agregar--form_btn-btn {
+                        @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
+                    }
+                }
+            }   
+
+        }
+
+        .cabeza__dir--agregar.activo {
+            top: 0;
+        } 
 
         // ELEMENTOS DE LA CABECERA
 

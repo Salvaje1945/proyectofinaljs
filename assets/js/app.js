@@ -1241,12 +1241,113 @@ function mostrarContenidos (ubicador) {
     
             setTimeout(noEstaRegistrado, 3000)
         }
+
+        function menuNuevaDir() {
+            cerrarMenuDir ()
+            setTimeout(agregarDireccion, 250)
+        }
+
+        function agregarDireccion() {
+            $('#cabeza__dir--agr').classList.add('activo')
+            $('#cabeza__dir--agr--cer').onclick = function(){
+                $('#cabeza__dir--agr').classList.remove('activo')
+            }
+
+            function calleVacia() {
+                if($('#nuevadir-calle').value === '' || $('#nuevadir-calle').value === null){
+                    $('#nuevadir-calle').classList.add('error')
+                    $('#nuevadir-calle-error').classList.add('activo')
+                    $('#nuevadir-calle').onfocus = function() {
+                        $('#nuevadir-calle').classList.remove('error')
+                        $('#nuevadir-calle-error').classList.remove('activo')
+                    }
+                }
+            }
+
+            $('#nuevadir-calle').onblur = calleVacia
+            $('#nuevadir-dpto').onfocus = calleVacia
+            $('#nuevadir-coment').onfocus = calleVacia
+
+
+            function nuevaDire(evt) {
+                evt.preventDefault()
+                const dirId = Date.now()
+                const dirCalle = $('#nuevadir-calle').value
+                const dirDpto = $('#nuevadir-dpto').value
+                const dirPredet = $('#nuevadir-predet').checked
+                const dirComent = $('#nuevadir-coment').value
+                const idCliente = datosDelCliente[0].id
+                let elDpto
+
+                if(dirCalle === '' || dirCalle === null){
+                    $('#nuevadir-calle').classList.add('error')
+                    $('#nuevadir-calle-error').classList.add('activo')
+                    $('#nuevadir-calle').onfocus = function() {
+                        $('#nuevadir-calle').classList.remove('error')
+                        $('#nuevadir-calle-error').classList.remove('activo')
+                    }
+                    return
+                }
+
+                if(dirDpto === '' || dirDpto === null){
+                    elDpto = 'Casa'
+                } else {
+                    elDpto = $('#nuevadir-dpto').value
+                }
+
+                const nuevaDireccion = []
+ 
+                let direcciones = diresDelCliente.filter(direccion => direccion.idc === idCliente)
+                for(dire of direcciones){
+                    if(dirPredet === true) {
+                        dire.seleccionada = false
+                    }
+                    nuevaDireccion.push(dire)
+                }
+                
+                const nuevaDireObj = {
+                    id: dirId,
+                    idc: idCliente,
+                    calle: dirCalle,
+                    dpto: elDpto,
+                    comentario: dirComent,
+                    seleccionada: dirPredet
+                }
+
+                nuevaDireccion.push(nuevaDireObj)
+                console.log(nuevaDireccion)
+                localStorage.setItem('Direcciones', JSON.stringify(nuevaDireccion))
+
+                $('#cabeza__dir--agr').classList.remove('activo')
+
+                setTimeout(function(){
+                    const pag = 'inicio.html'
+                    const ini = 'inicio'
+                    fetch(pag)
+                        .then((url) => {
+                            return url.text()
+                        })
+                        .then((seccion) => {
+                            $('#secciones').innerHTML = seccion
+                            mostrarContenidos(ini)
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+                }, 250)
+
+            }
+
+            $('#agregar-dir-form').addEventListener('submit', nuevaDire)
+            
+        }
               
         $('#cabeza__menu--btn').onclick = abrirMenuHamb
         $('#hamb-cerrar-sesion').onclick = cerrarSesion
         $('#cabeza__anun--btn').onclick = abrirMenuAnun
         $('#cabeza__anun--cer').onclick = cerrarMenuAnun
         $('#cabeza__dir--btn').onclick = abrirMenuDir
+        $('#agregar-nueva-dir').onclick = menuNuevaDir
         $('#cabeza__anun--nove').onclick = anunNove
         $('#cabeza__anun--prom').onclick = anunProm
 

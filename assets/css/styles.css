@@ -58,11 +58,13 @@
 .flex-7,
 #perfil .contenido .contenido__edit--basico,
 .flex-8,
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form,
 #perfil .perfil__despleg--basico_nom .perfil__despleg--basico_form,
 #perfil .perfil__despleg--personal .perfil__despleg--personal_form,
 #perfil .perfil__despleg--cuenta .perfil__despleg--cuenta_form,
 #perfil .perfil__despleg--pass .perfil__despleg--pass_form,
 .flex-9,
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont,
 #perfil .perfil__despleg--basico_nom .perfil__despleg--basico_form .despleg__basico--form_cont,
 #perfil .perfil__despleg--personal .perfil__despleg--personal_form .despleg__personal--form_cont,
 #perfil .perfil__despleg--cuenta .perfil__despleg--cuenta_form .despleg__cuenta--form_cont,
@@ -124,6 +126,7 @@
 .flex-6,
 #perfil .cabeza,
 .flex-9,
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont,
 #perfil .perfil__despleg--basico_nom .perfil__despleg--basico_form .despleg__basico--form_cont,
 #perfil .perfil__despleg--personal .perfil__despleg--personal_form .despleg__personal--form_cont,
 #perfil .perfil__despleg--cuenta .perfil__despleg--cuenta_form .despleg__cuenta--form_cont,
@@ -133,6 +136,7 @@
 
 .flex-7, #perfil .contenido .contenido__edit--basico,
 .flex-8,
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form,
 #perfil .perfil__despleg--basico_nom .perfil__despleg--basico_form,
 #perfil .perfil__despleg--personal .perfil__despleg--personal_form,
 #perfil .perfil__despleg--cuenta .perfil__despleg--cuenta_form,
@@ -157,6 +161,7 @@
 .flex-7,
 #perfil .contenido .contenido__edit--basico,
 .flex-8,
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form,
 #perfil .perfil__despleg--basico_nom .perfil__despleg--basico_form,
 #perfil .perfil__despleg--personal .perfil__despleg--personal_form,
 #perfil .perfil__despleg--cuenta .perfil__despleg--cuenta_form,
@@ -183,6 +188,7 @@
 #tierras .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
 #fertilizantes .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
 .flex-8,
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form,
 #perfil .perfil__despleg--basico_nom .perfil__despleg--basico_form,
 #perfil .perfil__despleg--personal .perfil__despleg--personal_form,
 #perfil .perfil__despleg--cuenta .perfil__despleg--cuenta_form,
@@ -192,6 +198,7 @@
 
 .flex-2, #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont, #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #flores .cabeza .cabeza__info, #especiales .cabeza .cabeza__info, #basicos .cabeza .cabeza__info, #arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #arreglos .cabeza .cabeza__info, #regalos .cabeza .cabeza__info, #casamientos .cabeza .cabeza__info, #velorios .cabeza .cabeza__info, #plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #plantas .cabeza .cabeza__info, #interior .cabeza .cabeza__info, #exterior .cabeza .cabeza__info, #cactus .cabeza .cabeza__info, #insumos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2, #insumos .cabeza .cabeza__info, #semillas .cabeza .cabeza__info, #macetas .cabeza .cabeza__info, #tierras .cabeza .cabeza__info, #fertilizantes .cabeza .cabeza__info,
 .flex-9,
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont,
 #perfil .perfil__despleg--basico_nom .perfil__despleg--basico_form .despleg__basico--form_cont,
 #perfil .perfil__despleg--personal .perfil__despleg--personal_form .despleg__personal--form_cont,
 #perfil .perfil__despleg--cuenta .perfil__despleg--cuenta_form .despleg__cuenta--form_cont,
@@ -205,6 +212,7 @@
 
 .flex-5, #logueo .contenido,
 .flex-9,
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont,
 #perfil .perfil__despleg--basico_nom .perfil__despleg--basico_form .despleg__basico--form_cont,
 #perfil .perfil__despleg--personal .perfil__despleg--personal_form .despleg__personal--form_cont,
 #perfil .perfil__despleg--cuenta .perfil__despleg--cuenta_form .despleg__cuenta--form_cont,
@@ -582,6 +590,10 @@ a {
   margin: 0 15px 20px;
   font-size: 1.7rem;
 }
+#inicio .cabeza .cabeza__iconos.cerrar2 {
+  margin: 0 15px 7px;
+  font-size: 1.5rem;
+}
 #inicio .cabeza .cabeza__iconos--dir {
   display: none;
   font-size: 1rem;
@@ -595,7 +607,7 @@ a {
 #inicio .cabeza .cabeza__desplegables--backdrop {
   display: none;
   width: 100vw;
-  height: 100dvh;
+  height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -779,7 +791,7 @@ a {
   margin: 0 10px;
   display: inline-block;
 }
-#inicio .cabeza .cabeza__dir--cont .cabeza__dir--cont_box ul li div a {
+#inicio .cabeza .cabeza__dir--cont .cabeza__dir--cont_box ul li div p {
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
   color: #000;
@@ -963,6 +975,171 @@ a {
 }
 #inicio .cabeza .cabeza__anun--cont.activo {
   right: 0;
+}
+#inicio .cabeza .cabeza__dir--agregar {
+  font-family: "Poppins", sans-serif;
+  width: 100vw;
+  height: 100dvh;
+  position: fixed;
+  transition: 0.5s;
+  z-index: 999;
+  padding: 0;
+  left: 0;
+  top: 200%;
+  background-color: #faf6f3;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_cbz {
+  background-color: #fff;
+  border-bottom: 1px solid #dbdadf;
+  display: block;
+  height: 11%;
+  padding: 5px 0 0;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_cbz h1 {
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-left: 15px;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form {
+  height: 89%;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont {
+  width: 100%;
+  height: 89%;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx {
+  width: 90vw;
+  height: auto;
+  margin: 5vh 0 0;
+  background-color: #fff;
+  box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 11px;
+  border: 1px solid #ccc;
+  padding: 5vw;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx h2 {
+  display: block;
+  color: #999;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  transition: 0.3s linear all;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx h2.activo {
+  color: #000;
+  transition: 0.3s ease all;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx h2.error {
+  color: #cb0000;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx .dir__agregar--predet {
+  display: block;
+  color: #999;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  margin: 0 0 27px;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx .dir__agregar--ipt_error {
+  display: none;
+  color: #cb0000;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  transition: 0.3s linear all;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx .dir__agregar--ipt_error.activo {
+  display: block;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx .dir__agregar--form_ipt {
+  display: block;
+  width: 100%;
+  height: 35px;
+  background-color: #fff;
+  outline: none;
+  border-bottom: 2px solid #ccc;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  margin: 0 0 27px;
+  transition: 0.3s ease all;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx .dir__agregar--form_ipt:focus {
+  border-bottom: 2px solid #000;
+  color: #000;
+  transition: 0.3s linear all;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx .dir__agregar--form_txtar {
+  display: block;
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  outline: none;
+  border-bottom: 2px solid #ccc;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  margin: 0 0 15px;
+  transition: 0.3s ease all;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx .dir__agregar--form_txtar:focus {
+  border-bottom: 2px solid #000;
+  color: #000;
+  transition: 0.3s linear all;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx .dir__agregar--form_ipt:-webkit-autofill,
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx .dir__agregar--form_ipt:-webkit-autofill:focus {
+  -webkit-transition: background-color 600000s 0s, color 600000s 0s !important;
+  transition: background-color 600000s 0s, color 600000s 0s !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 1rem !important;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx .dir__agregar--form_ipt.error {
+  border-bottom: 2px solid #cb0000;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx .dir__agregar--form_select {
+  display: block;
+  width: 100%;
+  height: 35px;
+  background-color: #fff;
+  outline: none;
+  border-bottom: 2px solid #ccc;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  margin: 0 0 35px;
+  transition: 0.3s ease all;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_cont .dir__agregar--form_bx .dir__agregar--form_select:focus {
+  border-bottom: 2px solid #000;
+  color: #000;
+  transition: 0.3s linear all;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_btn {
+  width: 100vw;
+  height: 11%;
+  padding: 14px;
+  background-color: #fff;
+  box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
+  border-top: 1px solid #aaa;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_btn .dir__agregar--form_btn-btn {
+  width: 100%;
+  height: 100%;
+  background-color: #cb0000;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  transition: 0.3s ease all;
+  border-radius: 25px;
+}
+#inicio .cabeza .cabeza__dir--agregar .cabeza__dir--agregar_form .dir__agregar--form_btn .dir__agregar--form_btn-btn:hover {
+  background-color: #960101;
+  transition: 0.3s linear all;
+}
+#inicio .cabeza .cabeza__dir--agregar.activo {
+  top: 0;
 }
 #inicio .cabeza .cabeza__contenido--dir {
   display: flex;

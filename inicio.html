@@ -138,11 +138,11 @@
                     <h1>¿Dónde te encontrás?</h1>
                     <ul id="inicio-desple-dir-lista">
                         <li>
-                            <div>
+                            <div id="agregar-nueva-dir">
                                 <span>
                                     <i class="fa-solid fa-plus"></i>
                                 </span>
-                                <a href="#">Nueva dirección</a>
+                                <p>Nueva dirección</p>
                             </div>
                         </li>
                     </ul>
@@ -192,6 +192,32 @@
                     </a>
                 </div>
             </div>
+        </div>
+        <!-- AGREGAR DIRECCIÓN -->
+        <div class="cabeza__dir--agregar" id="cabeza__dir--agr">
+            <div class="cabeza__dir--agregar_cbz">
+                <div class="cabeza__iconos cerrar2" id="cabeza__dir--agr--cer">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <h1>Nueva dirección</h1>
+            </div>
+            <form class="cabeza__dir--agregar_form" id="agregar-dir-form">
+                <div class="dir__agregar--form_cont">
+                    <div class="dir__agregar--form_bx">
+                        <h2>Calle y altura</h2>
+                        <p class="dir__agregar--ipt_error" id="nuevadir-calle-error">Debe ingresar una dirección</p>
+                        <input id="nuevadir-calle" type="text" class="dir__agregar--form_ipt" placeholder="Calle Falsa 123">
+                        <h2>Dpto</h2>
+                        <input id="nuevadir-dpto" type="text" class="dir__agregar--form_ipt" placeholder="9°B / Casa">
+                        <h2 class="dir__agregar--predet">Predeterminada:  <input type="checkbox" id="nuevadir-predet"></h2>
+                        <h2>Comentario (Opcional)</h2>
+                        <textarea id="nuevadir-coment" class="dir__agregar--form_txtar"></textarea>
+                    </div>
+                </div>
+                <div class="dir__agregar--form_btn">
+                    <button class="dir__agregar--form_btn-btn" type="submit" id="nuevadir-enviar">Agregar</button>
+                </div>
+            </form>
         </div>
         <!-- BOTONES -->
         <div class="cabeza__contenido--menu">
