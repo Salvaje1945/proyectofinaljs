@@ -393,7 +393,7 @@
 
                     li {
                         border-bottom: 1px solid map-get($color, "gris_04");
-                        padding: 11px 0;
+                        padding: 9px 0;
 
                         &:hover {
                             background-color: map-get($color, "gris_05");
@@ -1850,472 +1850,6 @@
             margin: 0 3vw;
         }        
 
-        /*
-
-        .cabeza__iconos {
-            display: block;
-            font-size: 1.75rem;
-            color: map-get($color, "negro");
-            //cursor: pointer;
-            height: 28px;
-        }
-
-        .cabeza__iconos.fino {
-            font-size: 1.7rem;
-            font-weight: 200;
-        }
-
-        .cabeza__iconos.cerrar {
-            margin: 0 15px 20px;
-            font-size: 1.7rem;
-        }
-
-
-        .cabeza__iconos--dir {
-            display: none;
-            font-size: 1rem;
-            color: map-get($color, "negro");
-            height: 16px;
-            margin: 3px 7px 0;
-        }
-
-        .cabeza__iconos--dir.activo {
-            display: block;
-        }
-
-        // DESPLEGABLES
-
-        .cabeza__desplegables--backdrop {
-            display: none;
-            width: 100vw;
-            height: 100svh;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 900;
-        }
-
-        .cabeza__desplegables--backdrop.activo {
-            display: block;
-            animation: bckdrp .5s forwards;
-
-            @keyframes bckdrp {
-                from {
-                    background-color: rgb(0, 0, 0, 0);
-                }
-                to {
-                    background-color: rgb(0, 0, 0, 0.5);
-                }    
-            }
-        }
-
-        .cabeza__menu--cont {
-            @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
-            left: -100%;
-            top: 0;
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: flex-start;
-
-            .cabeza__menu--cont_box {
-                display: inline-block;
-                background-color: map-get($color, "blanco");
-                width: 75vw;
-                height: 100svh;
-                
-                //border-right: 1px solid map-get($color, "gris_03");
-                .cabeza__menu--user {
-                    padding: 15px;
-                    width: 100%;
-                    text-align: center;
-                    margin-bottom: 5px;
-
-                    img {
-                        width: 125px;
-                        height: 125px;
-                        border-radius: 50%;
-                        margin: 0 auto;
-                    }
-
-                    h1 {
-                        font-family: $fnt_01;
-                        font-size: 1.25rem;
-                        font-weight: 600;
-                        color: map-get($color, "negro");
-                        
-                    }
-                }
-                
-                
-                ul {
-                    list-style: none;
-                    text-align: left;
-                    color: map-get($color, "negro");
-
-                    li {
-                        //padding: 15px 5px;
-                        font-size: 1rem;
-                        display: block;
-                        //min-height: 25px;
-
-                        div {
-                            padding: 7px 20px;
-                            display: flex;
-                            flex-flow: row nowrap;
-                            align-items: center;
-
-                            span {
-                                font-size: 1.25rem;
-                                color: map-get($color, "negro");
-                                //margin-right: 15px;
-                                width: 27px;
-                                text-align: center;
-                            }
-                            
-                            a {
-                                color: map-get($color, "negro");
-                                margin-left: 25px;
-                            } 
-                        }
-
-                        ul {
-                            list-style: none;
-                            text-align: left;
-                            margin-left: 5vw;
-                            color: map-get($color, "negro");
-
-                            li {
-                                //padding: 15px 5px;
-                                font-size: 0.85rem;
-                                display: block;
-                                //min-height: 21px;
-        
-                                &:hover {
-                                    background-color: map-get($color, "gris_04");
-                                }
-        
-                                div {
-                                    padding: 5px 20px;
-                                    display: flex;
-                                    flex-flow: row nowrap;
-                                    align-items: center;
-        
-                                    span {
-                                        font-size: 1.15rem;
-                                        color: map-get($color, "negro");
-                                        //margin-right: 15px;
-                                        width: 27px;
-                                        text-align: center;
-                                    }
-                                    
-                                    a {
-                                        color: map-get($color, "negro");
-                                        margin-left: 25px;
-                                    } 
-                                }
-                            }
-                        }
-                    }
-
-                    .cabeza__menu--user_li {
-                        //min-height: 25px;
-
-                        &:hover {
-                            background-color: map-get($color, "gris_04");
-                        }
-                    }
-                }
-            }
-
-            .cabeza__menu--cont_box-crr {
-                display: inline-block;
-                width: 25vw;
-                height: 100svh;
-            }
-        }
-
-        .cabeza__menu--cont.activo {
-            left: 0;
-        }
-
-        .cabeza__dir--cont {
-            @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
-            top: 200%;
-            left: 0;
-
-            .cabeza__dir--cont_box-cerr {
-                height: 40svh;
-                display: block;
-            }
-
-            .cabeza__dir--cont_box {
-                display: block;
-                height: 60svh;
-                background-color: map-get($color, "blanco");
-                padding: 15px;
-
-                h1 {
-                    font-family: $fnt_01;
-                    font-size: 1.5rem;
-                    font-weight: 500;
-                    color: map-get($color, "negro");
-                    margin: 5px 0 15px;
-                }
-
-                ul {
-                    list-style: none;
-                    text-align: left;
-                    color: map-get($color, "negro");
-
-                    li {
-                        border-bottom: 1px solid map-get($color, "gris_04");
-                        padding: 11px 0;
-
-                        &:hover {
-                            background-color: map-get($color, "gris_05");
-                        }
-
-                        div {
-                            display: flex;
-                            flex-flow: row nowrap;
-                            align-items: flex-start;
-
-                            span,
-                            .cabeza__dir-ico {
-                                width: 27px;
-                                color: map-get($color, "negro");
-                                font-size: 1rem;
-                                margin: 0 10px;
-                                display: inline-block;
-                            }
-
-                            a {
-                                font-size: 1rem;
-                                font-family: $fnt_01;
-                                color: map-get($color, "negro");
-                                display: inline-block;
-                            }
-
-                            div {
-                                display: inline-block;
-
-                                h2 {
-                                    font-family: $fnt_01;
-                                    font-size: 1rem;
-                                    font-weight: 500;
-                                    color: map-get($color, "negro");
-                                    display: block;
-                                    min-width: 75vw;
-                                }
-
-                                p {
-                                    font-family: $fnt_01;
-                                    font-size: 0.75rem;
-                                    color: map-get($color, "gris_01");
-                                    display: block;
-                                }
-
-                                
-                            }
-
-                            .cabeza__dir-chk {
-                                width: 16px;
-                                height: 16px;
-                                color: map-get($color, "negro");
-                                font-size: 1rem;
-                                margin: auto 0;
-                                display: inline-block;
-                            }
-                        }
-
-                    }
-                }
-            }
-        }
-
-        .cabeza__dir--cont.activo {
-            top: 0;
-        }
-
-        .cabeza__anun--cont {
-            @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
-            right: -100%;
-            top: 0;
-            background-color: map-get($color, "gris_12");
-
-            .cabeza__anun--cont_cbz {
-                background-color: map-get($color, "blanco");
-                display: block;
-
-                .cabeza__anun--cont_cbz-menu {
-                    display: flex;
-                    margin-top: 25px;
-
-                    .cabeza__anun--cont_cbz-btn {
-                        display: inline-block;
-                        width: 50vw;
-                        height: 5.95svh;
-                        padding: 9px 0;
-                        text-align: center;
-                        font-family: $fnt_01;
-                        font-size: 1.1rem;
-                        color: map-get($color, "negro");
-                        font-weight: 600;
-                        line-height: 1.4;
-                        //transition: .5s all;
-        
-                        &:hover {
-                            //background-color: map-get($color, "gris_03");
-                            animation: clic .7s forwards;
-
-                            @keyframes clic {
-                                0% {
-                                    background-color: transparent;
-                                }
-                                50% {
-                                    background-color: map-get($color, "gris_05");
-                                }
-                                100% {
-                                    background-color: transparent;
-                                }
-                                
-                            }
-                        }
-        
-                    }
-        
-                }
-
-                .cabeza__anun--cont_bdr {
-                    display: block;
-                    width: 100vw;
-                    height: 2px;
-                    background-color: map-get($color, "gris_05");
-
-                    .cabeza__anun--cont_bdr-anim {
-                        display: block;
-                        width: 50vw;
-                        height: 2px;
-                        background-color: map-get($color, "gris_01");
-                        //margin-right: 50svh;
-                        transition: .2s all;
-                    }
-    
-                    .cabeza__anun--cont_bdr-anim.novedades {
-                        margin-right: 50vw;
-                        margin-left: 0;
-                        transition: .2s all;
-                    }
-        
-                    .cabeza__anun--cont_bdr-anim.promociones {
-                        margin-left: 50vw;
-                        margin-right: 0;
-                        transition: .2s all;
-                    }
-
-                }   
-                
-            }
-
-            .cabeza__anun--cont_info {
-                display: none;
-                width: 100vw;
-                height: auto;
-                transition: .5s all;
-            }
-
-            .cabeza__anun--cont_info.activo {
-                display: block;
-                transition: .5s all;
-            }
-
-            .cabeza__anun--cont_info-cont {
-                display: block;
-                width: 100%;
-                padding: 7vh 9vw 0;
-
-                .cabeza__anun--cont_info-cont_box {
-                    width: 100%;
-                    height: auto;
-                    background-color: map-get($color, "blanco");
-                    padding: 2.5vh 6.5vw;
-                    margin: 0 0 5svh;
-                    border: 1px groove map-get($color, "gris_14");
-                    border-top: none;
-                    border-radius: 3px;
-
-                    h1 {
-                        font-family: $fnt_01;
-                        font-size: 0.85rem;
-                        font-weight: 600;
-                        color: map-get($color, "negro");
-                        text-align: left;
-                    }
-
-                    h2 {
-                        font-family: $fnt_01;
-                        font-size: 0.7rem;
-                        font-weight: normal;
-                        color: map-get($color, "gris_01");
-                        text-align: left;
-                    }
-
-                    p {
-                        font-family: $fnt_01;
-                        font-size: 0.7rem;
-                        font-weight: 600;
-                        color: map-get($color, "negro");
-                        text-align: right;
-                        margin-top: 5px;
-
-                        span {
-                            font-family: $fnt_01;
-                            font-size: 0.55rem;
-                            color: map-get($color, "negro");
-                            margin-left: 3px;
-                        }
-                    }
-                }
-            }
-
-        }
-
-        .cabeza__anun--cont.activo {
-            right: 0;
-        }  
-
-        // ELEMENTOS DE LA CABECERA
-
-        .cabeza__contenido--menu,
-        .cabeza__contenido--anun {
-            @extend .cabeza__extremos;
-
-        }
-
-        .cabeza__contenido--dir {
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            //z-index: 11;
-            //display: inline-block;
-
-            .cabeza__dir--txt { 
-                display: block;
-                font-family: $fnt_01;
-                color: map-get($color, "negro");
-                font-weight: 500;
-                font-size: 1rem;
-                height: 25px;
-
-
-                &:hover {
-                    color: map-get($color, "gris_01");
-                }
-            }
-        }
-
-        */
-
     }
 
     .cabeza.scroll {
@@ -2325,7 +1859,7 @@
     .contenido {
         display: block;
         width: 100vw;
-        margin: 10vh 0 0;
+        margin: 7vh 0 0;
         padding: 0 5vw;
         height: auto;
         z-index: 100;
@@ -2413,13 +1947,13 @@
         }
 
         .contenido__edit--opciones {
-            margin: 50px 0 0;
+            margin: 37px 0 0;
            
             .contenido__edit--opciones_bx {
                 @extend .flex-1;
                 padding: 5px 0 0;
                 height: 42px;
-                margin: 0 0 11px;
+                //margin: 0 0 11px;
                 border-bottom: 1px solid map-get($color, "gris_10");
                 background-color: map-get($color, "blanco");
                 transition: .5s ease all;
@@ -2460,16 +1994,16 @@
                 }
             }
 
-            .contenido__edit--opciones_bx.simple {
-                margin: 0 0 7px;
-            }
+            // .contenido__edit--opciones_bx.simple {
+            //     margin: 0 0 7px;
+            // }
 
 
 
         }
 
         .contenido__edit--opciones.otras {
-            margin: 33px 0 0;
+            margin: 21px 0 0;
             border-top: 5px solid map-get($color, "gris_10");
             padding: 11px 0 0;
         }
@@ -2860,6 +2394,758 @@
         }
 
         */
+
+    }
+    
+}
+
+#direcciones {
+
+    // DESPLEGABLES
+
+    .perfil__despleg--basico_nom {
+        @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+        //@extend .flex-5;
+        background-color: map-get($color, "gris_12");
+        top: 200%;
+        left: 0;
+        transition: .5s linear all;
+
+        .perfil__despleg--basico_cab {
+            @extend .flex-3;
+            width: 100%;
+            height: 6%;
+            background-color: map-get($color, "blanco");
+            border-bottom: 1px solid map-get($color, "gris_10");
+
+            div {
+                display: inline-block;
+                //width: 21px;
+                //height: 16px;
+                //padding: auto;
+                font-size: 1rem;
+                //line-height: normal;
+                color: map-get($color, "negro");
+                margin: 0 21px 0 11px;
+            }
+
+            h1 {
+                display: inline-block;
+                font-family: $fnt_01;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: map-get($color, "negro");
+            }
+
+        }
+        
+        .perfil__despleg--basico_form {
+            @extend .flex-8;
+            height: 94%;
+
+            .despleg__basico--form_cont {
+                @extend .flex-9;
+                width: 100%;
+                height: 89%;
+
+                .despleg__basico--form_bx {
+                    width: 90vw;
+                    height: auto;
+                    margin: 5vh 0 0;
+                    background-color: map-get($color, "blanco");
+                    box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
+                    border-radius: 11px;
+                    border: 1px solid map-get($color, "gris_05");
+                    padding: 5vw;
+
+                    .despleg__basico--form_etiqueta {
+                        display: block;
+                        color: map-get($color, "gris_09");
+                        font-family: $fnt_01;
+                        font-size: 0.70rem;
+                        transition: .3s linear all;
+                    }
+
+                    .despleg__basico--form_etiqueta.activo {
+                        color: map-get($color, "negro");
+                        transition: .3s ease all;
+                    }
+
+                    .despleg__basico--form_etiqueta.error {
+                        color: map-get($color, "rojo_02");
+                    }
+
+                    .despleg__basico--form_ipt {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 35px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+
+                        &:last-child {
+                            margin: 0 0 15px;
+                        }
+                    }
+
+                    .despleg__basico--form_ipt:-webkit-autofill,
+                    .despleg__basico--form_ipt:-webkit-autofill:focus {
+                        transition: background-color 600000s 0s, color 600000s 0s !important;
+                        //background-color: map-get($color, "blanco") !important;
+                        //color: map-get($color, "negro") !important;
+                        font-family: $fnt_01 !important;
+                        font-size: 1rem !important;
+                    }
+
+                    .despleg__basico--form_ipt.error {
+                        border-bottom: 2px solid map-get($color, "rojo_02");
+                    }
+                }
+ 
+            }
+
+            .despleg__basico--form_btn {
+                width: 100vw;
+                height: 11%;
+                padding: 14px;
+                background-color: map-get($color, "blanco");
+                box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
+                border-top: 1px solid map-get($color, "gris_04");
+                
+                .despleg__basico--form_btn-btn {
+                    @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
+                }
+            }
+        }    
+    
+    }
+
+    .perfil__despleg--basico_nom.activo {
+        top: 0;
+        transition: .5s ease all;
+    }
+
+    .perfil__despleg--personal {
+        @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+        //@extend .flex-5;
+        background-color: map-get($color, "gris_12");
+        top: 0;
+        left: 200%;
+        transition: .5s linear all;
+
+        .perfil__despleg--personal_cab {
+            @extend .flex-3;
+            width: 100%;
+            height: 6%;
+            background-color: map-get($color, "blanco");
+            border-bottom: 1px solid map-get($color, "gris_10");
+
+            div {
+                display: inline-block;
+                //width: 21px;
+                //height: 16px;
+                //padding: auto;
+                font-size: 1rem;
+                //line-height: normal;
+                color: map-get($color, "negro");
+                margin: 0 21px 0 11px;
+            }
+
+            h1 {
+                display: inline-block;
+                font-family: $fnt_01;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: map-get($color, "negro");
+            }
+
+        }
+        
+        .perfil__despleg--personal_form {
+            @extend .flex-8;
+            height: 94%;
+
+            .despleg__personal--form_cont {
+                @extend .flex-9;
+                width: 100%;
+                height: 89%;
+
+                .despleg__personal--form_bx {
+                    width: 90vw;
+                    height: auto;
+                    margin: 5vh 0 0;
+                    background-color: map-get($color, "blanco");
+                    box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
+                    border-radius: 11px;
+                    border: 1px solid map-get($color, "gris_05");
+                    padding: 5vw;
+
+                    h2 {
+                        display: block;
+                        color: map-get($color, "gris_09");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        transition: .3s linear all;
+                    }
+
+                    h2.activo {
+                        color: map-get($color, "negro");
+                        transition: .3s ease all;
+                    }
+
+                    h2.error {
+                        color: map-get($color, "rojo_02");
+                    }
+
+                    .despleg__personal--form_ipt {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 35px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+
+                        &:last-child {
+                            margin: 0 0 15px;
+                        }
+                    }
+
+                    .despleg__personal--form_ipt:-webkit-autofill,
+                    .despleg__personal--form_ipt:-webkit-autofill:focus {
+                        transition: background-color 600000s 0s, color 600000s 0s !important;
+                        //background-color: map-get($color, "blanco") !important;
+                        //color: map-get($color, "negro") !important;
+                        font-family: $fnt_01 !important;
+                        font-size: 1rem !important;
+                    }
+
+                    .despleg__personal--form_ipt.error {
+                        border-bottom: 2px solid map-get($color, "rojo_02");
+                    }
+
+                    .despleg__personal--form_select {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 35px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+
+                    }
+                }
+ 
+            }
+
+            .despleg__personal--form_btn {
+                width: 100vw;
+                height: 11%;
+                padding: 14px;
+                background-color: map-get($color, "blanco");
+                box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
+                border-top: 1px solid map-get($color, "gris_04");
+                
+                .despleg__personal--form_btn-btn {
+                    @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
+                }
+            }
+        }    
+    
+    }
+
+    .perfil__despleg--personal.activo {
+        left: 0;
+        transition: .5s ease all;
+    }
+
+    .perfil__despleg--cuenta {
+        @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+        //@extend .flex-5;
+        background-color: map-get($color, "gris_12");
+        top: 0;
+        right: 200%;
+        transition: .5s linear all;
+
+        .perfil__despleg--cuenta_cab {
+            @extend .flex-3;
+            width: 100%;
+            height: 6%;
+            background-color: map-get($color, "blanco");
+            border-bottom: 1px solid map-get($color, "gris_10");
+
+            div {
+                display: inline-block;
+                //width: 21px;
+                //height: 16px;
+                //padding: auto;
+                font-size: 1rem;
+                //line-height: normal;
+                color: map-get($color, "negro");
+                margin: 0 21px 0 11px;
+            }
+
+            h1 {
+                display: inline-block;
+                font-family: $fnt_01;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: map-get($color, "negro");
+            }
+
+        }
+        
+        .perfil__despleg--cuenta_form {
+            @extend .flex-8;
+            height: 94%;
+
+            .despleg__cuenta--form_cont {
+                @extend .flex-9;
+                width: 100%;
+                height: 89%;
+
+                .despleg__cuenta--form_bx {
+                    width: 90vw;
+                    height: auto;
+                    margin: 5vh 0 0;
+                    background-color: map-get($color, "blanco");
+                    box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
+                    border-radius: 11px;
+                    border: 1px solid map-get($color, "gris_05");
+                    padding: 5vw;
+
+                    h2 {
+                        display: block;
+                        color: map-get($color, "gris_09");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        transition: .3s linear all;
+                    }
+
+                    h2.activo {
+                        color: map-get($color, "negro");
+                        transition: .3s ease all;
+                    }
+
+                    h2.error {
+                        color: map-get($color, "rojo_02");
+                    }
+
+                    .despleg__cuenta--form_ipt {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 35px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+
+                        &:last-child {
+                            margin: 0 0 15px;
+                        }
+                    }
+
+                    .despleg__cuenta--form_ipt:-webkit-autofill,
+                    .despleg__cuenta--form_ipt:-webkit-autofill:focus {
+                        transition: background-color 600000s 0s, color 600000s 0s !important;
+                        //background-color: map-get($color, "blanco") !important;
+                        //color: map-get($color, "negro") !important;
+                        font-family: $fnt_01 !important;
+                        font-size: 1rem !important;
+                    }
+
+                    .despleg__cuenta--form_ipt.error {
+                        border-bottom: 2px solid map-get($color, "rojo_02");
+                    }
+                }
+ 
+            }
+
+            .despleg__cuenta--form_btn {
+                width: 100vw;
+                height: 11%;
+                padding: 14px;
+                background-color: map-get($color, "blanco");
+                box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
+                border-top: 1px solid map-get($color, "gris_04");
+                
+                .despleg__cuenta--form_btn-btn {
+                    @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
+                }
+            }
+        }    
+    
+    }
+
+    .perfil__despleg--cuenta.activo {
+        right: 0;
+        transition: .5s ease all;
+    }
+
+    .perfil__despleg--pass {
+        @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
+        //@extend .flex-5;
+        background-color: map-get($color, "gris_12");
+        bottom: 200%;
+        left: 0;
+        transition: .5s linear all;
+
+        .perfil__despleg--pass_cab {
+            @extend .flex-3;
+            width: 100%;
+            height: 6%;
+            background-color: map-get($color, "blanco");
+            border-bottom: 1px solid map-get($color, "gris_10");
+
+            div {
+                display: inline-block;
+                //width: 21px;
+                //height: 16px;
+                //padding: auto;
+                font-size: 1rem;
+                //line-height: normal;
+                color: map-get($color, "negro");
+                margin: 0 21px 0 11px;
+            }
+
+            h1 {
+                display: inline-block;
+                font-family: $fnt_01;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: map-get($color, "negro");
+            }
+
+        }
+        
+        .perfil__despleg--pass_form {
+            @extend .flex-8;
+            height: 94%;
+
+            .despleg__pass--form_cont {
+                @extend .flex-9;
+                width: 100%;
+                height: 89%;
+
+                .despleg__pass--form_bx {
+                    width: 90vw;
+                    height: auto;
+                    margin: 5vh 0 0;
+                    background-color: map-get($color, "blanco");
+                    box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
+                    border-radius: 11px;
+                    border: 1px solid map-get($color, "gris_05");
+                    padding: 5vw;
+
+                    h2 {
+                        display: block;
+                        color: map-get($color, "gris_09");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        transition: .3s linear all;
+                    }
+
+                    h2.activo {
+                        color: map-get($color, "negro");
+                        transition: .3s ease all;
+                    }
+
+                    h2.error {
+                        color: map-get($color, "rojo_02");
+                    }
+
+                    .despleg__pass--ipt_error {
+                        display: none;
+                        color: map-get($color, "rojo_02");
+                        font-family: $fnt_01;
+                        font-size: 0.75rem;
+                        transition: .3s linear all;
+                    }
+
+                    .despleg__pass--ipt_error.activo {
+                        display: block;
+                    }
+
+                    .despleg__pass--form_ipt {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 35px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+
+                        &:last-child {
+                            margin: 0 0 15px;
+                        }
+                    }
+
+                    .despleg__pass--form_ipt:-webkit-autofill,
+                    .despleg__pass--form_ipt:-webkit-autofill:focus {
+                        transition: background-color 600000s 0s, color 600000s 0s !important;
+                        //background-color: map-get($color, "blanco") !important;
+                        //color: map-get($color, "negro") !important;
+                        font-family: $fnt_01 !important;
+                        font-size: 1rem !important;
+                    }
+
+                    .despleg__pass--form_ipt.error {
+                        border-bottom: 2px solid map-get($color, "rojo_02");
+                    }
+
+                    .despleg__pass--form_ipt.bien{
+                        border-bottom: 2px solid map-get($color, "verde_01");
+                    }
+                }
+ 
+            }
+
+            .despleg__pass--form_btn {
+                width: 100vw;
+                height: 11%;
+                padding: 14px;
+                background-color: map-get($color, "blanco");
+                box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
+                border-top: 1px solid map-get($color, "gris_04");
+                
+                .despleg__pass--form_btn-btn {
+                    @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
+                }
+            }
+        }    
+    
+    }
+
+    .perfil__despleg--pass.activo {
+        bottom: 0;
+        transition: .5s ease all;
+    }
+
+    // ************
+    
+    .cabeza {
+        @extend .flex-6;
+        width: 100vw;
+        //background: linear-gradient(180deg, map-get($color, "blanco") 95%, map-get($color, "gris_11") 5%);
+        background-color: map-get($color, "blanco");
+        height: 42px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 500;
+
+        .cabeza__volver {
+            width: 21px;
+            height: 16px;
+            //padding: auto;
+            font-size: 1rem;
+            font-weight: normal !important;
+            color: map-get($color, "negro");
+            margin: 0 3vw;
+        }        
+
+    }
+
+    .cabeza.scroll {
+        border-bottom: 2px solid map-get($color, "gris_14");
+    }
+
+    .contenido {
+        display: block;
+        width: 100vw;
+        margin: 7vh 0 0;
+        padding: 0 5vw;
+        height: auto;
+        z-index: 100;
+
+        // CUERPO
+
+        .contenido__edit--basico {
+            @extend .flex-7;
+            width: auto;
+            height: auto;
+
+            .contenido__edit--basico_img {
+                display: block;
+                position: relative;
+                width: 80px;
+                height: 80px;
+                margin: 0 0 15px;
+
+                .edit__basico--btn {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 50%;
+                    background-color: map-get($color, "gris_07");
+                    //padding: 0 0 0.1px;
+                    z-index: 101;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: center;
+                    align-items: center;
+
+                    span {
+                        display: block;
+                        color: map-get($color, "negro");
+                        font-size: 1rem;
+                        line-height: 0.87;
+                        margin: 0 0 1px 1px;
+                    }
+                }
+
+                img {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                }
+
+            }
+
+            .contenido__edit--basico_nom {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: flex-start;
+                text-align: center;
+                height: 30px;
+
+                h1 {
+                    display: inline-block;
+                    font-family: $fnt_01;
+                    font-size: 1.35rem;
+                    font-weight: 600;
+                    color: map-get($color, "negro");
+                }
+
+                span {
+                    display: inline-block;
+                    //height: 100%;
+                    font-size: 0.75rem;
+                    color: map-get($color, "negro");
+                    margin: 7px 0 0 7px;
+                    //padding: 0 0 25px;
+                }
+
+            }
+
+            p {
+                display: block;
+                font-family: $fnt_01;
+                font-size: 0.9rem;
+                font-weight: normal;
+                color: map-get($color, "gris_01");
+            }
+
+        }
+
+        .contenido__edit--opciones {
+            margin: 37px 0 0;
+           
+            .contenido__edit--opciones_bx {
+                @extend .flex-1;
+                padding: 5px 0 0;
+                height: 42px;
+                //margin: 0 0 11px;
+                border-bottom: 1px solid map-get($color, "gris_10");
+                background-color: map-get($color, "blanco");
+                transition: .5s ease all;
+    
+                .contenido__edit--opciones_ico,
+                .contenido__edit--opciones_fle {
+                    display: inline-block;
+                    font-size: 1rem;
+                    color: map-get($color, "negro");
+                    //margin: 0 21px 0 11px;
+                }
+    
+                .contenido__edit--opciones_ico {
+                    margin: 0 21px 0 7px;
+                }
+    
+                .contenido__edit--opciones_fle {
+                    margin: 0 7px 0 21px;
+                }
+
+                .contenido__edit--opciones_fle.pasivo {
+                    visibility: hidden;
+                }
+    
+                h1 {
+                    display: inline-block;
+                    font-family: $fnt_01;
+                    width: 80%;
+                    text-align: left;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    color: map-get($color, "gris_01");
+                }
+    
+                &:hover {
+                    background-color: map-get($color, "gris_14");
+                    transition: .5s linear all;
+                }
+            }
+
+        }
+
+        .contenido__edit--opciones.otras {
+            margin: 21px 0 0;
+            border-top: 5px solid map-get($color, "gris_10");
+            padding: 11px 0 0;
+        }
 
     }
     
