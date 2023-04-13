@@ -1363,17 +1363,26 @@ function mostrarContenidos (ubicador) {
                 } else {
                     $('#cabeza-menu-user_pic').src = perfilDelCliente[0].foto
                 }
-
-                
-                // ACÁ HAY QUE TRAER LA FOTO CUANDO ESTÉ LISTA LA PARTE DE PERFIL DONDE SE PUEDE SUBIR UNA FOTO
             }
 
             function direccionesCliente() {
-                const secundarias = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id && direcciones.seleccionada === false)
-                const secundOrden = secundarias.slice(0, 3)
-                const dirPrincipal = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id && direcciones.seleccionada === true)
+                const filtradas = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id && direcciones.seleccionada === false)
+                const secundarias = filtradas.sort((a, b) => {
+                    const calleA = b.calle.toLowerCase()
+                    const calleB = a.calle.toLowerCase()
+                    if(calleA > calleB){
+                        return -1
+                    }
+                    if(calleA < calleB){
+                        return 1
+                    }
+    
+                    return 0
+                })
+                let secundOrden = secundarias.slice(0, 3)
+                let dirPrincipal = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id && direcciones.seleccionada === true)
 
-                for(const direcciones of dirPrincipal){
+                for(let direcciones of dirPrincipal){
                     laDire = document.createElement('li')
                     laDire.id = `inicio-desple-dir${direcciones.id}`
                     laDire.innerHTML = `<div>    
@@ -1391,7 +1400,7 @@ function mostrarContenidos (ubicador) {
                     $('#inicio-desple-dir-lista').appendChild(laDire)
                 }
 
-                for(const direcciones of secundOrden){
+                for(let direcciones of secundOrden){
                     laDire = document.createElement('li')
                     laDire.id = `inicio-desple-dir${direcciones.id}`
                     laDire.innerHTML = `<div>    
@@ -1442,8 +1451,8 @@ function mostrarContenidos (ubicador) {
                 }
                 $('#todas-las-direcciones').onclick = todasLasDirecciones
 
-                for (const direCambiar of secundarias) {
-                    //console.log($(`#inicio-desple-dir${direcambiar.id}`))
+                for (const direCambiar of secundOrden) {
+                    console.log($(`#inicio-desple-dir${direCambiar.id}`))
                     $(`#inicio-desple-dir${direCambiar.id}`).onclick = function () {
                         direCambiar.seleccionada = true
 
@@ -1861,7 +1870,6 @@ function mostrarContenidos (ubicador) {
 
                 const actualPass = $('#pass-actual').value
                 const nuevoPass = $('#pass-nuevo').value
-                //const passComparacion = datosDelCliente[0].pass
 
                 let passCorrecto = false
 
@@ -1920,19 +1928,6 @@ function mostrarContenidos (ubicador) {
 
                     setTimeout(noEstaRegistrado, 3500)
 
-                    /*const pag = 'perfil.html'
-                    const ini = 'perfil'
-                    fetch(pag)
-                        .then((url) => {
-                            return url.text()
-                        })
-                        .then((seccion) => {
-                            $('#secciones').innerHTML = seccion
-                            mostrarContenidos(ini)
-                        })
-                        .catch((err) => {
-                            console.log(err)
-                        })*/
                 } else {
                     return
                 }
@@ -1941,6 +1936,25 @@ function mostrarContenidos (ubicador) {
 
             $('#pass-form').addEventListener('submit', cambiarPass)
         }
+
+        function abrirDirecciones() {
+            setTimeout(function () {
+                const pag = 'direcciones.html'
+                const ini = 'direcciones'
+                fetch(pag)
+                    .then((url) => {
+                        return url.text()
+                    })
+                    .then((seccion) => {
+                        $('#secciones').innerHTML = seccion
+                        mostrarContenidos(ini)
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+            }, 350)
+        }
+        
 
         function cerrarSesion(evt) {
             evt.preventDefault()
@@ -2003,22 +2017,6 @@ function mostrarContenidos (ubicador) {
                 }
             })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
 
         $('#edit-basico-nom-btn').onclick = editarNombre
@@ -2029,6 +2027,8 @@ function mostrarContenidos (ubicador) {
 
         $('#contenido-edit-pass').onclick = editarPass
 
+        $('#abrir-direcciones').onclick = abrirDirecciones
+
         $('#edit-basico-pic-btn').onclick = editarFoto
 
         $('#perfil-cerrar-sesion').onclick = cerrarSesion
@@ -2037,210 +2037,348 @@ function mostrarContenidos (ubicador) {
 
         mostrarDatoscliente()
 
-        /*
-
-        const hambLinksProds = document.querySelectorAll('#menu__user--prods a')
-        for(let link of hambLinksProds){
-            link.addEventListener('click', pedirPag)
-        }
-
-        const contProdsLinks = document.querySelectorAll('#contenido-productos-bx .contenido__productos--box')
-        for(let link of contProdsLinks){
-            //console.log(link)
-            // link.addEventListener('click', (evt)=>{
-            //     console.dir(evt.target)
-            // })
-            link.addEventListener('click', pedirPag)
-        }
-
-        const contOtrosProdsLinks = document.querySelectorAll('#contenido-otrosprods-bx .contenido__otrosprods--box')
-        for(let link of contOtrosProdsLinks){
-            //console.log(link)
-            // link.addEventListener('click', (evt)=>{
-            //     console.dir(evt.target)
-            // })
-            link.addEventListener('click', pedirPag)
-        }
-
-        
-        
-        function abrirMenuHamb () {
-            $('#desplegable__backdrop').classList.add('activo')
-            $('#cabeza__menu').classList.add('activo')
-            $('#cabeza__menu--crr').onclick = cerrarMenuHamb
-        }
-        
-        function cerrarMenuHamb () {
-            $('#cabeza__menu').classList.remove('activo')
-            $('#desplegable__backdrop').classList.remove('activo')
-        }
-        
-        function abrirMenuDir () {
-            $('#desplegable__backdrop').classList.add('activo')
-            $('#cabeza__dir').classList.add('activo')
-            $('#cabeza__dir--cerrado').classList.remove('activo')
-            $('#cabeza__dir--abierto').classList.add('activo')
-            $('#cabeza__dir--crr').onclick = cerrarMenuDir
-        }
-        
-        function cerrarMenuDir () {
-            $('#desplegable__backdrop').classList.remove('activo')
-            $('#cabeza__dir').classList.remove('activo')
-            $('#cabeza__dir--cerrado').classList.add('activo')
-            $('#cabeza__dir--abierto').classList.remove('activo')
-        }
-        
-        function abrirMenuAnun () {
-            $('#cabeza__anun').classList.add('activo')
-            anunNove()
-        }
-        
-        function cerrarMenuAnun () {
-            $('#cabeza__anun').classList.remove('activo')  
-        }
-        
-        function anunNove () {
-            if($('#cabeza__anun--prom_info').classList.contains('activo') && $('#cabeza__anun--btn_anim').classList.contains('promociones')){
-                $('#cabeza__anun--prom_info').classList.remove('activo')
-                $('#cabeza__anun--nove_info').classList.add('activo')
-                $('#cabeza__anun--btn_anim').classList.remove('promociones')
-                $('#cabeza__anun--btn_anim').classList.add('novedades')
-            }
-        }
-        
-        function anunProm () {
-            if($('#cabeza__anun--nove_info').classList.contains('activo') && $('#cabeza__anun--btn_anim').classList.contains('novedades')){
-                $('#cabeza__anun--nove_info').classList.remove('activo')
-                $('#cabeza__anun--prom_info').classList.add('activo')
-                $('#cabeza__anun--btn_anim').classList.remove('novedades')
-                $('#cabeza__anun--btn_anim').classList.add('promociones')
-            }
-        }
-
-        function cerrarSesion(evt) {
-            evt.preventDefault()
-            cerrarMenuHamb ()
-            let datosSesion = JSON.parse(localStorage.getItem('Cliente'))
-            datosSesion[0].sesionactiva = false
-            localStorage.setItem('Cliente', JSON.stringify(datosSesion))
-            Swal.fire({
-                title: '<h1 class="contenido__confirm--h1">¡La sesión se ha cerrado con éxito!</h1>',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 3000,
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                allowEnterKey: false
-            })
-    
-            setTimeout(noEstaRegistrado, 3000)
-        }
-        
-                
-        $('#cabeza__menu--btn').onclick = abrirMenuHamb
-        $('#hamb-cerrar-sesion').onclick = cerrarSesion
-        $('#cabeza__anun--btn').onclick = abrirMenuAnun
-        $('#cabeza__anun--cer').onclick = cerrarMenuAnun
-        $('#cabeza__dir--btn').onclick = abrirMenuDir
-        $('#cabeza__anun--nove').onclick = anunNove
-        $('#cabeza__anun--prom').onclick = anunProm
-
-        function mostrarDatoscliente() {
-            $('#cabeza-menu-user_nom').innerText = datosDelCliente[0].nombre
-            $('#cabeza-dir-principal').innerText = datosDelCliente[0].direccion
-        }
-        
-        function mostrarMasVendIdx() {
-
-            function masVendidosIndex(productos) {
-                const ordenados = productos.sort((a, b) => b.vendidos - a.vendidos)
-                return ordenados.slice(0, 7)
-            }
-
-            const indexMasVendidos = masVendidosIndex(productos)
-            for (const masPopular of indexMasVendidos) {
-                elProd = document.createElement('div')
-                elProd.id = `contenido__populares--prod${masPopular.id}`
-                elProd.className = 'contenido__populares--box'
-                elProd.innerHTML = `<div class="contenido__populares--box_img">
-                                            <img class="populares__box--foto" src="${masPopular.foto}">
-                                            <img class="populares__box--cabecera" src="${masPopular.cabecera}">
-                                        </div>
-                                        <div class="contenido__populares--box_txt">
-                                            <h2>${masPopular.nombre}</h2>
-                                            <h3><span><i class="fa-solid fa-star"></i></span>${masPopular.puntuacion}</h3>
-                                            <p>$${masPopular.precio}</p>
-                                            <p>Envío $200</p>
-                                        </div>`
-                $('#contenido-populares').appendChild(elProd)
-            }
-        }
-
-        
-        mostrarDatoscliente()
-        mostrarMasVendIdx()
-
-        */
-
-    }
+    }    
 
     if (ubicador === 'direcciones') {
 
-        const volverInicio = document.querySelectorAll('#perfil__cabeza .cabeza__volver')
-        console.log(volverInicio)
-        for(let link of volverInicio){
-            link.addEventListener('click', pedirPag)
+        function volverInicio() {
+    
+            const pag = 'inicio.html'
+            const ini = 'inicio'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+    
         }
 
-        window.addEventListener('scroll', perfilCabezaScroll)
+        function gestionarDirecciones() {
+            const filtradas = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id && direcciones.seleccionada === false)
+            const secundarias = filtradas.sort((a, b) => {
+                const calleA = b.calle.toLowerCase()
+                const calleB = a.calle.toLowerCase()
+                if(calleA > calleB){
+                    return -1
+                }
+                if(calleA < calleB){
+                    return 1
+                }
 
-        function perfilCabezaScroll() {
-            if (!$('#perfil')) {
-                return
-            } else {
-                const alturaCabeza = $('#perfil__cabeza').offsetHeight
-                let scrollActual = window.pageYOffset || document.documentElement.scrollTop
-                if (scrollActual > alturaCabeza) {
-                    $('#perfil__cabeza').classList.add('scroll')
-                } else {
-                    if ($('#perfil__cabeza').classList.contains('scroll')) {
-                        $('#perfil__cabeza').classList.remove('scroll')
+                return 0
+            })
+
+
+            let dirPrincipal = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id && direcciones.seleccionada === true)
+            //let todasLasDires = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id)
+
+            function mostrarDirePrincipal() {
+                for(let direcciones of dirPrincipal){
+                    laDire = document.createElement('li')
+                    laDire.id = `direccion-${direcciones.id}`
+                    laDire.innerHTML = `<div>    
+                                            <div class="contenido__dir--ico">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                            </div>
+                                            <div>
+                                                <h2>${direcciones.calle}</h2>
+                                                <p>${direcciones.dpto}</p>
+                                            </div>
+                                            <div class="contenido__dir--opciones">
+                                                <div class="contenido__dir--chk ${direcciones.seleccionada}">
+                                                    <i class="fa-solid fa-check"></i>
+                                                </div>
+                                                <div class="contenido__dir--act diome">
+                                                    <i class="fa-solid fa-pencil" id="editar-direccion-${direcciones.id}"></i>
+                                                </div>
+                                                <div class="contenido__dir--act">
+                                                    <i class="fa-solid fa-trash-can" id="eliminar-direccion-${direcciones.id}"></i>
+                                                </div>
+                                            </div>
+                                        </div>`
+                    $('#listar-todas-las-direcciones').appendChild(laDire)
+                }
+            }
+
+            function mostrarDiresSecundarias() {
+                for(let direcciones of secundarias){
+                    laDire = document.createElement('li')
+                    laDire.id = `direccion-${direcciones.id}`
+                    laDire.innerHTML = `<div>    
+                                            <div class="contenido__dir--ico">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                            </div>
+                                            <div>
+                                                <h2>${direcciones.calle}</h2>
+                                                <p>${direcciones.dpto}</p>
+                                            </div>
+                                            <div class="contenido__dir--opciones">
+                                                <div class="contenido__dir--chk ${direcciones.seleccionada}" id="hacer-principal-direccion-${direcciones.id}">
+                                                    <i class="fa-solid fa-check"></i>
+                                                </div>
+                                                <div class="contenido__dir--act diome" id="editar-direccion-${direcciones.id}">
+                                                    <i class="fa-solid fa-pencil"></i>
+                                                </div>
+                                                <div class="contenido__dir--act" id="eliminar-direccion-${direcciones.id}">
+                                                    <i class="fa-solid fa-trash-can"></i>
+                                                </div>
+                                            </div>
+                                        </div>`
+                    $('#listar-todas-las-direcciones').appendChild(laDire)
+                }
+            }
+
+            function cambiarDirePrincipal() {
+                for (const direCambiar of secundarias) {
+                    //console.log($(`#inicio-desple-dir${direCambiar.id}`))
+                    $(`#hacer-principal-direccion-${direCambiar.id}`).onclick = function () {
+                        direCambiar.seleccionada = true
+    
+                        const nuevaDireccionPrincipal = []
+    
+                        let direcciones = diresDelCliente.filter(direccion => direccion.idc === datosDelCliente[0].id && direccion.id != direCambiar.id)
+                        for (dire of direcciones) {
+                            dire.seleccionada = false
+                            nuevaDireccionPrincipal.push(dire)
+                        }
+                        nuevaDireccionPrincipal.push(direCambiar)
+                        localStorage.setItem('Direcciones', JSON.stringify(nuevaDireccionPrincipal))
+                        const pag = 'direcciones.html'
+                        const ini = 'direcciones'
+                        fetch(pag)
+                            .then((url) => {
+                                return url.text()
+                            })
+                            .then((seccion) => {
+                                $('#secciones').innerHTML = seccion
+                                mostrarContenidos(ini)
+                            })
+                            .catch((err) => {
+                                console.log(err)
+                            })
+                    }
+                }
+            }
+
+            
+
+    
+            mostrarDirePrincipal()
+
+            mostrarDiresSecundarias()
+    
+            cambiarDirePrincipal()
+
+            //accionesDires()
+
+            
+        }
+
+        function direccionesAgregar() {
+            $('#despleg__dir--agr').classList.add('activo')
+            $('#despleg__dir--agr--cer').onclick = function(){
+                $('#despleg__dir--agr').classList.remove('activo')
+            }
+    
+            function calleVacia() {
+                if($('#nuevadir-calle').value === '' || $('#nuevadir-calle').value === null){
+                    $('#nuevadir-calle').classList.add('error')
+                    $('#nuevadir-calle-error').classList.add('activo')
+                    $('#nuevadir-calle').onfocus = function() {
+                        $('#nuevadir-calle').classList.remove('error')
+                        $('#nuevadir-calle-error').classList.remove('activo')
                     }
                 }
             }
     
-        }
-
-        function mostrarDatoscliente() {
-            if(perfilDelCliente[0].foto === false){
-                $('#edit-basico-pic').src = 'assets/img/users/default.jpg'
-            } else {
-                $('#edit-basico-pic').src = perfilDelCliente[0].foto
+            $('#nuevadir-calle').onblur = calleVacia
+            $('#nuevadir-dpto').onfocus = calleVacia
+            $('#nuevadir-coment').onfocus = calleVacia
+    
+    
+            function nuevaDire(evt) {
+                evt.preventDefault()
+                const dirId = Date.now()
+                const dirCalle = $('#nuevadir-calle').value
+                const dirDpto = $('#nuevadir-dpto').value
+                const dirPredet = $('#nuevadir-predet').checked
+                const dirComent = $('#nuevadir-coment').value
+                const idCliente = datosDelCliente[0].id
+                let elDpto
+    
+                if(dirCalle === '' || dirCalle === null){
+                    $('#nuevadir-calle').classList.add('error')
+                    $('#nuevadir-calle-error').classList.add('activo')
+                    $('#nuevadir-calle').onfocus = function() {
+                        $('#nuevadir-calle').classList.remove('error')
+                        $('#nuevadir-calle-error').classList.remove('activo')
+                    }
+                    return
+                }
+    
+                if(dirDpto === '' || dirDpto === null){
+                    elDpto = 'Casa'
+                } else {
+                    elDpto = $('#nuevadir-dpto').value
+                }
+    
+                const nuevaDireccion = []
+    
+                let direcciones = diresDelCliente.filter(direccion => direccion.idc === idCliente)
+                for(dire of direcciones){
+                    if(dirPredet === true) {
+                        dire.seleccionada = false
+                    }
+                    nuevaDireccion.push(dire)
+                }
+                
+                const nuevaDireObj = {
+                    id: dirId,
+                    idc: idCliente,
+                    calle: dirCalle,
+                    dpto: elDpto,
+                    comentario: dirComent,
+                    seleccionada: dirPredet
+                }
+    
+                nuevaDireccion.push(nuevaDireObj)
+                console.log(nuevaDireccion)
+                localStorage.setItem('Direcciones', JSON.stringify(nuevaDireccion))
+    
+                $('#despleg__dir--agr').classList.remove('activo')
+    
+                setTimeout(function(){
+                    const pag = 'direcciones.html'
+                    const ini = 'direcciones'
+                    fetch(pag)
+                        .then((url) => {
+                            return url.text()
+                        })
+                        .then((seccion) => {
+                            $('#secciones').innerHTML = seccion
+                            mostrarContenidos(ini)
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+                }, 250)
+    
             }
-            $('#edit-basico-nom').innerText = `${datosDelCliente[0].nombre} ${datosDelCliente[0].apellido}`
-            $('#edit-basico-mail').innerText = datosDelCliente[0].correo
+    
+            $('#agregar-dir-form').addEventListener('submit', nuevaDire)
+            
         }
 
-        function editarFoto() {
+        function accionesDire() {
+            const todasLasDires = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id)
+            for(const direccion of todasLasDires){
+                const idDire = direccion.id
+                $(`#editar-direccion-${idDire}`).onclick = function() {
+                    editarDire(idDire)
+                }
+                $(`#eliminar-direccion-${idDire}`).onclick = function() {
+                    eliminarDire(idDire)
+                }
+            }
 
-            $('#edit-basico-pic-file').click()
+            function editarDire(laDireccion) {
+                console.log(laDireccion)
+                $('#despleg__dir--edit').classList.add('activo')
+                $('#despleg__dir--edit--cer').onclick = function () {
+                    $('#despleg__dir--edit').classList.remove('activo')
+                }
 
-            $('#edit-basico-pic-file').addEventListener('change', function () {
+                const direParaEditar = diresDelCliente.filter(direcciones => direcciones.id === laDireccion)
 
-                const archivoNuevaFoto = $('#edit-basico-pic-file').files[0]
-                const TAMANO_MAXIMO = 300
-                const nuevaFoto = new Image()
-                nuevaFoto.src = URL.createObjectURL(archivoNuevaFoto)
-                nuevaFoto.onload = function () {
-                    if (nuevaFoto.width <= TAMANO_MAXIMO && nuevaFoto.height <= TAMANO_MAXIMO) {
-                        const lectorArchivos = new FileReader()
-                        lectorArchivos.readAsDataURL(archivoNuevaFoto)
-                        lectorArchivos.onload = function () {
-                            let datPerf = JSON.parse(localStorage.getItem('Perfil'))
-                            datPerf[0].foto = lectorArchivos.result
-                            localStorage.setItem('Perfil', JSON.stringify(datPerf))
-                            const pag = 'perfil.html'
-                            const ini = 'perfil'
+                console.log(direParaEditar)
+                //console.log()
+
+                const idDireccion = direParaEditar[0].id
+                const calleOriginal = direParaEditar[0].calle
+                const dptoOriginal = direParaEditar[0].dpto
+                const comentOriginal = direParaEditar[0].comentario
+
+                $('#editardir-calle').value = calleOriginal
+                $('#editardir-dpto').value = dptoOriginal
+                $('#editardir-coment').value = comentOriginal
+
+
+                function calleVacia() {
+                    if ($('#editardir-calle').value === '' || $('#editardir-calle').value === null) {
+                        $('#editardir-calle').classList.add('error')
+                        $('#editardir-calle-error').classList.add('activo')
+                        $('#editardir-calle').onfocus = function () {
+                            $('#editardir-calle').classList.remove('error')
+                            $('#editardir-calle-error').classList.remove('activo')
+                        }
+                    }
+                }
+
+                $('#editardir-calle').onblur = calleVacia
+                $('#editardir-dpto').onfocus = calleVacia
+                $('#editardir-coment').onfocus = calleVacia
+
+                function hacerEdicionDire(evt) {
+                    evt.preventDefault()
+
+                    const nuevaCalle = $('#editardir-calle').value
+                    const nuevoDpto = $('#editardir-dpto').value
+                    const nuevoComent = $('#editardir-coment').value
+
+                    let calleOk = false
+
+                    if(nuevaCalle === calleOriginal && nuevoDpto === dptoOriginal && nuevoComent === comentOriginal) {
+                        volverAdirecciones()
+                    } else {
+                        if (nuevaCalle === '' || nuevaCalle === null) {
+                            $('#editardir-calle').classList.add('error')
+                            $('#editardir-calle-error').classList.add('activo')
+                            $('#editardir-calle').onfocus = function () {
+                                $('#editardir-calle').classList.remove('error')
+                                $('#editardir-calle-error').classList.remove('activo')
+                            }
+                            calleOk = false
+                        } else {
+                            $('#editardir-calle').classList.add('bien')
+                            calleOk = true
+                        }
+
+                        if (calleOk === true) {
+
+                            const listaDireccion = []
+
+                            let direcciones = diresDelCliente.filter(direccion => direccion.idc === datosDelCliente[0].id)
+                            for (dire of direcciones) {
+                                if (dire.id === idDireccion) {
+                                    dire.calle = nuevaCalle
+                                    dire.dpto = nuevoDpto
+                                    dire.comentario = nuevoComent
+                                }
+                                listaDireccion.push(dire)
+                            }
+
+                            localStorage.setItem('Direcciones', JSON.stringify(listaDireccion))
+
+                            volverAdirecciones()
+
+                        } else {
+                            return
+                        }
+
+                    }
+                    
+                    function volverAdirecciones() {
+                        $('#despleg__dir--edit').classList.remove('activo')
+
+                        setTimeout(function () {
+                            const pag = 'direcciones.html'
+                            const ini = 'direcciones'
                             fetch(pag)
                                 .then((url) => {
                                     return url.text()
@@ -2252,610 +2390,93 @@ function mostrarContenidos (ubicador) {
                                 .catch((err) => {
                                     console.log(err)
                                 })
+                        }, 250)
+                    }
+                }
+
+                $('#editar-dir-form').addEventListener('submit', hacerEdicionDire)
+            }
+
+            function eliminarDire(laDireccion) {
+
+                const direParaBorrar = diresDelCliente.filter(direcciones => direcciones.id === laDireccion)
+
+                console.log(direParaBorrar)
+
+                const direParaBorrarId = direParaBorrar[0].id
+
+                console.log(direParaBorrarId)
+
+                Swal.fire({
+                    title: '<h1 class="contenido__confirm--h1">¿Está seguro que desea eliminar esta dirección?</h1>',
+                    width: '90vw',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    customClass: {
+                        confirmButton: 'contenido__confirm--btn_ok',
+                        denyButton: 'contenido__confirm--btn_mdf'
+                    },
+                    buttonsStyling: false,
+                    showDenyButton: true,
+                    //showCancelButton: true,
+                    confirmButtonText: 'Confirmar',
+                    denyButtonText: `Cancelar`,
+                }).then((result) => {
+        
+                    if (result.isConfirmed) {
+
+                        let listaDireccion = []
+
+                        let direcciones = diresDelCliente.filter(direccion => direccion.idc === datosDelCliente[0].id)
+                        for (dire of direcciones) {
+                            listaDireccion.push(dire)
                         }
-                    } else {
-                        Swal.fire({
-                            title: '<h1 class="contenido__confirm--h1">¡Error!</h1>',
-                            html: '<p class="contenido__confirm--p">Debe elegir una imagen de 300x300px</p>',
-                            icon: 'error',
-                            showConfirmButton: false,
-                            timer: 3500,
-                            allowOutsideClick: false,
-                            allowEscapeKey: false,
-                            allowEnterKey: false
-                        })
+
+                        const nuevaListaDirecciones = listaDireccion.filter(direccion => direccion.id != direParaBorrarId)
+
+                        localStorage.setItem('Direcciones', JSON.stringify(nuevaListaDirecciones))
+        
+                        setTimeout(function () {
+                            const pag = 'direcciones.html'
+                            const ini = 'direcciones'
+                            fetch(pag)
+                                .then((url) => {
+                                    return url.text()
+                                })
+                                .then((seccion) => {
+                                    $('#secciones').innerHTML = seccion
+                                    mostrarContenidos(ini)
+                                })
+                                .catch((err) => {
+                                    console.log(err)
+                                })
+                        }, 250)
+        
+                    } else if (result.isDenied) {
+        
                         return
+        
                     }
-                }
-            })
-        }
-
-        function editarNombre() {
-            $('#perfil-despleg-bsc-nom').classList.add('activo')
-
-            $('#basico-nombre').value = datosDelCliente[0].nombre
-
-            $('#basico-apellido').value = datosDelCliente[0].apellido
-
-            $('#basico-apodo').value = perfilDelCliente[0].apodo
-
-            function cerrarEditBasico() {
-                $('#perfil-despleg-bsc-nom').classList.remove('activo')
-            }
-
-            $('#perfil-despleg-bsc-back-1').onclick = cerrarEditBasico
-            $('#perfil-despleg-bsc-back-2').onclick = cerrarEditBasico
-
-
-            function basicoNomVacio() {
-                if($('#basico-form-etiqueta-nom').classList.contains('activo')){
-                    $('#basico-form-etiqueta-nom').classList.remove('activo')
-                }
-                if($('#basico-nombre').value === '' || $('#basico-nombre').value === null){
-                    $('#basico-nombre').classList.add('error')
-                    $('#basico-form-etiqueta-nom').classList.add('error')
-                    $('#basico-nombre').onfocus = function() {
-                        $('#basico-nombre').classList.remove('error')
-                        $('#basico-form-etiqueta-nom').classList.remove('error')
-                        $('#basico-form-etiqueta-nom').classList.add('activo')
-                    }
-                }
-            }
-
-            function basicoApeVacio() {
-                if($('#basico-form-etiqueta-ape').classList.contains('activo')){
-                    $('#basico-form-etiqueta-ape').classList.remove('activo')
-                }
-                if($('#basico-apellido').value === '' || $('#basico-apellido').value === null){
-                    $('#basico-apellido').classList.add('error')
-                    $('#basico-form-etiqueta-ape').classList.add('error')
-                    $('#basico-apellido').onfocus = function() {
-                        $('#basico-apellido').classList.remove('error')
-                        $('#basico-form-etiqueta-ape').classList.remove('error')
-                        $('#basico-form-etiqueta-ape').classList.add('activo')
-                    }
-                }
-            }
-
-            $('#basico-nombre').onblur = basicoNomVacio
-            $('#basico-nombre').onfocus = function() {
-                $('#basico-form-etiqueta-nom').classList.add('activo')
-            }
-            
-            $('#basico-apellido').onblur = basicoApeVacio
-            $('#basico-apellido').onfocus = function() {
-                $('#basico-form-etiqueta-ape').classList.add('activo')
-                basicoNomVacio()
-            }
-
-            $('#basico-apodo').onfocus = function() {
-                $('#basico-form-etiqueta-apo').classList.add('activo')
-                basicoNomVacio()
-                basicoApeVacio()
-            }
-            $('#basico-apodo').onblur = function() {
-                $('#basico-form-etiqueta-apo').classList.remove('activo')
-            }
-
-            function modificarDatosBasico(evt) {
-                evt.preventDefault()
-                const nombre = $('#basico-nombre').value
-                const apellido = $('#basico-apellido').value
-                const apodo = $('#basico-apodo').value
-
-                let nomOk = false
-                let apeOk = false
-
-                if (nombre === '' || nombre === null){
-                    $('#basico-nombre').classList.add('error')
-                    $('#basico-form-etiqueta-nom').classList.add('error')
-                    $('#basico-nombre').onfocus = function() {
-                        $('#basico-nombre').classList.remove('error')
-                        $('#basico-form-etiqueta-nom').classList.remove('error')
-                        $('#basico-form-etiqueta-nom').classList.add('activo')
-                    }
-                    nomOk = false
-                } else {
-                    nomOk = true
-                }
-
-                if (apellido === '' || apellido === null){
-                    $('#basico-apellido').classList.add('error')
-                    $('#basico-form-etiqueta-ape').classList.add('error')
-                    $('#basico-apellido').onfocus = function() {
-                        $('#basico-apellido').classList.remove('error')
-                        $('#basico-form-etiqueta-ape').classList.remove('error')
-                        $('#basico-form-etiqueta-ape').classList.add('activo')
-                    }
-                    apeOk = false
-                } else {
-                    apeOk = true
-                }
-
-                if (nomOk === true && apeOk === true) {
-                    let datClie = JSON.parse(localStorage.getItem('Cliente'))
-                    datClie[0].nombre = nombre
-                    datClie[0].apellido = apellido
-                    localStorage.setItem('Cliente', JSON.stringify(datClie))
-
-                    let datPerf = JSON.parse(localStorage.getItem('Perfil'))
-                    datPerf[0].apodo = apodo
-                    localStorage.setItem('Perfil', JSON.stringify(datPerf))
-
-                    $('#perfil-despleg-bsc-nom').classList.remove('activo')
-
-                    const pag = 'perfil.html'
-                    const ini = 'perfil'
-                    fetch(pag)
-                        .then((url) => {
-                            return url.text()
-                        })
-                        .then((seccion) => {
-                            $('#secciones').innerHTML = seccion
-                            mostrarContenidos(ini)
-                        })
-                        .catch((err) => {
-                            console.log(err)
-                        })
-
-                } else {
-                    return
-                }
+                })
 
             }
-
-            $('#basico-form').addEventListener('submit', modificarDatosBasico)
-
         }
 
-        function editarDatosPersonales() {
+        $('#volver-inicio-1').onclick = volverInicio
+        $('#volver-inicio-2').onclick = volverInicio
+        $('#agregar-nueva-dir').onclick = direccionesAgregar
 
-            $('#perfil-despleg-personal').classList.add('activo')
-            $('#personal-fecha').value = perfilDelCliente[0].fechanac
-            $('#personal-sexo').innerHTML = `<option value="${perfilDelCliente[0].sexo}" selected>${perfilDelCliente[0].sexo}</option>
-                                            <option>-----------</option>
-                                            <option value="Prefiero no decirlo">Prefiero no decirlo</option>
-                                            <option value="Masculino">Masculino</option>
-                                            <option value="Femenino">Femenino</option>
-                                            <option value="Hombre trans">Hombre trans</option>
-                                            <option value="Mujer trans">Mujer trans</option>
-                                            <option value="Otro">Otro</option>`
+        gestionarDirecciones()
+        accionesDire()
 
-            function cerrarEditPers() {
-                $('#perfil-despleg-personal').classList.remove('activo')
-            }
 
-            $('#perfil-despleg-pers-back-1').onclick = cerrarEditPers
-            $('#perfil-despleg-pers-back-2').onclick = cerrarEditPers
 
-            function modifDatosPers(evt) {
-                evt.preventDefault()
 
-                const fechaNac = $('#personal-fecha').value
-                const seXo = $('#personal-sexo').value
 
-                let datPerf = JSON.parse(localStorage.getItem('Perfil'))
-                datPerf[0].fechanac = fechaNac
-                datPerf[0].sexo = seXo
-                localStorage.setItem('Perfil', JSON.stringify(datPerf))
 
-                $('#perfil-despleg-personal').classList.remove('activo')
 
-                const pag = 'perfil.html'
-                const ini = 'perfil'
-                fetch(pag)
-                    .then((url) => {
-                        return url.text()
-                    })
-                    .then((seccion) => {
-                        $('#secciones').innerHTML = seccion
-                        mostrarContenidos(ini)
-                    })
-                    .catch((err) => {
-                        console.log(err)
-                    })
-            }
 
-            $('#personal-form').addEventListener('submit', modifDatosPers)
 
-        }
-
-        function editarDatosCuenta() {
-            $('#perfil-despleg-cuenta').classList.add('activo')
-
-            $('#cuenta-mail').value = datosDelCliente[0].correo
-            $('#cuenta-tel').value = datosDelCliente[0].movil
-
-            function cerrarDatosCuenta() {
-                $('#perfil-despleg-cuenta').classList.remove('activo')
-            }
-
-            $('#perfil-despleg-cuenta-back-1').onclick = cerrarDatosCuenta
-            $('#perfil-despleg-cuenta-back-2').onclick = cerrarDatosCuenta
-
-            function modifDatosCta(evt) {
-                evt.preventDefault()
-
-                const correo = $('#cuenta-mail').value
-                const movil = $('#cuenta-tel').value
-
-                let datClien = JSON.parse(localStorage.getItem('Cliente'))
-                datClien[0].correo = correo
-                datClien[0].movil = movil
-                localStorage.setItem('Cliente', JSON.stringify(datClien))
-
-                $('#perfil-despleg-cuenta').classList.remove('activo')
-
-                const pag = 'perfil.html'
-                const ini = 'perfil'
-                fetch(pag)
-                    .then((url) => {
-                        return url.text()
-                    })
-                    .then((seccion) => {
-                        $('#secciones').innerHTML = seccion
-                        mostrarContenidos(ini)
-                    })
-                    .catch((err) => {
-                        console.log(err)
-                    })
-            }
-
-            $('#cuenta-form').addEventListener('submit', modifDatosCta)
-        }
-
-        function editarPass() {
-            $('#perfil-despleg-pass').classList.add('activo')
-
-            function cerrarEditPass(){
-                $('#perfil-despleg-pass').classList.remove('activo')
-            }
-
-            $('#perfil-despleg-pass-back-1').onclick = cerrarEditPass
-            $('#perfil-despleg-pass-back-2').onclick = cerrarEditPass
-
-            const passComparacion = datosDelCliente[0].pass
-
-            function campoPassActual() {
-                if($('#pass-actual').value != passComparacion){
-                    $('#pass-actual').classList.add('error')
-                    $('#pass-actual-error').classList.add('activo')
-                    $('#pass-actual').onfocus = function() {
-                        $('#pass-actual').classList.remove('error')
-                        $('#pass-actual-error').classList.remove('activo')
-                    }
-                } else {
-                    $('#pass-actual').classList.add('bien')
-                }
-            }
-            
-            $('#pass-actual').onblur = campoPassActual
-
-            function cambiarPass(evt) {
-                evt.preventDefault()
-
-                const actualPass = $('#pass-actual').value
-                const nuevoPass = $('#pass-nuevo').value
-                //const passComparacion = datosDelCliente[0].pass
-
-                let passCorrecto = false
-
-                if (actualPass === '' || actualPass === null){
-                    $('#pass-actual').classList.add('error')
-                    $('#pass-actual').onfocus = function() {
-                        $('#pass-actual').classList.remove('error')
-                    }
-                    return
-                } else {
-                    if(actualPass != passComparacion){
-                        $('#pass-actual').classList.add('error')
-                        $('#pass-actual-error').classList.add('activo')
-                        $('#pass-actual').onfocus = function() {
-                            $('#pass-actual').classList.remove('error')
-                            $('#pass-actual-error').classList.remove('activo')
-                        }
-                        return
-                    } else {
-                        $('#pass-actual').classList.add('bien')
-                        passCorrecto = true
-                    }
-                }
-
-                if(nuevoPass === '' || nuevoPass === null){
-                    $('#pass-nuevo').classList.add('error')
-                    $('#pass-nuevo').onfocus = function() {
-                        $('#pass-nuevo').classList.remove('error')
-                    }
-                    return
-                } else {
-                    $('#pass-nuevo').classList.add('bien')
-                }
-
-                if (passCorrecto === true) {
-
-                    let datClien = JSON.parse(localStorage.getItem('Cliente'))
-                    datClien[0].pass = nuevoPass
-                    localStorage.setItem('Cliente', JSON.stringify(datClien))
-
-                    //$('#perfil-despleg-pass').classList.remove('activo')
-
-                    Swal.fire({
-                        title: '<h1 class="contenido__confirm--h1">¡Su contraseña se ha modificado con éxito!</h1>',
-                        icon: 'success',
-                        showConfirmButton: false,
-                        timer: 3000,
-                        allowOutsideClick: false,
-                        allowEscapeKey: false,
-                        allowEnterKey: false
-                    })
-
-                    let datosSesion = JSON.parse(localStorage.getItem('Cliente'))
-                    datosSesion[0].sesionactiva = false
-                    localStorage.setItem('Cliente', JSON.stringify(datosSesion))
-
-                    setTimeout(noEstaRegistrado, 3500)
-
-                    /*const pag = 'perfil.html'
-                    const ini = 'perfil'
-                    fetch(pag)
-                        .then((url) => {
-                            return url.text()
-                        })
-                        .then((seccion) => {
-                            $('#secciones').innerHTML = seccion
-                            mostrarContenidos(ini)
-                        })
-                        .catch((err) => {
-                            console.log(err)
-                        })*/
-                } else {
-                    return
-                }
-
-            }
-
-            $('#pass-form').addEventListener('submit', cambiarPass)
-        }
-
-        function cerrarSesion(evt) {
-            evt.preventDefault()
-            let datosSesion = JSON.parse(localStorage.getItem('Cliente'))
-            datosSesion[0].sesionactiva = false
-            localStorage.setItem('Cliente', JSON.stringify(datosSesion))
-            Swal.fire({
-                title: '<h1 class="contenido__confirm--h1">¡La sesión se ha cerrado con éxito!</h1>',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 3000,
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                allowEnterKey: false
-            })
-    
-            setTimeout(noEstaRegistrado, 3000)
-        }
-
-        function eliminarCuenta() {
-
-            Swal.fire({
-                title: '<h1 class="contenido__confirm--h1">¿Está seguro que desea eliminar su cuenta permanentemente?</h1>',
-                width: '90vw',
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                customClass: {
-                    confirmButton: 'contenido__confirm--btn_ok',
-                    denyButton: 'contenido__confirm--btn_mdf'
-                },
-                buttonsStyling: false,
-                showDenyButton: true,
-                //showCancelButton: true,
-                confirmButtonText: 'Confirmar',
-                denyButtonText: `Cancelar`,
-            }).then((result) => {
-    
-                if (result.isConfirmed) {
-    
-                    localStorage.clear()
-    
-                    Swal.fire({
-                        title: '<h1 class="contenido__confirm--h1">¡Su cuenta se ha eliminado con éxito!</h1>',
-                        icon: 'success',
-                        showConfirmButton: false,
-                        timer: 3500,
-                        allowOutsideClick: false,
-                        allowEscapeKey: false,
-                        allowEnterKey: false
-                    })
-    
-                    setTimeout(noEstaRegistrado, 3000)
-    
-                    //estaRegistrado()
-    
-                } else if (result.isDenied) {
-    
-                    return
-    
-                }
-            })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        }
-
-        $('#edit-basico-nom-btn').onclick = editarNombre
-
-        $('#contenido-edit-personal').onclick = editarDatosPersonales
-
-        $('#contenido-edit-cuenta').onclick = editarDatosCuenta
-
-        $('#contenido-edit-pass').onclick = editarPass
-
-        $('#edit-basico-pic-btn').onclick = editarFoto
-
-        $('#perfil-cerrar-sesion').onclick = cerrarSesion
-
-        $('#perfil-eliminar-cuenta').onclick = eliminarCuenta
-
-        mostrarDatoscliente()
-
-        /*
-
-        const hambLinksProds = document.querySelectorAll('#menu__user--prods a')
-        for(let link of hambLinksProds){
-            link.addEventListener('click', pedirPag)
-        }
-
-        const contProdsLinks = document.querySelectorAll('#contenido-productos-bx .contenido__productos--box')
-        for(let link of contProdsLinks){
-            //console.log(link)
-            // link.addEventListener('click', (evt)=>{
-            //     console.dir(evt.target)
-            // })
-            link.addEventListener('click', pedirPag)
-        }
-
-        const contOtrosProdsLinks = document.querySelectorAll('#contenido-otrosprods-bx .contenido__otrosprods--box')
-        for(let link of contOtrosProdsLinks){
-            //console.log(link)
-            // link.addEventListener('click', (evt)=>{
-            //     console.dir(evt.target)
-            // })
-            link.addEventListener('click', pedirPag)
-        }
-
-        
-        
-        function abrirMenuHamb () {
-            $('#desplegable__backdrop').classList.add('activo')
-            $('#cabeza__menu').classList.add('activo')
-            $('#cabeza__menu--crr').onclick = cerrarMenuHamb
-        }
-        
-        function cerrarMenuHamb () {
-            $('#cabeza__menu').classList.remove('activo')
-            $('#desplegable__backdrop').classList.remove('activo')
-        }
-        
-        function abrirMenuDir () {
-            $('#desplegable__backdrop').classList.add('activo')
-            $('#cabeza__dir').classList.add('activo')
-            $('#cabeza__dir--cerrado').classList.remove('activo')
-            $('#cabeza__dir--abierto').classList.add('activo')
-            $('#cabeza__dir--crr').onclick = cerrarMenuDir
-        }
-        
-        function cerrarMenuDir () {
-            $('#desplegable__backdrop').classList.remove('activo')
-            $('#cabeza__dir').classList.remove('activo')
-            $('#cabeza__dir--cerrado').classList.add('activo')
-            $('#cabeza__dir--abierto').classList.remove('activo')
-        }
-        
-        function abrirMenuAnun () {
-            $('#cabeza__anun').classList.add('activo')
-            anunNove()
-        }
-        
-        function cerrarMenuAnun () {
-            $('#cabeza__anun').classList.remove('activo')  
-        }
-        
-        function anunNove () {
-            if($('#cabeza__anun--prom_info').classList.contains('activo') && $('#cabeza__anun--btn_anim').classList.contains('promociones')){
-                $('#cabeza__anun--prom_info').classList.remove('activo')
-                $('#cabeza__anun--nove_info').classList.add('activo')
-                $('#cabeza__anun--btn_anim').classList.remove('promociones')
-                $('#cabeza__anun--btn_anim').classList.add('novedades')
-            }
-        }
-        
-        function anunProm () {
-            if($('#cabeza__anun--nove_info').classList.contains('activo') && $('#cabeza__anun--btn_anim').classList.contains('novedades')){
-                $('#cabeza__anun--nove_info').classList.remove('activo')
-                $('#cabeza__anun--prom_info').classList.add('activo')
-                $('#cabeza__anun--btn_anim').classList.remove('novedades')
-                $('#cabeza__anun--btn_anim').classList.add('promociones')
-            }
-        }
-
-        function cerrarSesion(evt) {
-            evt.preventDefault()
-            cerrarMenuHamb ()
-            let datosSesion = JSON.parse(localStorage.getItem('Cliente'))
-            datosSesion[0].sesionactiva = false
-            localStorage.setItem('Cliente', JSON.stringify(datosSesion))
-            Swal.fire({
-                title: '<h1 class="contenido__confirm--h1">¡La sesión se ha cerrado con éxito!</h1>',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 3000,
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                allowEnterKey: false
-            })
-    
-            setTimeout(noEstaRegistrado, 3000)
-        }
-        
-                
-        $('#cabeza__menu--btn').onclick = abrirMenuHamb
-        $('#hamb-cerrar-sesion').onclick = cerrarSesion
-        $('#cabeza__anun--btn').onclick = abrirMenuAnun
-        $('#cabeza__anun--cer').onclick = cerrarMenuAnun
-        $('#cabeza__dir--btn').onclick = abrirMenuDir
-        $('#cabeza__anun--nove').onclick = anunNove
-        $('#cabeza__anun--prom').onclick = anunProm
-
-        function mostrarDatoscliente() {
-            $('#cabeza-menu-user_nom').innerText = datosDelCliente[0].nombre
-            $('#cabeza-dir-principal').innerText = datosDelCliente[0].direccion
-        }
-        
-        function mostrarMasVendIdx() {
-
-            function masVendidosIndex(productos) {
-                const ordenados = productos.sort((a, b) => b.vendidos - a.vendidos)
-                return ordenados.slice(0, 7)
-            }
-
-            const indexMasVendidos = masVendidosIndex(productos)
-            for (const masPopular of indexMasVendidos) {
-                elProd = document.createElement('div')
-                elProd.id = `contenido__populares--prod${masPopular.id}`
-                elProd.className = 'contenido__populares--box'
-                elProd.innerHTML = `<div class="contenido__populares--box_img">
-                                            <img class="populares__box--foto" src="${masPopular.foto}">
-                                            <img class="populares__box--cabecera" src="${masPopular.cabecera}">
-                                        </div>
-                                        <div class="contenido__populares--box_txt">
-                                            <h2>${masPopular.nombre}</h2>
-                                            <h3><span><i class="fa-solid fa-star"></i></span>${masPopular.puntuacion}</h3>
-                                            <p>$${masPopular.precio}</p>
-                                            <p>Envío $200</p>
-                                        </div>`
-                $('#contenido-populares').appendChild(elProd)
-            }
-        }
-
-        
-        mostrarDatoscliente()
-        mostrarMasVendIdx()
-
-        */
 
     }
 

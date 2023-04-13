@@ -1,180 +1,72 @@
 <!DOCTYPE html>
 <div id="direcciones">
     <!-- DESPLEGABLES -->
-    <div class="perfil__despleg--basico_nom" id="perfil-despleg-bsc-nom">
-        <div class="perfil__despleg--basico_cab">
-            <div id="perfil-despleg-bsc-back-1"><i class="fa-solid fa-arrow-left" id="perfil-despleg-bsc-back-2"></i></div>
-            <h1>Editar nombre</h1>
+    <!-- AGREGAR -->
+    <div class="despleg__dir--agregar" id="despleg__dir--agr">
+        <div class="despleg__dir--agregar_cbz">
+            <div class="despleg__dir--cerrar" id="despleg__dir--agr--cer">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <h1>Nueva dirección</h1>
         </div>
-        <form class="perfil__despleg--basico_form" id="basico-form">
-            <div class="despleg__basico--form_cont">
-                <div class="despleg__basico--form_bx">
-                    <label class="despleg__basico--form_etiqueta" for="basico-nombre" id="basico-form-etiqueta-nom">Nombre</label>
-                    <input id="basico-nombre" type="text" name="basico-nombre" class="despleg__basico--form_ipt" value="Tu nombre">
-                    <label class="despleg__basico--form_etiqueta" for="basico-apellido" id="basico-form-etiqueta-ape">Apellido</label>
-                    <input id="basico-apellido" type="text" name="basico-apellido" class="despleg__basico--form_ipt" value="Tu apellido">
-                    <label class="despleg__basico--form_etiqueta" for="basico-apodo" id="basico-form-etiqueta-apo">Apodo</label>
-                    <input id="basico-apodo" type="text" name="basico-apodo" class="despleg__basico--form_ipt" value="Tu apodo">
+        <form class="despleg__dir--agregar_form" id="agregar-dir-form">
+            <div class="dir__agregar--form_cont">
+                <div class="dir__agregar--form_bx">
+                    <h2>Calle y altura</h2>
+                    <p class="dir__agregar--ipt_error" id="nuevadir-calle-error">Debe ingresar una dirección</p>
+                    <input id="nuevadir-calle" type="text" class="dir__agregar--form_ipt" placeholder="Calle Falsa 123">
+                    <h2>Dpto</h2>
+                    <input id="nuevadir-dpto" type="text" class="dir__agregar--form_ipt" placeholder="9°B / Casa">
+                    <h2 class="dir__agregar--predet">Predeterminada:  <input type="checkbox" id="nuevadir-predet"></h2>
+                    <h2>Comentario (Opcional)</h2>
+                    <textarea id="nuevadir-coment" class="dir__agregar--form_txtar"></textarea>
                 </div>
             </div>
-            <div class="despleg__basico--form_btn">
-                <button class="despleg__basico--form_btn-btn" type="submit" id="basico-enviar">Guardar cambios</button>
+            <div class="dir__agregar--form_btn">
+                <button class="dir__agregar--form_btn-btn" type="submit" id="nuevadir-enviar">Agregar</button>
             </div>
         </form>
     </div>
-    <!-- DESPLEGABLE INFORMACION PERSONAL -->
-    <div class="perfil__despleg--personal" id="perfil-despleg-personal">
-        <div class="perfil__despleg--personal_cab">
-            <div id="perfil-despleg-pers-back-1"><i class="fa-solid fa-arrow-left" id="perfil-despleg-pers-back-2"></i></div>
-            <h1>Mis direcciones</h1>
+    <!-- EDITAR -->
+    <div class="despleg__dir--agregar" id="despleg__dir--edit">
+        <div class="despleg__dir--agregar_cbz">
+            <div class="despleg__dir--cerrar" id="despleg__dir--edit--cer">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <h1>Editar dirección</h1>
         </div>
-        <form class="perfil__despleg--personal_form" id="personal-form">
-            <div class="despleg__personal--form_cont">
-                <div class="despleg__personal--form_bx">
-                    <h2>Fecha de nacimiento</h2>
-                    <input id="personal-fecha" type="date" class="despleg__personal--form_ipt">
-                    <h2>Sexo</h2>
-                    <select class="despleg__personal--form_select" id="personal-sexo"></select>
+        <form class="despleg__dir--agregar_form" id="editar-dir-form">
+            <div class="dir__agregar--form_cont">
+                <div class="dir__agregar--form_bx">
+                    <h2>Calle y altura</h2>
+                    <p class="dir__agregar--ipt_error" id="editardir-calle-error">Debe ingresar una dirección</p>
+                    <input id="editardir-calle" type="text" class="dir__agregar--form_ipt" placeholder="Calle Falsa 123">
+                    <h2>Dpto</h2>
+                    <input id="editardir-dpto" type="text" class="dir__agregar--form_ipt" placeholder="9°B / Casa">
+                    <h2>Comentario (Opcional)</h2>
+                    <textarea id="editardir-coment" class="dir__agregar--form_txtar"></textarea>
                 </div>
             </div>
-            <div class="despleg__personal--form_btn">
-                <button class="despleg__personal--form_btn-btn" type="submit" id="personal-enviar">Guardar cambios</button>
+            <div class="dir__agregar--form_btn">
+                <button class="dir__agregar--form_btn-btn" type="submit" id="editardir-enviar">Agregar</button>
             </div>
         </form>
     </div>
-    <!-- DESPLEGABLE DATOS DE CUENTA -->
-    <div class="perfil__despleg--cuenta" id="perfil-despleg-cuenta">
-        <div class="perfil__despleg--cuenta_cab">
-            <div id="perfil-despleg-cuenta-back-1"><i class="fa-solid fa-arrow-left" id="perfil-despleg-cuenta-back-2"></i></div>
-            <h1>Editar datos de la cuenta</h1>
-        </div>
-        <form class="perfil__despleg--cuenta_form" id="cuenta-form">
-            <div class="despleg__cuenta--form_cont">
-                <div class="despleg__cuenta--form_bx">
-                    <h2>Correo</h2>
-                    <input id="cuenta-mail" type="email" class="despleg__cuenta--form_ipt">
-                    <h2>Móvil</h2>
-                    <input id="cuenta-tel" type="text" class="despleg__cuenta--form_ipt">
-                </div>
-            </div>
-            <div class="despleg__cuenta--form_btn">
-                <button class="despleg__cuenta--form_btn-btn" type="submit" id="cuenta-enviar">Guardar cambios</button>
-            </div>
-        </form>
-    </div>
-    <!-- DESPLEGABLE CONTRASEÑA -->
-    <div class="perfil__despleg--pass" id="perfil-despleg-pass">
-        <div class="perfil__despleg--pass_cab">
-            <div id="perfil-despleg-pass-back-1"><i class="fa-solid fa-arrow-left" id="perfil-despleg-pass-back-2"></i></div>
-            <h1>Editar contraseña</h1>
-        </div>
-        <form class="perfil__despleg--pass_form" id="pass-form">
-            <div class="despleg__pass--form_cont">
-                <div class="despleg__pass--form_bx">
-                    <h2>Contraseña actual</h2>
-                    <p class="despleg__pass--ipt_error" id="pass-actual-error">La contraseña no coincide</p>
-                    <input id="pass-actual" type="password" class="despleg__pass--form_ipt">
-                    <h2>Contraseña nueva</h2>
-                    <input id="pass-nuevo" type="password" class="despleg__pass--form_ipt">
-                </div>
-            </div>
-            <div class="despleg__pass--form_btn">
-                <button class="despleg__pass--form_btn-btn" type="submit" id="pass-enviar">Guardar cambios</button>
-            </div>
-        </form>
-    </div>
-    <!-- *********** -->
+    <!-- ********** -->
     <header class="cabeza" id="perfil__cabeza">
-        <div class="cabeza__volver" id="perfil__cabeza--volver" data-categ="inicio">
-            <i class="fa-solid fa-arrow-left" data-categ="inicio"></i>
-        </div>
+        <div id="volver-inicio-1"><i class="fa-solid fa-arrow-left" id="volver-inicio-2"></i></div>
+        <h1>Mis direcciones</h1>
     </header>
     <main class="contenido">
-        <div class="contenido__edit--basico">
-            <div class="contenido__edit--basico_img">
-                <div class="edit__basico--btn" id="edit-basico-pic-btn">
+        <ul id="listar-todas-las-direcciones">
+            <li>
+                <div id="agregar-nueva-dir">
                     <span>
-                        <i class="fa-solid fa-camera"></i>
+                        <i class="fa-solid fa-plus"></i>
                     </span>
+                    <p>Nueva dirección</p>
                 </div>
-                <input type="file" style="display:none;" accept="image/jpeg" id="edit-basico-pic-file">
-                <img id="edit-basico-pic">
-            </div>
-            <div class="contenido__edit--basico_nom">
-                <h1 id="edit-basico-nom">Nombre del usuario</h1><span><i class="fa-solid fa-pencil" id="edit-basico-nom-btn"></i></span>
-            </div>
-            <p id="edit-basico-mail">elcorreodelusuario@gmail.com</p>
-        </div>
-        <div class="contenido__edit--opciones">
-            <div class="contenido__edit--opciones_bx" id="contenido-edit-personal">
-                <div class="contenido__edit--opciones_ico"><i class="fa-regular fa-user"></i></div>
-                <h1>Información personal</h1>
-                <div class="contenido__edit--opciones_fle"><i class="fa-solid fa-chevron-right"></i></div>
-            </div>
-            <div class="contenido__edit--opciones_bx" id="contenido-edit-cuenta">
-                <div class="contenido__edit--opciones_ico"><i class="fa-regular fa-address-card"></i></div>
-                <h1>Datos de cuenta</h1>
-                <div class="contenido__edit--opciones_fle"><i class="fa-solid fa-chevron-right"></i></div>
-            </div>
-            <div class="contenido__edit--opciones_bx" id="contenido-edit-pass">
-                <div class="contenido__edit--opciones_ico"><i class="fa-solid fa-key"></i></div>
-                <h1>Cambiar contraseña</h1>
-                <div class="contenido__edit--opciones_fle"><i class="fa-solid fa-chevron-right"></i></div>
-            </div>
-            <div class="contenido__edit--opciones_bx">
-                <div class="contenido__edit--opciones_ico"><i class="fa-solid fa-location-dot"></i></div>
-                <h1>Direcciones</h1>
-                <div class="contenido__edit--opciones_fle"><i class="fa-solid fa-chevron-right"></i></div>
-            </div>
-        </div>
-        <div class="contenido__edit--opciones otras">
-            <div class="contenido__edit--opciones_bx simple">
-                <div class="contenido__edit--opciones_ico"><i class="fa-solid fa-scale-balanced"></i></div>
-                <h1>Información legal</h1>
-                <div class="contenido__edit--opciones_fle pasivo"><i class="fa-solid fa-chevron-right"></i></div>
-            </div>
-            <div class="contenido__edit--opciones_bx simple">
-                <div class="contenido__edit--opciones_ico"><i class="fa-solid fa-headphones-simple"></i></div>
-                <h1>Ayuda en línea</h1>
-                <div class="contenido__edit--opciones_fle pasivo"><i class="fa-solid fa-chevron-right"></i></div>
-            </div>
-            <div class="contenido__edit--opciones_bx simple" id="perfil-cerrar-sesion">
-                <div class="contenido__edit--opciones_ico"><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
-                <h1>Cerrar sesión</h1>
-                <div class="contenido__edit--opciones_fle pasivo"><i class="fa-solid fa-chevron-right"></i></div>
-            </div>
-            <div class="contenido__edit--opciones_bx simple" id="perfil-eliminar-cuenta">
-                <div class="contenido__edit--opciones_ico"><i class="fa-solid fa-user-xmark"></i></div>
-                <h1>Eliminar cuenta</h1>
-                <div class="contenido__edit--opciones_fle pasivo"><i class="fa-solid fa-chevron-right"></i></div>
-            </div>
-        </div>
-
-
-        <!-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci, officiis? Odio repellendus ratione dolore vero veritatis, assumenda eos aspernatur quaerat doloremque commodi eius corporis voluptate consectetur, maxime, ex impedit placeat?</p>
-        <p>Excepturi nam accusantium nemo officiis eveniet provident quod? Officia aliquid nam eum quaerat, quasi possimus nemo. Sequi, doloribus. Illum tempora facere sapiente blanditiis corporis suscipit dicta nostrum cumque voluptates omnis?</p>
-        <p>Ullam libero nobis ab laudantium natus. Obcaecati voluptates quibusdam ex quidem totam nulla accusamus perferendis repellendus? Perspiciatis excepturi quidem non eveniet quae quam velit delectus. Veniam obcaecati laudantium nam alias?</p>
-        <p>Reiciendis culpa unde, tempore quam dolor exercitationem enim doloribus perspiciatis atque, ullam autem sunt optio eligendi. Rerum nihil, culpa neque, quos ea cum in debitis natus molestiae mollitia ratione odio.</p>
-        <p>Ut quos iure ex, illum vero eum aut facere dolorum voluptate earum officia eligendi repellat, molestiae suscipit! Aliquam omnis debitis recusandae voluptatibus, cum, deleniti porro illo animi reprehenderit ut temporibus!</p>
-        <p>Animi aliquid, officia, eligendi quia exercitationem voluptas repellendus numquam reiciendis ab minus, vel est maiores. Ex, architecto sint omnis eius corrupti praesentium vitae autem voluptatum iste, molestias alias nobis eum!</p>
-        <p>Hic tempore repellat ad, itaque praesentium nisi aperiam sapiente deserunt id quas ducimus voluptas aliquam autem corrupti iusto debitis, ea quaerat neque cum mollitia, ut eaque blanditiis? Excepturi, praesentium sapiente.</p>
-        <p>Iusto, suscipit sequi enim ipsum at dignissimos! Ex nulla consequatur, labore perferendis deleniti corrupti inventore maxime expedita vitae, eligendi, laudantium fugiat ad nemo quo. Quis necessitatibus velit quae hic assumenda!</p>
-        <p>Consequuntur, quisquam quibusdam consequatur itaque sint laborum voluptate ipsam nobis corporis alias delectus voluptatem soluta ex incidunt atque cumque quasi ipsa minima veniam quas expedita dicta. Animi odio non rerum?</p>
-        <p>Temporibus provident maiores iusto. A totam omnis necessitatibus sed nam nemo odit non eligendi quaerat deserunt incidunt illum reiciendis, consequatur eum debitis quia dicta ea consequuntur blanditiis aut repellat. Accusantium.</p>
-        <p>Possimus hic soluta ratione officia! Eveniet reiciendis dolore iusto dolorem nostrum distinctio nam veniam mollitia, sint debitis fuga quia harum ipsa velit repellat facilis quae animi, laborum praesentium aliquam rerum.</p>
-        <p>Ratione impedit doloremque corporis cum eveniet repellat, assumenda et eligendi. Cumque cupiditate nisi tenetur nam facilis error! Ipsa voluptatem quod natus labore sint commodi! Placeat dolores cum ex sed nemo.</p>
-        <p>At sed, maxime, dolorum blanditiis aliquam, velit vero officia voluptate fugiat quam eligendi? Vel, qui sit. Earum soluta, minima dolores deserunt, neque distinctio ex quasi autem sed exercitationem aliquam inventore.</p>
-        <p>Aliquid nostrum voluptatum reiciendis doloribus? Natus nihil maxime similique eveniet atque quas laboriosam. Quaerat laudantium unde, voluptas voluptates inventore, necessitatibus veniam nobis at impedit doloribus voluptate ipsa nemo quisquam consectetur!</p>
-        <p>Non omnis harum repellendus explicabo, ipsam natus ex illum repudiandae at magni aperiam incidunt magnam porro animi earum ipsa nihil, inventore mollitia soluta exercitationem quod! Mollitia corrupti id dolorum eligendi.</p>
-        <p>Minus, dicta reprehenderit! Hic adipisci magni distinctio maiores dolor tempore accusamus veniam dolores nostrum reiciendis ea, voluptate architecto iure dolorum et? Quis sint nobis exercitationem. Temporibus, dolor. Reiciendis, dolor nihil.</p>
-        <p>Provident explicabo eveniet unde culpa! Quos necessitatibus facilis, reprehenderit tenetur aliquid doloribus natus vitae ratione eius corrupti culpa perferendis, tempore totam voluptatibus animi temporibus maiores neque recusandae dolores. Reiciendis, placeat.</p>
-        <p>Soluta illum, excepturi ex iste, consectetur aliquid deserunt amet dolore eius voluptate autem! Corrupti vitae dolor magni ullam cumque hic. Accusamus maxime deleniti earum exercitationem? Incidunt explicabo dolore illum deleniti!</p>
-        <p>Quis distinctio ipsam provident vitae odit, quas qui accusantium voluptatibus laboriosam nihil sint non veritatis minima labore corporis reprehenderit exercitationem eum suscipit molestias. Rem, quaerat dolore? Exercitationem magnam fugit similique?</p>
-        <p>A accusantium adipisci, delectus id sapiente deleniti alias commodi minima repellat perferendis tenetur totam pariatur ipsa corporis accusamus illum eum. Illum ut maiores possimus alias delectus ratione dicta iusto minima?</p>
-        <p>Molestiae voluptatibus voluptas sit est, fuga repudiandae illum. Eaque ad animi voluptatibus dolores impedit veritatis voluptates eveniet suscipit deserunt quo tempore magnam ullam delectus voluptate, accusamus dignissimos atque cumque eligendi.</p>
-        <p>Impedit dolorem amet corporis esse, quidem omnis sunt fugiat itaque sit rerum corrupti et earum maxime magni neque quo in officia. Quisquam eveniet at tempore aliquam quas, nobis voluptate laboriosam!</p>
-        <p>Libero, eius. Iusto nostrum minus, assumenda quas quo velit quos voluptatum dolores sed, ad voluptas neque excepturi praesentium voluptatibus? Eos voluptatibus asperiores, aspernatur repellat laboriosam iste quisquam accusamus repellendus molestiae.</p>
-        <p>Soluta deleniti officiis veritatis. Similique molestiae vero, praesentium rerum quasi distinctio impedit enim necessitatibus at veritatis repudiandae, ipsum provident illum, eaque expedita earum doloremque fugiat. Numquam architecto autem culpa ducimus?</p>
-        <p>Deleniti maxime cum libero deserunt porro ad delectus numquam! Sunt eligendi, esse sit placeat perspiciatis neque veniam, saepe illum quaerat quas velit, eum eaque obcaecati fugit unde dolores possimus natus.</p> -->
+            </li>
+        </ul>
     </main>
 </div>

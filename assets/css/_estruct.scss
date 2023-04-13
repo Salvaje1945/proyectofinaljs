@@ -823,7 +823,7 @@
                 font-family: $fnt_01;
                 color: map-get($color, "negro");
                 font-weight: 500;
-                font-size: 1rem;
+                font-size: 0.95rem;
                 height: 25px;
 
 
@@ -2403,6 +2403,189 @@
 
     // DESPLEGABLES
 
+    .despleg__dir--agregar {
+        @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-hgt: 100dvh, $cbz_dsp-pdd: 0);
+        left: 0;
+        top: 200%;
+        background-color: map-get($color, "gris_12");
+
+        .despleg__dir--agregar_cbz {
+            background-color: map-get($color, "blanco");
+            border-bottom: 1px solid map-get($color, "gris_10");
+            display: block;
+            height: 11%;
+            padding: 5px 0 0;
+            //border-bottom: 1px solid #000;
+
+            .despleg__dir--cerrar {
+                display: block;
+                font-size: 1.5rem;
+                color: map-get($color, "negro");
+                margin: 0 15px 7px;
+                height: 28px;
+            }
+
+            h1 {
+                font-family: $fnt_01;
+                color: map-get($color, "negro");
+                font-weight: 600;
+                font-size: 1.25rem;
+                margin-left: 15px;
+            }
+        }
+        
+        .despleg__dir--agregar_form {
+            @extend .flex-8;
+            height: 89%;
+
+            .dir__agregar--form_cont {
+                @extend .flex-9;
+                width: 100%;
+                height: 89%;
+
+                .dir__agregar--form_bx {
+                    width: 90vw;
+                    height: auto;
+                    margin: 5vh 0 0;
+                    background-color: map-get($color, "blanco");
+                    box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
+                    border-radius: 11px;
+                    border: 1px solid map-get($color, "gris_05");
+                    padding: 5vw;
+
+                    h2 {
+                        display: block;
+                        color: map-get($color, "gris_09");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        transition: .3s linear all;
+                    }
+
+                    h2.activo {
+                        color: map-get($color, "negro");
+                        transition: .3s ease all;
+                    }
+
+                    h2.error {
+                        color: map-get($color, "rojo_02");
+                    }
+
+                    .dir__agregar--predet {
+                        display: block;
+                        color: map-get($color, "gris_09");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 27px;
+                    }
+
+                    .dir__agregar--ipt_error {
+                        display: none;
+                        color: map-get($color, "rojo_02");
+                        font-family: $fnt_01;
+                        font-size: 0.75rem;
+                        transition: .3s linear all;
+                    }
+
+                    .dir__agregar--ipt_error.activo {
+                        display: block;
+                    }
+
+                    .dir__agregar--form_ipt {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 27px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+                    }
+
+                    .dir__agregar--form_txtar {
+                        display: block;
+                        width: 100%;
+                        height: 100px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 15px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+                    }
+
+                    .dir__agregar--form_ipt:-webkit-autofill,
+                    .dir__agregar--form_ipt:-webkit-autofill:focus {
+                        transition: background-color 600000s 0s, color 600000s 0s !important;
+                        font-family: $fnt_01 !important;
+                        font-size: 1rem !important;
+                    }
+
+                    .dir__agregar--form_ipt.error {
+                        border-bottom: 2px solid map-get($color, "rojo_02");
+                    }
+
+                    .dir__agregar--form_select {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 35px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+
+                    }
+                }
+ 
+            }
+
+            .dir__agregar--form_btn {
+                width: 100vw;
+                height: 11%;
+                padding: 14px;
+                background-color: map-get($color, "blanco");
+                box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
+                border-top: 1px solid map-get($color, "gris_04");
+                
+                .dir__agregar--form_btn-btn {
+                    @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
+                }
+            }
+        }   
+
+    }
+
+    .despleg__dir--agregar.activo {
+        top: 0;
+    } 
+
+    /*
     .perfil__despleg--basico_nom {
         @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
         //@extend .flex-5;
@@ -2971,46 +3154,149 @@
         bottom: 0;
         transition: .5s ease all;
     }
-
+    */
     // ************
     
     .cabeza {
-        @extend .flex-6;
+        @extend .flex-3;
         width: 100vw;
-        //background: linear-gradient(180deg, map-get($color, "blanco") 95%, map-get($color, "gris_11") 5%);
         background-color: map-get($color, "blanco");
         height: 42px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 500;
-
-        .cabeza__volver {
-            width: 21px;
-            height: 16px;
-            //padding: auto;
+        //z-index: 500;
+        border-bottom: 1px solid map-get($color, "gris_10");
+            
+        div {
+            display: inline-block;
             font-size: 1rem;
-            font-weight: normal !important;
             color: map-get($color, "negro");
-            margin: 0 3vw;
-        }        
+            margin: 0 21px 0 11px;
+        }
 
-    }
+        h1 {
+            display: inline-block;
+            font-family: $fnt_01;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: map-get($color, "negro");
+        }     
 
-    .cabeza.scroll {
-        border-bottom: 2px solid map-get($color, "gris_14");
     }
 
     .contenido {
         display: block;
         width: 100vw;
-        margin: 7vh 0 0;
+        margin: 3svh 0 0;
         padding: 0 5vw;
         height: auto;
-        z-index: 100;
+        //z-index: 100;
+
+        ul {
+            list-style: none;
+            text-align: left;
+            color: map-get($color, "negro");
+
+            li {
+                border-bottom: 1px solid map-get($color, "gris_04");
+                padding: 9px 0;
+
+                &:hover {
+                    background-color: map-get($color, "gris_05");
+                }
+
+                div {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-items: flex-start;
+
+                    span,
+                    .contenido__dir--ico {
+                        width: 27px;
+                        color: map-get($color, "negro");
+                        font-size: 1rem;
+                        margin: 0 10px;
+                        display: inline-block;
+                    }
+
+                    .contenido__dir--ico {
+                        margin-top: 5px;
+                    }
+
+                    span {
+                        font-size: 1.25rem;
+                    }
+
+                    p {
+                        font-size: 1.25rem;
+                        font-family: $fnt_01;
+                        color: map-get($color, "negro");
+                        display: inline-block;
+                    }
+
+                    div {
+                        display: inline-block;
+
+                        h2 {
+                            font-family: $fnt_01;
+                            font-size: 1rem;
+                            font-weight: 500;
+                            color: map-get($color, "negro");
+                            display: block;
+                            //min-width: 75vw;
+                        }
+
+                        p {
+                            font-family: $fnt_01;
+                            font-size: 0.75rem;
+                            color: map-get($color, "gris_01");
+                            display: block;
+                        }
+
+                    }
+
+                    .contenido__dir--opciones {
+                        margin: auto 0 auto auto;
+                        display: inline-block;
+
+                        .contenido__dir--chk,
+                        .contenido__dir--act {
+                            width: 16px;
+                            height: 16px;
+                            font-size: 1rem;
+                        }
+
+                        .contenido__dir--act.diome {
+                            margin: 0 5px;
+                        }
+
+                        .contenido__dir--chk.true {
+                            color: map-get($color, "verde_01");
+                        }
+
+                        .contenido__dir--chk.false {
+                            color: map-get($color, "negro");
+                        }
+
+                        .contenido__dir--act {
+                            color: map-get($color, "negro");
+
+                            &:hover {
+                                color: map-get($color, "verde_01");
+                            }
+                        }
+                    }
+                }
+
+                #agregar-nueva-dir {
+                    align-items: center;
+                    margin: 0 0 11px;
+                }
+
+            }
+        }
 
         // CUERPO
 
+        /*
         .contenido__edit--basico {
             @extend .flex-7;
             width: auto;
@@ -3147,6 +3433,7 @@
             padding: 11px 0 0;
         }
 
+        */
     }
     
 }
