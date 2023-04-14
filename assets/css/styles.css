@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
-.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
+.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #buscador .contenido .contenido__busquedas--recientes ul li, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
 .flex-2,
 #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2,
@@ -31,6 +31,7 @@
 #perfil .perfil__despleg--cuenta .perfil__despleg--cuenta_cab,
 #perfil .perfil__despleg--pass .perfil__despleg--pass_cab,
 #direcciones .cabeza,
+#buscador .cabeza,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
 #arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
 #plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
@@ -75,7 +76,7 @@
   display: flex;
 }
 
-.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
+.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #buscador .contenido .contenido__busquedas--recientes ul li, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
 .flex-2,
 #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2,
@@ -104,6 +105,7 @@
 #perfil .perfil__despleg--cuenta .perfil__despleg--cuenta_cab,
 #perfil .perfil__despleg--pass .perfil__despleg--pass_cab,
 #direcciones .cabeza,
+#buscador .cabeza,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
 #arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
 #plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
@@ -150,13 +152,14 @@
   flex-flow: column nowrap;
 }
 
-.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
+.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #buscador .contenido .contenido__busquedas--recientes ul li, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
 .flex-3,
 #perfil .perfil__despleg--basico_nom .perfil__despleg--basico_cab,
 #perfil .perfil__despleg--personal .perfil__despleg--personal_cab,
 #perfil .perfil__despleg--cuenta .perfil__despleg--cuenta_cab,
 #perfil .perfil__despleg--pass .perfil__despleg--pass_cab,
 #direcciones .cabeza,
+#buscador .cabeza,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
 #arreglos .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
 #plantas .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1,
@@ -177,7 +180,7 @@
   align-items: center;
 }
 
-.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
+.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #buscador .contenido .contenido__busquedas--recientes ul li, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
 .flex-4,
 #flores .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
 #especiales .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
@@ -373,6 +376,7 @@ a {
 #inicio,
 #perfil,
 #direcciones,
+#buscador,
 #flores,
 #especiales,
 #basicos,
@@ -397,6 +401,7 @@ a {
 #inicio .cabeza,
 #perfil .cabeza,
 #direcciones .cabeza,
+#buscador .cabeza,
 #flores .cabeza,
 #especiales .cabeza,
 #basicos .cabeza,
@@ -418,6 +423,7 @@ a {
 #inicio .contenido,
 #perfil .contenido,
 #direcciones .contenido,
+#buscador .contenido,
 #flores .contenido,
 #especiales .contenido,
 #basicos .contenido,
@@ -2609,578 +2615,6 @@ a {
   padding: 11px 0 0;
 }
 
-#direcciones {
-  /*
-  .perfil__despleg--basico_nom {
-      @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
-      //@extend .flex-5;
-      background-color: map-get($color, "gris_12");
-      top: 200%;
-      left: 0;
-      transition: .5s linear all;
-
-      .perfil__despleg--basico_cab {
-          @extend .flex-3;
-          width: 100%;
-          height: 6%;
-          background-color: map-get($color, "blanco");
-          border-bottom: 1px solid map-get($color, "gris_10");
-
-          div {
-              display: inline-block;
-              //width: 21px;
-              //height: 16px;
-              //padding: auto;
-              font-size: 1rem;
-              //line-height: normal;
-              color: map-get($color, "negro");
-              margin: 0 21px 0 11px;
-          }
-
-          h1 {
-              display: inline-block;
-              font-family: $fnt_01;
-              font-size: 0.85rem;
-              font-weight: 600;
-              color: map-get($color, "negro");
-          }
-
-      }
-
-      .perfil__despleg--basico_form {
-          @extend .flex-8;
-          height: 94%;
-
-          .despleg__basico--form_cont {
-              @extend .flex-9;
-              width: 100%;
-              height: 89%;
-
-              .despleg__basico--form_bx {
-                  width: 90vw;
-                  height: auto;
-                  margin: 5vh 0 0;
-                  background-color: map-get($color, "blanco");
-                  box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
-                  border-radius: 11px;
-                  border: 1px solid map-get($color, "gris_05");
-                  padding: 5vw;
-
-                  .despleg__basico--form_etiqueta {
-                      display: block;
-                      color: map-get($color, "gris_09");
-                      font-family: $fnt_01;
-                      font-size: 0.70rem;
-                      transition: .3s linear all;
-                  }
-
-                  .despleg__basico--form_etiqueta.activo {
-                      color: map-get($color, "negro");
-                      transition: .3s ease all;
-                  }
-
-                  .despleg__basico--form_etiqueta.error {
-                      color: map-get($color, "rojo_02");
-                  }
-
-                  .despleg__basico--form_ipt {
-                      display: block;
-                      width: 100%;
-                      height: 35px;
-                      background-color: map-get($color, "blanco");
-                      outline: none;
-                      border-bottom: 2px solid map-get($color, "gris_05");
-                      color: map-get($color, "gris_03");
-                      font-family: $fnt_01;
-                      font-size: 1rem;
-                      margin: 0 0 35px;
-                      transition: .3s ease all;
-
-                      &:focus {
-                          border-bottom: 2px solid map-get($color, "negro");
-                          color: map-get($color, "negro");
-                          transition: .3s linear all;
-                      }
-
-                      &:last-child {
-                          margin: 0 0 15px;
-                      }
-                  }
-
-                  .despleg__basico--form_ipt:-webkit-autofill,
-                  .despleg__basico--form_ipt:-webkit-autofill:focus {
-                      transition: background-color 600000s 0s, color 600000s 0s !important;
-                      //background-color: map-get($color, "blanco") !important;
-                      //color: map-get($color, "negro") !important;
-                      font-family: $fnt_01 !important;
-                      font-size: 1rem !important;
-                  }
-
-                  .despleg__basico--form_ipt.error {
-                      border-bottom: 2px solid map-get($color, "rojo_02");
-                  }
-              }
-
-          }
-
-          .despleg__basico--form_btn {
-              width: 100vw;
-              height: 11%;
-              padding: 14px;
-              background-color: map-get($color, "blanco");
-              box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
-              border-top: 1px solid map-get($color, "gris_04");
-
-              .despleg__basico--form_btn-btn {
-                  @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
-              }
-          }
-      }    
-
-  }
-
-  .perfil__despleg--basico_nom.activo {
-      top: 0;
-      transition: .5s ease all;
-  }
-
-  .perfil__despleg--personal {
-      @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
-      //@extend .flex-5;
-      background-color: map-get($color, "gris_12");
-      top: 0;
-      left: 200%;
-      transition: .5s linear all;
-
-      .perfil__despleg--personal_cab {
-          @extend .flex-3;
-          width: 100%;
-          height: 6%;
-          background-color: map-get($color, "blanco");
-          border-bottom: 1px solid map-get($color, "gris_10");
-
-          div {
-              display: inline-block;
-              //width: 21px;
-              //height: 16px;
-              //padding: auto;
-              font-size: 1rem;
-              //line-height: normal;
-              color: map-get($color, "negro");
-              margin: 0 21px 0 11px;
-          }
-
-          h1 {
-              display: inline-block;
-              font-family: $fnt_01;
-              font-size: 0.85rem;
-              font-weight: 600;
-              color: map-get($color, "negro");
-          }
-
-      }
-
-      .perfil__despleg--personal_form {
-          @extend .flex-8;
-          height: 94%;
-
-          .despleg__personal--form_cont {
-              @extend .flex-9;
-              width: 100%;
-              height: 89%;
-
-              .despleg__personal--form_bx {
-                  width: 90vw;
-                  height: auto;
-                  margin: 5vh 0 0;
-                  background-color: map-get($color, "blanco");
-                  box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
-                  border-radius: 11px;
-                  border: 1px solid map-get($color, "gris_05");
-                  padding: 5vw;
-
-                  h2 {
-                      display: block;
-                      color: map-get($color, "gris_09");
-                      font-family: $fnt_01;
-                      font-size: 1rem;
-                      transition: .3s linear all;
-                  }
-
-                  h2.activo {
-                      color: map-get($color, "negro");
-                      transition: .3s ease all;
-                  }
-
-                  h2.error {
-                      color: map-get($color, "rojo_02");
-                  }
-
-                  .despleg__personal--form_ipt {
-                      display: block;
-                      width: 100%;
-                      height: 35px;
-                      background-color: map-get($color, "blanco");
-                      outline: none;
-                      border-bottom: 2px solid map-get($color, "gris_05");
-                      color: map-get($color, "gris_03");
-                      font-family: $fnt_01;
-                      font-size: 1rem;
-                      margin: 0 0 35px;
-                      transition: .3s ease all;
-
-                      &:focus {
-                          border-bottom: 2px solid map-get($color, "negro");
-                          color: map-get($color, "negro");
-                          transition: .3s linear all;
-                      }
-
-                      &:last-child {
-                          margin: 0 0 15px;
-                      }
-                  }
-
-                  .despleg__personal--form_ipt:-webkit-autofill,
-                  .despleg__personal--form_ipt:-webkit-autofill:focus {
-                      transition: background-color 600000s 0s, color 600000s 0s !important;
-                      //background-color: map-get($color, "blanco") !important;
-                      //color: map-get($color, "negro") !important;
-                      font-family: $fnt_01 !important;
-                      font-size: 1rem !important;
-                  }
-
-                  .despleg__personal--form_ipt.error {
-                      border-bottom: 2px solid map-get($color, "rojo_02");
-                  }
-
-                  .despleg__personal--form_select {
-                      display: block;
-                      width: 100%;
-                      height: 35px;
-                      background-color: map-get($color, "blanco");
-                      outline: none;
-                      border-bottom: 2px solid map-get($color, "gris_05");
-                      color: map-get($color, "gris_03");
-                      font-family: $fnt_01;
-                      font-size: 1rem;
-                      margin: 0 0 35px;
-                      transition: .3s ease all;
-
-                      &:focus {
-                          border-bottom: 2px solid map-get($color, "negro");
-                          color: map-get($color, "negro");
-                          transition: .3s linear all;
-                      }
-
-                  }
-              }
-
-          }
-
-          .despleg__personal--form_btn {
-              width: 100vw;
-              height: 11%;
-              padding: 14px;
-              background-color: map-get($color, "blanco");
-              box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
-              border-top: 1px solid map-get($color, "gris_04");
-
-              .despleg__personal--form_btn-btn {
-                  @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
-              }
-          }
-      }    
-
-  }
-
-  .perfil__despleg--personal.activo {
-      left: 0;
-      transition: .5s ease all;
-  }
-
-  .perfil__despleg--cuenta {
-      @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
-      //@extend .flex-5;
-      background-color: map-get($color, "gris_12");
-      top: 0;
-      right: 200%;
-      transition: .5s linear all;
-
-      .perfil__despleg--cuenta_cab {
-          @extend .flex-3;
-          width: 100%;
-          height: 6%;
-          background-color: map-get($color, "blanco");
-          border-bottom: 1px solid map-get($color, "gris_10");
-
-          div {
-              display: inline-block;
-              //width: 21px;
-              //height: 16px;
-              //padding: auto;
-              font-size: 1rem;
-              //line-height: normal;
-              color: map-get($color, "negro");
-              margin: 0 21px 0 11px;
-          }
-
-          h1 {
-              display: inline-block;
-              font-family: $fnt_01;
-              font-size: 0.85rem;
-              font-weight: 600;
-              color: map-get($color, "negro");
-          }
-
-      }
-
-      .perfil__despleg--cuenta_form {
-          @extend .flex-8;
-          height: 94%;
-
-          .despleg__cuenta--form_cont {
-              @extend .flex-9;
-              width: 100%;
-              height: 89%;
-
-              .despleg__cuenta--form_bx {
-                  width: 90vw;
-                  height: auto;
-                  margin: 5vh 0 0;
-                  background-color: map-get($color, "blanco");
-                  box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
-                  border-radius: 11px;
-                  border: 1px solid map-get($color, "gris_05");
-                  padding: 5vw;
-
-                  h2 {
-                      display: block;
-                      color: map-get($color, "gris_09");
-                      font-family: $fnt_01;
-                      font-size: 1rem;
-                      transition: .3s linear all;
-                  }
-
-                  h2.activo {
-                      color: map-get($color, "negro");
-                      transition: .3s ease all;
-                  }
-
-                  h2.error {
-                      color: map-get($color, "rojo_02");
-                  }
-
-                  .despleg__cuenta--form_ipt {
-                      display: block;
-                      width: 100%;
-                      height: 35px;
-                      background-color: map-get($color, "blanco");
-                      outline: none;
-                      border-bottom: 2px solid map-get($color, "gris_05");
-                      color: map-get($color, "gris_03");
-                      font-family: $fnt_01;
-                      font-size: 1rem;
-                      margin: 0 0 35px;
-                      transition: .3s ease all;
-
-                      &:focus {
-                          border-bottom: 2px solid map-get($color, "negro");
-                          color: map-get($color, "negro");
-                          transition: .3s linear all;
-                      }
-
-                      &:last-child {
-                          margin: 0 0 15px;
-                      }
-                  }
-
-                  .despleg__cuenta--form_ipt:-webkit-autofill,
-                  .despleg__cuenta--form_ipt:-webkit-autofill:focus {
-                      transition: background-color 600000s 0s, color 600000s 0s !important;
-                      //background-color: map-get($color, "blanco") !important;
-                      //color: map-get($color, "negro") !important;
-                      font-family: $fnt_01 !important;
-                      font-size: 1rem !important;
-                  }
-
-                  .despleg__cuenta--form_ipt.error {
-                      border-bottom: 2px solid map-get($color, "rojo_02");
-                  }
-              }
-
-          }
-
-          .despleg__cuenta--form_btn {
-              width: 100vw;
-              height: 11%;
-              padding: 14px;
-              background-color: map-get($color, "blanco");
-              box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
-              border-top: 1px solid map-get($color, "gris_04");
-
-              .despleg__cuenta--form_btn-btn {
-                  @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
-              }
-          }
-      }    
-
-  }
-
-  .perfil__despleg--cuenta.activo {
-      right: 0;
-      transition: .5s ease all;
-  }
-
-  .perfil__despleg--pass {
-      @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-pdd: 0);
-      //@extend .flex-5;
-      background-color: map-get($color, "gris_12");
-      bottom: 200%;
-      left: 0;
-      transition: .5s linear all;
-
-      .perfil__despleg--pass_cab {
-          @extend .flex-3;
-          width: 100%;
-          height: 6%;
-          background-color: map-get($color, "blanco");
-          border-bottom: 1px solid map-get($color, "gris_10");
-
-          div {
-              display: inline-block;
-              //width: 21px;
-              //height: 16px;
-              //padding: auto;
-              font-size: 1rem;
-              //line-height: normal;
-              color: map-get($color, "negro");
-              margin: 0 21px 0 11px;
-          }
-
-          h1 {
-              display: inline-block;
-              font-family: $fnt_01;
-              font-size: 0.85rem;
-              font-weight: 600;
-              color: map-get($color, "negro");
-          }
-
-      }
-
-      .perfil__despleg--pass_form {
-          @extend .flex-8;
-          height: 94%;
-
-          .despleg__pass--form_cont {
-              @extend .flex-9;
-              width: 100%;
-              height: 89%;
-
-              .despleg__pass--form_bx {
-                  width: 90vw;
-                  height: auto;
-                  margin: 5vh 0 0;
-                  background-color: map-get($color, "blanco");
-                  box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
-                  border-radius: 11px;
-                  border: 1px solid map-get($color, "gris_05");
-                  padding: 5vw;
-
-                  h2 {
-                      display: block;
-                      color: map-get($color, "gris_09");
-                      font-family: $fnt_01;
-                      font-size: 1rem;
-                      transition: .3s linear all;
-                  }
-
-                  h2.activo {
-                      color: map-get($color, "negro");
-                      transition: .3s ease all;
-                  }
-
-                  h2.error {
-                      color: map-get($color, "rojo_02");
-                  }
-
-                  .despleg__pass--ipt_error {
-                      display: none;
-                      color: map-get($color, "rojo_02");
-                      font-family: $fnt_01;
-                      font-size: 0.75rem;
-                      transition: .3s linear all;
-                  }
-
-                  .despleg__pass--ipt_error.activo {
-                      display: block;
-                  }
-
-                  .despleg__pass--form_ipt {
-                      display: block;
-                      width: 100%;
-                      height: 35px;
-                      background-color: map-get($color, "blanco");
-                      outline: none;
-                      border-bottom: 2px solid map-get($color, "gris_05");
-                      color: map-get($color, "gris_03");
-                      font-family: $fnt_01;
-                      font-size: 1rem;
-                      margin: 0 0 35px;
-                      transition: .3s ease all;
-
-                      &:focus {
-                          border-bottom: 2px solid map-get($color, "negro");
-                          color: map-get($color, "negro");
-                          transition: .3s linear all;
-                      }
-
-                      &:last-child {
-                          margin: 0 0 15px;
-                      }
-                  }
-
-                  .despleg__pass--form_ipt:-webkit-autofill,
-                  .despleg__pass--form_ipt:-webkit-autofill:focus {
-                      transition: background-color 600000s 0s, color 600000s 0s !important;
-                      //background-color: map-get($color, "blanco") !important;
-                      //color: map-get($color, "negro") !important;
-                      font-family: $fnt_01 !important;
-                      font-size: 1rem !important;
-                  }
-
-                  .despleg__pass--form_ipt.error {
-                      border-bottom: 2px solid map-get($color, "rojo_02");
-                  }
-
-                  .despleg__pass--form_ipt.bien{
-                      border-bottom: 2px solid map-get($color, "verde_01");
-                  }
-              }
-
-          }
-
-          .despleg__pass--form_btn {
-              width: 100vw;
-              height: 11%;
-              padding: 14px;
-              background-color: map-get($color, "blanco");
-              box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
-              border-top: 1px solid map-get($color, "gris_04");
-
-              .despleg__pass--form_btn-btn {
-                  @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
-              }
-          }
-      }    
-
-  }
-
-  .perfil__despleg--pass.activo {
-      bottom: 0;
-      transition: .5s ease all;
-  }
-  */
-}
 #direcciones .despleg__dir--agregar {
   font-family: "Poppins", sans-serif;
   width: 100vw;
@@ -3598,6 +3032,97 @@ a {
 #direcciones .contenido ul li #agregar-nueva-dir {
   align-items: center;
   margin: 0 0 11px;
+}
+
+#buscador .cabeza {
+  justify-content: space-between;
+  width: 100vw;
+  background: linear-gradient(180deg, #fff 95%, #f9f5f4 5%);
+  height: 45px;
+  position: fixed;
+  border-bottom: 1px solid #dbdadf;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  padding: 0 3vw;
+}
+#buscador .cabeza span {
+  display: inline-block;
+  color: #000;
+  font-size: 1rem;
+  padding-top: 2px;
+}
+#buscador .cabeza div {
+  display: inline-block;
+  width: 86vw;
+}
+#buscador .cabeza div form {
+  display: flex;
+  justify-content: center;
+}
+#buscador .cabeza div form .cabeza__form--grupo {
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid #aaa;
+  height: 30px;
+}
+#buscador .cabeza div form .cabeza__form--grupo .cabeza__form--grupo_ipt {
+  flex: 1;
+  padding: 0 10px;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  height: 100%;
+}
+#buscador .cabeza div form .cabeza__form--grupo .cabeza__form--grupo_btn {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 1px 10px 1px 0;
+}
+#buscador .contenido {
+  display: block;
+  width: 100vw;
+  margin: 60px 0 0;
+  padding: 0 5vw;
+  height: auto;
+  z-index: 100;
+}
+#buscador .contenido .contenido__busquedas--recientes {
+  display: none;
+  width: 100%;
+}
+#buscador .contenido .contenido__busquedas--recientes h1 {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+  margin: 0 0 9px;
+}
+#buscador .contenido .contenido__busquedas--recientes ul {
+  display: block;
+  list-style: none;
+  width: 100%;
+  height: auto;
+}
+#buscador .contenido .contenido__busquedas--recientes ul li {
+  margin: 0 0 5px;
+}
+#buscador .contenido .contenido__busquedas--recientes ul li p,
+#buscador .contenido .contenido__busquedas--recientes ul li span {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #000;
+}
+#buscador .contenido .contenido__busquedas--recientes ul li p {
+  font-family: "Poppins", sans-serif;
+}
+#buscador .contenido .contenido__busquedas--recientes.activo {
+  display: block;
 }
 
 #flores .cabeza {

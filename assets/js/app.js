@@ -1,3 +1,9 @@
+// PASAR MOMENT.JS A ESPAÑOL Y DAR FORMATO A LAS FECHAS
+
+moment.locale('es')
+
+const FECHA_FORMATO = 'DD-MM-YYYY hh:mm:ss'
+
 // FUNCIÓN PARA ELEMENTOS DEL DOM
 
 function $ (id) {
@@ -6,7 +12,7 @@ function $ (id) {
 
 // CATEGORÍAS Y PRODUCTOS
 
-const categorias = [
+let categorias = [
     {
         id: 1,
         nombre: 'Flores',
@@ -33,7 +39,7 @@ const categorias = [
     }
 ]
 
-const productos = [
+let productos = [
     // RAMOS DE FLORES
     {
         id: 1,
@@ -1023,6 +1029,14 @@ function hacerElRegistro(evt) {
                     foto: false
                 }
 
+                // const buscaObj = {
+                //     id: Date.now(),
+                //     idc: id,
+                //     claves: '',
+                //     categ: '',
+                //     fecha: ''
+                // }
+
                 datosCliente.push(clienteObj)
                 direCliente.push(direObj)
                 perfilCliente.push(perfilObj)
@@ -1342,6 +1356,23 @@ function mostrarContenidos (ubicador) {
             
         }
 
+        function abrirBuscador() {
+            setTimeout(function () {
+                const pag = 'buscador.html'
+                const ini = 'buscador'
+                fetch(pag)
+                    .then((url) => {
+                        return url.text()
+                    })
+                    .then((seccion) => {
+                        $('#secciones').innerHTML = seccion
+                        mostrarContenidos(ini)
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+            }, 350)
+        }
         
               
         $('#cabeza__menu--btn').onclick = abrirMenuHamb
@@ -1350,6 +1381,7 @@ function mostrarContenidos (ubicador) {
         $('#cabeza__anun--cer').onclick = cerrarMenuAnun
         $('#cabeza__dir--btn').onclick = abrirMenuDir
         $('#agregar-nueva-dir').onclick = menuNuevaDir
+        $('#abrir-buscador-general').onclick = abrirBuscador
         $('#cabeza__anun--nove').onclick = anunNove
         $('#cabeza__anun--prom').onclick = anunProm
 
@@ -2495,6 +2527,96 @@ function mostrarContenidos (ubicador) {
 
 
 
+
+
+    }
+
+    if (ubicador === 'buscador') {
+
+        $('#inicio-volver').onclick = function() {
+            const pag = 'inicio.html'
+            const ini = 'inicio'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        function busquedasRecientes() {
+            if(JSON.parse(localStorage.getItem('Busquedas')) === null) {
+                return
+            } else {
+                console.log('acá va la función para mostrar búsquedas recientes')
+            }
+        }
+
+        // const arreglito = [
+        //     {id: 1, fecha: '2023-02-21 11:11:33'}
+        // ]
+
+        // const fechaUltimaBusqueda = moment(arreglito[0].fecha)
+
+        // const diferencia = fechaUltimaBusqueda.fromNow()
+
+        // console.log(diferencia)
+
+        // const unaFecha = moment('2023-02-21 11:11:33')
+
+        // const formato = 'DD-MM-YYYY hh:mm:ss'
+
+        // const ahora = moment()
+
+        // console.log(unaFecha.format(formato))
+
+        // console.log(ahora.format(formato))
+
+        //const diferenciaDias = ahora.diff(unaFecha, 'days', 'hours', 'minutes', 'seconds')
+
+        // const diferenciaDias = unaFecha.fromNow()
+
+        // console.log(diferenciaDias)
+
+        //const fechaHoy = hoy.format('DD-MM-YYYY hh:mm:ss')
+
+        // console.log(fechaHoy)
+
+        // const fechaVieja = moment('10-04-2023 11:09:15')
+
+        // console.log(fechaVieja)
+
+        //console.log(hoy.format('DD-MM-YYYY hh:mm:ss'))
+
+
+        /*
+        function verificarBusquedas() {
+            if(JSON.parse(localStorage.getItem('Busquedas')) === null){
+
+                let fecha = new Date()
+                const fechaDeBusqueda = fecha.toLocaleString() 
+                
+                const buscaObj = {
+                    id: Date.now(),
+                    idc: id,
+                    claves: '',
+                    categ: '',
+                    fecha: fechaDeBusqueda
+                }
+
+                localStorage.setItem('Busquedas', JSON.stringify(buscaObj))
+
+
+
+            }
+        }
+        */
+        
 
 
     }
