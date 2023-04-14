@@ -2404,6 +2404,7 @@ function mostrarContenidos (ubicador) {
                 console.log(direParaBorrar)
 
                 const direParaBorrarId = direParaBorrar[0].id
+                const direParaBorrarEstadoSelect = direParaBorrar[0].seleccionada
 
                 console.log(direParaBorrarId)
 
@@ -2433,6 +2434,24 @@ function mostrarContenidos (ubicador) {
                         }
 
                         const nuevaListaDirecciones = listaDireccion.filter(direccion => direccion.id != direParaBorrarId)
+
+                        let diresOrdenadas = nuevaListaDirecciones.sort((a, b) => {
+                            const calleA = b.calle.toLowerCase()
+                            const calleB = a.calle.toLowerCase()
+                            if(calleA > calleB){
+                                return -1
+                            }
+                            if(calleA < calleB){
+                                return 1
+                            }
+            
+                            return 0
+                        })
+
+                        if(direParaBorrarEstadoSelect === true) {
+                            diresOrdenadas[0].seleccionada = true
+
+                        }
 
                         localStorage.setItem('Direcciones', JSON.stringify(nuevaListaDirecciones))
         
