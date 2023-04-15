@@ -10,7 +10,8 @@
 .flex-6,
 .flex-7,
 .flex-8,
-.flex-9 {
+.flex-9,
+.flex-10 {
     display: flex;
 }
 
@@ -24,6 +25,10 @@
     flex-flow: row nowrap; 
 }
 
+.flex-10 {
+    flex-flow: row wrap; 
+}
+
 .flex-7,
 .flex-8 {
     flex-flow: column nowrap;
@@ -34,7 +39,8 @@
 .flex-5,
 .flex-6,
 .flex-7,
-.flex-8 {
+.flex-8,
+.flex-10 {
     align-items: center;
 }
 
@@ -62,7 +68,8 @@
     justify-content: center;
 }
 
-.flex-6 {
+.flex-6,
+.flex-10 {
     justify-content: flex-start;
 }
 
@@ -75,11 +82,11 @@
 
 // Menúes desplegables cabecera
 
-@mixin cabeza__desplegables--edit ($cbz_dsp-wth: auto, $cbz_dsp-hgt: 100svh, $cbz_dsp-pdd: 10px) {
+@mixin cabeza__desplegables--edit ($cbz_dsp-wth: auto, $cbz_dsp-hgt: 100svh, $cbz_dsp-pos: fixed, $cbz_dsp-pdd: 10px) {
     font-family: $fnt_01;
     width: $cbz_dsp-wth;
     height: $cbz_dsp-hgt;
-    position: fixed;
+    position: $cbz_dsp-pos;
     transition: .5s;
     z-index: 999;
     padding: $cbz_dsp-pdd;

@@ -1,14 +1,20 @@
-// PASAR MOMENT.JS A ESPAÑOL Y DAR FORMATO A LAS FECHAS
-
-moment.locale('es')
-
-const FECHA_FORMATO = 'DD-MM-YYYY hh:mm:ss'
-
 // FUNCIÓN PARA ELEMENTOS DEL DOM
 
 function $ (id) {
     return document.querySelector(id)
 }
+
+// GENERADOR DE NÚMEROS ALEATORIOS DE 13 CÍFRAS
+
+function random(min, max) {
+    return Math.floor((Math.random() * (max - min + 1)) + min);
+}
+
+// PASAR MOMENT.JS A ESPAÑOL Y DAR FORMATO A LAS FECHAS
+
+moment.locale('es')
+
+const FECHA_FORMATO = 'DD-MM-YYYY hh:mm:ss'
 
 // CATEGORÍAS Y PRODUCTOS
 
@@ -50,6 +56,7 @@ let productos = [
         precio: 3000,
         vendidos: 3500,
         puntuacion: 5,
+        //keywords: 'flores, ramos, ramos básicos, ramos basicos, baratos, rosas, rosadas, rosas rosadas, ramo de rosas, ramos de rosas, regalos, novias, aniversarios, primavera, sin espinas',
         cabecera: 'assets/img/productos/cabecera/rosas-rosas.jpg',
         foto: 'assets/img/productos/foto/ramo-rosas-rosas.jpg'
     },
@@ -62,6 +69,7 @@ let productos = [
         precio: 6000,
         vendidos: 2400,
         puntuacion: 4.2,
+        //keywords: 'flores, ramos, ramos especiales, ramos premium, rosas, rosadas, rosas rosadas, ramo de rosas, ramos de rosas, regalos, novias, aniversarios, primavera, sin espinas',
         cabecera: 'assets/img/productos/cabecera/rosas-rosas.jpg',
         foto: 'assets/img/productos/foto/ramo-rosas-rosas.jpg'
     },
@@ -74,6 +82,7 @@ let productos = [
         precio: 2500,
         vendidos: 7400,
         puntuacion: 3.2,
+        //keywords: 'flores, ramos, ramos básicos, ramos basicos, rosas, rosadas, rosas rosadas, ramo de rosas, ramos de rosas, regalos, novias, aniversarios, primavera, sin espinas',
         cabecera: 'assets/img/productos/cabecera/rosas-rojas.jpg',
         foto: 'assets/img/productos/foto/ramo-rosas-rojas.jpg'
     },
@@ -574,6 +583,496 @@ let productos = [
     }
 ]
 
+// BÚSQUEDAS ARTIFICIALES PARA GENERAR "BÚSQUEDAS POPULARES"
+
+const busquedasArtificiales = [
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Condolencias',
+        categ: 0,
+        fecha: '2023-02-21 11:11:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Condolencias',
+        categ: 0,
+        fecha: '2022-05-21 18:55:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'condolencias',
+        categ: 0,
+        fecha: '2023-03-09 14:21:06'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'condolencias',
+        categ: 0,
+        fecha: '2023-03-09 14:21:06'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'San Valentín',
+        categ: 0,
+        fecha: '2020-02-21 11:11:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'San Valentín',
+        categ: 0,
+        fecha: '2021-08-01 08:42:16'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'San Valentín',
+        categ: 0,
+        fecha: '2019-12-21 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Rosas',
+        categ: 0,
+        fecha: '2023-04-01 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Rosas',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Rosas',
+        categ: 0,
+        fecha: '2019-12-21 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Rosas',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Rosas',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Rosas',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Rosas',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'girasoles',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'girasoles',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'girasoles',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'girasoles',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'cactus',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'cactus',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'jazmines',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'jazmines',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'jazmines',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'jazmines',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'jazmines',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Rosas rojas',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Rosas rojas',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Rosas rojas',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Ramo de rosas rosadas',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Ramo de rosas rosadas',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Ramo de rosas rosadas',
+        categ: 0,
+        fecha: '2022-02-11 03:22:33'
+    }
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // },
+    // {
+    //     id: random(1000000000000, 9999999999999),
+    //     idc: random(1000000000000, 9999999999999),
+    //     terminos: '',
+    //     categ: 0,
+    //     fecha: '2023-02-21 11:11:33'
+    // }
+]
+
+// ARRAYS VACÍOS PARA REGISTRO DE USUARIOS
+
 const datosCliente = []
 
 const direCliente = []
@@ -1035,7 +1534,7 @@ function hacerElRegistro(evt) {
                 //     claves: '',
                 //     categ: '',
                 //     fecha: ''
-                // }
+                // } 80603635885
 
                 datosCliente.push(clienteObj)
                 direCliente.push(direObj)
@@ -1044,6 +1543,7 @@ function hacerElRegistro(evt) {
                 localStorage.setItem('Cliente', JSON.stringify(datosCliente))
                 localStorage.setItem('Direcciones', JSON.stringify(direCliente))
                 localStorage.setItem('Perfil', JSON.stringify(perfilCliente))
+                localStorage.setItem('Busquedas', JSON.stringify(busquedasArtificiales))
 
                 Swal.fire({
                     title: '<h1 class="contenido__confirm--h1">¡Se ha registrado con éxito!</h1>',
@@ -1161,6 +1661,7 @@ function mostrarContenidos (ubicador) {
     const datosDelCliente = JSON.parse(localStorage.getItem('Cliente'))
     const perfilDelCliente = JSON.parse(localStorage.getItem('Perfil'))
     const diresDelCliente = JSON.parse(localStorage.getItem('Direcciones'))
+    const busquedasDelCliente = JSON.parse(localStorage.getItem('Busquedas'))
 
     if (ubicador === 'inicio') {
 
@@ -2106,9 +2607,7 @@ function mostrarContenidos (ubicador) {
                 return 0
             })
 
-
             let dirPrincipal = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id && direcciones.seleccionada === true)
-            //let todasLasDires = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id)
 
             function mostrarDirePrincipal() {
                 for(let direcciones of dirPrincipal){
@@ -2197,19 +2696,13 @@ function mostrarContenidos (ubicador) {
                     }
                 }
             }
-
-            
-
-    
+   
             mostrarDirePrincipal()
 
             mostrarDiresSecundarias()
     
             cambiarDirePrincipal()
 
-            //accionesDires()
-
-            
         }
 
         function direccionesAgregar() {
@@ -2520,15 +3013,6 @@ function mostrarContenidos (ubicador) {
         gestionarDirecciones()
         accionesDire()
 
-
-
-
-
-
-
-
-
-
     }
 
     if (ubicador === 'buscador') {
@@ -2549,6 +3033,351 @@ function mostrarContenidos (ubicador) {
                 })
         }
 
+        function mostrarBusquedasPopulares(){
+
+            const busquedasPopularesFiltradas = busquedasDelCliente.filter(busquedas => busquedas.categ === 0)
+
+            // console.log('console info de array busquedasPopularesFiltradas')
+
+            // console.info(busquedasPopularesFiltradas)
+
+            // console.log('*************************')
+
+            // console.log('console log de array busquedasPopularesFiltradas')
+
+            // console.log(busquedasPopularesFiltradas)
+
+            // console.log('*************************')
+
+            const terminosRepetidos = busquedasPopularesFiltradas.reduce((contador, busqueda) => {
+                const terminos = busqueda.terminos.toLowerCase()
+                //let indice = 0
+                if (!contador[terminos]) {
+                    contador[terminos] = 1
+                } else {
+                    contador[terminos]++
+                    //contador[indice]++
+                }
+                return contador
+            }, {})
+
+            // console.info(terminosRepetidos)
+
+            // console.log('*************************')
+
+            console.log(terminosRepetidos)
+
+            console.log('*************************')
+
+            console.log('ARRAY DE OBJETOS BASADO EN terminosRepetidos')
+
+            const arrayTerminos = Object.entries(terminosRepetidos).map(([key, value]) => ({ [key]: value }))
+
+            console.log(arrayTerminos)
+
+            console.log('*************************')
+
+            console.log('ARRAY arrayTerminos ORDENADO')
+
+            const arrayTerminosOrdenado = arrayTerminos.sort((a, b) => {
+                const valueA = Object.values(a)[0];
+                const valueB = Object.values(b)[0];
+                return valueB - valueA;
+            })
+
+            console.log(arrayTerminosOrdenado)
+
+
+            console.log('*************************')
+
+            //const losTresMasAltos = arrayTerminosOrdenado.slice(0, 3).map(obj => Object.values(obj)[0])
+            
+            const valoresUnicos = [];
+            const losTresMasAltos = [];
+
+            for (let i = 0; i < arrayTerminosOrdenado.length && losTresMasAltos.length < 3; i++) {
+                const value = Object.values(arrayTerminosOrdenado[i])[0]
+                if (!valoresUnicos.includes(value)) {
+                    valoresUnicos.push(value)
+                    losTresMasAltos.push(arrayTerminosOrdenado[i])
+                }
+            }
+
+            const valoresTresMasAltos = losTresMasAltos.map(obj => Object.values(obj)[0])
+
+            console.log('LOS 3 MAS ALTOS')
+
+            console.log(valoresTresMasAltos)
+
+            console.log('*************************')
+
+            const nuevosObjetos = arrayTerminosOrdenado.filter(obj => {
+                const value = Object.values(obj)[0];
+                return value >= valoresTresMasAltos[2] && value <= valoresTresMasAltos[0];
+            })
+
+            console.log('NUEVO ARRAY nuevosObjetos CON LOS OBJETOS DE arrayTerminosOrdenado CUYOS VALORES SEAN LOS 3 MÁS ALTOS')
+
+            console.log(nuevosObjetos)
+
+            //const terminosOrdenados = Object.entries(terminosRepetidos).sort((a, b) => b[1] - a[1])
+            //const terminosOrdenados = Array.entries(terminosRepetidos).sort((a, b) => b[1] - a[1])
+
+            
+
+            //console.log('*************************') 
+
+            //console.log(terminosOrdenados)
+
+            // let terminosFiltrados = []
+            // for (const [terminos, repeticiones] of terminosOrdenados) {
+            //     if (terminosFiltrados.length < 7 || repeticiones === terminosFiltrados[terminosFiltrados.length - 1][1]) {
+            //         terminosFiltrados.push([terminos, repeticiones])
+            //     } else {
+            //         break
+            //     }
+            // }
+
+            for (const obj of nuevosObjetos) {
+                const key = Object.keys(obj)[0];
+                const value = Object.values(obj)[0];
+                laBusqueda = document.createElement('p')
+                laBusqueda.id = `busqueda-gral-${key}`
+                laBusqueda.innerText = `${key} (${value})`
+                $('#busquedas-populares-contenedor').appendChild(laBusqueda)
+            }
+
+        }
+
+        
+        function mostrarResultadosBusqueda(terminos) {
+
+            $('#busqueda-general-resultados').classList.add('activo')
+
+            $('#cerrar-resultados-busqueda').onclick = function(){
+
+                $('#busqueda-general-resultados').classList.remove('activo')
+
+                setTimeout(function(){
+                    const pag = 'buscador.html'
+                    const ini = 'buscador'
+                    fetch(pag)
+                        .then((url) => {
+                            return url.text()
+                        })
+                        .then((seccion) => {
+                            $('#secciones').innerHTML = seccion
+                            mostrarContenidos(ini)
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+                }, 350)
+
+            }
+
+            //const todasLasBusquedas = busquedasDelCliente.filter(busquedas => busquedas.categ === 0)
+
+            const losTerminos = terminos.toLowerCase()
+            const resultados = []
+
+            for (let i = 0; i < productos.length; i+=1) {
+                let nombre = productos[i].nombre.toLowerCase()
+                let desc = productos[i].desc.toLowerCase()
+                let tipo = productos[i].tipo.toLowerCase()
+                if (nombre.includes(losTerminos) || desc.includes(losTerminos) || tipo.includes(losTerminos)) {
+                    resultados.push(productos[i])
+                }
+            }
+
+            if (resultados.length > 0) {
+                // for (var i = 0; i < resultados.length; i++) {
+                //     output += "<p>" + resultados[i].name + "</p>"
+                //     output += "<p>" + resultados[i].description + "</p>"
+                // }
+
+                for (const producto of resultados) {
+                    elProd = document.createElement('div')
+                    elProd.id = `resultado-producto-${producto.id}`
+                    elProd.className = 'busqueda__resultados--box'
+                    elProd.innerHTML = `<div class="busqueda__resultados--box_img">
+                                            <img class="resultados__box--foto" src="${producto.foto}">
+                                            <img class="resultados__box--cabecera" src="${producto.cabecera}">
+                                        </div>
+                                        <div class="busqueda__resultados--box_txt">
+                                            <h2>${producto.nombre}</h2>
+                                            <h3><span><i class="fa-solid fa-star"></i></span>${producto.puntuacion}</h3>
+                                            <p>$${producto.precio}</p>
+                                            <p>Envío $200</p>
+                                        </div>`
+                    $('#busqueda-resultados').appendChild(elProd)
+                }
+
+            } else {
+                sinResult = document.createElement('p')
+                sinResult.innerText = 'Sin resultados'
+                $('#busqueda-resultados').appendChild(sinResult)
+            }
+
+
+        }
+        
+
+        function busquedaGeneral() {
+
+            
+
+            /*
+            // EL QUE VA PARA ABRIR Y CERRAR EL DESPLEGABLE DE RESULTADOS
+
+            $('#buscador-gral-form').onclick = function(){
+                $('#busqueda-general-resultados').classList.add('activo')
+            }
+
+            $('#cerrar-resultados-busqueda').onclick = function(){
+                $('#busqueda-general-resultados').classList.remove('activo')
+            }
+
+            // *******************
+
+            $('#buscador-gral-form').onclick = function(){
+                $('#busqueda-general-resultados').classList.add('activo')
+            }
+
+            $('#cerrar-temporal').onclick = function(){
+                $('#busqueda-general-resultados').classList.remove('activo')
+            }
+
+            //console.log(busquedasDelCliente)
+
+            
+            $('#buscador-gral-form').onclick = function(){
+                $('#busquedas-recientes').classList.remove('activo')
+                $('#busquedas-populares').classList.remove('activo')
+                $('#buscador-gral-form').onblur = function(){
+                    $('#busquedas-recientes').classList.add('activo')
+                    $('#busquedas-populares').classList.add('activo')
+                }
+            }
+            */ 
+
+            
+            function realizarBusqueda(evt) {
+                evt.preventDefault()
+
+                const ahora = moment()
+
+                const idBusqueda = Date.now()
+                const clienteIdBusqueda = datosDelCliente[0].id
+                const terminosDeBusqueda = $('#buscador-gral-ipt').value
+                const categBusqueda = 0
+                const fechaDeBusqueda = ahora.format(FECHA_FORMATO)
+
+
+                const listaBusquedas = []
+    
+                let busquedas = busquedasDelCliente
+                for(busca of busquedas){
+                    listaBusquedas.push(busca)
+                }
+                
+                const nuevaBusquedaObj = {
+                    id: idBusqueda,
+                    idc: clienteIdBusqueda,
+                    terminos: terminosDeBusqueda,
+                    categ: categBusqueda,
+                    fecha: fechaDeBusqueda
+                }
+    
+                listaBusquedas.push(nuevaBusquedaObj)
+                console.log(listaBusquedas)
+                localStorage.setItem('Busquedas', JSON.stringify(listaBusquedas))
+
+                $('#buscador-gral-form').reset()
+
+                mostrarResultadosBusqueda(terminosDeBusqueda)
+
+
+
+
+
+
+
+            }
+
+            $('#buscador-gral-form').addEventListener('submit', realizarBusqueda)
+            
+            
+        }
+
+        busquedaGeneral()
+
+        mostrarBusquedasPopulares()
+
+
+
+        /*
+
+        function realizarBusqueda(evt){
+            evt.preventDefault()
+            const ahora = moment()
+
+            const idBusqueda = Date.now()
+            const clienteIdBusqueda = datosDelCliente[0].id
+            const terminosDeBusqueda = $('#buscador-gral-ipt').value
+            const categBusqueda = 0
+            const fechaDeBusqueda = ahora.format(FECHA_FORMATO)
+
+            if(JSON.parse(localStorage.getItem('Busquedas')) === null){}
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            if(JSON.parse(localStorage.getItem('Busquedas')) === null){
+
+                let fecha = new Date()
+                const fechaDeBusqueda = fecha.toLocaleString() 
+                
+                const buscaObj = {
+                    id: Date.now(),
+                    idc: id,
+                    claves: '',
+                    categ: '',
+                    fecha: fechaDeBusqueda
+                }
+
+                localStorage.setItem('Busquedas', JSON.stringify(buscaObj))
+
+            }
+
+
+
+        }
+
+        $('#buscador-gral-form').addEventListener('submit', realizarBusqueda)
+        
+        */
+        /*
         function busquedasRecientes() {
             if(JSON.parse(localStorage.getItem('Busquedas')) === null) {
                 return
@@ -2556,6 +3385,7 @@ function mostrarContenidos (ubicador) {
                 console.log('acá va la función para mostrar búsquedas recientes')
             }
         }
+        */
 
         // const arreglito = [
         //     {id: 1, fecha: '2023-02-21 11:11:33'}
@@ -2572,7 +3402,7 @@ function mostrarContenidos (ubicador) {
         // const formato = 'DD-MM-YYYY hh:mm:ss'
 
         // const ahora = moment()
-
+        
         // console.log(unaFecha.format(formato))
 
         // console.log(ahora.format(formato))
