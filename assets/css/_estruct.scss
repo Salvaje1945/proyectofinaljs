@@ -3108,6 +3108,9 @@
                 li {
                     @extend .flex-1;
                     margin: 0 0 9px;
+                    border: 1px solid map-get($color, "gris_05");
+                    border-radius: 3px;
+                    padding: 7px 7px 5px;
 
                     p,
                     span {

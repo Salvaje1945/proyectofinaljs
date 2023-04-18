@@ -10,11 +10,30 @@ function random(min, max) {
     return Math.floor((Math.random() * (max - min + 1)) + min);
 }
 
+function fechaFormato (min, max) {
+    let elNumero
+    const numBase = random(min, max)
+    const numCadena = numBase.toString()
+    if (numCadena.length === 1) {
+        const cadenaNumCompleto = '0' + numCadena
+        elNumero = cadenaNumCompleto
+    } else {
+        elNumero = numCadena
+    }
+    return elNumero
+}
+
+// const elDia = fechaFormato(1, 31)
+// const elMes = fechaFormato(1, 12)
+// const elAno = fechaFormato(2020, 2023)
+// const laHora = fechaFormato(0, 23)
+// const minsYsegs = fechaFormato(0, 59)
+
 // PASAR MOMENT.JS A ESPAÑOL Y DAR FORMATO A LAS FECHAS
 
 moment.locale('es')
 
-const FECHA_FORMATO = 'DD-MM-YYYY hh:mm:ss'
+const FECHA_FORMATO = 'YYYY-MM-DD HH:mm:ss'
 
 // CATEGORÍAS Y PRODUCTOS
 
@@ -589,28 +608,71 @@ const busquedasArtificiales = [
     {
         id: random(1000000000000, 9999999999999),
         idc: random(1000000000000, 9999999999999),
-        terminos: 'Condolencias',
+        terminos: 'velorios A',
         categ: 0,
-        fecha: '2023-02-21 11:11:33'
+        fecha: `${fechaFormato(2020, 2023)}-${fechaFormato(1, 12)}-${fechaFormato(1, 31)} ${fechaFormato(0, 23)}:${fechaFormato(0, 59)}:${fechaFormato(0, 59)}`
+        //fecha: '2023-02-21 11:11:33'
     },
     {
         id: random(1000000000000, 9999999999999),
         idc: random(1000000000000, 9999999999999),
-        terminos: 'Condolencias',
+        terminos: 'velorios',
         categ: 0,
         fecha: '2022-05-21 18:55:33'
     },
     {
         id: random(1000000000000, 9999999999999),
         idc: random(1000000000000, 9999999999999),
-        terminos: 'condolencias',
+        terminos: 'velorios',
         categ: 0,
         fecha: '2023-03-09 14:21:06'
     },
     {
         id: random(1000000000000, 9999999999999),
         idc: random(1000000000000, 9999999999999),
-        terminos: 'condolencias',
+        terminos: 'velorios',
+        categ: 0,
+        fecha: '2023-03-09 14:21:06'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Novia',
+        categ: 0,
+        fecha: '2023-02-21 11:11:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Novia',
+        categ: 0,
+        fecha: '2022-05-21 18:55:33'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Novia',
+        categ: 0,
+        fecha: '2023-03-09 14:21:06'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Novia',
+        categ: 0,
+        fecha: '2023-03-09 14:21:06'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Novia',
+        categ: 0,
+        fecha: '2023-03-09 14:21:06'
+    },
+    {
+        id: random(1000000000000, 9999999999999),
+        idc: random(1000000000000, 9999999999999),
+        terminos: 'Novia',
         categ: 0,
         fecha: '2023-03-09 14:21:06'
     },
@@ -1095,16 +1157,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function estaRegistrado() {
     const pag = 'inicio.html'
-        const ini = 'inicio'
-        fetch(pag)
-        .then((url)=>{
+    const ini = 'inicio'
+    fetch(pag)
+        .then((url) => {
             return url.text()
         })
-        .then((seccion)=>{
+        .then((seccion) => {
             $('#secciones').innerHTML = seccion
             mostrarContenidos(ini)
         })
-        .catch((err)=>{
+        .catch((err) => {
             console.log(err)
         })
 }
@@ -1874,8 +1936,7 @@ function mostrarContenidos (ubicador) {
                     })
             }, 350)
         }
-        
-              
+               
         $('#cabeza__menu--btn').onclick = abrirMenuHamb
         $('#hamb-cerrar-sesion').onclick = cerrarSesion
         $('#cabeza__anun--btn').onclick = abrirMenuAnun
@@ -1985,7 +2046,7 @@ function mostrarContenidos (ubicador) {
                 $('#todas-las-direcciones').onclick = todasLasDirecciones
 
                 for (const direCambiar of secundOrden) {
-                    console.log($(`#inicio-desple-dir${direCambiar.id}`))
+                    //console.log($(`#inicio-desple-dir${direCambiar.id}`))
                     $(`#inicio-desple-dir${direCambiar.id}`).onclick = function () {
                         direCambiar.seleccionada = true
 
@@ -2044,8 +2105,7 @@ function mostrarContenidos (ubicador) {
                 $('#contenido-populares').appendChild(elProd)
             }
         }
-
-        
+ 
         mostrarDatoscliente()
         mostrarMasVendIdx()
 
@@ -3033,132 +3093,77 @@ function mostrarContenidos (ubicador) {
                 })
         }
 
-        function mostrarBusquedasPopulares(){
+        function mostrarUltimasBusquedas() {
 
-            const busquedasPopularesFiltradas = busquedasDelCliente.filter(busquedas => busquedas.categ === 0)
+            const busquedasRecientes = busquedasDelCliente.filter(busquedas => busquedas.idc === datosDelCliente[0].id)
 
-            // console.log('console info de array busquedasPopularesFiltradas')
+            if (busquedasRecientes.length === 0) {
 
-            // console.info(busquedasPopularesFiltradas)
+                $('#busquedas-recientes').classList.remove('activo')
 
-            // console.log('*************************')
+            } else {
 
-            // console.log('console log de array busquedasPopularesFiltradas')
+                console.log(busquedasRecientes)
 
-            // console.log(busquedasPopularesFiltradas)
+                const busquedasOrdenadas = busquedasRecientes.sort((a, b) => {
+                    const fechaA = a.fecha.toLowerCase()
+                    const fechaB = b.fecha.toLowerCase()
+                    if (fechaA > fechaB) {
+                        return -1
+                    }
+                    if (fechaA < fechaB) {
+                        return 1
+                    }
 
-            // console.log('*************************')
+                    return 0
+                })
 
-            const terminosRepetidos = busquedasPopularesFiltradas.reduce((contador, busqueda) => {
-                const terminos = busqueda.terminos.toLowerCase()
-                //let indice = 0
-                if (!contador[terminos]) {
-                    contador[terminos] = 1
-                } else {
-                    contador[terminos]++
-                    //contador[indice]++
+                //console.log(busquedasOrdenadas)
+
+                const sieteUltimas = busquedasOrdenadas.slice(0, 7)
+
+                console.log(sieteUltimas)
+
+                console.log('************')
+
+                for (const busqueda of sieteUltimas) {
+                    const fechaBusqueda = moment(busqueda.fecha)
+                    const diferencia = fechaBusqueda.fromNow()
+                    loBuscado = document.createElement('li')
+                    loBuscado.id = `busqueda-gral-${busqueda.terminos}`
+                    loBuscado.innerHTML = `<p>${busqueda.terminos} (${diferencia})</p>
+                                            <span id="eliminar-busqueda-${busqueda.id}"><i class="fa-solid fa-xmark"></i></span>`
+                    $('#busquedas-recientes-lista').appendChild(loBuscado)
                 }
-                return contador
-            }, {})
 
-            // console.info(terminosRepetidos)
-
-            // console.log('*************************')
-
-            console.log(terminosRepetidos)
-
-            console.log('*************************')
-
-            console.log('ARRAY DE OBJETOS BASADO EN terminosRepetidos')
-
-            const arrayTerminos = Object.entries(terminosRepetidos).map(([key, value]) => ({ [key]: value }))
-
-            console.log(arrayTerminos)
-
-            console.log('*************************')
-
-            console.log('ARRAY arrayTerminos ORDENADO')
-
-            const arrayTerminosOrdenado = arrayTerminos.sort((a, b) => {
-                const valueA = Object.values(a)[0];
-                const valueB = Object.values(b)[0];
-                return valueB - valueA;
-            })
-
-            console.log(arrayTerminosOrdenado)
-
-
-            console.log('*************************')
-
-            //const losTresMasAltos = arrayTerminosOrdenado.slice(0, 3).map(obj => Object.values(obj)[0])
-            
-            const valoresUnicos = [];
-            const losTresMasAltos = [];
-
-            for (let i = 0; i < arrayTerminosOrdenado.length && losTresMasAltos.length < 3; i++) {
-                const value = Object.values(arrayTerminosOrdenado[i])[0]
-                if (!valoresUnicos.includes(value)) {
-                    valoresUnicos.push(value)
-                    losTresMasAltos.push(arrayTerminosOrdenado[i])
-                }
             }
 
-            const valoresTresMasAltos = losTresMasAltos.map(obj => Object.values(obj)[0])
-
-            console.log('LOS 3 MAS ALTOS')
-
-            console.log(valoresTresMasAltos)
-
-            console.log('*************************')
-
-            const nuevosObjetos = arrayTerminosOrdenado.filter(obj => {
-                const value = Object.values(obj)[0];
-                return value >= valoresTresMasAltos[2] && value <= valoresTresMasAltos[0];
-            })
-
-            console.log('NUEVO ARRAY nuevosObjetos CON LOS OBJETOS DE arrayTerminosOrdenado CUYOS VALORES SEAN LOS 3 MÁS ALTOS')
-
-            console.log(nuevosObjetos)
-
-            //const terminosOrdenados = Object.entries(terminosRepetidos).sort((a, b) => b[1] - a[1])
-            //const terminosOrdenados = Array.entries(terminosRepetidos).sort((a, b) => b[1] - a[1])
-
             
-
-            //console.log('*************************') 
-
-            //console.log(terminosOrdenados)
-
-            // let terminosFiltrados = []
-            // for (const [terminos, repeticiones] of terminosOrdenados) {
-            //     if (terminosFiltrados.length < 7 || repeticiones === terminosFiltrados[terminosFiltrados.length - 1][1]) {
-            //         terminosFiltrados.push([terminos, repeticiones])
-            //     } else {
-            //         break
-            //     }
-            // }
-
-            for (const obj of nuevosObjetos) {
-                const key = Object.keys(obj)[0];
-                const value = Object.values(obj)[0];
-                laBusqueda = document.createElement('p')
-                laBusqueda.id = `busqueda-gral-${key}`
-                laBusqueda.innerText = `${key} (${value})`
-                $('#busquedas-populares-contenedor').appendChild(laBusqueda)
-            }
-
         }
 
-        
-        function mostrarResultadosBusqueda(terminos) {
+        function accionesBusqueda() {
+            const todasLasBusquedas = busquedasDelCliente.filter(busquedas => busquedas.idc === datosDelCliente[0].id)
+            for(const busqueda of todasLasBusquedas){
+                const idBusca = busqueda.id
+                $(`#eliminar-busqueda-${idBusca}`).onclick = function() {
+                    eliminarBusqueda(idBusca)
+                }
+            }
 
-            $('#busqueda-general-resultados').classList.add('activo')
+            function eliminarBusqueda(idBusqueda) {
 
-            $('#cerrar-resultados-busqueda').onclick = function(){
+                const listaBusquedas = []
 
-                $('#busqueda-general-resultados').classList.remove('activo')
+                let busquedas = busquedasDelCliente
+                for (busca of busquedas) {
+                    if (busca.id != idBusqueda) {
+                        listaBusquedas.push(busca)
+                    }
+                }
 
-                setTimeout(function(){
+                localStorage.setItem('Busquedas', JSON.stringify(listaBusquedas))
+
+                setTimeout(function () {
                     const pag = 'buscador.html'
                     const ini = 'buscador'
                     fetch(pag)
@@ -3172,11 +3177,92 @@ function mostrarContenidos (ubicador) {
                         .catch((err) => {
                             console.log(err)
                         })
-                }, 350)
+                }, 10)
 
             }
+        }
 
-            //const todasLasBusquedas = busquedasDelCliente.filter(busquedas => busquedas.categ === 0)
+        function mostrarBusquedasPopulares(){
+
+            const busquedasPopularesFiltradas = busquedasDelCliente.filter(busquedas => busquedas.categ === 0)
+
+            const objTerminosRepetidos = busquedasPopularesFiltradas.reduce((contador, busqueda) => {
+                const terminos = busqueda.terminos.toLowerCase()
+                if (!contador[terminos]) {
+                    contador[terminos] = 1
+                } else {
+                    contador[terminos]++
+                }
+                return contador
+            }, {})
+
+            const arrayTerminosRepetidos = Object.entries(objTerminosRepetidos).map(([key, value]) => ({ [key]: value }))
+
+            const terminosRepetidosOrdenado = arrayTerminosRepetidos.sort((a, b) => {
+                const valorA = Object.values(a)[0]
+                const valorB = Object.values(b)[0]
+                return valorB - valorA
+            })
+
+            //console.log(terminosRepetidosOrdenado)
+
+            const valoresUnicos = []
+            const topCinco = []
+
+            for (let i = 0; i < terminosRepetidosOrdenado.length && topCinco.length < 5; i++) {
+                const valor = Object.values(terminosRepetidosOrdenado[i])[0]
+                if (!valoresUnicos.includes(valor)) {
+                    valoresUnicos.push(valor)
+                    topCinco.push(terminosRepetidosOrdenado[i])
+                }
+            }
+
+            const cincoMayoresValores = topCinco.map(obj => Object.values(obj)[0])
+
+            const losMasBuscados = terminosRepetidosOrdenado.filter(obj => {
+                const valor = Object.values(obj)[0]
+                return valor >= cincoMayoresValores[4] && valor <= cincoMayoresValores[0]
+            })
+
+            for (const buscado of losMasBuscados) {
+                const clave = Object.keys(buscado)[0]
+                const valor = Object.values(buscado)[0]
+                laBusqueda = document.createElement('p')
+                laBusqueda.id = `busqueda-gral-${clave}`
+                laBusqueda.innerText = `${clave} (${valor})`
+                $('#busquedas-populares-contenedor').appendChild(laBusqueda)
+            }
+
+        }
+        
+        function mostrarResultadosBusqueda(terminos) {
+
+            $('#busquedas-recientes').classList.remove('activo')
+            $('#busquedas-populares').classList.remove('activo')
+            $('#busqueda-general-resultados').classList.add('activo')
+
+            $('#cerrar-resultados-busqueda').onclick = function(){
+
+                setTimeout(function(){
+                    const pag = 'buscador.html'
+                    const ini = 'buscador'
+                    fetch(pag)
+                        .then((url) => {
+                            return url.text()
+                        })
+                        .then((seccion) => {
+                            $('#busquedas-recientes').classList.add('activo')
+                            $('#busquedas-populares').classList.add('activo')
+                            $('#busqueda-general-resultados').classList.remove('activo')
+                            $('#secciones').innerHTML = seccion
+                            mostrarContenidos(ini)
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+                }, 10)
+
+            }
 
             const losTerminos = terminos.toLowerCase()
             const resultados = []
@@ -3191,12 +3277,28 @@ function mostrarContenidos (ubicador) {
             }
 
             if (resultados.length > 0) {
-                // for (var i = 0; i < resultados.length; i++) {
-                //     output += "<p>" + resultados[i].name + "</p>"
-                //     output += "<p>" + resultados[i].description + "</p>"
-                // }
 
-                for (const producto of resultados) {
+                const resultadosOrdenados = resultados.sort((a, b) => {
+                    if (a.idc > b.idc) {
+                        return 1
+                    }
+                    if (a.idc < b.idc) {
+                        return -1
+                    }
+
+                    if (a.precio < b.precio) {
+                        return 1
+                    }
+                    if (a.precio > b.precio) {
+                        return -1
+                    }
+
+                    return 0
+                })
+
+                //console.log(resultadosOrdenados)
+
+                for (const producto of resultadosOrdenados) {
                     elProd = document.createElement('div')
                     elProd.id = `resultado-producto-${producto.id}`
                     elProd.className = 'busqueda__resultados--box'
@@ -3219,60 +3321,19 @@ function mostrarContenidos (ubicador) {
                 $('#busqueda-resultados').appendChild(sinResult)
             }
 
-
         }
-        
 
         function busquedaGeneral() {
-
-            
-
-            /*
-            // EL QUE VA PARA ABRIR Y CERRAR EL DESPLEGABLE DE RESULTADOS
-
-            $('#buscador-gral-form').onclick = function(){
-                $('#busqueda-general-resultados').classList.add('activo')
-            }
-
-            $('#cerrar-resultados-busqueda').onclick = function(){
-                $('#busqueda-general-resultados').classList.remove('activo')
-            }
-
-            // *******************
-
-            $('#buscador-gral-form').onclick = function(){
-                $('#busqueda-general-resultados').classList.add('activo')
-            }
-
-            $('#cerrar-temporal').onclick = function(){
-                $('#busqueda-general-resultados').classList.remove('activo')
-            }
-
-            //console.log(busquedasDelCliente)
-
-            
-            $('#buscador-gral-form').onclick = function(){
-                $('#busquedas-recientes').classList.remove('activo')
-                $('#busquedas-populares').classList.remove('activo')
-                $('#buscador-gral-form').onblur = function(){
-                    $('#busquedas-recientes').classList.add('activo')
-                    $('#busquedas-populares').classList.add('activo')
-                }
-            }
-            */ 
-
             
             function realizarBusqueda(evt) {
                 evt.preventDefault()
 
                 const ahora = moment()
-
                 const idBusqueda = Date.now()
                 const clienteIdBusqueda = datosDelCliente[0].id
                 const terminosDeBusqueda = $('#buscador-gral-ipt').value
                 const categBusqueda = 0
                 const fechaDeBusqueda = ahora.format(FECHA_FORMATO)
-
 
                 const listaBusquedas = []
     
@@ -3290,29 +3351,28 @@ function mostrarContenidos (ubicador) {
                 }
     
                 listaBusquedas.push(nuevaBusquedaObj)
-                console.log(listaBusquedas)
+                //console.log(listaBusquedas)
                 localStorage.setItem('Busquedas', JSON.stringify(listaBusquedas))
 
                 $('#buscador-gral-form').reset()
 
                 mostrarResultadosBusqueda(terminosDeBusqueda)
 
-
-
-
-
-
-
             }
 
             $('#buscador-gral-form').addEventListener('submit', realizarBusqueda)
             
-            
         }
 
-        busquedaGeneral()
+        
+
+        mostrarUltimasBusquedas()
 
         mostrarBusquedasPopulares()
+
+        accionesBusqueda()
+
+        busquedaGeneral()
 
 
 
@@ -3331,28 +3391,6 @@ function mostrarContenidos (ubicador) {
             if(JSON.parse(localStorage.getItem('Busquedas')) === null){}
 
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             if(JSON.parse(localStorage.getItem('Busquedas')) === null){
 
                 let fecha = new Date()
@@ -3376,8 +3414,7 @@ function mostrarContenidos (ubicador) {
 
         $('#buscador-gral-form').addEventListener('submit', realizarBusqueda)
         
-        */
-        /*
+        
         function busquedasRecientes() {
             if(JSON.parse(localStorage.getItem('Busquedas')) === null) {
                 return
@@ -3385,46 +3422,7 @@ function mostrarContenidos (ubicador) {
                 console.log('acá va la función para mostrar búsquedas recientes')
             }
         }
-        */
-
-        // const arreglito = [
-        //     {id: 1, fecha: '2023-02-21 11:11:33'}
-        // ]
-
-        // const fechaUltimaBusqueda = moment(arreglito[0].fecha)
-
-        // const diferencia = fechaUltimaBusqueda.fromNow()
-
-        // console.log(diferencia)
-
-        // const unaFecha = moment('2023-02-21 11:11:33')
-
-        // const formato = 'DD-MM-YYYY hh:mm:ss'
-
-        // const ahora = moment()
         
-        // console.log(unaFecha.format(formato))
-
-        // console.log(ahora.format(formato))
-
-        //const diferenciaDias = ahora.diff(unaFecha, 'days', 'hours', 'minutes', 'seconds')
-
-        // const diferenciaDias = unaFecha.fromNow()
-
-        // console.log(diferenciaDias)
-
-        //const fechaHoy = hoy.format('DD-MM-YYYY hh:mm:ss')
-
-        // console.log(fechaHoy)
-
-        // const fechaVieja = moment('10-04-2023 11:09:15')
-
-        // console.log(fechaVieja)
-
-        //console.log(hoy.format('DD-MM-YYYY hh:mm:ss'))
-
-
-        /*
         function verificarBusquedas() {
             if(JSON.parse(localStorage.getItem('Busquedas')) === null){
 
@@ -5038,5 +5036,3 @@ function pedirPag(evt) {
             console.log(err)
         })
 }
-
-    

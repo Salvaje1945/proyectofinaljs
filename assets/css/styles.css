@@ -3237,6 +3237,9 @@ a {
 }
 #buscador .contenido .contenido__busquedas--recientes ul li {
   margin: 0 0 9px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 7px 7px 5px;
 }
 #buscador .contenido .contenido__busquedas--recientes ul li p,
 #buscador .contenido .contenido__busquedas--recientes ul li span {
