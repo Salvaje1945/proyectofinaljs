@@ -2399,6 +2399,8 @@
     
 }
 
+// ESTILOS DIRECCIONES
+
 #direcciones {
 
     // DESPLEGABLES
@@ -3173,6 +3175,508 @@
     }
 }
 
+// ESTILOS CARRITO
+
+#micarrito {
+
+    // DESPLEGABLES
+
+    .despleg__dir--agregar {
+        @include cabeza__desplegables--edit ($cbz_dsp-wth: 100vw, $cbz_dsp-hgt: 100dvh, $cbz_dsp-pdd: 0);
+        left: 0;
+        top: 200%;
+        background-color: map-get($color, "gris_12");
+
+        .despleg__dir--agregar_cbz {
+            background-color: map-get($color, "blanco");
+            border-bottom: 1px solid map-get($color, "gris_10");
+            display: block;
+            height: 11%;
+            padding: 5px 0 0;
+            //border-bottom: 1px solid #000;
+
+            .despleg__dir--cerrar {
+                display: block;
+                font-size: 1.5rem;
+                color: map-get($color, "negro");
+                margin: 0 15px 7px;
+                height: 28px;
+            }
+
+            h1 {
+                font-family: $fnt_01;
+                color: map-get($color, "negro");
+                font-weight: 600;
+                font-size: 1.25rem;
+                margin-left: 15px;
+            }
+        }
+        
+        .despleg__dir--agregar_form {
+            @extend .flex-8;
+            height: 89%;
+
+            .dir__agregar--form_cont {
+                @extend .flex-9;
+                width: 100%;
+                height: 89%;
+
+                .dir__agregar--form_bx {
+                    width: 90vw;
+                    height: auto;
+                    margin: 5vh 0 0;
+                    background-color: map-get($color, "blanco");
+                    box-shadow: 0px 0px 11px 0px rgb(0 0 0 / 10%);
+                    border-radius: 11px;
+                    border: 1px solid map-get($color, "gris_05");
+                    padding: 5vw;
+
+                    h2 {
+                        display: block;
+                        color: map-get($color, "gris_09");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        transition: .3s linear all;
+                    }
+
+                    h2.activo {
+                        color: map-get($color, "negro");
+                        transition: .3s ease all;
+                    }
+
+                    h2.error {
+                        color: map-get($color, "rojo_02");
+                    }
+
+                    .dir__agregar--predet {
+                        display: block;
+                        color: map-get($color, "gris_09");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 27px;
+                    }
+
+                    .dir__agregar--ipt_error {
+                        display: none;
+                        color: map-get($color, "rojo_02");
+                        font-family: $fnt_01;
+                        font-size: 0.75rem;
+                        transition: .3s linear all;
+                    }
+
+                    .dir__agregar--ipt_error.activo {
+                        display: block;
+                    }
+
+                    .dir__agregar--form_ipt {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 27px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+                    }
+
+                    .dir__agregar--form_txtar {
+                        display: block;
+                        width: 100%;
+                        height: 100px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 15px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+                    }
+
+                    .dir__agregar--form_ipt:-webkit-autofill,
+                    .dir__agregar--form_ipt:-webkit-autofill:focus {
+                        transition: background-color 600000s 0s, color 600000s 0s !important;
+                        font-family: $fnt_01 !important;
+                        font-size: 1rem !important;
+                    }
+
+                    .dir__agregar--form_ipt.error {
+                        border-bottom: 2px solid map-get($color, "rojo_02");
+                    }
+
+                    .dir__agregar--form_select {
+                        display: block;
+                        width: 100%;
+                        height: 35px;
+                        background-color: map-get($color, "blanco");
+                        outline: none;
+                        border-bottom: 2px solid map-get($color, "gris_05");
+                        color: map-get($color, "gris_03");
+                        font-family: $fnt_01;
+                        font-size: 1rem;
+                        margin: 0 0 35px;
+                        transition: .3s ease all;
+    
+                        &:focus {
+                            border-bottom: 2px solid map-get($color, "negro");
+                            color: map-get($color, "negro");
+                            transition: .3s linear all;
+                        }
+
+                    }
+                }
+ 
+            }
+
+            .dir__agregar--form_btn {
+                width: 100vw;
+                height: 11%;
+                padding: 14px;
+                background-color: map-get($color, "blanco");
+                box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
+                border-top: 1px solid map-get($color, "gris_04");
+                
+                .dir__agregar--form_btn-btn {
+                    @include form__btns($forms_btn-hgt: 100%, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 1rem, $forms_btn-fntwght: 500, $forms_btn-brdrad: 25px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));          
+                }
+            }
+        }   
+
+    }
+
+    .despleg__dir--agregar.activo {
+        top: 0;
+    } 
+
+    // ************
+    
+    .cabeza {
+        @extend .flex-3;
+        width: 100vw;
+        background-color: map-get($color, "blanco");
+        height: 42px;
+        //z-index: 500;
+        border-bottom: 1px solid map-get($color, "gris_10");
+            
+        div {
+            display: inline-block;
+            font-size: 1rem;
+            color: map-get($color, "negro");
+            margin: 0 21px 0 11px;
+        }
+
+        h1 {
+            display: inline-block;
+            font-family: $fnt_01;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: map-get($color, "negro");
+        }     
+
+    }
+
+    .contenido {
+        display: block;
+        width: 100vw;
+        margin: 3svh 0 0;
+        padding: 0 5vw;
+        height: auto;
+        //z-index: 100;
+
+        ul {
+            list-style: none;
+            text-align: left;
+            color: map-get($color, "negro");
+
+            li {
+                border-bottom: 1px solid map-get($color, "gris_04");
+                padding: 9px 0;
+
+                &:hover {
+                    background-color: map-get($color, "gris_05");
+                }
+
+                div {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-items: flex-start;
+
+                    .contenido__carrito--fotoprod {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        display: inline-block;
+                        margin: 0 10px 0 0;
+
+                        img {
+                            width: 50px;
+                            border-radius: 5px;
+                        }
+                    }
+
+                    // .contenido__dir--ico {
+                    //     margin-top: 5px;
+                    // }
+
+                    p {
+                        font-size: 1.25rem;
+                        font-family: $fnt_01;
+                        color: map-get($color, "negro");
+                        display: inline-block;
+                    }
+
+                    div {
+                        display: inline-block;
+
+                        h2 {
+                            font-family: $fnt_01;
+                            font-size: 1rem;
+                            font-weight: 500;
+                            color: map-get($color, "negro");
+                            display: block;
+                            //min-width: 75vw;
+                        }
+
+                        p {
+                            font-family: $fnt_01;
+                            font-size: 0.75rem;
+                            color: map-get($color, "gris_01");
+                            display: block;
+                        }
+
+                    }
+
+                    .contenido__carrito--opciones {
+                        margin: auto 0 auto auto;
+                        display: inline-block;
+
+                        .contenido__carrito--precio {
+                            font-family: $fnt_01;
+                            font-size: 1rem;
+                            font-weight: 600;
+                            text-align: right;
+                            color: map-get($color, "negro");
+                            display: block;
+                        }
+
+                        .contenido__carrito--acciones {
+                            display: inline-block;
+                            width: 16vw;
+                            height: 25px;
+                            border-radius: 3px;
+                            border: 1px solid map-get($color, "gris_03");
+                            padding: 3px 4px;
+
+                            .carrito__producto--izq,
+                            .carrito__producto--ctr,
+                            .carrito__producto--dch {
+                                font-size: 0.75rem;
+                                color: map-get($color, "negro");
+                            }
+
+                            .carrito__producto--ctr {
+                                font-family: $fnt_01;
+                                margin: 0 3px;
+                            }
+                        }
+
+                        .contenido__dir--chk,
+                        .contenido__dir--act {
+                            width: 16px;
+                            height: 16px;
+                            font-size: 1rem;
+                        }
+
+                        .contenido__dir--act.diome {
+                            margin: 0 5px;
+                        }
+
+                        .contenido__dir--chk.true {
+                            color: map-get($color, "verde_01");
+                        }
+
+                        .contenido__dir--chk.false {
+                            color: map-get($color, "negro");
+                        }
+
+                        .contenido__dir--act {
+                            color: map-get($color, "negro");
+
+                            &:hover {
+                                color: map-get($color, "verde_01");
+                            }
+                        }
+                    }
+                }
+
+                #agregar-nueva-dir {
+                    align-items: center;
+                    margin: 0 0 11px;
+                }
+
+            }
+        }
+
+        // CUERPO
+
+        /*
+        .contenido__edit--basico {
+            @extend .flex-7;
+            width: auto;
+            height: auto;
+
+            .contenido__edit--basico_img {
+                display: block;
+                position: relative;
+                width: 80px;
+                height: 80px;
+                margin: 0 0 15px;
+
+                .edit__basico--btn {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 50%;
+                    background-color: map-get($color, "gris_07");
+                    //padding: 0 0 0.1px;
+                    z-index: 101;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: center;
+                    align-items: center;
+
+                    span {
+                        display: block;
+                        color: map-get($color, "negro");
+                        font-size: 1rem;
+                        line-height: 0.87;
+                        margin: 0 0 1px 1px;
+                    }
+                }
+
+                img {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                }
+
+            }
+
+            .contenido__edit--basico_nom {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: flex-start;
+                text-align: center;
+                height: 30px;
+
+                h1 {
+                    display: inline-block;
+                    font-family: $fnt_01;
+                    font-size: 1.35rem;
+                    font-weight: 600;
+                    color: map-get($color, "negro");
+                }
+
+                span {
+                    display: inline-block;
+                    //height: 100%;
+                    font-size: 0.75rem;
+                    color: map-get($color, "negro");
+                    margin: 7px 0 0 7px;
+                    //padding: 0 0 25px;
+                }
+
+            }
+
+            p {
+                display: block;
+                font-family: $fnt_01;
+                font-size: 0.9rem;
+                font-weight: normal;
+                color: map-get($color, "gris_01");
+            }
+
+        }
+
+        .contenido__edit--opciones {
+            margin: 37px 0 0;
+           
+            .contenido__edit--opciones_bx {
+                @extend .flex-1;
+                padding: 5px 0 0;
+                height: 42px;
+                //margin: 0 0 11px;
+                border-bottom: 1px solid map-get($color, "gris_10");
+                background-color: map-get($color, "blanco");
+                transition: .5s ease all;
+    
+                .contenido__edit--opciones_ico,
+                .contenido__edit--opciones_fle {
+                    display: inline-block;
+                    font-size: 1rem;
+                    color: map-get($color, "negro");
+                    //margin: 0 21px 0 11px;
+                }
+    
+                .contenido__edit--opciones_ico {
+                    margin: 0 21px 0 7px;
+                }
+    
+                .contenido__edit--opciones_fle {
+                    margin: 0 7px 0 21px;
+                }
+
+                .contenido__edit--opciones_fle.pasivo {
+                    visibility: hidden;
+                }
+    
+                h1 {
+                    display: inline-block;
+                    font-family: $fnt_01;
+                    width: 80%;
+                    text-align: left;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    color: map-get($color, "gris_01");
+                }
+    
+                &:hover {
+                    background-color: map-get($color, "gris_14");
+                    transition: .5s linear all;
+                }
+            }
+
+        }
+
+        .contenido__edit--opciones.otras {
+            margin: 21px 0 0;
+            border-top: 5px solid map-get($color, "gris_10");
+            padding: 11px 0 0;
+        }
+
+        */
+    }
+    
+}
+
 // ESTILOS CATEGORÍAS Y SUBCATEGORÍAS
 
 #flores {
@@ -3202,6 +3706,7 @@
             .cabeza__menu--desp_pt1 {
                 @extend .flex-3;
                 margin: 0 5vw;
+                width: 90vw;
                 
                 span {
                     display: inline-block;
@@ -3213,7 +3718,8 @@
 
                 div {
                     display: inline-block;
-                    width: 83vw;
+                    //width: 83vw;
+                    flex-grow: 1;
 
                     form {
                         display: flex;
@@ -3255,6 +3761,36 @@
                     }
                 }
 
+                .cabeza__menu--desp_pt1-carrito {
+                    display: none;
+                    height: 30px;
+                    width: 5vw;
+                    margin: 0 0 0 2vw;
+                    background-color: map-get($color, "rojo_01");
+                    border-radius: 3px;
+                    padding: 5px 0 0 9px;
+
+                    div,
+                    p {
+                        display: inline-block;
+                        font-size: 0.9rem;
+                        color: map-get($color, "blanco");
+                    }
+
+                    div {
+                        margin: 0 3px 0 0;
+                    }
+
+                    p {
+                        font-family: $fnt_01;
+                        font-weight: 600;
+                    }
+
+                }
+
+                .cabeza__menu--desp_pt1-carrito.activo {
+                    display: inline-block;
+                }
                 
             }
 
@@ -3485,9 +4021,51 @@
     .contenido {
         margin: 42px 0 0;
 
-        // p {
-        //     margin: 5vw 5vw;
-        // }
+        .contenido__despleg--carrito {
+            @extend .flex-12;
+            width: 100vw;
+            height: 10svh;
+            position: fixed;
+            left: 0;
+            bottom: -100%;
+            //background-color: brown;
+            background-color: map-get($color, "blanco");
+            box-shadow: 0px -10px 11px 1px rgba(0, 0, 0, 0.25);
+            border-top: 1px solid map-get($color, "gris_04");
+            transition: .5s ease all;
+            z-index: 999;
+            padding: 3vw;
+
+            .contenido__despleg--carrito_precio {
+                display: inline-block;
+                text-align: left;
+
+                h1 {
+                    font-family: $fnt_01;
+                    font-size: 0.75rem;
+                    color: map-get($color, "gris_01");
+                    font-weight: normal;
+                }
+
+                p {
+                    font-family: $fnt_01;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: map-get($color, "negro")
+                }
+            }
+
+            .contenido__despleg--carrito_btn {
+                display: inline-block;
+                @include form__btns ($forms_btn-wth: 60vw, $forms_btn-hgt: 5svh, $forms_btn-bgc: map-get($color, "rojo_02"), $forms_btn-color: map-get($color, "blanco"), $forms_btn-fntsiz: 0.85rem, $forms_btn-fntwght: 600, $forms_btn-brdrad: 3px, $forms_btn-hvr_bgc: map-get($color, "rojo_03"));
+                margin: auto 0;
+            }
+        }
+
+        .contenido__despleg--carrito.activo {
+            bottom: 0;
+            transition: .5s linear all;
+        }
 
         .contenido__masvendidos {
             margin: 0 0 5svh;
@@ -3635,7 +4213,7 @@
         }
 
         .contenido__prodstodos--cont {
-            margin: 0 5vw;
+            margin: 0 5vw 10svh;
 
             h1 {
                 font-family: $fnt_01;
@@ -3645,6 +4223,141 @@
                 //line-height: 14px;
                 margin: 0 0 2.5svh;
             }
+
+            .contenido__prodstodos--cont_box {
+                @extend .flex-11;
+
+                .contenido__prodstodos--box {
+                    //flex: 0 0 auto;
+                    width: 43.125vw;
+                    height: auto;
+                    //background-color: map-get($color, "gris_03");
+                    //overflow: hidden;
+                    border-radius: 10px;
+                    border: 1px solid map-get($color, "gris_03");
+                    //padding: 11px;
+                    //align-items: flex-start;
+                    margin: 0 0 21px;
+    
+                    .contenido__prodstodos--box_img {
+                        width: 100%;
+                        //border-radius: 5px;
+                        height: 85px;
+                        overflow: hidden;
+                        position: relative;
+                        display: block;
+    
+                        .prodstodos__box--img_ico {
+                            width: 25px;
+                            height: 25px;
+                            //height: 125px;
+                            border-radius: 50%;
+                            background-color: map-get($color, "blanco");
+                            position: absolute;
+                            top: 5px;
+                            right: 10px;
+                            border: 1px groove map-get($color, "gris_10");
+                            z-index: 101;
+    
+                            span {
+                                display: block;
+                                width: 16px;
+                                height: 16px;
+                                font-size: 1rem;
+                                color: map-get($color, "negro");
+                                margin: 4px 0 0 3px;
+                            }
+    
+                        }
+    
+                        .prodstodos__box--img_foto {
+                            width: 42.595vw;
+                            //height: auto;
+                            //height: 125px;
+                            object-fit: none;
+                            object-position: 50% 75%;
+                            border-radius: 10px;
+                            overflow: hidden;
+                        }
+                    }
+    
+                    .contenido__prodstodos--txt {
+                        width: 100%;
+                        display: block;
+                        //height: 150px;
+                        padding: 7px;
+    
+                        h1 {
+                            font-family: $fnt_01;
+                            font-size: 0.8rem;
+                            color: map-get($color, "negro");
+                            font-weight: 600;
+                            //line-height: 14px;
+                            //margin-left: 5vw;
+                            display: block;
+                            min-height: 55px;
+                            margin: 0;
+                        }
+    
+                        .prodstodos__txt--bttm {
+                            @extend .flex-4;
+                            height: auto;
+                            
+                            p {
+                                display: inline-block;
+                                font-family: $fnt_01;
+                                font-size: 0.7rem;
+                                color: map-get($color, "negro");
+                                font-weight: 600; 
+                                margin: 0;
+                            }
+    
+                            div {
+                                display: inline-block;
+                                width: 27px;
+                                height: 27px;
+                                //height: 125px;
+                                border-radius: 50%;
+                                background-color: map-get($color, "blanco");
+                                border: 1px groove map-get($color, "negro");
+    
+                                span {
+                                    display: block;
+                                    margin: 3px 0 0 4px;
+                                    font-size: 1.15rem;
+                                    color: map-get($color, "negro");
+                                }
+                            }
+                        }
+                    }
+    
+                    /*.contenido__masvendidos--box_cont {
+                        @extend .flex-2;
+    
+                        .contenido__masvendidos--img {
+                            display: inline-block;
+                            border-radius: 10px;
+                            width: 11.5vw;
+                            background-color: map-get($color, "naranja_02");
+                            overflow: hidden;
+                            height: 43px;
+                        }
+        
+                        
+                    }*/
+    
+                    // &:first-child {
+                    //     margin-left: 5vw;
+                    // }
+    
+                    // &:last-child{
+                    //     margin-right: 5vw;
+                    // }
+                }
+            }
+
+
+            /*
 
             .contenido__prodstodos--box {
                 width: 100%;
@@ -3730,7 +4443,7 @@
 
             }  
 
-
+            */
             
         }
 

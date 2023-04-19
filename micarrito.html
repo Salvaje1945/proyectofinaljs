@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<div id="micarrito">
+    <!-- DESPLEGABLES -->
+    <!-- AGREGAR -->
+    <div class="despleg__dir--agregar" id="despleg__dir--agr">
+        <div class="despleg__dir--agregar_cbz">
+            <div class="despleg__dir--cerrar" id="despleg__dir--agr--cer">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <h1>Nueva dirección</h1>
+        </div>
+        <form class="despleg__dir--agregar_form" id="agregar-dir-form">
+            <div class="dir__agregar--form_cont">
+                <div class="dir__agregar--form_bx">
+                    <h2>Calle y altura</h2>
+                    <p class="dir__agregar--ipt_error" id="nuevadir-calle-error">Debe ingresar una dirección</p>
+                    <input id="nuevadir-calle" type="text" class="dir__agregar--form_ipt" placeholder="Calle Falsa 123">
+                    <h2>Dpto</h2>
+                    <input id="nuevadir-dpto" type="text" class="dir__agregar--form_ipt" placeholder="9°B / Casa">
+                    <h2 class="dir__agregar--predet">Predeterminada:  <input type="checkbox" id="nuevadir-predet"></h2>
+                    <h2>Comentario (Opcional)</h2>
+                    <textarea id="nuevadir-coment" class="dir__agregar--form_txtar"></textarea>
+                </div>
+            </div>
+            <div class="dir__agregar--form_btn">
+                <button class="dir__agregar--form_btn-btn" type="submit" id="nuevadir-enviar">Agregar</button>
+            </div>
+        </form>
+    </div>
+    <!-- EDITAR -->
+    <div class="despleg__dir--agregar" id="despleg__dir--edit">
+        <div class="despleg__dir--agregar_cbz">
+            <div class="despleg__dir--cerrar" id="despleg__dir--edit--cer">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <h1>Editar dirección</h1>
+        </div>
+        <form class="despleg__dir--agregar_form" id="editar-dir-form">
+            <div class="dir__agregar--form_cont">
+                <div class="dir__agregar--form_bx">
+                    <h2>Calle y altura</h2>
+                    <p class="dir__agregar--ipt_error" id="editardir-calle-error">Debe ingresar una dirección</p>
+                    <input id="editardir-calle" type="text" class="dir__agregar--form_ipt" placeholder="Calle Falsa 123">
+                    <h2>Dpto</h2>
+                    <input id="editardir-dpto" type="text" class="dir__agregar--form_ipt" placeholder="9°B / Casa">
+                    <h2>Comentario (Opcional)</h2>
+                    <textarea id="editardir-coment" class="dir__agregar--form_txtar"></textarea>
+                </div>
+            </div>
+            <div class="dir__agregar--form_btn">
+                <button class="dir__agregar--form_btn-btn" type="submit" id="editardir-enviar">Agregar</button>
+            </div>
+        </form>
+    </div>
+    <!-- ********** -->
+    <header class="cabeza">
+        <div id="volver-inicio-1"><i class="fa-solid fa-arrow-left" id="volver-inicio-2"></i></div>
+        <h1>Mi carrito de compras</h1>
+    </header>
+    <main class="contenido">
+        <ul id="listar-productos-carrito">
+            <!-- <li>
+                <div>    
+                    <div class="contenido__carrito--fotoprod">
+                        <img src="assets/img/productos/foto/ramo-girasoles.jpg">
+                    </div>
+                    <div>
+                        <h2>Sarlanga</h2>
+                        <p>con burundanga</p>
+                    </div>
+                    <div class="contenido__carrito--opciones">
+                        <div class="contenido__carrito--precio">$34000</div>
+                        <div class="contenido__carrito--acciones">
+                            <div class="carrito__producto--izq">
+                                <i class="fa-solid fa-minus"></i>
+                            </div>
+                            <div class="carrito__producto--ctr">30</div>
+                            <div class="carrito__producto--dch">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li> -->
+        </ul>
+    </main>
+</div>

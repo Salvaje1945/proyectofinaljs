@@ -567,7 +567,7 @@ let productos = [
     {
         id: 42,
         idc: 4,
-        nombre: 'Fertifox Activador De Floración',
+        nombre: 'Activador De Floración',
         desc: 'Fertifox activador de floración aumenta la cantidad y calidad de flores y frutos. Mejora la pigmentación, otorgando colores más intensos. Evita que las flores y frutos caigan prematuramente. Provee una alimentación completa para el ciclo floral. Fertifox activador de floración es recomendado por el fabricante para frutales, rosas, azalea, jazmines, claveles.',
         tipo: 'Fertilizantes',
         precio: 1150,
@@ -579,7 +579,7 @@ let productos = [
     {
         id: 43,
         idc: 4,
-        nombre: 'Fertifox Activador De Follaje',
+        nombre: 'Activador De Follaje',
         desc: 'Fertifox activador de follaje, es un fertilizante líquido ideal para fomentar el crecimiento de hojas, tallos y la floración de todo tipo de plantas de interior y exterior. Mejora el color, textura, resistencia y crecimiento de las plantas. Estimula el crecimiento de brotes sanos. Fertifox activador de follaje provee una completa alimentación que favorece la sanidad vegetal. Los fertilizantes líquidos usados como complemento en fumigaciones para control de plagas en espacios verdes, potencian la acción insecticida y fungicida sin elevar las dosis de aplicación.',
         tipo: 'Fertilizantes',
         precio: 1150,
@@ -601,6 +601,8 @@ let productos = [
         foto: 'assets/img/productos/foto/insumos-fertilizantes-potenciado.jpg'
     }
 ]
+
+let carrito = []
 
 // BÚSQUEDAS ARTIFICIALES PARA GENERAR "BÚSQUEDAS POPULARES"
 
@@ -1140,6 +1142,8 @@ const datosCliente = []
 const direCliente = []
 
 const perfilCliente = []
+
+//const carrito = []
 
 document.addEventListener('DOMContentLoaded', () => {
     if(JSON.parse(localStorage.getItem('Cliente')) != null){
@@ -1719,11 +1723,33 @@ function registrarse() {
     $('#form__registro').addEventListener('submit', hacerElRegistro)
 }
 
+/*
+function mostrarCarrito() {
+
+}
+*/
+
 function mostrarContenidos (ubicador) { 
     const datosDelCliente = JSON.parse(localStorage.getItem('Cliente'))
     const perfilDelCliente = JSON.parse(localStorage.getItem('Perfil'))
     const diresDelCliente = JSON.parse(localStorage.getItem('Direcciones'))
     const busquedasDelCliente = JSON.parse(localStorage.getItem('Busquedas'))
+
+    function verificarCarritos() {
+        if(JSON.parse(localStorage.getItem('Carritos')) != null){
+            const todosLosCarritos = JSON.parse(localStorage.getItem('Carritos'))
+            const carritosDelCliente = todosLosCarritos.filter(carritos => carritos.idc === datosDelCliente[0].id)
+
+            console.log('hay carrito pendiente')
+            return carritosDelCliente
+            
+        } else {
+            console.log('no hay carrito pendiente')
+            return
+        }
+    }
+
+    //verificarCarritos()
 
     if (ubicador === 'inicio') {
 
@@ -2114,7 +2140,7 @@ function mostrarContenidos (ubicador) {
     if (ubicador === 'perfil') {
 
         const volverInicio = document.querySelectorAll('#perfil__cabeza .cabeza__volver')
-        console.log(volverInicio)
+        //console.log(volverInicio)
         for(let link of volverInicio){
             link.addEventListener('click', pedirPag)
         }
@@ -2155,7 +2181,7 @@ function mostrarContenidos (ubicador) {
             $('#edit-basico-pic-file').addEventListener('change', function () {
 
                 const archivoNuevaFoto = $('#edit-basico-pic-file').files[0]
-                const TAMANO_MAXIMO = 300
+                const TAMANO_MAXIMO = 600
                 const nuevaFoto = new Image()
                 nuevaFoto.src = URL.createObjectURL(archivoNuevaFoto)
                 nuevaFoto.onload = function () {
@@ -2183,7 +2209,7 @@ function mostrarContenidos (ubicador) {
                     } else {
                         Swal.fire({
                             title: '<h1 class="contenido__confirm--h1">¡Error!</h1>',
-                            html: '<p class="contenido__confirm--p">Debe elegir una imagen de 300x300px</p>',
+                            html: '<p class="contenido__confirm--p">Debe elegir una imagen cuadrada con un máximo de 600x600px</p>',
                             icon: 'error',
                             showConfirmButton: false,
                             timer: 3500,
@@ -3103,7 +3129,7 @@ function mostrarContenidos (ubicador) {
 
             } else {
 
-                console.log(busquedasRecientes)
+                //console.log(busquedasRecientes)
 
                 const busquedasOrdenadas = busquedasRecientes.sort((a, b) => {
                     const fechaA = a.fecha.toLowerCase()
@@ -3122,9 +3148,9 @@ function mostrarContenidos (ubicador) {
 
                 const sieteUltimas = busquedasOrdenadas.slice(0, 7)
 
-                console.log(sieteUltimas)
+                //console.log(sieteUltimas)
 
-                console.log('************')
+                //console.log('************')
 
                 for (const busqueda of sieteUltimas) {
                     const fechaBusqueda = moment(busqueda.fecha)
@@ -3142,8 +3168,26 @@ function mostrarContenidos (ubicador) {
         }
 
         function accionesBusqueda() {
-            const todasLasBusquedas = busquedasDelCliente.filter(busquedas => busquedas.idc === datosDelCliente[0].id)
-            for(const busqueda of todasLasBusquedas){
+            const busquedasRecientes = busquedasDelCliente.filter(busquedas => busquedas.idc === datosDelCliente[0].id)
+
+            const busquedasOrdenadas = busquedasRecientes.sort((a, b) => {
+                const fechaA = a.fecha.toLowerCase()
+                const fechaB = b.fecha.toLowerCase()
+                if (fechaA > fechaB) {
+                    return -1
+                }
+                if (fechaA < fechaB) {
+                    return 1
+                }
+
+                return 0
+            })
+
+            //console.log(busquedasOrdenadas)
+
+            const sieteUltimas = busquedasOrdenadas.slice(0, 7)
+
+            for(const busqueda of sieteUltimas){
                 const idBusca = busqueda.id
                 $(`#eliminar-busqueda-${idBusca}`).onclick = function() {
                     eliminarBusqueda(idBusca)
@@ -3286,10 +3330,10 @@ function mostrarContenidos (ubicador) {
                         return -1
                     }
 
-                    if (a.precio < b.precio) {
+                    if (a.nombre > b.nombre) {
                         return 1
                     }
-                    if (a.precio > b.precio) {
+                    if (a.nombre < b.nombre) {
                         return -1
                     }
 
@@ -3307,7 +3351,7 @@ function mostrarContenidos (ubicador) {
                                             <img class="resultados__box--cabecera" src="${producto.cabecera}">
                                         </div>
                                         <div class="busqueda__resultados--box_txt">
-                                            <h2>${producto.nombre}</h2>
+                                            <h2>${producto.nombre} (${producto.tipo})</h2>
                                             <h3><span><i class="fa-solid fa-star"></i></span>${producto.puntuacion}</h3>
                                             <p>$${producto.precio}</p>
                                             <p>Envío $200</p>
@@ -3364,8 +3408,6 @@ function mostrarContenidos (ubicador) {
             
         }
 
-        
-
         mostrarUltimasBusquedas()
 
         mostrarBusquedasPopulares()
@@ -3374,78 +3416,511 @@ function mostrarContenidos (ubicador) {
 
         busquedaGeneral()
 
+    }
 
+    if (ubicador === 'micarrito') {
 
-        /*
+        function volverInicio() {
+    
+            const pag = 'inicio.html'
+            const ini = 'inicio'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+    
+        }
 
-        function realizarBusqueda(evt){
-            evt.preventDefault()
-            const ahora = moment()
+        function mostrarProductosCarrito(){
 
-            const idBusqueda = Date.now()
-            const clienteIdBusqueda = datosDelCliente[0].id
-            const terminosDeBusqueda = $('#buscador-gral-ipt').value
-            const categBusqueda = 0
-            const fechaDeBusqueda = ahora.format(FECHA_FORMATO)
+            
 
-            if(JSON.parse(localStorage.getItem('Busquedas')) === null){}
+            const elCarritoDelCliente = verificarCarritos()
 
-        
-            if(JSON.parse(localStorage.getItem('Busquedas')) === null){
+            let grupos = elCarritoDelCliente.reduce((obj, item) => {
+                if (!obj[item.prod]) {
+                    obj[item.prod] = []
+                }
+                obj[item.prod].push(item)
+                return obj
+            }, {})
 
-                let fecha = new Date()
-                const fechaDeBusqueda = fecha.toLocaleString() 
+            //console.log(grupos)
+
+            for (let prod in grupos) {
+                let elementos = grupos[prod]
+                //console.log(elementos)
+                let cantidad = elementos.length
+                //console.log(cantidad)
+                let datosDelProd = productos.filter(producto => producto.id === Number(prod))
+                //console.log(datosDelProd)
+                let nombre = datosDelProd[0].nombre
+                let foto = datosDelProd[0].foto
+                let idp = datosDelProd[0].id
+                // console.log(nombre)
+                // console.log(foto)
+                // console.log(idp)
+                let total = elementos.reduce((sum, item) => sum + item.valor, 0)
+                // console.log(cantidad)
+                // console.log(total)
+                elItem = document.createElement('li')
+                elItem.id = `carrito-producto-${idp}`
+                elItem.innerHTML = `<div>    
+                                        <div class="contenido__carrito--fotoprod">
+                                            <img src="${foto}">
+                                        </div>
+                                        <div>
+                                            <h2>${nombre}</h2>
+                                        </div>
+                                        <div class="contenido__carrito--opciones">
+                                            <div class="contenido__carrito--precio">$${total}</div>
+                                            <div class="contenido__carrito--acciones">
+                                                <div class="carrito__producto--izq" id="carrito-restar-prod-${idp}">
+                                                    <i class="fa-solid fa-minus"></i>
+                                                </div>
+                                                <div class="carrito__producto--ctr">${cantidad}</div>
+                                                <div class="carrito__producto--dch" id="carrito-sumar-prod-${idp}">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>`
+                $('#listar-productos-carrito').appendChild(elItem)
                 
-                const buscaObj = {
-                    id: Date.now(),
-                    idc: id,
-                    claves: '',
-                    categ: '',
-                    fecha: fechaDeBusqueda
+               
+            }
+
+        }
+
+        function gestionarDirecciones() {
+            const filtradas = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id && direcciones.seleccionada === false)
+            const secundarias = filtradas.sort((a, b) => {
+                const calleA = b.calle.toLowerCase()
+                const calleB = a.calle.toLowerCase()
+                if(calleA > calleB){
+                    return -1
+                }
+                if(calleA < calleB){
+                    return 1
                 }
 
-                localStorage.setItem('Busquedas', JSON.stringify(buscaObj))
+                return 0
+            })
 
+            let dirPrincipal = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id && direcciones.seleccionada === true)
+
+            function mostrarDirePrincipal() {
+                for(let direcciones of dirPrincipal){
+                    laDire = document.createElement('li')
+                    laDire.id = `direccion-${direcciones.id}`
+                    laDire.innerHTML = `<div>    
+                                            <div class="contenido__dir--ico">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                            </div>
+                                            <div>
+                                                <h2>${direcciones.calle}</h2>
+                                                <p>${direcciones.dpto}</p>
+                                            </div>
+                                            <div class="contenido__dir--opciones">
+                                                <div class="contenido__dir--chk ${direcciones.seleccionada}">
+                                                    <i class="fa-solid fa-check"></i>
+                                                </div>
+                                                <div class="contenido__dir--act diome">
+                                                    <i class="fa-solid fa-pencil" id="editar-direccion-${direcciones.id}"></i>
+                                                </div>
+                                                <div class="contenido__dir--act">
+                                                    <i class="fa-solid fa-trash-can" id="eliminar-direccion-${direcciones.id}"></i>
+                                                </div>
+                                            </div>
+                                        </div>`
+                    $('#listar-todas-las-direcciones').appendChild(laDire)
+                }
             }
 
+            function mostrarDiresSecundarias() {
+                for(let direcciones of secundarias){
+                    laDire = document.createElement('li')
+                    laDire.id = `direccion-${direcciones.id}`
+                    laDire.innerHTML = `<div>    
+                                            <div class="contenido__dir--ico">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                            </div>
+                                            <div>
+                                                <h2>${direcciones.calle}</h2>
+                                                <p>${direcciones.dpto}</p>
+                                            </div>
+                                            <div class="contenido__dir--opciones">
+                                                <div class="contenido__dir--chk ${direcciones.seleccionada}" id="hacer-principal-direccion-${direcciones.id}">
+                                                    <i class="fa-solid fa-check"></i>
+                                                </div>
+                                                <div class="contenido__dir--act diome" id="editar-direccion-${direcciones.id}">
+                                                    <i class="fa-solid fa-pencil"></i>
+                                                </div>
+                                                <div class="contenido__dir--act" id="eliminar-direccion-${direcciones.id}">
+                                                    <i class="fa-solid fa-trash-can"></i>
+                                                </div>
+                                            </div>
+                                        </div>`
+                    $('#listar-todas-las-direcciones').appendChild(laDire)
+                }
+            }
 
+            function cambiarDirePrincipal() {
+                for (const direCambiar of secundarias) {
+                    //console.log($(`#inicio-desple-dir${direCambiar.id}`))
+                    $(`#hacer-principal-direccion-${direCambiar.id}`).onclick = function () {
+                        direCambiar.seleccionada = true
+    
+                        const nuevaDireccionPrincipal = []
+    
+                        let direcciones = diresDelCliente.filter(direccion => direccion.idc === datosDelCliente[0].id && direccion.id != direCambiar.id)
+                        for (dire of direcciones) {
+                            dire.seleccionada = false
+                            nuevaDireccionPrincipal.push(dire)
+                        }
+                        nuevaDireccionPrincipal.push(direCambiar)
+                        localStorage.setItem('Direcciones', JSON.stringify(nuevaDireccionPrincipal))
+                        const pag = 'direcciones.html'
+                        const ini = 'direcciones'
+                        fetch(pag)
+                            .then((url) => {
+                                return url.text()
+                            })
+                            .then((seccion) => {
+                                $('#secciones').innerHTML = seccion
+                                mostrarContenidos(ini)
+                            })
+                            .catch((err) => {
+                                console.log(err)
+                            })
+                    }
+                }
+            }
+   
+            mostrarDirePrincipal()
+
+            mostrarDiresSecundarias()
+    
+            cambiarDirePrincipal()
 
         }
 
-        $('#buscador-gral-form').addEventListener('submit', realizarBusqueda)
-        
-        
-        function busquedasRecientes() {
-            if(JSON.parse(localStorage.getItem('Busquedas')) === null) {
-                return
-            } else {
-                console.log('acá va la función para mostrar búsquedas recientes')
+        function direccionesAgregar() {
+            $('#despleg__dir--agr').classList.add('activo')
+            $('#despleg__dir--agr--cer').onclick = function(){
+                $('#despleg__dir--agr').classList.remove('activo')
             }
-        }
-        
-        function verificarBusquedas() {
-            if(JSON.parse(localStorage.getItem('Busquedas')) === null){
-
-                let fecha = new Date()
-                const fechaDeBusqueda = fecha.toLocaleString() 
+    
+            function calleVacia() {
+                if($('#nuevadir-calle').value === '' || $('#nuevadir-calle').value === null){
+                    $('#nuevadir-calle').classList.add('error')
+                    $('#nuevadir-calle-error').classList.add('activo')
+                    $('#nuevadir-calle').onfocus = function() {
+                        $('#nuevadir-calle').classList.remove('error')
+                        $('#nuevadir-calle-error').classList.remove('activo')
+                    }
+                }
+            }
+    
+            $('#nuevadir-calle').onblur = calleVacia
+            $('#nuevadir-dpto').onfocus = calleVacia
+            $('#nuevadir-coment').onfocus = calleVacia
+    
+    
+            function nuevaDire(evt) {
+                evt.preventDefault()
+                const dirId = Date.now()
+                const dirCalle = $('#nuevadir-calle').value
+                const dirDpto = $('#nuevadir-dpto').value
+                const dirPredet = $('#nuevadir-predet').checked
+                const dirComent = $('#nuevadir-coment').value
+                const idCliente = datosDelCliente[0].id
+                let elDpto
+    
+                if(dirCalle === '' || dirCalle === null){
+                    $('#nuevadir-calle').classList.add('error')
+                    $('#nuevadir-calle-error').classList.add('activo')
+                    $('#nuevadir-calle').onfocus = function() {
+                        $('#nuevadir-calle').classList.remove('error')
+                        $('#nuevadir-calle-error').classList.remove('activo')
+                    }
+                    return
+                }
+    
+                if(dirDpto === '' || dirDpto === null){
+                    elDpto = 'Casa'
+                } else {
+                    elDpto = $('#nuevadir-dpto').value
+                }
+    
+                const nuevaDireccion = []
+    
+                let direcciones = diresDelCliente.filter(direccion => direccion.idc === idCliente)
+                for(dire of direcciones){
+                    if(dirPredet === true) {
+                        dire.seleccionada = false
+                    }
+                    nuevaDireccion.push(dire)
+                }
                 
-                const buscaObj = {
-                    id: Date.now(),
-                    idc: id,
-                    claves: '',
-                    categ: '',
-                    fecha: fechaDeBusqueda
+                const nuevaDireObj = {
+                    id: dirId,
+                    idc: idCliente,
+                    calle: dirCalle,
+                    dpto: elDpto,
+                    comentario: dirComent,
+                    seleccionada: dirPredet
+                }
+    
+                nuevaDireccion.push(nuevaDireObj)
+                console.log(nuevaDireccion)
+                localStorage.setItem('Direcciones', JSON.stringify(nuevaDireccion))
+    
+                $('#despleg__dir--agr').classList.remove('activo')
+    
+                setTimeout(function(){
+                    const pag = 'direcciones.html'
+                    const ini = 'direcciones'
+                    fetch(pag)
+                        .then((url) => {
+                            return url.text()
+                        })
+                        .then((seccion) => {
+                            $('#secciones').innerHTML = seccion
+                            mostrarContenidos(ini)
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+                }, 250)
+    
+            }
+    
+            $('#agregar-dir-form').addEventListener('submit', nuevaDire)
+            
+        }
+
+        function accionesDire() {
+            const todasLasDires = diresDelCliente.filter(direcciones => direcciones.idc === datosDelCliente[0].id)
+            for(const direccion of todasLasDires){
+                const idDire = direccion.id
+                $(`#editar-direccion-${idDire}`).onclick = function() {
+                    editarDire(idDire)
+                }
+                $(`#eliminar-direccion-${idDire}`).onclick = function() {
+                    eliminarDire(idDire)
+                }
+            }
+
+            function editarDire(laDireccion) {
+                console.log(laDireccion)
+                $('#despleg__dir--edit').classList.add('activo')
+                $('#despleg__dir--edit--cer').onclick = function () {
+                    $('#despleg__dir--edit').classList.remove('activo')
                 }
 
-                localStorage.setItem('Busquedas', JSON.stringify(buscaObj))
+                const direParaEditar = diresDelCliente.filter(direcciones => direcciones.id === laDireccion)
+
+                console.log(direParaEditar)
+                //console.log()
+
+                const idDireccion = direParaEditar[0].id
+                const calleOriginal = direParaEditar[0].calle
+                const dptoOriginal = direParaEditar[0].dpto
+                const comentOriginal = direParaEditar[0].comentario
+
+                $('#editardir-calle').value = calleOriginal
+                $('#editardir-dpto').value = dptoOriginal
+                $('#editardir-coment').value = comentOriginal
 
 
+                function calleVacia() {
+                    if ($('#editardir-calle').value === '' || $('#editardir-calle').value === null) {
+                        $('#editardir-calle').classList.add('error')
+                        $('#editardir-calle-error').classList.add('activo')
+                        $('#editardir-calle').onfocus = function () {
+                            $('#editardir-calle').classList.remove('error')
+                            $('#editardir-calle-error').classList.remove('activo')
+                        }
+                    }
+                }
+
+                $('#editardir-calle').onblur = calleVacia
+                $('#editardir-dpto').onfocus = calleVacia
+                $('#editardir-coment').onfocus = calleVacia
+
+                function hacerEdicionDire(evt) {
+                    evt.preventDefault()
+
+                    const nuevaCalle = $('#editardir-calle').value
+                    const nuevoDpto = $('#editardir-dpto').value
+                    const nuevoComent = $('#editardir-coment').value
+
+                    let calleOk = false
+
+                    if(nuevaCalle === calleOriginal && nuevoDpto === dptoOriginal && nuevoComent === comentOriginal) {
+                        volverAdirecciones()
+                    } else {
+                        if (nuevaCalle === '' || nuevaCalle === null) {
+                            $('#editardir-calle').classList.add('error')
+                            $('#editardir-calle-error').classList.add('activo')
+                            $('#editardir-calle').onfocus = function () {
+                                $('#editardir-calle').classList.remove('error')
+                                $('#editardir-calle-error').classList.remove('activo')
+                            }
+                            calleOk = false
+                        } else {
+                            $('#editardir-calle').classList.add('bien')
+                            calleOk = true
+                        }
+
+                        if (calleOk === true) {
+
+                            const listaDireccion = []
+
+                            let direcciones = diresDelCliente.filter(direccion => direccion.idc === datosDelCliente[0].id)
+                            for (dire of direcciones) {
+                                if (dire.id === idDireccion) {
+                                    dire.calle = nuevaCalle
+                                    dire.dpto = nuevoDpto
+                                    dire.comentario = nuevoComent
+                                }
+                                listaDireccion.push(dire)
+                            }
+
+                            localStorage.setItem('Direcciones', JSON.stringify(listaDireccion))
+
+                            volverAdirecciones()
+
+                        } else {
+                            return
+                        }
+
+                    }
+                    
+                    function volverAdirecciones() {
+                        $('#despleg__dir--edit').classList.remove('activo')
+
+                        setTimeout(function () {
+                            const pag = 'direcciones.html'
+                            const ini = 'direcciones'
+                            fetch(pag)
+                                .then((url) => {
+                                    return url.text()
+                                })
+                                .then((seccion) => {
+                                    $('#secciones').innerHTML = seccion
+                                    mostrarContenidos(ini)
+                                })
+                                .catch((err) => {
+                                    console.log(err)
+                                })
+                        }, 250)
+                    }
+                }
+
+                $('#editar-dir-form').addEventListener('submit', hacerEdicionDire)
+            }
+
+            function eliminarDire(laDireccion) {
+
+                const direParaBorrar = diresDelCliente.filter(direcciones => direcciones.id === laDireccion)
+
+                console.log(direParaBorrar)
+
+                const direParaBorrarId = direParaBorrar[0].id
+                const direParaBorrarEstadoSelect = direParaBorrar[0].seleccionada
+
+                console.log(direParaBorrarId)
+
+                Swal.fire({
+                    title: '<h1 class="contenido__confirm--h1">¿Está seguro que desea eliminar esta dirección?</h1>',
+                    width: '90vw',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    customClass: {
+                        confirmButton: 'contenido__confirm--btn_ok',
+                        denyButton: 'contenido__confirm--btn_mdf'
+                    },
+                    buttonsStyling: false,
+                    showDenyButton: true,
+                    //showCancelButton: true,
+                    confirmButtonText: 'Confirmar',
+                    denyButtonText: `Cancelar`,
+                }).then((result) => {
+        
+                    if (result.isConfirmed) {
+
+                        let listaDireccion = []
+
+                        let direcciones = diresDelCliente.filter(direccion => direccion.idc === datosDelCliente[0].id)
+                        for (dire of direcciones) {
+                            listaDireccion.push(dire)
+                        }
+
+                        const nuevaListaDirecciones = listaDireccion.filter(direccion => direccion.id != direParaBorrarId)
+
+                        let diresOrdenadas = nuevaListaDirecciones.sort((a, b) => {
+                            const calleA = b.calle.toLowerCase()
+                            const calleB = a.calle.toLowerCase()
+                            if(calleA > calleB){
+                                return -1
+                            }
+                            if(calleA < calleB){
+                                return 1
+                            }
+            
+                            return 0
+                        })
+
+                        if(direParaBorrarEstadoSelect === true) {
+                            diresOrdenadas[0].seleccionada = true
+
+                        }
+
+                        localStorage.setItem('Direcciones', JSON.stringify(nuevaListaDirecciones))
+        
+                        setTimeout(function () {
+                            const pag = 'direcciones.html'
+                            const ini = 'direcciones'
+                            fetch(pag)
+                                .then((url) => {
+                                    return url.text()
+                                })
+                                .then((seccion) => {
+                                    $('#secciones').innerHTML = seccion
+                                    mostrarContenidos(ini)
+                                })
+                                .catch((err) => {
+                                    console.log(err)
+                                })
+                        }, 250)
+        
+                    } else if (result.isDenied) {
+        
+                        return
+        
+                    }
+                })
 
             }
         }
-        */
-        
 
+        $('#volver-inicio-1').onclick = volverInicio
+        $('#volver-inicio-2').onclick = volverInicio
+        //$('#agregar-nueva-dir').onclick = direccionesAgregar
+
+        //gestionarDirecciones()
+        //accionesDire()
+
+        mostrarProductosCarrito()
 
     }
 
@@ -3453,28 +3928,112 @@ function mostrarContenidos (ubicador) {
 
     if (ubicador === 'flores') {
 
-        const volverUno = document.querySelectorAll('#flores__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
-        }
-
-        const volverDos = document.querySelectorAll('#flores__volver--2 i')
-        console.log(volverDos)
-        for(let link of volverDos){
-            link.addEventListener('click', pedirPag)
-        }
-
         const navSubcatsUno = document.querySelectorAll('#cabeza__subcat--nav_01 img')
-        console.log(navSubcatsUno)
+        //console.log(navSubcatsUno)
         for(let link of navSubcatsUno){
             link.addEventListener('click', pedirPag)
         }
 
-        const navSubcatsDos = document.querySelectorAll('#flores__cabeza--menu_links a')
-        console.log(navSubcatsDos)
-        for(let link of navSubcatsDos){
-            link.addEventListener('click', pedirPag)
+        function volverInicio() {
+            const pag = 'inicio.html'
+            const ini = 'inicio'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        function refrescarPag() {
+            const pag = 'flores.html'
+            const ini = 'flores'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        function irAmiCarrito() {
+            const pag = 'micarrito.html'
+            const ini = 'micarrito'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        $('#flores__volver--1').onclick = volverInicio
+        $('#flores__volver--2').onclick = volverInicio
+
+        $('#flores__busca--1').onclick = abrirBuscador
+        $('#flores__busca--2').onclick = abrirBuscador
+
+        $('#flores-despleg-links-especiales').onclick = function() {
+            const pag = 'especiales.html'
+            const ini = 'especiales'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+        
+        $('#flores-despleg-links-basicos').onclick = function() {
+            const pag = 'basicos.html'
+            const ini = 'basicos'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
 
         window.addEventListener('scroll', floresCabezaMenuDesp)
@@ -3505,7 +4064,7 @@ function mostrarContenidos (ubicador) {
             }
         
             const floresMasVendidos = masVendidosFlor(productos)
-            console.log(floresMasVendidos)
+            //console.log(floresMasVendidos)
             for (const masVendido of floresMasVendidos) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__populares--prod${masVendido.id}`
@@ -3520,7 +4079,7 @@ function mostrarContenidos (ubicador) {
                                         <h1>${masVendido.nombre}</h1>
                                         <div class="masvendidos__txt--bttm">
                                             <p>$${masVendido.precio}</p>
-                                            <div>
+                                            <div id="agregar-masvend-alcarrito-${masVendido.id}">
                                                 <span><i class="fa-solid fa-plus"></i></span>
                                             </div>
                                         </div>
@@ -3530,7 +4089,6 @@ function mostrarContenidos (ubicador) {
         }
     
         function mostrarProdsTodos() {
-    
             function todosLosRamos(productos) {
                 const filtrados = productos.filter(producto => producto.idc === 1)
                 const ordenados = filtrados.sort((a, b) => {
@@ -3549,39 +4107,219 @@ function mostrarContenidos (ubicador) {
             }
     
             const losRamos = todosLosRamos(productos)
-            console.log(losRamos)
+            //console.log(losRamos)
             for (const ramo of losRamos) {
                 elProd = document.createElement('div')
-                elProd.id = `contenido__prodstodos--prod${ramo.id}`
+                elProd.id = `prodstodos-verproducto-${ramo.id}`
                 elProd.className = 'contenido__prodstodos--box'
                 elProd.innerHTML = `<div class="contenido__prodstodos--box_img">
-                                        <img class="prodstodos__box--foto" src="${ramo.foto}">
-                                        <img class="prodstodos__box--cabecera" src="${ramo.cabecera}">
+                                        <div class="prodstodos__box--img_ico" id="agregar-favoritos-${ramo.id}">
+                                            <span><i class="fa-regular fa-heart"></i></span>
+                                        </div>
+                                        <img class="prodstodos__box--img_foto" src="${ramo.foto}">
                                     </div>
-                                    <div class="contenido__prodstodos--box_txt">
-                                        <h2>${ramo.nombre} (${ramo.tipo})</h2>
-                                        <h3><span><i class="fa-solid fa-star"></i></span>${ramo.puntuacion}</h3>
-                                        <p>$${ramo.precio}</p>
-                                        <p>Envío $200</p>
+                                    <div class="contenido__prodstodos--txt">
+                                        <h1>${ramo.nombre}</h1>
+                                        <div class="prodstodos__txt--bttm">
+                                            <p>$${ramo.precio}</p>
+                                            <div id="agregar-alcarrito-${ramo.id}">
+                                                <span><i class="fa-solid fa-plus"></i></span>
+                                            </div>
+                                        </div>
                                     </div>`
                 $('#contenido-prodstodos').appendChild(elProd)
             }
         }
 
-        //floresCabezaMenuDesp()
+        function mostrarCarrito() {
+
+            const hayCarritoPendiente = verificarCarritos()
+            const carritosCantidadProds = hayCarritoPendiente.length
+
+            if(hayCarritoPendiente) {
+
+                let carritoNumProds
+                console.log(hayCarritoPendiente)
+                let precioDelCarrito = hayCarritoPendiente.reduce((acumulador, producto) => acumulador + producto.valor, 0)
+
+                $('#mostrar-suma-carrito').classList.add('activo')
+                $('#ver-mi-carrito').onclick = irAmiCarrito
+                $('#mostrar-carrito-cabecera').classList.add('activo')
+                $('#mostrar-carrito-cabecera').onclick = irAmiCarrito
+
+                if(carritosCantidadProds > 1) {
+                    carritoNumProds = 'Productos'
+                } else {
+                    carritoNumProds = 'Producto'
+                }
+
+                $('#carritos-cantidad-productos').innerText = `${carritosCantidadProds} ${carritoNumProds}`
+                $('#carritos-productos-precio').innerText = `$ ${precioDelCarrito}`
+                $('#carritos-cabecera-cantidad').innerText = `${carritosCantidadProds}`
+
+            }
+        }
+ 
+        function agregarAlCarrito() {
+            const losProductos = productos.filter(producto => producto.idc === 1)
+            const ordenadosXventas = losProductos.sort((a, b) => b.vendidos - a.vendidos)
+            const los7masVendidos = ordenadosXventas.slice(0, 7)
+
+            for (const producto of losProductos) {
+                const productoId = producto.id
+                $(`#agregar-alcarrito-${productoId}`).onclick = function () {
+                    agregarProducto(productoId)
+                }
+            }
+
+            for (const masVend of los7masVendidos) {
+                const productoId = masVend.id
+                $(`#agregar-masvend-alcarrito-${productoId}`).onclick = function () {
+                    agregarProducto(productoId)
+                }
+            }
+
+            function agregarProducto(idProducto) {
+
+                const elProducto = idProducto
+                const productoParaAgregar = productos.filter(producto => producto.id === elProducto)
+
+
+
+                if (JSON.parse(localStorage.getItem('Carritos')) === null) {
+
+                    const cliente = datosDelCliente[0].id
+                    const item = Date.now()
+                    const prod = productoParaAgregar[0].id
+                    const valor = productoParaAgregar[0].precio
+
+                    const itemObj = {
+                        id: item,
+                        idc: cliente,
+                        prod: prod,
+                        valor: valor
+                    }
+
+                    carrito.push(itemObj)
+                    //console.log(listaBusquedas)
+                    localStorage.setItem('Carritos', JSON.stringify(carrito))
+
+                    refrescarPag()
+
+                } else {
+                    const todosLosCarritos = JSON.parse(localStorage.getItem('Carritos'))
+                    //const carritosDelCliente = todosLosCarritos.filter(carritos => carritos.idc === datosDelCliente[0].id)
+
+                    const cliente = datosDelCliente[0].id
+                    const item = Date.now()
+                    const prod = productoParaAgregar[0].id
+                    const valor = productoParaAgregar[0].precio
+
+                    const listaCarritos = []
+
+                    //let busquedas = busquedasDelCliente
+                    for (carrito of todosLosCarritos) {
+                        listaCarritos.push(carrito)
+                    }
+
+                    const itemObj = {
+                        id: item,
+                        idc: cliente,
+                        prod: prod,
+                        valor: valor
+                    }
+
+                    listaCarritos.push(itemObj)
+                    //console.log(listaBusquedas)
+                    localStorage.setItem('Carritos', JSON.stringify(listaCarritos))
+
+                    console.log('producto agregado')
+
+                    refrescarPag()
+
+
+                    /*
+                    if (!carritosDelCliente) {
+                        console.log('carrito vacío, agregar producto')
+
+                        const cliente = datosDelCliente[0].id
+                        const item = Date.now()
+                        const prod = productoParaAgregar[0].id
+                        const valor = productoParaAgregar[0].precio
+
+                        const listaCarritos = []
+
+                        //let busquedas = busquedasDelCliente
+                        for (carrito of todosLosCarritos) {
+                            listaCarritos.push(carrito)
+                        }
+
+                        const itemObj = {
+                            id: item,
+                            idc: cliente,
+                            prod: prod,
+                            valor: valor
+                        }
+
+                        listaCarritos.push(itemObj)
+                        //console.log(listaBusquedas)
+                        localStorage.setItem('Carritos', JSON.stringify(listaCarritos))
+                    } else {}
+                    */
+                }
+
+
+            }
+        }
+
         
         mostrarMasVendFlor()
     
         mostrarProdsTodos()
+
+        mostrarCarrito()
+
+        agregarAlCarrito()
+
+
     }
 
     if (ubicador === 'especiales') {
 
-        const volverUno = document.querySelectorAll('#flores__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
+        function volverFlores() {
+            const pag = 'flores.html'
+            const ini = 'flores'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        $('#flores__volver--1').onclick = volverFlores
+        $('#flores__busca--1').onclick = abrirBuscador
     
         function mostrarMasVendEsp() {
     
@@ -3592,7 +4330,7 @@ function mostrarContenidos (ubicador) {
             }
         
             const floresMasVendidos = masVendidosFlor(productos)
-            console.log(floresMasVendidos)
+            //console.log(floresMasVendidos)
             for (const masVendido of floresMasVendidos) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__populares--prod${masVendido.id}`
@@ -3636,7 +4374,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const losRamos = todosLosRamos(productos)
-            console.log(losRamos)
+            //console.log(losRamos)
             for (const ramo of losRamos) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${ramo.id}`
@@ -3654,8 +4392,6 @@ function mostrarContenidos (ubicador) {
                 $('#contenido-prodstodos').appendChild(elProd)
             }
         }
-    
-        //floresCabezaMenuDesp()
         
         mostrarMasVendEsp()
     
@@ -3664,11 +4400,40 @@ function mostrarContenidos (ubicador) {
 
     if (ubicador === 'basicos') {
 
-        const volverUno = document.querySelectorAll('#flores__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
+        function volverFlores() {
+            const pag = 'flores.html'
+            const ini = 'flores'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        $('#flores__volver--1').onclick = volverFlores
+        $('#flores__busca--1').onclick = abrirBuscador
     
         function mostrarMasVendBasic() {
     
@@ -3679,7 +4444,7 @@ function mostrarContenidos (ubicador) {
             }
         
             const floresMasVendidos = masVendidosFlor(productos)
-            console.log(floresMasVendidos)
+            //console.log(floresMasVendidos)
             for (const masVendido of floresMasVendidos) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__populares--prod${masVendido.id}`
@@ -3723,7 +4488,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const losRamos = todosLosRamos(productos)
-            console.log(losRamos)
+            //console.log(losRamos)
             for (const ramo of losRamos) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${ramo.id}`
@@ -3741,9 +4506,7 @@ function mostrarContenidos (ubicador) {
                 $('#contenido-prodstodos').appendChild(elProd)
             }
         }
-    
-        //floresCabezaMenuDesp()
-        
+            
         mostrarMasVendBasic()
     
         mostrarProdsTodos()
@@ -3753,28 +4516,96 @@ function mostrarContenidos (ubicador) {
 
     if (ubicador === 'arreglos-florales') {
 
-        const volverUno = document.querySelectorAll('#arreglos__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
-        }
-
-        const volverDos = document.querySelectorAll('#arreglos__volver--2 i')
-        console.log(volverDos)
-        for(let link of volverDos){
-            link.addEventListener('click', pedirPag)
-        }
-
         const navSubcatsUno = document.querySelectorAll('#cabeza__subcat--nav_01 img')
-        console.log(navSubcatsUno)
+        //console.log(navSubcatsUno)
         for(let link of navSubcatsUno){
             link.addEventListener('click', pedirPag)
         }
 
-        const navSubcatsDos = document.querySelectorAll('#arreglos__cabeza--menu_links a')
-        console.log(navSubcatsDos)
-        for(let link of navSubcatsDos){
-            link.addEventListener('click', pedirPag)
+        function volverInicio() {
+            const pag = 'inicio.html'
+            const ini = 'inicio'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        $('#arreglos__volver--1').onclick = volverInicio
+        $('#arreglos__volver--2').onclick = volverInicio
+
+        $('#arreglos__busca--1').onclick = abrirBuscador
+        $('#arreglos__busca--2').onclick = abrirBuscador
+
+        $('#arreglos-despleg-links-regalos').onclick = function() {
+            const pag = 'regalos.html'
+            const ini = 'regalos'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        $('#arreglos-despleg-links-casamientos').onclick = function() {
+            const pag = 'casamientos.html'
+            const ini = 'casamientos'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        $('#arreglos-despleg-links-velorios').onclick = function() {
+            const pag = 'velorios.html'
+            const ini = 'velorios'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
 
         window.addEventListener('scroll', arregCabezaMenuDesp)
@@ -3805,7 +4636,7 @@ function mostrarContenidos (ubicador) {
             }
         
             const arregMasVendidos = masVendidosArreg(productos)
-            console.log(arregMasVendidos)
+            //console.log(arregMasVendidos)
             for (const masVendido of arregMasVendidos) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__populares--prod${masVendido.id}`
@@ -3849,7 +4680,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const losArreg = todosLosArregs(productos)
-            console.log(losArreg)
+            //console.log(losArreg)
             for (const arreg of losArreg) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${arreg.id}`
@@ -3867,8 +4698,6 @@ function mostrarContenidos (ubicador) {
                 $('#contenido-prodstodos').appendChild(elProd)
             }
         }
-
-        //floresCabezaMenuDesp()
         
         mostrarMasVendArreg()
     
@@ -3877,46 +4706,40 @@ function mostrarContenidos (ubicador) {
 
     if (ubicador === 'regalos') {
 
-        const volverUno = document.querySelectorAll('#arreglos__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
+        function volverArreglos() {
+            const pag = 'arreglos-florales.html'
+            const ini = 'arreglos-florales'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-    
-        /*
-        function mostrarMasVendEsp() {
-    
-            function masVendidosFlor(productos) {
-                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
-                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
-                return ordenados.slice(0, 5)
-            }
-        
-            const floresMasVendidos = masVendidosFlor(productos)
-            console.log(floresMasVendidos)
-            for (const masVendido of floresMasVendidos) {
-                elProd = document.createElement('div')
-                elProd.id = `contenido__populares--prod${masVendido.id}`
-                elProd.className = 'contenido__masvendidos--box'
-                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
-                                        <div class="masvendidos__box--img_ico">
-                                            <span><i class="fa-regular fa-heart"></i></span>
-                                        </div>
-                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
-                                    </div>
-                                    <div class="contenido__masvendidos--txt">
-                                        <h1>${masVendido.nombre}</h1>
-                                        <div class="masvendidos__txt--bttm">
-                                            <p>$${masVendido.precio}</p>
-                                            <div>
-                                                <span><i class="fa-solid fa-plus"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>`
-                $('#arreglos__contenido--masvendidos').appendChild(elProd)
-            }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-        */
+
+        $('#arreglos__volver--1').onclick = volverArreglos
+        $('#arreglos__busca--1').onclick = abrirBuscador
     
         function mostrarProdsTodos() {
     
@@ -3938,7 +4761,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const losRegalos = todosLosRegalos(productos)
-            console.log(losRegalos)
+            //console.log(losRegalos)
             for (const regalo of losRegalos) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${regalo.id}`
@@ -3956,56 +4779,46 @@ function mostrarContenidos (ubicador) {
                 $('#contenido-prodstodos').appendChild(elProd)
             }
         }
-    
-        //floresCabezaMenuDesp()
         
-        //mostrarMasVendEsp()
-    
         mostrarProdsTodos()
     }
 
     if (ubicador === 'casamientos') {
 
-        const volverUno = document.querySelectorAll('#arreglos__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
+        function volverArreglos() {
+            const pag = 'arreglos-florales.html'
+            const ini = 'arreglos-florales'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-    
-        /*
-        function mostrarMasVendEsp() {
-    
-            function masVendidosFlor(productos) {
-                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
-                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
-                return ordenados.slice(0, 5)
-            }
-        
-            const floresMasVendidos = masVendidosFlor(productos)
-            console.log(floresMasVendidos)
-            for (const masVendido of floresMasVendidos) {
-                elProd = document.createElement('div')
-                elProd.id = `contenido__populares--prod${masVendido.id}`
-                elProd.className = 'contenido__masvendidos--box'
-                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
-                                        <div class="masvendidos__box--img_ico">
-                                            <span><i class="fa-regular fa-heart"></i></span>
-                                        </div>
-                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
-                                    </div>
-                                    <div class="contenido__masvendidos--txt">
-                                        <h1>${masVendido.nombre}</h1>
-                                        <div class="masvendidos__txt--bttm">
-                                            <p>$${masVendido.precio}</p>
-                                            <div>
-                                                <span><i class="fa-solid fa-plus"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>`
-                $('#arreglos__contenido--masvendidos').appendChild(elProd)
-            }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-        */
+
+        $('#arreglos__volver--1').onclick = volverArreglos
+        $('#arreglos__busca--1').onclick = abrirBuscador
     
         function mostrarProdsTodos() {
     
@@ -4027,7 +4840,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const losCasam = todosLosCasam(productos)
-            console.log(losCasam)
+            //console.log(losCasam)
             for (const casam of losCasam) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${casam.id}`
@@ -4045,56 +4858,46 @@ function mostrarContenidos (ubicador) {
                 $('#contenido-prodstodos').appendChild(elProd)
             }
         }
-    
-        //floresCabezaMenuDesp()
         
-        //mostrarMasVendEsp()
-    
         mostrarProdsTodos()
     }
 
     if (ubicador === 'velorios') {
 
-        const volverUno = document.querySelectorAll('#arreglos__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
+        function volverArreglos() {
+            const pag = 'arreglos-florales.html'
+            const ini = 'arreglos-florales'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-    
-        /*
-        function mostrarMasVendEsp() {
-    
-            function masVendidosFlor(productos) {
-                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
-                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
-                return ordenados.slice(0, 5)
-            }
-        
-            const floresMasVendidos = masVendidosFlor(productos)
-            console.log(floresMasVendidos)
-            for (const masVendido of floresMasVendidos) {
-                elProd = document.createElement('div')
-                elProd.id = `contenido__populares--prod${masVendido.id}`
-                elProd.className = 'contenido__masvendidos--box'
-                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
-                                        <div class="masvendidos__box--img_ico">
-                                            <span><i class="fa-regular fa-heart"></i></span>
-                                        </div>
-                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
-                                    </div>
-                                    <div class="contenido__masvendidos--txt">
-                                        <h1>${masVendido.nombre}</h1>
-                                        <div class="masvendidos__txt--bttm">
-                                            <p>$${masVendido.precio}</p>
-                                            <div>
-                                                <span><i class="fa-solid fa-plus"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>`
-                $('#arreglos__contenido--masvendidos').appendChild(elProd)
-            }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-        */
+
+        $('#arreglos__volver--1').onclick = volverArreglos
+        $('#arreglos__busca--1').onclick = abrirBuscador
     
         function mostrarProdsTodos() {
     
@@ -4116,7 +4919,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const losVelorios = todosLosVel(productos)
-            console.log(losVelorios)
+            //console.log(losVelorios)
             for (const velorio of losVelorios) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${velorio.id}`
@@ -4135,10 +4938,6 @@ function mostrarContenidos (ubicador) {
             }
         }
     
-        //floresCabezaMenuDesp()
-        
-        //mostrarMasVendEsp()
-    
         mostrarProdsTodos()
     }
 
@@ -4146,28 +4945,96 @@ function mostrarContenidos (ubicador) {
 
     if (ubicador === 'plantas') {
 
-        const volverUno = document.querySelectorAll('#plantas__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
-        }
-
-        const volverDos = document.querySelectorAll('#plantas__volver--2 i')
-        console.log(volverDos)
-        for(let link of volverDos){
-            link.addEventListener('click', pedirPag)
-        }
-
         const navSubcatsUno = document.querySelectorAll('#cabeza__subcat--nav_01 img')
-        console.log(navSubcatsUno)
+        //console.log(navSubcatsUno)
         for(let link of navSubcatsUno){
             link.addEventListener('click', pedirPag)
         }
 
-        const navSubcatsDos = document.querySelectorAll('#plantas__cabeza--menu_links a')
-        console.log(navSubcatsDos)
-        for(let link of navSubcatsDos){
-            link.addEventListener('click', pedirPag)
+        function volverInicio() {
+            const pag = 'inicio.html'
+            const ini = 'inicio'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        $('#plantas__volver--1').onclick = volverInicio
+        $('#plantas__volver--2').onclick = volverInicio
+
+        $('#plantas__busca--1').onclick = abrirBuscador
+        $('#plantas__busca--2').onclick = abrirBuscador
+
+        $('#plantas-despleg-links-interior').onclick = function() {
+            const pag = 'interior.html'
+            const ini = 'interior'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        $('#plantas-despleg-links-exterior').onclick = function() {
+            const pag = 'exterior.html'
+            const ini = 'exterior'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        $('#plantas-despleg-links-cactus').onclick = function() {
+            const pag = 'cactus.html'
+            const ini = 'cactus'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
 
         window.addEventListener('scroll', plantasCabezaMenuDesp)
@@ -4198,7 +5065,7 @@ function mostrarContenidos (ubicador) {
             }
         
             const plantsMasVendidos = masVendidosPlants(productos)
-            console.log(plantsMasVendidos)
+            //console.log(plantsMasVendidos)
             for (const masVendido of plantsMasVendidos) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__populares--prod${masVendido.id}`
@@ -4242,7 +5109,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const lasPlants = todasLasPlants(productos)
-            console.log(lasPlants)
+            //console.log(lasPlants)
             for (const plant of lasPlants) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${plant.id}`
@@ -4260,8 +5127,6 @@ function mostrarContenidos (ubicador) {
                 $('#contenido-prodstodos').appendChild(elProd)
             }
         }
-
-        //floresCabezaMenuDesp()
         
         mostrarMasVendPlants()
     
@@ -4270,46 +5135,40 @@ function mostrarContenidos (ubicador) {
 
     if (ubicador === 'interior') {
 
-        const volverUno = document.querySelectorAll('#plantas__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
+        function volverPlantas() {
+            const pag = 'plantas.html'
+            const ini = 'plantas'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-    
-        /*
-        function mostrarMasVendEsp() {
-    
-            function masVendidosFlor(productos) {
-                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
-                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
-                return ordenados.slice(0, 5)
-            }
-        
-            const floresMasVendidos = masVendidosFlor(productos)
-            console.log(floresMasVendidos)
-            for (const masVendido of floresMasVendidos) {
-                elProd = document.createElement('div')
-                elProd.id = `contenido__populares--prod${masVendido.id}`
-                elProd.className = 'contenido__masvendidos--box'
-                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
-                                        <div class="masvendidos__box--img_ico">
-                                            <span><i class="fa-regular fa-heart"></i></span>
-                                        </div>
-                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
-                                    </div>
-                                    <div class="contenido__masvendidos--txt">
-                                        <h1>${masVendido.nombre}</h1>
-                                        <div class="masvendidos__txt--bttm">
-                                            <p>$${masVendido.precio}</p>
-                                            <div>
-                                                <span><i class="fa-solid fa-plus"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>`
-                $('#arreglos__contenido--masvendidos').appendChild(elProd)
-            }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-        */
+
+        $('#plantas__volver--1').onclick = volverPlantas
+        $('#plantas__busca--1').onclick = abrirBuscador
     
         function mostrarProdsTodos() {
     
@@ -4331,7 +5190,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const lasPlantInte = todasLasPlantInte(productos)
-            console.log(lasPlantInte)
+            //console.log(lasPlantInte)
             for (const planta of lasPlantInte) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${planta.id}`
@@ -4350,55 +5209,45 @@ function mostrarContenidos (ubicador) {
             }
         }
     
-        //floresCabezaMenuDesp()
-        
-        //mostrarMasVendEsp()
-    
         mostrarProdsTodos()
     }
 
     if (ubicador === 'exterior') {
 
-        const volverUno = document.querySelectorAll('#plantas__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
+        function volverPlantas() {
+            const pag = 'plantas.html'
+            const ini = 'plantas'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-    
-        /*
-        function mostrarMasVendEsp() {
-    
-            function masVendidosFlor(productos) {
-                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
-                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
-                return ordenados.slice(0, 5)
-            }
-        
-            const floresMasVendidos = masVendidosFlor(productos)
-            console.log(floresMasVendidos)
-            for (const masVendido of floresMasVendidos) {
-                elProd = document.createElement('div')
-                elProd.id = `contenido__populares--prod${masVendido.id}`
-                elProd.className = 'contenido__masvendidos--box'
-                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
-                                        <div class="masvendidos__box--img_ico">
-                                            <span><i class="fa-regular fa-heart"></i></span>
-                                        </div>
-                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
-                                    </div>
-                                    <div class="contenido__masvendidos--txt">
-                                        <h1>${masVendido.nombre}</h1>
-                                        <div class="masvendidos__txt--bttm">
-                                            <p>$${masVendido.precio}</p>
-                                            <div>
-                                                <span><i class="fa-solid fa-plus"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>`
-                $('#arreglos__contenido--masvendidos').appendChild(elProd)
-            }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-        */
+
+        $('#plantas__volver--1').onclick = volverPlantas
+        $('#plantas__busca--1').onclick = abrirBuscador
     
         function mostrarProdsTodos() {
     
@@ -4420,7 +5269,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const lasPlantExte = todasLasPlantExte(productos)
-            console.log(lasPlantExte)
+            //console.log(lasPlantExte)
             for (const planta of lasPlantExte) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${planta.id}`
@@ -4439,55 +5288,45 @@ function mostrarContenidos (ubicador) {
             }
         }
     
-        //floresCabezaMenuDesp()
-        
-        //mostrarMasVendEsp()
-    
         mostrarProdsTodos()
     }
 
     if (ubicador === 'cactus') {
 
-        const volverUno = document.querySelectorAll('#plantas__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
+        function volverPlantas() {
+            const pag = 'plantas.html'
+            const ini = 'plantas'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-    
-        /*
-        function mostrarMasVendEsp() {
-    
-            function masVendidosFlor(productos) {
-                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
-                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
-                return ordenados.slice(0, 5)
-            }
-        
-            const floresMasVendidos = masVendidosFlor(productos)
-            console.log(floresMasVendidos)
-            for (const masVendido of floresMasVendidos) {
-                elProd = document.createElement('div')
-                elProd.id = `contenido__populares--prod${masVendido.id}`
-                elProd.className = 'contenido__masvendidos--box'
-                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
-                                        <div class="masvendidos__box--img_ico">
-                                            <span><i class="fa-regular fa-heart"></i></span>
-                                        </div>
-                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
-                                    </div>
-                                    <div class="contenido__masvendidos--txt">
-                                        <h1>${masVendido.nombre}</h1>
-                                        <div class="masvendidos__txt--bttm">
-                                            <p>$${masVendido.precio}</p>
-                                            <div>
-                                                <span><i class="fa-solid fa-plus"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>`
-                $('#arreglos__contenido--masvendidos').appendChild(elProd)
-            }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-        */
+
+        $('#plantas__volver--1').onclick = volverPlantas
+        $('#plantas__busca--1').onclick = abrirBuscador
     
         function mostrarProdsTodos() {
     
@@ -4509,7 +5348,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const losCactus = todosLosCactus(productos)
-            console.log(losCactus)
+            //console.log(losCactus)
             for (const cactus of losCactus) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${cactus.id}`
@@ -4528,10 +5367,6 @@ function mostrarContenidos (ubicador) {
             }
         }
     
-        //floresCabezaMenuDesp()
-        
-        //mostrarMasVendEsp()
-    
         mostrarProdsTodos()
     }
 
@@ -4539,28 +5374,112 @@ function mostrarContenidos (ubicador) {
 
     if (ubicador === 'insumos') {
 
-        const volverUno = document.querySelectorAll('#insumos__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
-        }
-
-        const volverDos = document.querySelectorAll('#insumos__volver--2 i')
-        console.log(volverDos)
-        for(let link of volverDos){
-            link.addEventListener('click', pedirPag)
-        }
-
         const navSubcatsUno = document.querySelectorAll('#cabeza__subcat--nav_01 img')
-        console.log(navSubcatsUno)
+        //console.log(navSubcatsUno)
         for(let link of navSubcatsUno){
             link.addEventListener('click', pedirPag)
         }
 
-        const navSubcatsDos = document.querySelectorAll('#insumos__cabeza--menu_links a')
-        console.log(navSubcatsDos)
-        for(let link of navSubcatsDos){
-            link.addEventListener('click', pedirPag)
+        function volverInicio() {
+            const pag = 'inicio.html'
+            const ini = 'inicio'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        $('#insumos__volver--1').onclick = volverInicio
+        $('#insumos__volver--2').onclick = volverInicio
+
+        $('#insumos__busca--1').onclick = abrirBuscador
+        $('#insumos__busca--2').onclick = abrirBuscador
+
+        $('#insumos-despleg-links-semillas').onclick = function() {
+            const pag = 'semillas.html'
+            const ini = 'semillas'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        $('#insumos-despleg-links-macetas').onclick = function() {
+            const pag = 'macetas.html'
+            const ini = 'macetas'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        $('#insumos-despleg-links-tierras').onclick = function() {
+            const pag = 'tierras.html'
+            const ini = 'tierras'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
+        $('#insumos-despleg-links-fertilizantes').onclick = function() {
+            const pag = 'fertilizantes.html'
+            const ini = 'fertilizantes'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
 
         window.addEventListener('scroll', insumosCabezaMenuDesp)
@@ -4591,7 +5510,7 @@ function mostrarContenidos (ubicador) {
             }
         
             const insumMasVendidos = masVendidosInsum(productos)
-            console.log(insumMasVendidos)
+            //console.log(insumMasVendidos)
             for (const masVendido of insumMasVendidos) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__populares--prod${masVendido.id}`
@@ -4635,7 +5554,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const losInsum = todosLosInsum(productos)
-            console.log(losInsum)
+            //console.log(losInsum)
             for (const insum of losInsum) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${insum.id}`
@@ -4653,8 +5572,6 @@ function mostrarContenidos (ubicador) {
                 $('#contenido-prodstodos').appendChild(elProd)
             }
         }
-
-        //floresCabezaMenuDesp()
         
         mostrarMasVendInsum()
     
@@ -4663,46 +5580,40 @@ function mostrarContenidos (ubicador) {
 
     if (ubicador === 'semillas') {
 
-        const volverUno = document.querySelectorAll('#insumos__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
+        function volverInsumos() {
+            const pag = 'insumos.html'
+            const ini = 'insumos'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-    
-        /*
-        function mostrarMasVendEsp() {
-    
-            function masVendidosFlor(productos) {
-                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
-                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
-                return ordenados.slice(0, 5)
-            }
-        
-            const floresMasVendidos = masVendidosFlor(productos)
-            console.log(floresMasVendidos)
-            for (const masVendido of floresMasVendidos) {
-                elProd = document.createElement('div')
-                elProd.id = `contenido__populares--prod${masVendido.id}`
-                elProd.className = 'contenido__masvendidos--box'
-                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
-                                        <div class="masvendidos__box--img_ico">
-                                            <span><i class="fa-regular fa-heart"></i></span>
-                                        </div>
-                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
-                                    </div>
-                                    <div class="contenido__masvendidos--txt">
-                                        <h1>${masVendido.nombre}</h1>
-                                        <div class="masvendidos__txt--bttm">
-                                            <p>$${masVendido.precio}</p>
-                                            <div>
-                                                <span><i class="fa-solid fa-plus"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>`
-                $('#arreglos__contenido--masvendidos').appendChild(elProd)
-            }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-        */
+
+        $('#insumos__volver--1').onclick = volverInsumos
+        $('#insumos__busca--1').onclick = abrirBuscador
     
         function mostrarProdsTodos() {
     
@@ -4724,7 +5635,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const lasSemillas = todasLasSem(productos)
-            console.log(lasSemillas)
+            //console.log(lasSemillas)
             for (const semillas of lasSemillas) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${semillas.id}`
@@ -4742,56 +5653,46 @@ function mostrarContenidos (ubicador) {
                 $('#contenido-prodstodos').appendChild(elProd)
             }
         }
-    
-        //floresCabezaMenuDesp()
-        
-        //mostrarMasVendEsp()
-    
+
         mostrarProdsTodos()
     }    
 
     if (ubicador === 'macetas') {
 
-        const volverUno = document.querySelectorAll('#insumos__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
+        function volverInsumos() {
+            const pag = 'insumos.html'
+            const ini = 'insumos'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-    
-        /*
-        function mostrarMasVendEsp() {
-    
-            function masVendidosFlor(productos) {
-                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
-                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
-                return ordenados.slice(0, 5)
-            }
-        
-            const floresMasVendidos = masVendidosFlor(productos)
-            console.log(floresMasVendidos)
-            for (const masVendido of floresMasVendidos) {
-                elProd = document.createElement('div')
-                elProd.id = `contenido__populares--prod${masVendido.id}`
-                elProd.className = 'contenido__masvendidos--box'
-                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
-                                        <div class="masvendidos__box--img_ico">
-                                            <span><i class="fa-regular fa-heart"></i></span>
-                                        </div>
-                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
-                                    </div>
-                                    <div class="contenido__masvendidos--txt">
-                                        <h1>${masVendido.nombre}</h1>
-                                        <div class="masvendidos__txt--bttm">
-                                            <p>$${masVendido.precio}</p>
-                                            <div>
-                                                <span><i class="fa-solid fa-plus"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>`
-                $('#arreglos__contenido--masvendidos').appendChild(elProd)
-            }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-        */
+
+        $('#insumos__volver--1').onclick = volverInsumos
+        $('#insumos__busca--1').onclick = abrirBuscador
     
         function mostrarProdsTodos() {
     
@@ -4813,7 +5714,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const lasMacetas = todasLasMacetas(productos)
-            console.log(lasMacetas)
+            //console.log(lasMacetas)
             for (const maceta of lasMacetas) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${maceta.id}`
@@ -4832,55 +5733,45 @@ function mostrarContenidos (ubicador) {
             }
         }
     
-        //floresCabezaMenuDesp()
-        
-        //mostrarMasVendEsp()
-    
         mostrarProdsTodos()
     }  
 
     if (ubicador === 'tierras') {
 
-        const volverUno = document.querySelectorAll('#insumos__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
+        function volverInsumos() {
+            const pag = 'insumos.html'
+            const ini = 'insumos'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-    
-        /*
-        function mostrarMasVendEsp() {
-    
-            function masVendidosFlor(productos) {
-                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
-                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
-                return ordenados.slice(0, 5)
-            }
-        
-            const floresMasVendidos = masVendidosFlor(productos)
-            console.log(floresMasVendidos)
-            for (const masVendido of floresMasVendidos) {
-                elProd = document.createElement('div')
-                elProd.id = `contenido__populares--prod${masVendido.id}`
-                elProd.className = 'contenido__masvendidos--box'
-                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
-                                        <div class="masvendidos__box--img_ico">
-                                            <span><i class="fa-regular fa-heart"></i></span>
-                                        </div>
-                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
-                                    </div>
-                                    <div class="contenido__masvendidos--txt">
-                                        <h1>${masVendido.nombre}</h1>
-                                        <div class="masvendidos__txt--bttm">
-                                            <p>$${masVendido.precio}</p>
-                                            <div>
-                                                <span><i class="fa-solid fa-plus"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>`
-                $('#arreglos__contenido--masvendidos').appendChild(elProd)
-            }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-        */
+
+        $('#insumos__volver--1').onclick = volverInsumos
+        $('#insumos__busca--1').onclick = abrirBuscador
     
         function mostrarProdsTodos() {
     
@@ -4902,7 +5793,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const lasTierras = todasLasTierras(productos)
-            console.log(lasTierras)
+            //console.log(lasTierras)
             for (const tierra of lasTierras) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${tierra.id}`
@@ -4921,55 +5812,45 @@ function mostrarContenidos (ubicador) {
             }
         }
     
-        //floresCabezaMenuDesp()
-        
-        //mostrarMasVendEsp()
-    
         mostrarProdsTodos()
     } 
 
     if (ubicador === 'fertilizantes') {
 
-        const volverUno = document.querySelectorAll('#insumos__volver--1 i')
-        console.log(volverUno)
-        for(let link of volverUno){
-            link.addEventListener('click', pedirPag)
+        function volverInsumos() {
+            const pag = 'insumos.html'
+            const ini = 'insumos'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-    
-        /*
-        function mostrarMasVendEsp() {
-    
-            function masVendidosFlor(productos) {
-                const filtrados = productos.filter(producto => producto.tipo === 'Ramos especiales')
-                const ordenados = filtrados.sort((a, b) => b.vendidos - a.vendidos)
-                return ordenados.slice(0, 5)
-            }
-        
-            const floresMasVendidos = masVendidosFlor(productos)
-            console.log(floresMasVendidos)
-            for (const masVendido of floresMasVendidos) {
-                elProd = document.createElement('div')
-                elProd.id = `contenido__populares--prod${masVendido.id}`
-                elProd.className = 'contenido__masvendidos--box'
-                elProd.innerHTML = `<div class="contenido__masvendidos--box_img">
-                                        <div class="masvendidos__box--img_ico">
-                                            <span><i class="fa-regular fa-heart"></i></span>
-                                        </div>
-                                        <img class="masvendidos__box--img_foto" src="${masVendido.foto}">
-                                    </div>
-                                    <div class="contenido__masvendidos--txt">
-                                        <h1>${masVendido.nombre}</h1>
-                                        <div class="masvendidos__txt--bttm">
-                                            <p>$${masVendido.precio}</p>
-                                            <div>
-                                                <span><i class="fa-solid fa-plus"></i></span>
-                                            </div>
-                                        </div>
-                                    </div>`
-                $('#arreglos__contenido--masvendidos').appendChild(elProd)
-            }
+
+        function abrirBuscador() {
+            const pag = 'buscador.html'
+            const ini = 'buscador'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
-        */
+
+        $('#insumos__volver--1').onclick = volverInsumos
+        $('#insumos__busca--1').onclick = abrirBuscador
     
         function mostrarProdsTodos() {
     
@@ -4991,7 +5872,7 @@ function mostrarContenidos (ubicador) {
             }
     
             const losFerti = todosLosFerti(productos)
-            console.log(losFerti)
+            //console.log(losFerti)
             for (const ferti of losFerti) {
                 elProd = document.createElement('div')
                 elProd.id = `contenido__prodstodos--prod${ferti.id}`
@@ -5009,10 +5890,6 @@ function mostrarContenidos (ubicador) {
                 $('#contenido-prodstodos').appendChild(elProd)
             }
         }
-    
-        //floresCabezaMenuDesp()
-        
-        //mostrarMasVendEsp()
     
         mostrarProdsTodos()
     } 
