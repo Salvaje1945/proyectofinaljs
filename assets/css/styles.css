@@ -3838,11 +3838,11 @@ a {
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 .cabeza__menu--desp_pt1-carrito {
   display: none;
   height: 30px;
-  flex-grow: 1;
+  flex-grow: 0;
   margin: 0 0 0 2vw;
   background-color: #ff0000;
   border-radius: 3px;
-  padding: 5px 7px 0;
+  padding: 0 9px;
 }
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 .cabeza__menu--desp_pt1-carrito div,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 .cabeza__menu--desp_pt1-carrito p {
@@ -3858,7 +3858,10 @@ a {
   font-weight: 600;
 }
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 .cabeza__menu--desp_pt1-carrito.activo {
-  display: inline-block;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2 {
   margin: 20px 0 0 5vw;
