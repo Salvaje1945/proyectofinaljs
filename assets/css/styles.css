@@ -3842,7 +3842,7 @@ a {
   margin: 0 0 0 2vw;
   background-color: #ff0000;
   border-radius: 3px;
-  padding: 5px 0 0 9px;
+  padding: 5px 9px 0;
 }
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 .cabeza__menu--desp_pt1-carrito div,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 .cabeza__menu--desp_pt1-carrito p {
