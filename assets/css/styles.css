@@ -787,7 +787,8 @@ a {
   width: 27px;
   text-align: center;
 }
-#inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box ul li ul li div a {
+#inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box ul li ul li div a,
+#inicio .cabeza .cabeza__menu--cont .cabeza__menu--cont_box ul li ul li div p {
   color: #000;
   margin-left: 25px;
 }
@@ -3836,7 +3837,7 @@ a {
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 .cabeza__menu--desp_pt1-carrito {
   display: none;
   height: 30px;
-  width: 5vw;
+  width: 7vw;
   margin: 0 0 0 2vw;
   background-color: #ff0000;
   border-radius: 3px;

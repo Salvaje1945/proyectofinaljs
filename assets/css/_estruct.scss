@@ -331,10 +331,13 @@
                                         text-align: center;
                                     }
                                     
-                                    a {
+                                    a,
+                                    p {
                                         color: map-get($color, "negro");
                                         margin-left: 25px;
                                     }
+
+
                                     
                                 }
                             }
@@ -3774,7 +3777,7 @@
                 .cabeza__menu--desp_pt1-carrito {
                     display: none;
                     height: 30px;
-                    width: 5vw;
+                    width: 7vw;
                     margin: 0 0 0 2vw;
                     background-color: map-get($color, "rojo_01");
                     border-radius: 3px;

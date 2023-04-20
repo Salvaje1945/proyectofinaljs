@@ -1766,6 +1766,26 @@ function mostrarContenidos (ubicador) {
             link.addEventListener('click', pedirPag)
         }
 
+        // $('#menu-productos-ramos').onclick = function() {
+        //     history.pushState({
+        //         pag: 'flores.html',
+        //         ini: 'flores' 
+        //     }, 'flores')
+        //     const pag = 'flores.html'
+        //     const ini = 'flores'
+        //     fetch(pag)
+        //         .then((url) => {
+        //             return url.text()
+        //         })
+        //         .then((seccion) => {
+        //             $('#secciones').innerHTML = seccion
+        //             mostrarContenidos(ini)
+        //         })
+        //         .catch((err) => {
+        //             console.log(err)
+        //         })
+        // }
+
         const contProdsLinks = document.querySelectorAll('#contenido-productos-bx .contenido__productos--box')
         for(let link of contProdsLinks){
             link.addEventListener('click', pedirPag)
@@ -4086,6 +4106,11 @@ function mostrarContenidos (ubicador) {
 
         $('#volver-inicio-1').onclick = volverInicio
         $('#volver-inicio-2').onclick = volverInicio
+        
+        // *******************
+
+        
+        
         //$('#agregar-nueva-dir').onclick = direccionesAgregar
 
         //gestionarDirecciones()
@@ -4170,6 +4195,9 @@ function mostrarContenidos (ubicador) {
         }
 
         $('#flores__volver--1').onclick = volverInicio
+        // $('#flores__volver--1').onclick = function() {
+        //     history.back()
+        // }
         $('#flores__volver--2').onclick = volverInicio
 
         $('#flores__busca--1').onclick = abrirBuscador
