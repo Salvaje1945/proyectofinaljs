@@ -3725,14 +3725,16 @@
                     display: inline-block;
                     color: map-get($color, "negro");
                     font-size: 1.25rem;
-                    width: 7vw;
+                    //width: 7vw;
+                    flex-grow: 1;
                     padding-top: 2px;
+                    margin: 0 10px 0 0;
                 }
 
                 div {
                     display: inline-block;
                     //width: 83vw;
-                    flex-grow: 1;
+                    flex-grow: 3;
 
                     form {
                         display: flex;
@@ -3777,7 +3779,8 @@
                 .cabeza__menu--desp_pt1-carrito {
                     display: none;
                     height: 30px;
-                    width: 7vw;
+                    //width: 7vw;
+                    flex-grow: 1;
                     margin: 0 0 0 2vw;
                     background-color: map-get($color, "rojo_01");
                     border-radius: 3px;

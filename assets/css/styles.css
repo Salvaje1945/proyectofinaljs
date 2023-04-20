@@ -3795,12 +3795,13 @@ a {
   display: inline-block;
   color: #000;
   font-size: 1.25rem;
-  width: 7vw;
+  flex-grow: 1;
   padding-top: 2px;
+  margin: 0 10px 0 0;
 }
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 div {
   display: inline-block;
-  flex-grow: 1;
+  flex-grow: 3;
 }
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 div form {
   display: flex;
@@ -3837,7 +3838,7 @@ a {
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt1 .cabeza__menu--desp_pt1-carrito {
   display: none;
   height: 30px;
-  width: 7vw;
+  flex-grow: 1;
   margin: 0 0 0 2vw;
   background-color: #ff0000;
   border-radius: 3px;
