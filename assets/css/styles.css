@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
-.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #buscador .contenido .contenido__busquedas--recientes ul li, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
+.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #buscador .contenido .contenido__busquedas--recientes ul li, #micarrito .contenido ul li div .contenido__carrito--opciones .contenido__carrito--acciones, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
 .flex-2,
 #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2,
@@ -86,7 +86,7 @@
   display: flex;
 }
 
-.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #buscador .contenido .contenido__busquedas--recientes ul li, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
+.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #buscador .contenido .contenido__busquedas--recientes ul li, #micarrito .contenido ul li div .contenido__carrito--opciones .contenido__carrito--acciones, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
 .flex-2,
 #inicio .contenido .contenido__comprados .contenido__comprados--cont .contenido__comprados--box .contenido__comprados--box_cont,
 #flores .cabeza .cabeza__menu--desp .cabeza__menu--desp_pt2,
@@ -174,7 +174,7 @@
   flex-flow: column nowrap;
 }
 
-.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #buscador .contenido .contenido__busquedas--recientes ul li, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
+.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #buscador .contenido .contenido__busquedas--recientes ul li, #micarrito .contenido ul li div .contenido__carrito--opciones .contenido__carrito--acciones, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
 .flex-3,
 #perfil .perfil__despleg--basico_nom .perfil__despleg--basico_cab,
 #perfil .perfil__despleg--personal .perfil__despleg--personal_cab,
@@ -206,7 +206,7 @@
   align-items: center;
 }
 
-.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #buscador .contenido .contenido__busquedas--recientes ul li, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
+.flex-1, #inicio .cabeza, #perfil .contenido .contenido__edit--opciones .contenido__edit--opciones_bx, #buscador .contenido .contenido__busquedas--recientes ul li, #micarrito .contenido ul li div .contenido__carrito--opciones .contenido__carrito--acciones, #flores .cabeza .cabeza__menu--cont, #especiales .cabeza .cabeza__menu--cont, #basicos .cabeza .cabeza__menu--cont, #arreglos .cabeza .cabeza__menu--cont, #regalos .cabeza .cabeza__menu--cont, #casamientos .cabeza .cabeza__menu--cont, #velorios .cabeza .cabeza__menu--cont, #plantas .cabeza .cabeza__menu--cont, #interior .cabeza .cabeza__menu--cont, #exterior .cabeza .cabeza__menu--cont, #cactus .cabeza .cabeza__menu--cont, #insumos .cabeza .cabeza__menu--cont, #semillas .cabeza .cabeza__menu--cont, #macetas .cabeza .cabeza__menu--cont, #tierras .cabeza .cabeza__menu--cont, #fertilizantes .cabeza .cabeza__menu--cont,
 .flex-4,
 #flores .contenido .contenido__masvendidos .contenido__masvendidos--cont .contenido__masvendidos--box .contenido__masvendidos--txt .masvendidos__txt--bttm,
 #flores .contenido .contenido__prodstodos--cont .contenido__prodstodos--cont_box .contenido__prodstodos--box .contenido__prodstodos--txt .prodstodos__txt--bttm,
@@ -3719,22 +3719,25 @@ a {
   display: block;
 }
 #micarrito .contenido ul li div .contenido__carrito--opciones .contenido__carrito--acciones {
-  display: inline-block;
-  width: 16vw;
-  height: 25px;
+  width: 65px;
   border-radius: 3px;
   border: 1px solid #666;
-  padding: 3px 4px;
+  padding: 1px 6px 0 5px;
 }
 #micarrito .contenido ul li div .contenido__carrito--opciones .contenido__carrito--acciones .carrito__producto--izq,
 #micarrito .contenido ul li div .contenido__carrito--opciones .contenido__carrito--acciones .carrito__producto--ctr,
 #micarrito .contenido ul li div .contenido__carrito--opciones .contenido__carrito--acciones .carrito__producto--dch {
-  font-size: 0.75rem;
   color: #000;
+  display: inline-block;
+}
+#micarrito .contenido ul li div .contenido__carrito--opciones .contenido__carrito--acciones .carrito__producto--izq,
+#micarrito .contenido ul li div .contenido__carrito--opciones .contenido__carrito--acciones .carrito__producto--dch {
+  font-size: 0.7rem;
 }
 #micarrito .contenido ul li div .contenido__carrito--opciones .contenido__carrito--acciones .carrito__producto--ctr {
   font-family: "Poppins", sans-serif;
-  margin: 0 3px;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 #micarrito .contenido ul li div .contenido__carrito--opciones .contenido__dir--chk,
 #micarrito .contenido ul li div .contenido__carrito--opciones .contenido__dir--act {

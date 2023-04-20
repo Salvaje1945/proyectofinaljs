@@ -1740,9 +1740,12 @@ function mostrarContenidos (ubicador) {
             const todosLosCarritos = JSON.parse(localStorage.getItem('Carritos'))
             const carritosDelCliente = todosLosCarritos.filter(carritos => carritos.idc === datosDelCliente[0].id)
 
-            console.log('hay carrito pendiente')
-            return carritosDelCliente
-            
+            if(carritosDelCliente.length === 0){
+                return null
+            } else {
+                console.log('hay carrito pendiente')
+                return carritosDelCliente
+            }
         } else {
             console.log('no hay carrito pendiente')
             return
@@ -3438,11 +3441,31 @@ function mostrarContenidos (ubicador) {
     
         }
 
+        function refrescarPag() {
+            const pag = 'micarrito.html'
+            const ini = 'micarrito'
+            fetch(pag)
+                .then((url) => {
+                    return url.text()
+                })
+                .then((seccion) => {
+                    $('#secciones').innerHTML = seccion
+                    mostrarContenidos(ini)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+
         function mostrarProductosCarrito(){
 
-            
-
             const elCarritoDelCliente = verificarCarritos()
+            if(elCarritoDelCliente === null){
+                volverInicio()
+                return
+            }
+            const todosLosCarritos = JSON.parse(localStorage.getItem('Carritos'))
+            const carritosDeOtrosClientes = todosLosCarritos.filter(carritos => carritos.idc != datosDelCliente[0].id)
 
             let grupos = elCarritoDelCliente.reduce((obj, item) => {
                 if (!obj[item.prod]) {
@@ -3452,32 +3475,48 @@ function mostrarContenidos (ubicador) {
                 return obj
             }, {})
 
-            //console.log(grupos)
-
             for (let prod in grupos) {
                 let elementos = grupos[prod]
-                //console.log(elementos)
                 let cantidad = elementos.length
-                //console.log(cantidad)
                 let datosDelProd = productos.filter(producto => producto.id === Number(prod))
-                //console.log(datosDelProd)
                 let nombre = datosDelProd[0].nombre
+                let tipo = datosDelProd[0].tipo
                 let foto = datosDelProd[0].foto
                 let idp = datosDelProd[0].id
-                // console.log(nombre)
-                // console.log(foto)
-                // console.log(idp)
                 let total = elementos.reduce((sum, item) => sum + item.valor, 0)
-                // console.log(cantidad)
-                // console.log(total)
                 elItem = document.createElement('li')
                 elItem.id = `carrito-producto-${idp}`
-                elItem.innerHTML = `<div>    
+
+                if(cantidad === 1) {
+                    elItem.innerHTML = `<div>    
                                         <div class="contenido__carrito--fotoprod">
                                             <img src="${foto}">
                                         </div>
                                         <div>
                                             <h2>${nombre}</h2>
+                                            <p>(${tipo})</p>
+                                        </div>
+                                        <div class="contenido__carrito--opciones">
+                                            <div class="contenido__carrito--precio">$${total}</div>
+                                            <div class="contenido__carrito--acciones">
+                                                <div class="carrito__producto--izq" id="carrito-restar-prod-${idp}">
+                                                    <i class="fa-solid fa-trash-can"></i>
+                                                </div>
+                                                <div class="carrito__producto--ctr">${cantidad}</div>
+                                                <div class="carrito__producto--dch" id="carrito-sumar-prod-${idp}">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>`
+                } else {
+                    elItem.innerHTML = `<div>    
+                                        <div class="contenido__carrito--fotoprod">
+                                            <img src="${foto}">
+                                        </div>
+                                        <div>
+                                            <h2>${nombre}</h2>
+                                            <p>(${tipo})</p>
                                         </div>
                                         <div class="contenido__carrito--opciones">
                                             <div class="contenido__carrito--precio">$${total}</div>
@@ -3492,10 +3531,142 @@ function mostrarContenidos (ubicador) {
                                             </div>
                                         </div>
                                     </div>`
+                }
+
                 $('#listar-productos-carrito').appendChild(elItem)
                 
-               
             }
+
+            function accionesItemsCarrito() {
+
+                for (let prod in grupos) {
+                    let elementos = grupos[prod]
+                    let cantidad = elementos.length
+                    let producto = Number(prod)
+                    $(`#carrito-restar-prod-${producto}`).onclick = function(){
+                        restarItems(producto, cantidad)
+                    }
+
+                    $(`#carrito-sumar-prod-${producto}`).onclick = function(){
+                        sumarItems(producto)
+                    }
+                }
+
+                function restarItems(idDelProducto, cantDelProducto) {
+
+                    const productoParaRestar = idDelProducto
+                    const cantidadDeItems = cantDelProducto
+
+                    if(cantidadDeItems === 1) {
+                        
+                        const nuevosCarritos = []
+                        
+                        for(const items of elCarritoDelCliente) {
+                            if(items.prod != productoParaRestar){
+                                nuevosCarritos.push(items)
+
+                            }
+                        }
+                        
+                        if(carritosDeOtrosClientes.length != 0) {
+                            console.log('hay items de otros clientes en el localstorage "Carritos"')
+                            for(const items of carritosDeOtrosClientes){
+                                nuevosCarritos.push(items)
+                            }
+                        }
+
+                        localStorage.setItem('Carritos', JSON.stringify(nuevosCarritos))
+
+                        // console.log('*********')
+
+                        // console.log('TAMAÑO DEL CARRITO DEL CLIENTE')
+
+                        // console.log(elCarritoDelCliente.length)
+
+                        // console.log('*********')
+
+                        // console.log('TAMAÑO DEL CARRITO DE OTROS CLIENTES')
+
+                        // console.log(carritosDeOtrosClientes.length)
+
+
+                        // if(elCarritoDelCliente.length === 0 && carritosDeOtrosClientes.length === 0) {
+                        //     //localStorage.removeItem('Carritos')
+                        //     console.log('EL CARRITO DE LOCAL STORAGE ESTÁ VACÍO')
+                        // } else {
+                        //     refrescarPag()
+                        // }
+
+                        refrescarPag()
+
+                    } else {
+
+                        const cantidadDejar = cantidadDeItems - 1
+
+                        const nuevosCarritos = []
+
+                        const listaDeProds = elCarritoDelCliente.filter(carritos => carritos.prod === productoParaRestar)
+
+                        const listaDeCarritos = elCarritoDelCliente.filter(carritos => carritos.prod != productoParaRestar)
+
+                        for(let i=0; i < cantidadDejar; i+=1){
+                            nuevosCarritos.push(listaDeProds[i])
+                        }
+
+                        for(const resto of listaDeCarritos) {
+                            nuevosCarritos.push(resto)
+                        }
+
+                        if(carritosDeOtrosClientes.length != 0) {
+                            console.log('hay items de otros clientes en el localstorage "Carritos"')
+                            for(const items of carritosDeOtrosClientes){
+                                nuevosCarritos.push(items)
+                            }
+                        }
+
+                        localStorage.setItem('Carritos', JSON.stringify(nuevosCarritos))
+
+                        refrescarPag()
+
+                    }
+
+                }
+
+                function sumarItems(idDelProducto) {
+                   
+                    const idProductoParaSumar = idDelProducto
+                    const productoSeleccionado = productos.filter(producto => producto.id === idProductoParaSumar)
+
+                    const cliente = datosDelCliente[0].id
+                    const item = Date.now()
+                    const prod = productoSeleccionado[0].id
+                    const valor = productoSeleccionado[0].precio
+
+                    const listaCarritos = []
+
+                    for (const carrito of todosLosCarritos) {
+                        listaCarritos.push(carrito)
+                    }
+
+                    const itemObj = {
+                        id: item,
+                        idc: cliente,
+                        prod: prod,
+                        valor: valor
+                    }
+
+                    listaCarritos.push(itemObj)
+                    localStorage.setItem('Carritos', JSON.stringify(listaCarritos))
+
+                    console.log('producto agregado')
+
+                    refrescarPag()
+
+                }
+
+            }
+
+            accionesItemsCarrito()
 
         }
 
@@ -4134,10 +4305,10 @@ function mostrarContenidos (ubicador) {
         function mostrarCarrito() {
 
             const hayCarritoPendiente = verificarCarritos()
-            const carritosCantidadProds = hayCarritoPendiente.length
+            
 
-            if(hayCarritoPendiente) {
-
+            if(hayCarritoPendiente != null) {
+                const carritosCantidadProds = hayCarritoPendiente.length
                 let carritoNumProds
                 console.log(hayCarritoPendiente)
                 let precioDelCarrito = hayCarritoPendiente.reduce((acumulador, producto) => acumulador + producto.valor, 0)
